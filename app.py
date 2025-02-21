@@ -122,7 +122,7 @@ navbar = dbc.Navbar(
          #       className="header-logo",
          #       style={"marginRight": "10px"},
          #   ),
-            html.Div("epiENGAGE Outbreak Simulator", style={"color": "white", "fontSize": "24px", "fontWeight": "bold", "textAlign": "right"}),
+            html.Div("epiENGAGE Measles Outbreak Simulator", style={"color": "white", "fontSize": "24px", "fontWeight": "bold", "textAlign": "right"}),
         ],
         fluid=True,
     ),
