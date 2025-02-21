@@ -48,7 +48,7 @@ instructions_section = dbc.Row(
         dbc.Card(
             dbc.CardBody(
                 html.P(
-                    "The graph below shows 20 equally plausible outbreak trajectories, assuming no intervention. Use the interactive boxes below to change the number of students in the school, the number already infected at the start of the outbreak, the percent vaccinated against measles, and key epidemiological quantities.",
+                    "The graph below shows 20 equally plausible outbreak trajectories, assuming no intervention. Use the interactive boxes below to change the number of students in the school, the number already infected at the start of the outbreak, the percent vaccinated against measles, and key epidemiological quantities. ",
                     className="text-dark",  style={"font-style": "italic", "text-align": "left", "font-size": "20px", "margin-bottom": "10px"}
                 )
             ),
