@@ -48,8 +48,8 @@ instructions_section = dbc.Row(
         dbc.Card(
             dbc.CardBody(
                 html.P(
-                    "You can set the values for school sizes, vaccination rates, and initial infections or use the dropdown menus to see how the number of measles cases evolves over time.",
-                    className="text-dark",  style={"font-style": "italic", "text-align": "center", "font-size": "14px", "margin-bottom": "10px"}
+                    "The graph below shows 20 equally plausible outbreak trajectories, assuming no intervention. Use the interactive boxes below to change the number of students in the school, the number already infected at the start of the outbreak, the percent vaccinated against measles, and key epidemiological quantities.",
+                    className="text-dark",  style={"font-style": "italic", "text-align": "left", "font-size": "20px", "margin-bottom": "10px"}
                 )
             ),
             className="mb-3", style={'border': 'none', "text-align": "center"}
@@ -71,12 +71,12 @@ school_dropdown = html.Div(
             optionHeight=50
         ),
     ],  className="mb-4",
-    style={'width': '70%', 'fontFamily':'Sans-serif', 'font-size':'14pt'}
+    style={'width': '70%', 'fontFamily':'Sans-serif', 'font-size':'16pt'}
 )
 
 vaccination_rate_label = html.H4(
-    'Vaccination Rate (%)',
-    style={'display':'inline-block','margin-right':5, 'margin-left':5, 'fontFamily':'Sans-serif', 'font-size':'14pt'})
+    'Vaccination rate (%)',
+    style={'display':'inline-block','margin-right':5, 'margin-left':5, 'fontFamily':'Sans-serif', 'font-size':'16pt'})
 vaccination_rate_selector = dcc.Input(
             id='vax_rate',
             type='number',
@@ -86,23 +86,23 @@ vaccination_rate_selector = dcc.Input(
         )
 
 I0_label = html.H4(
-    'Number initially infected',
-    style={'display':'inline-block','margin-right':5, 'margin-left':5, 'fontFamily':'Sans-serif', 'font-size':'14pt'})
+    'Number of students initially infected',
+    style={'display':'inline-block','margin-right':5, 'margin-left':5, 'fontFamily':'Sans-serif', 'font-size':'16pt'})
 I0_selector = dcc.Input(
             id='I0',
             type='number',
-            placeholder='Initial infections',
+            placeholder='Number of students initially infected',
             value=1.0,
             style={'display':'inline-block', 'fontFamily':'Sans-serif', 'font-size':'12pt'}
         )
 
 school_size_label = html.H4(
-    'School size',
-    style={'display':'inline-block','margin-right':5, 'margin-left':5,'fontFamily':'Sans-serif', 'font-size':'14pt'})
+    'School enrollment (number of students)',
+    style={'display':'inline-block','margin-right':5, 'margin-left':5,'fontFamily':'Sans-serif', 'font-size':'16pt'})
 school_size_selector = dcc.Input(
             id='school_size',
             type='number',
-            placeholder='School size',
+            placeholder='School enrollment (number of students)',
             value=500,
             style={'display':'inline-block', 'fontFamily':'Sans-serif', 'font-size':'12pt'}
         )
@@ -110,7 +110,7 @@ school_size_selector = dcc.Input(
 app = Dash(
     prevent_initial_callbacks = 'initial_duplicate')
 
-app.title = "Measles Dashboard"
+app.title = "UT Measles Outbreak Simulator"
 
 # Navbar component
 navbar = dbc.Navbar(
@@ -122,7 +122,7 @@ navbar = dbc.Navbar(
          #       className="header-logo",
          #       style={"marginRight": "10px"},
          #   ),
-            html.Div("Measles Dashboard", style={"color": "white", "fontSize": "24px", "fontWeight": "bold", "textAlign": "right"}),
+            html.Div("UT Measles Outbreak Simulator", style={"color": "white", "fontSize": "24px", "fontWeight": "bold", "textAlign": "right"}),
         ],
         fluid=True,
     ),
@@ -163,7 +163,7 @@ app.layout = dbc.Container(
                                 # First Line: school_size_label and school_size_selector
                                 dbc.Row(
                                     [
-                                        dbc.Col(html.Div(school_size_label), width=4),
+                                        dbc.Col(html.Div(school_size_label), width=6),
                                         dbc.Col(html.Div(school_size_selector), width=6),
                                     ],
                                     className="my-2",  # Adds space below
@@ -172,8 +172,8 @@ app.layout = dbc.Container(
                                 # Second Line: vaccination_rate_label and vaccination_rate_selector
                                 dbc.Row(
                                     [
-                                        dbc.Col(html.Div(vaccination_rate_label), width=4),
-                                        dbc.Col(html.Div(vaccination_rate_selector), width=6),
+                                        dbc.Col(html.Div(I0_label), width=6),
+                                        dbc.Col(html.Div(I0_selector), width=6),
                                     ],
                                     className="mb-2",  # Adds space below
                                 ),
@@ -181,8 +181,8 @@ app.layout = dbc.Container(
                                 # Third Line: I0_label and I0_selector
                                 dbc.Row(
                                     [
-                                        dbc.Col(html.Div(I0_label), width=4),
-                                        dbc.Col(html.Div(I0_selector), width=8),
+                                        dbc.Col(html.Div(vaccination_rate_label), width=6),
+                                        dbc.Col(html.Div(vaccination_rate_selector), width=6),
                                     ],
                                     className="mb-2",  
                                 ),
@@ -212,19 +212,9 @@ app.layout = dbc.Container(
             style={'height': '30%', 'display': 'flex', 'flexDirection':'row'} 
         ),
 
-        # Bottom Section (Graph)
-        dbc.Row(
-            dbc.Col(
-                dbc.Card(
-                    dbc.CardBody(
-                        dcc.Graph(id="spaghetti_plot")
-                    ),
-                    style={'border': 'none'}
-                ),
-                width=12
-            )
-        ),
-
+        html.Hr(style={"border": "0.8px solid black", "width": "100%"}), # Horizontal line
+        html.H3("Key Outbreak Statistics Without Intervention", style={"text-align": "center", "margin-top": "10px", "font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "20pt", "font-weight":"500"}),
+        # Outcomes section
           dbc.Row(
             [
                 # First Box
@@ -235,7 +225,7 @@ app.layout = dbc.Container(
                                 html.Div(
                                     [
                                         dcc.Markdown(id='effective', 
-                                                    children='Effective Reproduction Number', 
+                                                    children='Effective reproduction number at outset', 
                                                     style={'color': '#black', 'fontWeight': '500'}
                                         ),
                                         html.Br(),
@@ -265,7 +255,7 @@ app.layout = dbc.Container(
                                 html.Div(
                                     [
                                         dcc.Markdown(id='outbreak', 
-                                                    children='Probability of 20 or more cases without intervention', 
+                                                    children='Chance of over 20 new infections', 
                                                     style={'color': '#black', 'fontWeight': '500'}
                                         ),
                                         html.Br(),
@@ -285,7 +275,7 @@ app.layout = dbc.Container(
                         style={'border':'none'}  
                     ),
                     width=4,
-                    style={'borderLeft':'2px solid #bf5700'}  # Vertical line on the right
+                    style={'borderLeft':'3px solid #bf5700'}  # Vertical line on the right
                 ),
 
                 # Third Box
@@ -296,9 +286,10 @@ app.layout = dbc.Container(
                                 html.Div(
                                     [
                                         dcc.Markdown(id='cases', 
-                                                    children='Expected total number of infections without intervention if outbreak exceeds 20 cases', 
+                                                    children='Expected outbreak size (assuming at least 20 cases)', 
                                                     style={'color': '#black', 'fontWeight': '500'}
                                         ),
+                                        html.Br(),
                                         dcc.Markdown(id='cases_expected_over_20', 
                                                     style={'color': '#bf5700', 'fontWeight': '800'}
                                         ),
@@ -315,10 +306,23 @@ app.layout = dbc.Container(
                         style={'border':'none'}
                     ),
                     width=4,
-                    style={'borderLeft': '2px solid #bf5700'}  
+                    style={'borderLeft': '3px solid #bf5700'}  
                 ),
             ],
         ),
+
+    # Bottom Section (Graph)
+    dbc.Row(
+        dbc.Col(
+            dbc.Card(
+                dbc.CardBody(
+                    dcc.Graph(id="spaghetti_plot")
+                ),
+                style={'border': 'none'}
+            ),
+            width=12
+        )
+    ),
    dbc.Row([
         dbc.Col(html.Div([
             html.P("©2025 ", style={"display": "inline", "font-size": "11px", "color": "#ffffff"}),
