@@ -291,7 +291,7 @@ class StochasticSimulations:
         self.infected_school_1 = np.zeros(shape=(self.n_sim, self.params['sim_duration_days']))
         
         seed_base = int(time.time() % 1 * 1000000)
-        for i_sim in range(n_sim):
+        for i_sim in range(self.n_sim):
             self.params['RNG_seed'] = i_sim + seed_base
             
             # Create and run model
@@ -300,7 +300,7 @@ class StochasticSimulations:
             # model.plot_results()
             # model_list.append(model)
             
-            self.new_infected_pop_1 = model.R[:,0]-model.R[0,0] - params['I0'][0]
+            self.new_infected_pop_1 = model.R[:,0] - model.R[0,0] - params['I0'][0]
             self.nb_infected_school1[i_sim] = self.new_infected_pop_1[-1]
             
             self.infectious_school_1[i_sim, :] = model.I[self.steps_per_day::self.steps_per_day, 0]
@@ -308,6 +308,7 @@ class StochasticSimulations:
                 model.E[self.steps_per_day::self.steps_per_day, 0]
             self.infected_school_1_7day_ma = calculate_np_moving_average(
                 self.infected_school_1, 7, shorter_window_beginning=True)
+            self.model = model
             
         
         return
@@ -320,7 +321,7 @@ class StochasticSimulations:
             'nb_infected': unique,
             'nb_simulation': counts
             })
-        df_infected_1['probability'] = df_infected_1['nb_simulation'] / n_sim
+        df_infected_1['probability'] = df_infected_1['nb_simulation'] / self.n_sim
 
         median_nb_infected = np.median(self.nb_infected_school1)
         self.index_sim_closest_median = min(
@@ -343,10 +344,14 @@ class StochasticSimulations:
         df_over_20 = df_infected_1.loc[
             df_infected_1['nb_infected'] >= 20, 'nb_infected']
         if len(df_over_20) > 0:
-            self.expected_outbreak_size = df_infected_1.loc[
-                df_infected_1['nb_infected'] >= 20, 'nb_infected'].mean()
+            self.expected_outbreak_size = params['I0'][0] + \
+                (df_over_20['nb_infected'] * df_over_20['probability']).sum() /\
+                df_over_20['probability'].sum()
+            # self.expected_outbreak_size = df_infected_1.loc[
+            #     df_infected_1['nb_infected'] >= 20, 'nb_infected'].mean()
         else:
             self.expected_outbreak_size = 'NA'
+        # self.df_infected_1 = df_infected_1
         
         if self.print_summary_stats:   
             print('Probability of 5 or more cases in outbreak:', p_5_pct)
@@ -368,7 +373,7 @@ class StochasticSimulations:
     def create_plots(self):
         self.df_spaghetti_infected = transform_matrix_to_long_df(
             self.infected_school_1.T,
-            colnames = list(range(n_sim)),
+            colnames = list(range(self.n_sim)),
             id_col = 'day',
             id_values = list(range(1,1+params['sim_duration_days'])),
             var_name = 'simulation_idx',
@@ -376,7 +381,7 @@ class StochasticSimulations:
             )
         self.df_spaghetti_infected_ma = transform_matrix_to_long_df(
             self.infected_school_1_7day_ma.T,
-            colnames = list(range(n_sim)),
+            colnames = list(range(self.n_sim)),
             id_col = 'day',
             id_values = list(range(1,1+params['sim_duration_days'])),
             var_name = 'simulation_idx',
@@ -384,7 +389,7 @@ class StochasticSimulations:
             )
         self.df_spaghetti_infectious = transform_matrix_to_long_df(
             self.infectious_school_1.T,
-            colnames = list(range(n_sim)),
+            colnames = list(range(self.n_sim)),
             id_col = 'day',
             id_values = list(range(1,1+params['sim_duration_days'])),
             var_name = 'simulation_idx',
@@ -460,9 +465,9 @@ params = {
     'gamma': 1/8,       # 7 days average infectious period
     'school_contacts': 5.63424,
     'other_contacts': 2.2823,
-    'population': [10000],
+    'population': [500],
     'I0': [1],
-    'vaccinated_percent': [0.95], # number between 0 and 1
+    'vaccinated_percent': [0.9], # number between 0 and 1
     'sim_duration_days': 250,
     'time_step_days': 0.25,
     'is_stochastic': True, # False for deterministic
@@ -482,4 +487,12 @@ if __name__ == "__main__":
         params, n_sim, print_summary_stats=True, show_plots=True)
 
 
-    
+# %%
+# if False:
+#     nn=100
+#     params['vaccinated_percent'] = [0.8367]
+#     params['population'] = [500]
+#     params['I0'] = [490]
+#     s = StochasticSimulations( 
+#         params, nn, print_summary_stats=True, show_plots=False)
+#     s.new_infected_pop_1
