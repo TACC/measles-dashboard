@@ -153,6 +153,7 @@ footer = dbc.Container(
 app.layout = dbc.Container(
     [
         dbc.Row([navbar], className="my-2"),
+        html.Br(),
         dbc.Row([instructions_section], className="my-4"),
         dbc.Row(
             [
