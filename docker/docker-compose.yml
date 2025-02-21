@@ -1,0 +1,10 @@
+---
+services:
+    measles-dashboard:
+        build:
+            context: ../
+            dockerfile: docker/Dockerfile
+        image: measles-dashboard:1.0
+        command: python3 app.py
+        ports:
+          - "8050:8050"

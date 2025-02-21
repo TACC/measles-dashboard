@@ -1,0 +1,61 @@
+- name: Install and configure nginx
+  hosts: all
+  become: true
+  tasks:
+
+  - name: Install nginx
+    ansible.builtin.apt:
+      name: nginx
+      update_cache: yes
+
+  - name: Copy config
+    ansible.builtin.copy:
+      src: ./dash-app.conf
+      dest: /etc/nginx/sites-available/dash-app.conf
+      owner: root
+      group: root
+      mode: u=rw,g=r,o=r
+
+  - name: Create symlink
+    ansible.builtin.file:
+      src: /etc/nginx/sites-available/dash-app.conf
+      dest: /etc/nginx/sites-enabled/dash-app.conf
+      owner: root
+      group: root
+      state: link
+
+  - name: Remove default symlink
+    ansible.builtin.file:
+      path: /etc/nginx/sites-enabled/default
+      state: absent
+
+  - name: Restart nginx
+    ansible.builtin.service:
+      name: nginx
+      state: restarted
+
+
+- name: Start dash app
+  hosts: all
+  tasks:
+
+  - name: Git checkout
+    ansible.builtin.git:
+      repo: 'https://github.com/TACC/measles-dashboard.git'
+      dest: /home/exouser/measles-dashboard
+      version: add-docker
+      force: true
+
+  - name: Stop existing containers
+    community.docker.docker_compose_v2:
+      project_src: /home/exouser/measles-dashboard
+      files:
+        - docker/docker-compose.yml
+      state: absent
+
+  - name: Start new containers
+    community.docker.docker_compose_v2:
+      project_src: /home/exouser/measles-dashboard/docker
+      state: present
+      build: always
+
