@@ -110,7 +110,7 @@ school_size_selector = dcc.Input(
 app = Dash(
     prevent_initial_callbacks = 'initial_duplicate')
 
-app.title = "UT Measles Outbreak Simulator"
+app.title = "epiENGAGE Measles Outbreak Simulator"
 
 # Navbar component
 navbar = dbc.Navbar(
@@ -399,7 +399,7 @@ def update_graph(school_size, vax_rate, I0):
         y='number_infected_7_day_ma',
         color='simulation_idx',
         color_discrete_map=color_map,
-         labels={'number_infected': 'Number of people infected', 'day': 'Day'}
+         labels={'number_infected': 'Number of people infected', 'day': 'Day',  "simulation_idx": "Simulation ID", "number_infected_7_day_ma": "Number of infected people (7-day moving average)"}
         # alpha=0.1
         )
     
