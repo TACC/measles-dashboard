@@ -1,0 +1,22 @@
+- name: Stop nginx
+  hosts: all
+  become: true
+  tasks:
+
+  - name: Stop nginx
+    ansible.builtin.service:
+      name: nginx
+      state: stopped
+
+
+- name: Stop containers
+  hosts: all
+  tasks:
+
+  - name: Stop existing containers
+    community.docker.docker_compose_v2:
+      project_src: /home/exouser/measles-dashboard
+      files:
+        - docker/docker-compose.yml
+      state: absent
+
