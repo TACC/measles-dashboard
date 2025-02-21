@@ -342,7 +342,7 @@ class StochasticSimulations:
         
         self.expected_infections_all_sim = self.nb_infected_school1.mean()
         df_over_20 = df_infected_1.loc[
-            df_infected_1['nb_infected'] >= 20, 'nb_infected']
+            df_infected_1['nb_infected'] >= 20]#, 'nb_infected']
         if len(df_over_20) > 0:
             self.expected_outbreak_size = params['I0'][0] + \
                 (df_over_20['nb_infected'] * df_over_20['probability']).sum() /\
