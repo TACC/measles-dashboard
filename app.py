@@ -324,6 +324,41 @@ app.layout = dbc.Container(
             width=12
         )
     ),
+    html.Div([
+        # html.A("Notes: ", style={"fontWeight": "bold", "fontSize": "16px"}),
+        html.A("MODEL: ", style={"fontWeight": "bold", "fontSize": "14px"}),
+        html.A(["This dashboard uses a simple stochastic compartmental susceptible-exposed-infectious-removed (SEIR) model. The default parameters include a basic reproduction number (", html.I([html.A(["R", html.Sub("0")])])," ) of 15 ["]),
+        html.A("ECDC’s Factsheet about measles", href="https://www.ecdc.europa.eu/en/measles/facts", target="_blank", style={"color": "#1b96bf", "textDecoration": "none"}),
+        html.A("], an average latent period of 10.5 days ["),
+        html.A("CDC’s Measles Clinical Diagnosis Fact Sheet", href="https://www.cdc.gov/measles/hcp/communication-resources/clinical-diagnosis-fact-sheet.html", target="_blank", style={"color": "#1b96bf", "textDecoration": "none"}),
+        html.A("], and an average infectious period of 8 days ["), 
+        html.A("CDC’s Measles Clinical Diagnosis Fact Sheet", href="https://www.cdc.gov/measles/hcp/communication-resources/clinical-diagnosis-fact-sheet.html", target="_blank", style={"color": "#1b96bf", "textDecoration": "none"}), 
+        html.A("]."), 
+        html.Br(style={"margin": "0", "padding": "0"}),
+        html.A("OUTCOME STATISTICS: ", style={"fontWeight": "bold", "fontSize": "14px"}),
+        html.A("The outcome statistics are estimated from 100 stochastic simulations as follows."),
+        html.Ul([
+            html.Li([html.I(["Effective reproduction number at the start of the outbreak (", html.A(["R", html.Sub("eff")]),]), " ) – The product of ", html.I([html.A(["R", html.Sub("0")])]), " and the proportion of students who are unvaccinated."]),
+            html.Li([html.I("Chance of over 20 new infections"), html.A([" – The proportion of the 100 simulations that produced at least 20 infections, not counting the initial infections. This assumes no intervention."])]),
+            html.Li([html.I("Expected outbreak size (assuming at least 20 cases)"), " – Among the simulations that produced at least 20 additional infections, the average number of infections. This includes the initial infections.", html.Br(style={"margin": "0", "padding": "0"})]),
+        ], style={"margin-bottom": "0px"}),
+       
+        html.A("PROJECTIONS: ", style={"fontWeight": "bold", "fontSize": "14px"}),
+        html.A("The 20 curves in the graph correspond to 20 independent simulations selected at random from 100 stochastic simulations. The y-axis values are seven-day moving averages of the total number of people infected (both exposed and infectious cases). The highlighted curve corresponds to the simulation that produced a total attack rate closest to the median across the 100 simulations."),
+        html.Br(style={"margin": "0", "padding": "0"}),
+        html.A("VACCINE COVERAGE: ", style={"fontWeight": "bold", "fontSize": "14px"}),
+        html.A("School vaccine coverage estimates were obtained from the Texas Department of Health and Human Services "),
+        html.A("Annual Report of Immunization status", href="https://www.dshs.texas.gov/immunizations/data/school/coverage", target="_blank", style={"color": "#1b96bf", "textDecoration": "none"}),
+        html.A(".")
+    ],
+    style={
+        "backgroundColor": "#eaebec",  # Gray background
+        "color": "black",  # White text color
+        "padding": "10px",
+        "textAlign": "left",
+        "marginBottom": "10px"
+    }),
+
    dbc.Row([
         dbc.Col(html.Div([
             html.P("©2025 ", style={"display": "inline", "font-size": "11px", "color": "#ffffff"}),
