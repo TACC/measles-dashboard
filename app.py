@@ -31,7 +31,7 @@ county_dropdown = html.Div(
             optionHeight=50
         ),
     ],  className="mb-4",
-    style={'width': '70%','fontFamily':'Sans-serif', 'font-size':'14pt'}
+    style={'fontFamily':'Sans-serif', 'font-size':'16pt'}
 )
 
 # df there should depend on the selected county
@@ -71,7 +71,7 @@ school_dropdown = html.Div(
             optionHeight=50
         ),
     ],  className="mb-4",
-    style={'width': '70%', 'fontFamily':'Sans-serif', 'font-size':'16pt'}
+    style={'fontFamily':'Sans-serif', 'font-size':'16pt'}
 )
 
 vaccination_rate_label = html.H4(
@@ -152,70 +152,64 @@ footer = dbc.Container(
 
 app.layout = dbc.Container(
     [
-        dbc.Row([navbar], className="my-2"),
-        html.Br(),
-        dbc.Row([instructions_section], className="my-4"),
-        dbc.Row(
-            [
-                dbc.Col(
+    dbc.Row([navbar], className="my-2"),
+    html.Br(),
+    dbc.Row([instructions_section], className="my-4"),
+
+    # Main Layout with Left and Right Sections
+    dbc.Row([
+        # Left section
+        dbc.Col(
                     dbc.Card(
                         dbc.CardBody(
                             [
-                                # First Line: school_size_label and school_size_selector
+                                # Select county
                                 dbc.Row(
-                                    [
-                                        dbc.Col(html.Div(school_size_label), width=6),
-                                        dbc.Col(html.Div(school_size_selector), width=6),
-                                    ],
-                                    className="my-2",  # Adds space below
+                                    dbc.Col(html.Div(county_dropdown),className="mb-2"),
                                 ),
 
-                                # Second Line: vaccination_rate_label and vaccination_rate_selector
+                                # Select District
                                 dbc.Row(
-                                    [
-                                        dbc.Col(html.Div(I0_label), width=6),
-                                        dbc.Col(html.Div(I0_selector), width=6),
-                                    ],
-                                    className="mb-2",  # Adds space below
+                                    dbc.Col(html.Div(school_dropdown),className="mb-2"),
                                 ),
 
-                                # Third Line: I0_label and I0_selector
                                 dbc.Row(
-                                    [
-                                        dbc.Col(html.Div(vaccination_rate_label), width=6),
-                                        dbc.Col(html.Div(vaccination_rate_selector), width=6),
-                                    ],
-                                    className="mb-2",  
+                                    dbc.Col(html.Div(school_size_label),className="mb-2"),
+                                ),
+
+                                dbc.Row(
+                                    dbc.Col(html.Div(school_size_selector),className="mb-2"),
+                                ),
+
+                                dbc.Row(
+                                    dbc.Col(html.Div(I0_label),className="mb-2"),
+                                ),
+
+                                dbc.Row(
+                                    dbc.Col(html.Div(I0_selector),className="mb-2"),
+                                ),
+
+                                dbc.Row(
+                                    dbc.Col(html.Div(vaccination_rate_label),className="mb-2"),
+                                ),
+
+                                dbc.Row(
+                                    dbc.Col(html.Div(vaccination_rate_selector),className="mb-2"),
                                 ),
                             ]
                         ),
                         style={'border': 'none'}
                     ),
-                    width=6,  
-                    style={'display': 'flex', 'flexDirection': 'column', 'height': '100%'}
-                ),
-
-                # Right Side (Dropdowns)
-                dbc.Col(
-                    dbc.Card(
-                        dbc.CardBody(
-                            [
-                                html.Div(county_dropdown, className="mb-2"),  
-                                html.Div(school_dropdown),
-                            ]
-                        ),
-                        style={'border': 'none'}
-                    ),
-                    width=6,
-                    style={'display': 'flex', 'flexDirection': 'column', 'height': '100%', 'border': 'none'}
-                ),
-            ],
-            style={'height': '30%', 'display': 'flex', 'flexDirection':'row'} 
+                    width=3, 
+                    style={"border-right": "2px solid black", "padding": "10px"}, 
+                    #style={'display': 'flex', 'flexDirection': 'row', 'height': '100%'}
         ),
-
-        html.Hr(style={"border": "0.8px solid black", "width": "100%"}), # Horizontal line
-        html.H3("Key Outbreak Statistics Without Intervention", style={"text-align": "center", "margin-top": "10px", "font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "20pt", "font-weight":"500"}),
+        
+        # Right section containing two stacked components (top & bottom)
+        dbc.Col([
+            # Top Component in the Right Section
         # Outcomes section
+         html.H3("Key Outbreak Statistics Without Intervention", style={"text-align": "center", "margin-top": "10px", "font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "20pt", "font-weight":"500"}),
           dbc.Row(
             [
                 # First Box
@@ -312,18 +306,24 @@ app.layout = dbc.Container(
             ],
         ),
 
-    # Bottom Section (Graph)
-    dbc.Row(
-        dbc.Col(
-            dbc.Card(
-                dbc.CardBody(
-                    dcc.Graph(id="spaghetti_plot")
-                ),
-                style={'border': 'none'}
-            ),
+            
+            # Bottom Component in the Right Section
+            dbc.Row([
+                 dbc.Col(
+                    dbc.Card(
+                        dbc.CardBody(
+                            dcc.Graph(id="spaghetti_plot")
+                        ),
+                        style={'border': 'none'}
+                    ),
             width=12
         )
-    ),
+            ])
+        ], width=9)
+        
+    ], className="mb-3"),  # Adds spacing
+
+
     html.Div([
         # html.A("Notes: ", style={"fontWeight": "bold", "fontSize": "16px"}),
         html.A("MODEL: ", style={"fontWeight": "bold", "fontSize": "14px"}),
@@ -358,6 +358,7 @@ app.layout = dbc.Container(
         "textAlign": "left",
         "marginBottom": "10px"
     }),
+    
 
    dbc.Row([
         dbc.Col(html.Div([
