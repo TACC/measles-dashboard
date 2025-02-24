@@ -21,7 +21,7 @@ df = df.loc[df['age_group'] == 'Kindergarten'].copy()
 initial_county = 'Travis'
 county_dropdown = html.Div(
     [
-        dbc.Label("Select Texas County:", html_for="county_dropdown"),
+        dbc.Label("Select Texas county", html_for="county_dropdown"),
         dcc.Dropdown(
             id="county-dropdown",
             options=sorted(df["County"].unique()),
@@ -49,7 +49,7 @@ instructions_section = dbc.Row(
             dbc.CardBody(
                 html.P(
                     "The graph below shows 20 equally plausible outbreak trajectories, assuming no intervention. Use the interactive boxes below to change the number of students in the school, the number already infected at the start of the outbreak, the percent vaccinated against measles, and key epidemiological quantities. ",
-                    className="text-dark",  style={"font-style": "italic", "text-align": "left", "font-size": "20px", "margin-bottom": "10px"}
+                    className="text-dark",  style={"text-align": "left", "font-size": "25px", "margin-bottom": "10px"}
                 )
             ),
             className="mb-3", style={'border': 'none', "text-align": "center"}
@@ -61,7 +61,7 @@ instructions_section = dbc.Row(
 
 school_dropdown = html.Div(
     [
-        dbc.Label("Select a School District", html_for="school_dropdown"),
+        dbc.Label("Select a school district", html_for="school_dropdown"),
         dcc.Dropdown(
             id="school-dropdown",
             options=school_options,
@@ -163,16 +163,6 @@ app.layout = dbc.Container(
                     dbc.Card(
                         dbc.CardBody(
                             [
-                                # Select county
-                                dbc.Row(
-                                    dbc.Col(html.Div(county_dropdown),className="mb-2"),
-                                ),
-
-                                # Select District
-                                dbc.Row(
-                                    dbc.Col(html.Div(school_dropdown),className="mb-2"),
-                                ),
-
                                 dbc.Row(
                                     dbc.Col(html.Div(school_size_label),className="mb-2"),
                                 ),
@@ -196,6 +186,16 @@ app.layout = dbc.Container(
                                 dbc.Row(
                                     dbc.Col(html.Div(vaccination_rate_selector),className="mb-2"),
                                 ),
+                                
+                                # Select county
+                                dbc.Row(
+                                    dbc.Col(html.Div(county_dropdown),className="mb-2"),
+                                ),
+
+                                # Select District
+                                dbc.Row(
+                                    dbc.Col(html.Div(school_dropdown),className="mb-2"),
+                                ),
                             ]
                         ),
                         style={'border': 'none'}
@@ -209,7 +209,7 @@ app.layout = dbc.Container(
         dbc.Col([
             # Top Component in the Right Section
         # Outcomes section
-         html.H3("Key Outbreak Statistics Without Intervention", style={"text-align": "center", "margin-top": "10px", "font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "20pt", "font-weight":"500"}),
+         html.H3("Key Outbreak Statistics Without Intervention", style={"text-align": "center", "margin-top": "0.5em", "margin-bottom": "1.8em", "font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "20pt", "font-weight":"500"}),
           dbc.Row(
             [
                 # First Box
@@ -326,7 +326,7 @@ app.layout = dbc.Container(
 
     html.Div([
         # html.A("Notes: ", style={"fontWeight": "bold", "fontSize": "16px"}),
-        html.A("MODEL: ", style={"fontWeight": "bold", "fontSize": "14px"}),
+        html.A("MODEL: ", style={"fontWeight": "bold", "fontSize": "18px"}),
         html.A(["This dashboard uses a simple stochastic compartmental susceptible-exposed-infectious-removed (SEIR) model. The default parameters include a basic reproduction number (", html.I([html.A(["R", html.Sub("0")])])," ) of 15 ["]),
         html.A("ECDC’s Factsheet about measles", href="https://www.ecdc.europa.eu/en/measles/facts", target="_blank", style={"color": "#1b96bf", "textDecoration": "none"}),
         html.A("], an average latent period of 10.5 days ["),
@@ -334,19 +334,19 @@ app.layout = dbc.Container(
         html.A("], and an average infectious period of 8 days ["), 
         html.A("CDC’s Measles Clinical Diagnosis Fact Sheet", href="https://www.cdc.gov/measles/hcp/communication-resources/clinical-diagnosis-fact-sheet.html", target="_blank", style={"color": "#1b96bf", "textDecoration": "none"}), 
         html.A("]."), 
-        html.Br(style={"margin": "0", "padding": "0"}),
-        html.A("OUTCOME STATISTICS: ", style={"fontWeight": "bold", "fontSize": "14px"}),
+        html.Ul("", style={"margin-bottom": "1em"}),
+        html.A("OUTCOME STATISTICS: ", style={"fontWeight": "bold", "fontSize": "18px"}),
         html.A("The outcome statistics are estimated from 100 stochastic simulations as follows."),
         html.Ul([
             html.Li([html.I(["Effective reproduction number at the start of the outbreak (", html.A(["R", html.Sub("eff")]),]), " ) – The product of ", html.I([html.A(["R", html.Sub("0")])]), " and the proportion of students who are unvaccinated."]),
             html.Li([html.I("Chance of over 20 new infections"), html.A([" – The proportion of the 100 simulations that produced at least 20 infections, not counting the initial infections. This assumes no intervention."])]),
             html.Li([html.I("Expected outbreak size (assuming at least 20 cases)"), " – Among the simulations that produced at least 20 additional infections, the average number of infections. This includes the initial infections.", html.Br(style={"margin": "0", "padding": "0"})]),
-        ], style={"margin-bottom": "0px"}),
+        ], style={"margin-bottom": "1em"}),
        
-        html.A("PROJECTIONS: ", style={"fontWeight": "bold", "fontSize": "14px"}),
+        html.A("PROJECTIONS: ", style={"fontWeight": "bold", "fontSize": "18px"}),
         html.A("The 20 curves in the graph correspond to 20 independent simulations selected at random from 100 stochastic simulations. The y-axis values are seven-day moving averages of the total number of people infected (both exposed and infectious cases). The highlighted curve corresponds to the simulation that produced a total attack rate closest to the median across the 100 simulations."),
-        html.Br(style={"margin": "0", "padding": "0"}),
-        html.A("VACCINE COVERAGE: ", style={"fontWeight": "bold", "fontSize": "14px"}),
+        html.Ul("", style={"margin-bottom": "1em"}),
+        html.A("VACCINE COVERAGE: ", style={"fontWeight": "bold", "fontSize": "18px"}),
         html.A("School vaccine coverage estimates were obtained from the Texas Department of Health and Human Services "),
         html.A("Annual Report of Immunization status", href="https://www.dshs.texas.gov/immunizations/data/school/coverage", target="_blank", style={"color": "#1b96bf", "textDecoration": "none"}),
         html.A(".")
@@ -356,7 +356,8 @@ app.layout = dbc.Container(
         "color": "black",  # White text color
         "padding": "10px",
         "textAlign": "left",
-        "marginBottom": "10px"
+        "marginBottom": "10px",
+        "fontSize": "18px"
     }),
     
 
@@ -415,7 +416,7 @@ def update_graph(school_size, vax_rate, I0):
         x: light_grey
         for x in df_spaghetti_infected_ma['simulation_idx'].unique()
         }
-    color_map[index_sim_closest_median] = 'rgb(0, 153, 204)'
+    color_map[index_sim_closest_median] = 'rgb(0, 153, 204)' #blue
     
     nb_curves_displayed = 20
     possible_idx = [
@@ -436,9 +437,15 @@ def update_graph(school_size, vax_rate, I0):
         y='number_infected_7_day_ma',
         color='simulation_idx',
         color_discrete_map=color_map,
-         labels={'number_infected': 'Number of people infected', 'day': 'Day',  "simulation_idx": "Simulation ID", "number_infected_7_day_ma": "Number of infected people (7-day moving average)"}
+         labels={'number_infected': 'Number of people infected', 'day': 'Day DD', "number_infected_7_day_ma": "NN infected (7-day average)"},
         # alpha=0.1
         )
+    
+    variable_to_hide = "simulation_idx"
+    # Hide hover label for the dynamically assigned variable
+    fig.for_each_trace(lambda trace: trace.update(
+        hovertemplate=" "  # Make hover information completely blank for the target variable
+        ) if trace.name == variable_to_hide else None)
     
     fig.update_layout(showlegend=False,   
                       plot_bgcolor='white',  
