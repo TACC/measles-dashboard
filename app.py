@@ -48,7 +48,7 @@ instructions_section = dbc.Row(
         dbc.Card(
             dbc.CardBody(
                 html.P(
-                    "The graph below shows 20 equally plausible outbreak trajectories, assuming no intervention. Use the interactive boxes below to change the number of students in the school, the number already infected at the start of the outbreak, the percent vaccinated against measles, and key epidemiological quantities. ",
+                    "The graph below shows 20 equally plausible outbreak trajectories, assuming no intervention. Use the interactive boxes to change the number of students in the school, the number already infected at the start of the outbreak, the percent vaccinated against measles, and key epidemiological quantities. ",
                     className="text-dark",  style={"text-align": "left", "font-size": "25px", "margin-bottom": "10px"}
                 )
             ),
@@ -304,7 +304,7 @@ app.layout = dbc.Container(
                                         ),
                                         html.Br(),
                                         dcc.Markdown(id='effective_reproduction_number', 
-                                                    style={'color': '#bf5700', 'fontWeight': '800'}
+                                                    style={'color': '#bf5700', 'fontWeight': '800', 'margin-top': '0.5em'}
                                         ),
                                     ],
                                     style={
@@ -334,7 +334,7 @@ app.layout = dbc.Container(
                                         ),
                                         html.Br(),
                                         dcc.Markdown(id='p_20_pct', 
-                                                    style={'color': '#bf5700', 'fontWeight': '800'}
+                                                    style={'color': '#bf5700', 'fontWeight': '800','margin-top': '0.5em'}
                                         ),
                                     ],
                                     style={
@@ -360,10 +360,10 @@ app.layout = dbc.Container(
                                 html.Div(
                                     [
                                         dcc.Markdown(id='cases', 
-                                                    children='Expected outbreak size (assuming at least 20 cases)', 
+                                                    children='Mean outbreak size \\[95% percentile interval\\]', 
                                                     style={'color': '#black', 'fontWeight': '500'}
                                         ),
-                                        html.Br(),
+                                        dcc.Markdown("*Assumes outbreak exceeds 20 cases*"),
                                         dcc.Markdown(id='cases_expected_over_20', 
                                                     style={'color': '#bf5700', 'fontWeight': '800'}
                                         ),
@@ -414,20 +414,20 @@ app.layout = dbc.Container(
         html.A("]."), 
         html.Ul("", style={"margin-bottom": "1em"}),
         html.A("OUTCOME STATISTICS: ", style={"fontWeight": "bold", "fontSize": "18px"}),
-        html.A("The outcome statistics are estimated from 100 stochastic simulations as follows."),
+        html.A("The outcome statistics are estimated from 200 stochastic simulations as follows."),
         html.Ul([
             html.Li([html.I(["Effective reproduction number at the start of the outbreak (", html.A(["R", html.Sub("eff")]),]), " ) – The product of ", html.I([html.A(["R", html.Sub("0")])]), " and the proportion of students who are unvaccinated."]),
-            html.Li([html.I("Chance of over 20 new infections"), html.A([" – The proportion of the 100 simulations that produced at least 20 infections, not counting the initial infections. This assumes no intervention."])]),
-            html.Li([html.I("Expected outbreak size (assuming at least 20 cases)"), " – Among the simulations that produced at least 20 additional infections, the average number of infections. This includes the initial infections.", html.Br(style={"margin": "0", "padding": "0"})]),
+            html.Li([html.I("Chance of over 20 new infections"), html.A([" – The proportion of the 200 simulations that produced at least 20 infections, not counting the initial infections. This assumes no intervention."])]),
+            html.Li([html.I("Outbreak size"), " – Among the simulations that produced at least 20 additional infections, the mean and 95% percentile interval in total number of infections. These values include the initial infections.", html.Br(style={"margin": "0", "padding": "0"})]),
         ], style={"margin-bottom": "1em"}),
        
         html.A("PROJECTIONS: ", style={"fontWeight": "bold", "fontSize": "18px"}),
-        html.A("The 20 curves in the graph correspond to 20 independent simulations selected at random from 100 stochastic simulations. The y-axis values are seven-day moving averages of the total number of people infected (both exposed and infectious cases). The highlighted curve corresponds to the simulation that produced a total attack rate closest to the median across the 100 simulations."),
+        html.A("The 20 curves in the graph correspond to 20 independent simulations selected at random from 200 stochastic simulations. The y-axis values are seven-day moving averages of the total number of people infected (both exposed and infectious cases). The highlighted curve corresponds to the simulation that produced a total attack rate closest to the median across the 100 simulations."),
         html.Ul("", style={"margin-bottom": "1em"}),
         html.A("VACCINE COVERAGE: ", style={"fontWeight": "bold", "fontSize": "18px"}),
-        html.A("School vaccine coverage estimates were obtained from the Texas Department of Health and Human Services "),
+        html.A("School vaccine coverage estimates were obtained from the Texas Department of Health and Human Services ["),
         html.A("Annual Report of Immunization status", href="https://www.dshs.texas.gov/immunizations/data/school/coverage", target="_blank", style={"color": "#1b96bf", "textDecoration": "none"}),
-        html.A(".")
+        html.A("].")
     ],
     style={
         "backgroundColor": "#eaebec",  # Gray background
@@ -579,7 +579,7 @@ def update_graph(school_size, vax_rate, I0, R0, latent_period, infectious_period
     if stochastic_sim.expected_outbreak_size == 'NA':
         expected_outbreak_size_str = stochastic_sim.expected_outbreak_size
     else:
-        expected_outbreak_size_str = str(int(stochastic_sim.expected_outbreak_size)) + ' cases'
+        expected_outbreak_size_str = str(int(stochastic_sim.expected_outbreak_size))
         
         if outbreak_size_uncertainty_displayed == '90':
             quantile_lb = 5
@@ -599,12 +599,12 @@ def update_graph(school_size, vax_rate, I0, R0, latent_period, infectious_period
             range_name = 'IQR'
         
         uncertainty_outbreak_size_str = \
-            ' (' + range_name + ': ' +  \
+            ' \\[' +  \
             str(int(stochastic_sim.expected_outbreak_quantiles[quantile_lb])) + ' - ' +\
-            str(int(stochastic_sim.expected_outbreak_quantiles[quantile_ub])) + ')'
+            str(int(stochastic_sim.expected_outbreak_quantiles[quantile_ub]))
         expected_outbreak_size_str += uncertainty_outbreak_size_str
     
-    cases_expected_over_20 = expected_outbreak_size_str
+    cases_expected_over_20 = expected_outbreak_size_str + "] cases"
               
     return fig, effective_reproduction_number, outbreak_over_20, cases_expected_over_20
 
