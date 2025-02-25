@@ -183,10 +183,9 @@ footer = dbc.Container(
     fluid=True
 )
 
-'''
+
 # Define the accordion separately
-accordion_vax = html.Div([
-    dbc.Accordion(
+accordion_vax = dbc.Accordion(
         [
             dbc.AccordionItem(
                 dbc.Col(
@@ -195,33 +194,20 @@ accordion_vax = html.Div([
                         dbc.Col(html.Div(school_dropdown),className="mb-2"),
                     ]
                 ),
-                title="Select Vaccination Rates from Texas School Districts", 
+                title="Texas School Districts ▾ ", 
             ),
         ],
         flush=True,
         always_open=False,  # Ensures sections can be toggled independently
         active_item=[],  # Empty list means all sections are closed by default
     )
-])
-'''
+
 
 
 # Define the accordion separately
 accordion = html.Div(
     dbc.Accordion(
         [
-            # Second Section (2 Parameters)
-            dbc.AccordionItem(
-                dbc.Col(
-                    [
-                        dbc.Col(html.Div(county_dropdown),className="mb-2"),
-                        dbc.Col(html.Div(school_dropdown),className="mb-2"),
-                    ]
-                ),
-                title="Texas School Districts",
-            ),
-
-            # Third Section (2 Parameters)
             dbc.AccordionItem(
                 dbc.Col(
                     [
@@ -233,7 +219,7 @@ accordion = html.Div(
                         dbc.Col(html.Div(infectious_period_selector),className="mb-2")
                     ]
                 ),
-                title="Additional Parameters",
+                title="Additional Parameters ▾",
             ),
         ],
         flush=True,
@@ -275,14 +261,18 @@ app.layout = dbc.Container(
                                     dbc.Col(html.Div(I0_selector),className="mb-2"),
                                 ),
 
-                                dbc.Row(
-                                    dbc.Col(html.Div(vaccination_rate_label),className="mb-2"),
-                                ),
+                                dbc.Row([
+                                    dbc.Col(html.Div(vaccination_rate_label)),
+                            ]),
 
-                                dbc.Row(
-                                    dbc.Col(html.Div(vaccination_rate_selector),className="mb-2"),
-                                    #dbc.Col(accordion,className="mb-2"),
-                                ),
+                            dbc.Row(
+                                dbc.Col(html.I("Enter value or select school from dropdown"),className="m-0"),
+                            ),
+                                dbc.Row([
+                                    dbc.Col(html.Div(vaccination_rate_selector), style={"font-size": "16pt", "margin-top": "1.5em"}),
+                                    dbc.Col(html.Div("OR"), style={"font-size": "16pt", "margin-top": "1.5em", "textAlign": "center"}),
+                                    dbc.Col(accordion_vax, className="mb-2 mt-2"),
+                                 ]),
                                 
                                 dbc.Row(
                                     dbc.Col(accordion,className="mb-2"),
