@@ -88,7 +88,13 @@ def calculate_np_moving_average(
     
     return np_array_ma
     
+def get_percentile_from_list(
+    values_list, percentile_value, error_value=0.0):
     
+    if len(values_list) > 0:
+        return np.percentile(values_list, q=percentile_value)
+    else:
+        return error_value 
 
 # %% Model
 
@@ -273,6 +279,9 @@ class StochasticSimulations:
     def __init__(self, params, n_sim, print_summary_stats=False,
                  show_plots=True):
         self.params = copy.deepcopy(params)
+        self.params['sigma'] = 1.0 / self.params['incubation_period']
+        self.params['gamma'] = 1.0 / self.params['infectious_period']
+        
         self.n_sim = n_sim
         self.print_summary_stats = print_summary_stats
         self.show_plots = show_plots
@@ -347,11 +356,21 @@ class StochasticSimulations:
             self.expected_outbreak_size = params['I0'][0] + \
                 (df_over_20['nb_infected'] * df_over_20['probability']).sum() /\
                 df_over_20['probability'].sum()
+            cases_over_20 = self.nb_infected_school1[
+                self.nb_infected_school1 >= 20]
+            quantile_list = [0, 2.5, 5, 10, 25, 50, 75, 90, 95, 97.5, 100]
+            self.expected_outbreak_quantiles = {
+                q: get_percentile_from_list(cases_over_20, q)
+                for q in quantile_list
+                }
+            
             # self.expected_outbreak_size = df_infected_1.loc[
             #     df_infected_1['nb_infected'] >= 20, 'nb_infected'].mean()
         else:
             self.expected_outbreak_size = 'NA'
-        # self.df_infected_1 = df_infected_1
+            self.expected_outbreak_size_min = 'NA'
+            self.expected_outbreak_size_max = 'NA'
+        self.df_infected_1 = df_infected_1
         
         if self.print_summary_stats:   
             print('Probability of 5 or more cases in outbreak:', p_5_pct)
@@ -460,9 +479,11 @@ def run_deterministic_model(params):
 
 params = {
     'R0': 15.0,        # transmission rate
-    'sigma': 1/10.5,    # 10.5 days average latent period
+    # 'sigma': 1/10.5,    # 10.5 days average latent period
     # 'rho': 1/1,         # 1 days average pre-symptomatic period
-    'gamma': 1/8,       # 7 days average infectious period
+    # 'gamma': 1/8,       # 7 days average infectious period
+    'incubation_period': 10.5,
+    'infectious_period': 8.0,
     'school_contacts': 5.63424,
     'other_contacts': 2.2823,
     'population': [500],

@@ -21,7 +21,7 @@ df = df.loc[df['age_group'] == 'Kindergarten'].copy()
 initial_county = 'Travis'
 county_dropdown = html.Div(
     [
-        dbc.Label("Select Texas county", html_for="county_dropdown"),
+        dbc.Label("Select Texas county", html_for="county_dropdown"), 
         dcc.Dropdown(
             id="county-dropdown",
             options=sorted(df["County"].unique()),
@@ -61,17 +61,18 @@ instructions_section = dbc.Row(
 
 school_dropdown = html.Div(
     [
-        dbc.Label("Select a school district", html_for="school_dropdown"),
+        dbc.Label("Select a school district", html_for="school_dropdown", style={'fontFamily':'Sans-serif', 'font-size':'16pt'}),
         dcc.Dropdown(
             id="school-dropdown",
             options=school_options,
             value=initial_school,
             clearable=False,
             maxHeight=600,
-            optionHeight=50
+            optionHeight=50,
+            style={"whiteSpace": "nowrap", "width": "100%"},
         ),
     ],  className="mb-4",
-    style={'fontFamily':'Sans-serif', 'font-size':'16pt'}
+    style={'fontFamily':'Sans-serif', 'font-size':'16pt', 'whiteSpace': 'nowrap', 'overflow':'visible'}
 )
 
 vaccination_rate_label = html.H4(
@@ -82,7 +83,7 @@ vaccination_rate_selector = dcc.Input(
             type='number',
             placeholder='Vaccination rate (%)',
             value=85,
-            style={'display':'inline-block', 'fontFamily':'Sans-serif', 'font-size':'12pt'}
+            style={'display':'inline-block', 'fontFamily':'Sans-serif', 'font-size':'14pt'}
         )
 
 I0_label = html.H4(
@@ -93,7 +94,7 @@ I0_selector = dcc.Input(
             type='number',
             placeholder='Number of students initially infected',
             value=1.0,
-            style={'display':'inline-block', 'fontFamily':'Sans-serif', 'font-size':'12pt'}
+            style={'display':'inline-block', 'fontFamily':'Sans-serif', 'font-size':'14pt'}
         )
 
 school_size_label = html.H4(
@@ -104,7 +105,40 @@ school_size_selector = dcc.Input(
             type='number',
             placeholder='School enrollment (number of students)',
             value=500,
-            style={'display':'inline-block', 'fontFamily':'Sans-serif', 'font-size':'12pt'}
+            style={'display':'inline-block', 'fontFamily':'Sans-serif', 'font-size':'14pt'}
+        )
+
+R0_label = html.H4(
+    'Reproduction number (R0)',
+    style={'display':'inline-block','margin-right':5, 'margin-left':5,'fontFamily':'Sans-serif', 'font-size':'16pt'})
+R0_selector = dcc.Input(
+            id='R0',
+            type='number',
+            placeholder='Reproductive number',
+            value=15.0,
+            style={'display':'inline-block', 'fontFamily':'Sans-serif', 'font-size':'14pt'}
+        )
+
+latent_period_label = html.H4(
+    'Latent period (days)',
+    style={'display':'inline-block','margin-right':5, 'margin-left':5,'fontFamily':'Sans-serif', 'font-size':'16pt'})
+latent_period_selector = dcc.Input(
+            id='latent_period',
+            type='number',
+            placeholder='Latent period (days)',
+            value=10.5,
+            style={'display':'inline-block', 'fontFamily':'Sans-serif', 'font-size':'14pt'}
+        )
+
+infectious_period_label = html.H4(
+    'Infectious period (days)',
+    style={'display':'inline-block','margin-right':5, 'margin-left':5,'fontFamily':'Sans-serif', 'font-size':'16pt'})
+infectious_period_selector = dcc.Input(
+            id='infectious_period',
+            type='number',
+            placeholder='Infectious period (days)',
+            value=8.0,
+            style={'display':'inline-block', 'fontFamily':'Sans-serif', 'font-size':'14pt'}
         )
 
 app = Dash(
@@ -116,17 +150,17 @@ app.title = "epiENGAGE Measles Outbreak Simulator"
 navbar = dbc.Navbar(
     dbc.Container(
         [
-         #   html.Img(
-         #       src="/assets/epiengage_logo_orange.png",  # Place the image in the "assets" folder
-         #       height="40",
-         #       className="header-logo",
-         #       style={"marginRight": "10px"},
-         #   ),
+            html.Img(
+                src="/assets/epiengage_logo_orange.png",  # Place the image in the "assets" folder
+                height="40",
+                className="header-logo",
+                style={"marginRight": "10px"},
+            ),
             html.Div("epiENGAGE Measles Outbreak Simulator", style={"color": "white", "fontSize": "24px", "fontWeight": "bold", "textAlign": "right"}),
         ],
         fluid=True,
     ),
-    color="#bf5700",
+    color="#102c41",
     dark=True,
     fixed="top"
 )
@@ -149,12 +183,74 @@ footer = dbc.Container(
     fluid=True
 )
 
+'''
+# Define the accordion separately
+accordion_vax = html.Div([
+    dbc.Accordion(
+        [
+            dbc.AccordionItem(
+                dbc.Col(
+                    [
+                        dbc.Col(html.Div(county_dropdown),className="mb-2"),
+                        dbc.Col(html.Div(school_dropdown),className="mb-2"),
+                    ]
+                ),
+                title="Select Vaccination Rates from Texas School Districts", 
+            ),
+        ],
+        flush=True,
+        always_open=False,  # Ensures sections can be toggled independently
+        active_item=[],  # Empty list means all sections are closed by default
+    )
+])
+'''
+
+
+# Define the accordion separately
+accordion = html.Div(
+    dbc.Accordion(
+        [
+            # Second Section (2 Parameters)
+            dbc.AccordionItem(
+                dbc.Col(
+                    [
+                        dbc.Col(html.Div(county_dropdown),className="mb-2"),
+                        dbc.Col(html.Div(school_dropdown),className="mb-2"),
+                    ]
+                ),
+                title="Texas School Districts",
+            ),
+
+            # Third Section (2 Parameters)
+            dbc.AccordionItem(
+                dbc.Col(
+                    [
+                        dbc.Col(html.Div(R0_label),className="mb-2"),
+                        dbc.Col(html.Div(R0_selector),className="mb-2"),
+                        dbc.Col(html.Div(latent_period_label),className="mb-2"),
+                        dbc.Col(html.Div(latent_period_selector),className="mb-2"),
+                        dbc.Col(html.Div(infectious_period_label),className="mb-2"),
+                        dbc.Col(html.Div(infectious_period_selector),className="mb-2")
+                    ]
+                ),
+                title="Additional Parameters",
+            ),
+        ],
+        flush=True,
+        always_open=False,  # Ensures sections can be toggled independently
+        active_item=[],  # Empty list means all sections are closed by default
+    )
+)
+
 
 app.layout = dbc.Container(
     [
     dbc.Row([navbar], className="my-2"),
     html.Br(),
     dbc.Row([instructions_section], className="my-4"),
+
+    # dbc.Col(accordion, width=6),
+
 
     # Main Layout with Left and Right Sections
     dbc.Row([
@@ -185,29 +281,22 @@ app.layout = dbc.Container(
 
                                 dbc.Row(
                                     dbc.Col(html.Div(vaccination_rate_selector),className="mb-2"),
+                                    #dbc.Col(accordion,className="mb-2"),
                                 ),
                                 
-                                # Select county
                                 dbc.Row(
-                                    dbc.Col(html.Div(county_dropdown),className="mb-2"),
-                                ),
-
-                                # Select District
-                                dbc.Row(
-                                    dbc.Col(html.Div(school_dropdown),className="mb-2"),
-                                ),
+                                    dbc.Col(accordion,className="mb-2"),
+                                )
                             ]
                         ),
                         style={'border': 'none'}
                     ),
                     width=3, 
                     style={"border-right": "2px solid black", "padding": "10px"}, 
-                    #style={'display': 'flex', 'flexDirection': 'row', 'height': '100%'}
         ),
-        
-        # Right section containing two stacked components (top & bottom)
+
+        # Right section 
         dbc.Col([
-            # Top Component in the Right Section
         # Outcomes section
          html.H3("Key Outbreak Statistics Without Intervention", style={"text-align": "center", "margin-top": "0.5em", "margin-bottom": "1.8em", "font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "20pt", "font-weight":"500"}),
           dbc.Row(
@@ -231,7 +320,7 @@ app.layout = dbc.Container(
                                     style={
                                         'textAlign': 'center', 
                                         'fontFamily': '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif',
-                                        'fontSize': '20px',
+                                        'fontSize': '16pt',
                                         'border': 'none'
                                     }
                                 )
@@ -261,7 +350,7 @@ app.layout = dbc.Container(
                                     style={
                                         'textAlign': 'center', 
                                         'fontFamily': '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif',
-                                        'fontSize': '20px',
+                                        'fontSize': '16pt',
                                         'border': 'none'
                                     }
                                 )
@@ -292,7 +381,7 @@ app.layout = dbc.Container(
                                     style={
                                         'textAlign': 'center', 
                                         'fontFamily': '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif',
-                                        'fontSize': '20px',
+                                        'fontSize': '16pt',
                                         'border': 'none'
                                     }
                                 )
@@ -319,10 +408,9 @@ app.layout = dbc.Container(
             width=12
         )
             ])
-        ], width=9)
+        ], width={"size": 8, "order": "last"})
         
-    ], className="mb-3"),  # Adds spacing
-
+    ]),  # Adds spacing
 
     html.Div([
         # html.A("Notes: ", style={"fontWeight": "bold", "fontSize": "16px"}),
@@ -382,9 +470,12 @@ app.layout = dbc.Container(
      ],
     [Input('school_size', 'value'),
      Input('vax_rate', 'value'),
-     Input('I0', 'value')]
+     Input('I0', 'value'),
+     Input('R0', 'value'),
+     Input('latent_period', 'value'),
+     Input('infectious_period', 'value')]
 )
-def update_graph(school_size, vax_rate, I0):
+def update_graph(school_size, vax_rate, I0, R0, latent_period, infectious_period):
     
     if school_size is None:
         school_size = 500
@@ -394,18 +485,34 @@ def update_graph(school_size, vax_rate, I0):
         
     if I0 is None:
         I0 = 1
+
+    if R0 is None:
+        R0 = 15
+
+    if latent_period is None:
+        latent_period = 10.5
+
+    if infectious_period is None:
+        infectious_period = 8
+
+    R0 = max(R0,0)
     
     # Update parameters, run simulations
-    n_sim = 100
+    n_sim = 200
 
     params = copy.deepcopy(msp.params)
     params['population'] = [int(school_size)]
     params['vaccinated_percent'] = [0.01 * float(vax_rate)]
     params['I0'] = [int(I0)]
+    params['R0'] = float(R0)
+    params['incubation_period'] = float(latent_period)
+    params['infectious_period'] = float(infectious_period)
+    
     stochastic_sim = msp.StochasticSimulations(
         params, n_sim, print_summary_stats=False, show_plots=False)
     
     # Graph
+    df_spaghetti_infected = stochastic_sim.df_spaghetti_infected
     df_spaghetti_infected_ma = stochastic_sim.df_spaghetti_infected_ma
     index_sim_closest_median = stochastic_sim.index_sim_closest_median
     
@@ -437,15 +544,9 @@ def update_graph(school_size, vax_rate, I0):
         y='number_infected_7_day_ma',
         color='simulation_idx',
         color_discrete_map=color_map,
-         labels={'number_infected': 'Number of people infected', 'day': 'Day DD', "number_infected_7_day_ma": "NN infected (7-day average)"},
+         labels={'simulation_idx': 'Simulation ID','number_infected': 'Number of people infected', 'day': 'Day DD', "number_infected_7_day_ma": "NN infected (7-day average)"},
         # alpha=0.1
         )
-    
-    variable_to_hide = "simulation_idx"
-    # Hide hover label for the dynamically assigned variable
-    fig.for_each_trace(lambda trace: trace.update(
-        hovertemplate=" "  # Make hover information completely blank for the target variable
-        ) if trace.name == variable_to_hide else None)
     
     fig.update_layout(showlegend=False,   
                       plot_bgcolor='white',  
@@ -482,10 +583,36 @@ def update_graph(school_size, vax_rate, I0):
     p_20_pct = '{:.0%}'.format(stochastic_sim.probability_20_plus_cases)
     outbreak_over_20 = p_20_pct
 
+    # What uncertainty should we display for outbreak size
+    outbreak_size_uncertainty_displayed = '95' # '90' '95' 'range' 'IQR'
+
     if stochastic_sim.expected_outbreak_size == 'NA':
         expected_outbreak_size_str = stochastic_sim.expected_outbreak_size
     else:
         expected_outbreak_size_str = str(int(stochastic_sim.expected_outbreak_size)) + ' cases'
+        
+        if outbreak_size_uncertainty_displayed == '90':
+            quantile_lb = 5
+            quantile_ub = 95
+            range_name = '90% CI'            
+        elif outbreak_size_uncertainty_displayed == '95':
+            quantile_lb = 2.5
+            quantile_ub = 97.5
+            range_name = '95% CI'
+        elif outbreak_size_uncertainty_displayed == 'range':
+            quantile_lb = 0
+            quantile_ub = 100
+            range_name = 'range'
+        elif outbreak_size_uncertainty_displayed == 'IQR':
+            quantile_lb = 25
+            quantile_ub = 75
+            range_name = 'IQR'
+        
+        uncertainty_outbreak_size_str = \
+            ' (' + range_name + ': ' +  \
+            str(int(stochastic_sim.expected_outbreak_quantiles[quantile_lb])) + ' - ' +\
+            str(int(stochastic_sim.expected_outbreak_quantiles[quantile_ub])) + ')'
+        expected_outbreak_size_str += uncertainty_outbreak_size_str
     
     cases_expected_over_20 = expected_outbreak_size_str
               
