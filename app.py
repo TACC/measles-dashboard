@@ -427,7 +427,10 @@ app.layout = dbc.Container(
         html.A("VACCINE COVERAGE: ", style={"fontWeight": "bold", "fontSize": "18px"}),
         html.A("School vaccine coverage estimates were obtained from the Texas Department of Health and Human Services ["),
         html.A("Annual Report of Immunization status", href="https://www.dshs.texas.gov/immunizations/data/school/coverage", target="_blank", style={"color": "#1b96bf", "textDecoration": "none"}),
-        html.A("].")
+        html.A("]."),
+        html.Ul("", style={"margin-bottom": "1em"}),
+        html.A("ADDITIONAL DETAILS: ", style={"fontWeight": "bold", "fontSize": "18px"}),
+        html.A("epiENGAGE Measles Outbreak Simulator - Model Details", href="/assets/epiENGAGE_Measles_Outbreak_Simulator–Model Details-2025.pdf", target="_blank", style={"color": "#1b96bf", "textDecoration": "none"}),
     ],
     style={
         "backgroundColor": "#eaebec",  # Gray background
@@ -578,6 +581,8 @@ def update_graph(school_size, vax_rate, I0, R0, latent_period, infectious_period
 
     if stochastic_sim.expected_outbreak_size == 'NA':
         expected_outbreak_size_str = stochastic_sim.expected_outbreak_size
+        cases_expected_over_20 = "Not expected to exceed 20 cases"
+
     else:
         expected_outbreak_size_str = str(int(stochastic_sim.expected_outbreak_size))
         
@@ -604,7 +609,7 @@ def update_graph(school_size, vax_rate, I0, R0, latent_period, infectious_period
             str(int(stochastic_sim.expected_outbreak_quantiles[quantile_ub]))
         expected_outbreak_size_str += uncertainty_outbreak_size_str
     
-    cases_expected_over_20 = expected_outbreak_size_str + "] cases"
+        cases_expected_over_20 = expected_outbreak_size_str + "] cases"
               
     return fig, effective_reproduction_number, outbreak_over_20, cases_expected_over_20
 
