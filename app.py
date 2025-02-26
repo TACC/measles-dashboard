@@ -83,7 +83,7 @@ vaccination_rate_selector = dcc.Input(
             type='number',
             placeholder='Vaccination rate (%)',
             value=85,
-            style={'display':'inline-block', 'fontFamily':'Sans-serif', 'font-size':'14pt', 'textAlign': 'center'}
+            style={'display':'inline-block', 'fontFamily':'Sans-serif', 'font-size':'16pt', 'textAlign': 'center'}
         )
 
 I0_label = html.H4(
@@ -94,7 +94,7 @@ I0_selector = dcc.Input(
             type='number',
             placeholder='Number of students initially infected',
             value=1.0,
-            style={'display':'inline-block', 'fontFamily':'Sans-serif', 'font-size':'14pt', 'textAlign': 'center', 'margin-left':5}
+            style={'display':'inline-block', 'fontFamily':'Sans-serif', 'font-size':'16pt', 'textAlign': 'center', 'margin-left':5}
         )
 
 school_size_label = html.H4(
@@ -105,11 +105,11 @@ school_size_selector = dcc.Input(
             type='number',
             placeholder='School enrollment (number of students)',
             value=500,
-            style={'display':'inline-block', 'fontFamily':'Sans-serif', 'font-size':'14pt', 'textAlign': 'center', 'margin-left':5}
+            style={'display':'inline-block', 'fontFamily':'Sans-serif', 'font-size':'16pt', 'textAlign': 'center', 'margin-left':5}
         )
 
 R0_label = html.H4(
-    'Basic Reproduction Number (R0) for School',
+    'Basic Reproduction Number (R0)',
     style={'display':'inline-block','margin-right':5, 'margin-left':5,'fontFamily':'Sans-serif', 'font-size':'16pt'})
 R0_selector = dcc.Input(
             id='R0',
@@ -196,6 +196,7 @@ accordion_vax = dbc.Accordion(
                     ]
                 ),
                 title="School Lookup ▾ ", 
+                style={"font-size": "18pt"}, 
             ),
         ],
         flush=True,
@@ -221,7 +222,7 @@ accordion = html.Div(
                         dbc.Col(html.Div(infectious_period_selector),className="mb-2")
                     ]
                 ),
-                title="Change Epidemic Inputs ▾",
+                title="Change Parameters ▾",
             ),
         ],
         flush=True,
@@ -270,9 +271,11 @@ app.layout = dbc.Container(
                                 dbc.Row([
                                     dbc.Col(html.Div(vaccination_rate_selector), style={"font-size": "16pt", "margin-top": "1.5em"}),
                                     dbc.Col(html.Div("OR"), style={"font-size": "16pt", "margin-top": "1.5em", "textAlign": "center"}),
-                                    dbc.Col(accordion_vax, className="mb-2 mt-2"),
+                                    dbc.Col(accordion_vax, className="mb-2 mt-2", style={"font-size": "16pt"}),
                                  ], style={"border-bottom": "2px solid black", "margin-right":"0.2em"}),
 
+                                html.Br(),
+                                html.H3("Epidemic Parameters", style={"margin-left":"0.2em", "margin-top": "0.5em","font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "21pt", "font-weight":"500", "textAlign": "center"}),
                                 html.Br(),
                                 dbc.Row(dbc.Col(html.I("Caution – Default values reflect published estimates. Significant changes may result in inaccurate projections."),className="m-0", style={"font-size": "14pt"})),
 
@@ -290,8 +293,8 @@ app.layout = dbc.Container(
         # Right section 
         dbc.Col([
         # Outcomes section
-         html.H3("Outbreak Projections", style={"text-align": "center", "margin-top": "0.5em","font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "21pt", "font-weight":"500"}),
-         html.H3("assumes no intervention", style={"text-align": "center", "margin-top": "0.5em", "margin-bottom": "1.8em", "font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "18pt", "font-weight":"400", "font-style": "italic"}),
+         html.H3("School Outbreak Projections", style={"text-align": "center", "margin-top": "0.5em","font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "21pt", "font-weight":"500"}),
+         html.H3("Note – All projections assume no intervention and do not account for infections of non-students in the surrounding community.", style={"text-align": "center", "margin-top": "0.5em", "margin-bottom": "1.8em", "font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "14pt", "font-weight":"400", "font-style": "italic"}),
           dbc.Row(
             [
              
@@ -364,7 +367,7 @@ app.layout = dbc.Container(
                  dbc.Col(
                     dbc.Card(
                         dbc.CardBody([
-                            dbc.Row(html.Div("The graph shows 20 plausible outbreak curves, assuming no intervention."), style={"font-size": "15pt", "textAlign": "center", "margin-left":"20em", "margin-top":"2em", "font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-style": "italic"}),
+                            dbc.Row(html.Div("The graph shows 20 plausible school outbreak curves."), style={"font-size": "15pt", "textAlign": "center", "padding-left":"30em", "margin-top":"2em", "font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-style": "italic"}),
                             dcc.Graph(id="spaghetti_plot")
                         ]),
                         style={'border': 'none'}, 
@@ -392,7 +395,7 @@ app.layout = dbc.Container(
         html.A("KEY OUTBREAK STATISTICS: ", style={"fontWeight": "bold", "fontSize": "18px"}),
         html.A("Values are estimated from 200 stochastic simulations as follows."),
         html.Ul([
-            html.Li([html.I("Chance of an outbreak"), html.A([" – The proportion of the 200 simulations that produced at least 20 infections, not counting the initial infections. This assumes no intervention."])]),
+            html.Li([html.I("Chance of an outbreak"), html.A([" – The proportion of 200 simulations in which at least 20 additional student become infected, not counting the initial cases."])]),
             html.Li([html.I("Outbreak size"), " – Among the simulations that produced at least 20 additional infections, the mean and 95% percentile interval in total number of infections. These values include the initial infections.", html.Br(style={"margin": "0", "padding": "0"})]),
         ], style={"margin-bottom": "1em"}),
        
@@ -531,7 +534,7 @@ def update_graph(school_size, vax_rate, I0, R0, latent_period, infectious_period
         mirror=True  # Mirrors the axis line on all sides
     ),
     yaxis=dict(
-        title="Number of infected people",
+        title="Number of infected students",
         showgrid=True,  
         gridcolor="rgb(242,242,242)", 
         title_font=dict(size=20, color="black", family="Sans-serif"),  
