@@ -160,7 +160,7 @@ infectious_period_selector = dcc.Input(
 
 app = Dash(
     prevent_initial_callbacks = 'initial_duplicate')
-
+server = app.server
 app.title = "epiENGAGE Measles Outbreak Simulator"
 
 # Navbar component

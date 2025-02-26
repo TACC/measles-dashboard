@@ -9,5 +9,5 @@ COPY ./ /measles-dashboard/
 EXPOSE 8050
 WORKDIR /measles-dashboard/
 
-CMD ["python3", "app.py" ]
+CMD ["gunicorn", "-c", "./gunicorn_conf.py", "app:server" ]
 

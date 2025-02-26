@@ -1,5 +1,6 @@
 dash==2.14.2
 dash_bootstrap_components==1.7.1
+gunicorn>=23.0.0
 matplotlib==3.8.4
 numpy==2.2.3
 pandas==2.2.3
