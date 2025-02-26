@@ -19,9 +19,26 @@ df = pd.read_csv('TX_MMR_vax_rate.csv')
 df = df.loc[df['age_group'] == 'Kindergarten'].copy()
 
 initial_county = 'Travis'
+states = ["Texas"]
+
+state_dropdown = html.Div(
+    [
+        dbc.Label("Select State"),
+        dcc.Dropdown(
+            id="state-dropdown",
+            options=states,
+            value="Texas",
+            clearable=False,
+            maxHeight=600,
+            optionHeight=50
+        ),
+    ],  className="mb-4",
+    style={'fontFamily':'Sans-serif', 'font-size':'16pt'}
+)
+
 county_dropdown = html.Div(
     [
-        dbc.Label("Select Texas county", html_for="county_dropdown"), 
+        dbc.Label("Select Texas County", html_for="county_dropdown"), 
         dcc.Dropdown(
             id="county-dropdown",
             options=sorted(df["County"].unique()),
@@ -61,7 +78,7 @@ instructions_section = dbc.Row(
 
 school_dropdown = html.Div(
     [
-        dbc.Label("Select a school district", html_for="school_dropdown", style={'fontFamily':'Sans-serif', 'font-size':'16pt'}),
+        dbc.Label("Select a School District", html_for="school_dropdown", style={'fontFamily':'Sans-serif', 'font-size':'16pt'}),
         dcc.Dropdown(
             id="school-dropdown",
             options=school_options,
@@ -76,7 +93,7 @@ school_dropdown = html.Div(
 )
 
 vaccination_rate_label = html.H4(
-    'Vaccination rate (%)',
+    'Vaccination Rate (%)',
     style={'display':'inline-block','margin-right':5, 'margin-left':5, 'fontFamily':'Sans-serif', 'font-size':'16pt'})
 vaccination_rate_selector = dcc.Input(
             id='vax_rate',
@@ -87,7 +104,7 @@ vaccination_rate_selector = dcc.Input(
         )
 
 I0_label = html.H4(
-    'Number of students initially infected',
+    'Students Initially Infected',
     style={'display':'inline-block','margin-right':5, 'margin-left':5, 'fontFamily':'Sans-serif', 'font-size':'16pt'})
 I0_selector = dcc.Input(
             id='I0',
@@ -98,7 +115,7 @@ I0_selector = dcc.Input(
         )
 
 school_size_label = html.H4(
-    'School enrollment (number of students)',
+    'School Enrollment',
     style={'display':'inline-block','margin-right':5, 'margin-left':5,'fontFamily':'Sans-serif', 'font-size':'16pt'})
 school_size_selector = dcc.Input(
             id='school_size',
@@ -109,7 +126,7 @@ school_size_selector = dcc.Input(
         )
 
 R0_label = html.H4(
-    'Reproduction number (R0)',
+    'Basic Reproduction Number (R0) for School',
     style={'display':'inline-block','margin-right':5, 'margin-left':5,'fontFamily':'Sans-serif', 'font-size':'16pt'})
 R0_selector = dcc.Input(
             id='R0',
@@ -120,7 +137,7 @@ R0_selector = dcc.Input(
         )
 
 latent_period_label = html.H4(
-    'Latent period (days)',
+    'Average Latent Period (days)',
     style={'display':'inline-block','margin-right':5, 'margin-left':5,'fontFamily':'Sans-serif', 'font-size':'16pt'})
 latent_period_selector = dcc.Input(
             id='latent_period',
@@ -131,7 +148,7 @@ latent_period_selector = dcc.Input(
         )
 
 infectious_period_label = html.H4(
-    'Infectious period (days)',
+    'Average Infectious Period (days)',
     style={'display':'inline-block','margin-right':5, 'margin-left':5,'fontFamily':'Sans-serif', 'font-size':'16pt'})
 infectious_period_selector = dcc.Input(
             id='infectious_period',
@@ -190,11 +207,12 @@ accordion_vax = dbc.Accordion(
             dbc.AccordionItem(
                 dbc.Col(
                     [
+                        dbc.Col(html.Div(state_dropdown),className="mb-2"),
                         dbc.Col(html.Div(county_dropdown),className="mb-2"),
                         dbc.Col(html.Div(school_dropdown),className="mb-2"),
                     ]
                 ),
-                title="Texas School Districts ▾ ", 
+                title="School Lookup ▾ ", 
             ),
         ],
         flush=True,
@@ -211,6 +229,9 @@ accordion = html.Div(
             dbc.AccordionItem(
                 dbc.Col(
                     [
+                                                  
+                        dbc.Col(html.I("Default parameters are recommended based on CDC's Measles Clinical Diagnosis Fact Sheet and ECDC's Factsheet about measles"),className="m-0", style={"font-size": "12pt"}),
+                        html.Br(),
                         dbc.Col(html.Div(R0_label),className="mb-2"),
                         dbc.Col(html.Div(R0_selector),className="mb-2"),
                         dbc.Col(html.Div(latent_period_label),className="mb-2"),
@@ -219,7 +240,7 @@ accordion = html.Div(
                         dbc.Col(html.Div(infectious_period_selector),className="mb-2")
                     ]
                 ),
-                title="Additional Parameters ▾",
+                title="Underlying Parameters ▾",
             ),
         ],
         flush=True,
@@ -233,7 +254,8 @@ app.layout = dbc.Container(
     [
     dbc.Row([navbar], className="my-2"),
     html.Br(),
-    dbc.Row([instructions_section], className="my-4"),
+    html.Br(),
+    # dbc.Row([instructions_section], className="my-4"),
 
     # dbc.Col(accordion, width=6),
 
@@ -245,6 +267,8 @@ app.layout = dbc.Container(
                     dbc.Card(
                         dbc.CardBody(
                             [
+                                dbc.Row(html.Div("Use the interactive boxes to change the number of students in the school, the number already infected at the start of the outbreak, the percent vaccinated against measles, and key epidemiological quantities."), style={"font-size": "15pt", "textAlign": "left", "margin-left": "1em", "margin-right":"1em", "margin-bottom": "1em", "font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-style": "italic"}),
+                                html.Br(),
                                 dbc.Row(
                                     dbc.Col(html.Div(school_size_label),className="mb-2"),
                                 ),
@@ -266,7 +290,7 @@ app.layout = dbc.Container(
                             ]),
 
                             dbc.Row(
-                                dbc.Col(html.I("Enter value or select school from dropdown"),className="m-0"),
+                                dbc.Col(html.I("Enter value or select school from dropdown"),className="m-0", style={"font-size": "12pt"}),
                             ),
                                 dbc.Row([
                                     dbc.Col(html.Div(vaccination_rate_selector), style={"font-size": "16pt", "margin-top": "1.5em"}),
@@ -291,37 +315,8 @@ app.layout = dbc.Container(
          html.H3("Key Outbreak Statistics Without Intervention", style={"text-align": "center", "margin-top": "0.5em", "margin-bottom": "1.8em", "font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "20pt", "font-weight":"500"}),
           dbc.Row(
             [
-                # First Box
-                dbc.Col(
-                    dbc.Card(
-                        dbc.CardBody(
-                            [
-                                html.Div(
-                                    [
-                                        dcc.Markdown(id='effective', 
-                                                    children='Effective reproduction number at outset', 
-                                                    style={'color': '#black', 'fontWeight': '500'}
-                                        ),
-                                        html.Br(),
-                                        dcc.Markdown(id='effective_reproduction_number', 
-                                                    style={'color': '#bf5700', 'fontWeight': '800', 'margin-top': '0.5em'}
-                                        ),
-                                    ],
-                                    style={
-                                        'textAlign': 'center', 
-                                        'fontFamily': '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif',
-                                        'fontSize': '16pt',
-                                        'border': 'none'
-                                    }
-                                )
-                            ]
-                        ),
-                        style={'border': 'none'}
-                    ),
-                    width=4,
-                ),
-                
-                # Second Box
+             
+               # Second Box
                 dbc.Col(
                     dbc.Card(
                         dbc.CardBody(
@@ -348,8 +343,7 @@ app.layout = dbc.Container(
                         ),
                         style={'border':'none'}  
                     ),
-                    width=4,
-                    style={'borderLeft':'3px solid #bf5700'}  # Vertical line on the right
+
                 ),
 
                 # Third Box
@@ -379,28 +373,31 @@ app.layout = dbc.Container(
                         ),
                         style={'border':'none'}
                     ),
-                    width=4,
                     style={'borderLeft': '3px solid #bf5700'}  
                 ),
             ],
         ),
 
-            
+            html.Br(),
+
             # Bottom Component in the Right Section
             dbc.Row([
                  dbc.Col(
                     dbc.Card(
-                        dbc.CardBody(
+                        dbc.CardBody([
+                            dbc.Row(html.Div("The graph below shows 20 equally plausible outbreak trajectories, assuming no intervention."), style={"font-size": "15pt", "textAlign": "center", "margin-left":"20em", "margin-top":"2em", "font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-style": "italic"}),
                             dcc.Graph(id="spaghetti_plot")
-                        ),
-                        style={'border': 'none'}
+                        ]),
+                        style={'border': 'none'}, 
                     ),
-            width=12
+            width=12, style={"border-top": "2px solid black", "border-left":"1em","padding": "10px"}, 
         )
             ])
-        ], width={"size": 8, "order": "last"})
+        ])
         
     ]),  # Adds spacing
+
+    html.Br(),
 
     html.Div([
         # html.A("Notes: ", style={"fontWeight": "bold", "fontSize": "16px"}),
@@ -422,7 +419,7 @@ app.layout = dbc.Container(
         ], style={"margin-bottom": "1em"}),
        
         html.A("PROJECTIONS: ", style={"fontWeight": "bold", "fontSize": "18px"}),
-        html.A("The 20 curves in the graph correspond to 20 independent simulations selected at random from 200 stochastic simulations. The y-axis values are seven-day moving averages of the total number of people infected (both exposed and infectious cases). The highlighted curve corresponds to the simulation that produced a total attack rate closest to the median across the 100 simulations."),
+        html.A("The 20 curves in the graph correspond to 20 independent simulations selected at random from 200 stochastic simulations. The y-axis values are seven-day moving averages of the total number of people infected (both exposed and infectious cases). The highlighted curve corresponds to the simulation that produced a total attack rate closest to the median across the 200 simulations."),
         html.Ul("", style={"margin-bottom": "1em"}),
         html.A("VACCINE COVERAGE: ", style={"fontWeight": "bold", "fontSize": "18px"}),
         html.A("School vaccine coverage estimates were obtained from the Texas Department of Health and Human Services ["),
@@ -457,7 +454,7 @@ app.layout = dbc.Container(
 
 @callback(
     [Output('spaghetti_plot', 'figure'),
-     Output('effective_reproduction_number', 'children'),
+     # Output('effective_reproduction_number', 'children'),
      Output('p_20_pct', 'children'),
      Output('cases_expected_over_20', 'children')
      ],
@@ -611,7 +608,7 @@ def update_graph(school_size, vax_rate, I0, R0, latent_period, infectious_period
     
         cases_expected_over_20 = expected_outbreak_size_str + "] cases"
               
-    return fig, effective_reproduction_number, outbreak_over_20, cases_expected_over_20
+    return fig, outbreak_over_20, cases_expected_over_20
 
 @callback(
      [Output('school-dropdown', 'options'),
