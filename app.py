@@ -77,7 +77,7 @@ school_dropdown = html.Div(
 
 vaccination_rate_label = html.H4(
     'Vaccination Rate (%)',
-    style={'display':'inline-block','margin-right':5, 'margin-left':5, 'fontFamily':'Sans-serif', 'font-size':'16pt'})
+    style={'display':'inline-block','margin-right':5, 'margin-left':5, 'fontFamily':'Sans-serif', 'font-size':'18pt'})
 vaccination_rate_selector = dcc.Input(
             id='vax_rate',
             type='number',
@@ -88,24 +88,24 @@ vaccination_rate_selector = dcc.Input(
 
 I0_label = html.H4(
     'Students Initially Infected',
-    style={'display':'inline-block','margin-right':5, 'margin-left':5, 'fontFamily':'Sans-serif', 'font-size':'16pt'})
+    style={'display':'inline-block', 'fontFamily':'Sans-serif', 'font-size':'18pt', 'whiteSpace': 'nowrap', 'overflow':'visible'})
 I0_selector = dcc.Input(
             id='I0',
             type='number',
             placeholder='Number of students initially infected',
             value=1.0,
-            style={'display':'inline-block', 'fontFamily':'Sans-serif', 'font-size':'14pt', 'textAlign': 'center'}
+            style={'display':'inline-block', 'fontFamily':'Sans-serif', 'font-size':'14pt', 'textAlign': 'center', 'margin-left':5}
         )
 
 school_size_label = html.H4(
     'School Enrollment',
-    style={'display':'inline-block','margin-right':5, 'margin-left':5,'fontFamily':'Sans-serif', 'font-size':'16pt'})
+    style={'display':'inline-block','fontFamily':'Sans-serif', 'font-size':'18pt', 'whiteSpace': 'nowrap', 'overflow':'visible'})
 school_size_selector = dcc.Input(
             id='school_size',
             type='number',
             placeholder='School enrollment (number of students)',
             value=500,
-            style={'display':'inline-block', 'fontFamily':'Sans-serif', 'font-size':'14pt', 'textAlign': 'center'}
+            style={'display':'inline-block', 'fontFamily':'Sans-serif', 'font-size':'14pt', 'textAlign': 'center', 'margin-left':5}
         )
 
 R0_label = html.H4(
@@ -248,23 +248,17 @@ app.layout = dbc.Container(
                     dbc.Card(
                         dbc.CardBody(
                             [
-                                html.H3("Model Inputs", style={"margin-left":"0.2em", "margin-top": "0.5em","font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "21pt", "font-weight":"500"}),
+                                html.H3("Model Inputs", style={"margin-left":"0.2em", "margin-top": "0.5em","font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "21pt", "font-weight":"500", "textAlign": "center"}),
                                 html.Br(),
-                                dbc.Row(
+                                dbc.Row([
                                     dbc.Col(html.Div(school_size_label),className="mb-2"),
-                                ),
-
-                                dbc.Row(
                                     dbc.Col(html.Div(school_size_selector),className="mb-2"),
-                                ),
+                                ]),
 
-                                dbc.Row(
+                                dbc.Row([
                                     dbc.Col(html.Div(I0_label),className="mb-2"),
-                                ),
-
-                                dbc.Row(
                                     dbc.Col(html.Div(I0_selector),className="mb-2"),
-                                ),
+                                ]),
 
                                 dbc.Row([
                                     dbc.Col(html.Div(vaccination_rate_label)),
@@ -280,7 +274,7 @@ app.layout = dbc.Container(
                                  ], style={"border-bottom": "2px solid black", "margin-right":"0.2em"}),
 
                                 html.Br(),
-                                dbc.Row(dbc.Col(html.I("Caution – Default values reflect published estimates. Significant changes may result in inaccurate projections."),className="m-0", style={"font-size": "12pt"})),
+                                dbc.Row(dbc.Col(html.I("Caution – Default values reflect published estimates. Significant changes may result in inaccurate projections."),className="m-0", style={"font-size": "14pt"})),
 
                                 dbc.Row([
                                     dbc.Col(accordion,className="mb-2"),
