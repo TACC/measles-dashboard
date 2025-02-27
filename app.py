@@ -273,7 +273,7 @@ app.layout = dbc.Container(
                     dbc.Card(
                         dbc.CardBody(
                             [
-                                html.H3("Model Inputs", style={"margin-left":"0.2em", "margin-top": "0.5em","font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "21pt", "font-weight":"500", "textAlign": "center"}),
+                                html.H3("Model Inputs", style={"margin-left":"0.2em", "margin-top": "0.5em","font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "21pt", "font-weight":"500", "textAlign": "center"}, className="mt-2"),
                                 html.Br(),
                                 dbc.Row([
                                     dbc.Col(html.Div(school_size_label),className="mb-2"),
@@ -310,7 +310,7 @@ app.layout = dbc.Container(
                         ),
                         style={'border': 'none'}
                     ),
-                    width=3, 
+                    width=3, xs=12, sm=12, md=12, lg=12, xl=3,  
                     style={"border-right": "2px solid black", "padding": "10px"}, 
         ),
 
@@ -391,7 +391,7 @@ app.layout = dbc.Container(
                  dbc.Col(
                     dbc.Card(
                         dbc.CardBody([
-                            dbc.Row(html.Div("The graph shows 20 plausible school outbreak curves."), style={"font-size": "15pt", "textAlign": "center", "padding-left":"30em", "margin-top":"2em", "font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-style": "italic"}),
+                            html.H3("This graph shows 20 plausible school outbreak curves.", style={"text-align": "center", "margin-top": "0.5em", "margin-bottom": "1.8em", "font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "14pt", "font-weight":"400", "font-style": "italic"}),
                             dcc.Graph(id="spaghetti_plot")
                         ]),
                         style={'border': 'none'}, 
