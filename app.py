@@ -396,7 +396,7 @@ app.layout = dbc.Container(
                         ]),
                         style={'border': 'none'}, 
                     ),
-            width=12, style={"border-top": "2px solid black", "border-left":"1em","padding": "10px", "height": "100%"}, 
+            width=12, xl=9, style={"border-top": "2px solid black", "border-left":"1em","padding": "10px", "height": "100%"}, 
         )
             ])
         ])
