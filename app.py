@@ -552,10 +552,11 @@ def update_graph(school_size, vax_rate, I0, R0, latent_period, infectious_period
         y='number_infected_7_day_ma',
         color='simulation_idx',
         color_discrete_map=color_map,
-         labels={'simulation_idx': 'Simulation ID','number_infected': 'Number of people infected', 'day': 'Day DD', "number_infected_7_day_ma": "NN infected (7-day average)"},
+         labels={'simulation_idx': '','number_infected': 'Number of students infected', 'day': 'Day DD', "number_infected_7_day_ma": "NN infected (7-day average)"},
         # alpha=0.1
         )
     
+    fig.update_traces(hovertemplate="Day DD: %{x}<br>NN infected: %{y}<extra></extra>")
     fig.update_layout(showlegend=False,   
                       plot_bgcolor='white',  
                       xaxis=dict(
