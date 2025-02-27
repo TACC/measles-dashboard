@@ -83,7 +83,7 @@ vaccination_rate_selector = dcc.Input(
             type='number',
             placeholder='Vaccination rate (%)',
             value=85,
-            style={'display':'inline-block', 'fontFamily':'Sans-serif', 'font-size':'16pt', 'textAlign': 'center'}
+            style={'display':'inline-block', 'fontFamily':'Sans-serif', 'font-size':'16pt', 'textAlign': 'center', 'width':'7ch'}
         )
 
 I0_label = html.H4(
@@ -94,7 +94,7 @@ I0_selector = dcc.Input(
             type='number',
             placeholder='Number of students initially infected',
             value=1.0,
-            style={'display':'inline-block', 'fontFamily':'Sans-serif', 'font-size':'16pt', 'textAlign': 'center', 'margin-left':5}
+            style={'display': 'flex', 'flexDirection': 'column', 'margin-left':'auto', 'fontFamily':'Sans-serif', 'font-size':'16pt', 'textAlign': 'center', 'width':'6ch'}
         )
 
 school_size_label = html.H4(
@@ -105,7 +105,7 @@ school_size_selector = dcc.Input(
             type='number',
             placeholder='School enrollment (number of students)',
             value=500,
-            style={'display':'inline-block', 'fontFamily':'Sans-serif', 'font-size':'16pt', 'textAlign': 'center', 'margin-left':5}
+            style={'display': 'flex', 'flexDirection': 'column', 'margin-left':'auto', 'fontFamily':'Sans-serif', 'font-size':'16pt', 'textAlign': 'center', 'width':'6ch'}
         )
 
 R0_label = html.H4([
@@ -391,14 +391,14 @@ app.layout = dbc.Container(
                  dbc.Col(
                     dbc.Card(
                         dbc.CardBody([
-                            html.H3("This graph shows 20 plausible school outbreak curves.", style={"text-align": "center", "margin-top": "0.5em", "margin-bottom": "1.8em", "font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "14pt", "font-weight":"400", "font-style": "italic"}),
-                            dcc.Graph(id="spaghetti_plot")
+                            html.H3("This graph shows 20 plausible school outbreak curves.", style={"text-align": "center", "margin-top": "2em", "margin-bottom": "1em", "margin-left": "1.8em", "font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "14pt", "font-weight":"400", "font-style": "italic"}),
+                            dcc.Graph(id="spaghetti_plot"),
                         ]),
-                        style={'border': 'none'}, 
+                        style={'border':'none'}, 
                     ),
-            width=12, xl=9, style={"border-top": "2px solid black", "border-left":"1em","padding": "10px", "height": "100%"}, 
-        )
-            ])
+            width=12, xl=9,
+        ),
+            ], style={"border-top": "2px solid black", "border-left":"1em", "height": "100%", "width": "100%"}), 
         ])
     ]),  
 
