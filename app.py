@@ -555,8 +555,8 @@ def update_graph(school_size, vax_rate, I0, R0, latent_period, infectious_period
         gridcolor="rgb(242,242,242)", 
         title_font=dict(size=20, color="black", family="Sans-serif"),  
         tickfont=dict(size=16, color="black", family="Sans-serif"), 
-        zeroline=False,  
-        #zerolinecolor="grey",  
+        zeroline=True,  
+        zerolinecolor="white",  
         linecolor="grey", 
         linewidth=2, 
         mirror=True  # Mirrors the axis line on all sides
@@ -567,8 +567,8 @@ def update_graph(school_size, vax_rate, I0, R0, latent_period, infectious_period
         gridcolor="rgb(242,242,242)", 
         title_font=dict(size=20, color="black", family="Sans-serif"),  
         tickfont=dict(size=16, color="black", family="Sans-serif"),  
-         zeroline=True, 
-        zerolinecolor="black",  
+        zeroline=True, 
+        zerolinecolor="white",  
         linecolor="black",  
         linewidth=2,  
         mirror=True  # Mirrors the axis line on all sides
