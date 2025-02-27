@@ -130,7 +130,6 @@ R0_selector = dcc.Slider(
 
 )
 
-
 latent_period_label = html.H4(
     'Average Latent Period (days)',
     style={'display':'inline-block','margin-right':5, 'margin-left':5,'fontFamily':'Sans-serif', 'font-size':'16pt'})
@@ -208,7 +207,6 @@ footer = dbc.Container(
     fluid=True
 )
 
-
 # Define the accordion separately
 accordion_vax = dbc.Accordion(
         [
@@ -228,8 +226,6 @@ accordion_vax = dbc.Accordion(
         always_open=False,  # Ensures sections can be toggled independently
         active_item=[],  # Empty list means all sections are closed by default
     )
-
-
 
 # Define the accordion separately
 accordion = html.Div(
@@ -269,10 +265,6 @@ app.layout = dbc.Container(
     dbc.Row([navbar], className="my-2"),
     html.Br(),
     html.Br(),
-    # dbc.Row([instructions_section], className="my-4"),
-
-    # dbc.Col(accordion, width=6),
-
 
     # Main Layout with Left and Right Sections
     dbc.Row([
@@ -330,7 +322,7 @@ app.layout = dbc.Container(
           dbc.Row(
             [
              
-               # Second Box
+               # Chance of an Outbreak
                 dbc.Col(
                     dbc.Card(
                         dbc.CardBody(
@@ -360,7 +352,7 @@ app.layout = dbc.Container(
 
                 ),
 
-                # Third Box
+                # Expected Outbreak Size
                 dbc.Col(
                     dbc.Card(
                         dbc.CardBody(
@@ -404,17 +396,15 @@ app.layout = dbc.Container(
                         ]),
                         style={'border': 'none'}, 
                     ),
-            width=12, style={"border-top": "2px solid black", "border-left":"1em","padding": "10px"}, 
+            width=12, style={"border-top": "2px solid black", "border-left":"1em","padding": "10px", "height": "100%"}, 
         )
             ])
         ])
-        
-    ]),  # Adds spacing
+    ]),  
 
     html.Br(),
 
     html.Div([
-        # html.A("Notes: ", style={"fontWeight": "bold", "fontSize": "16px"}),
         html.A("MODEL: ", style={"fontWeight": "bold", "fontSize": "18px"}),
         html.A(["This dashboard uses a simple stochastic compartmental susceptible-exposed-infectious-removed (SEIR) model. The default parameters include a basic reproduction number (", html.I([html.A(["R", html.Sub("0")])])," ) of 15 ["]),
         html.A("ECDC’s Factsheet about measles", href="https://www.ecdc.europa.eu/en/measles/facts", target="_blank", style={"color": "#1b96bf", "textDecoration": "none"}),
@@ -427,7 +417,6 @@ app.layout = dbc.Container(
         html.A("] and ["),
         html.A("Bailey and Alfa-Steinberger 1970", href="https://doi.org/10.1093/biomet/57.1.141", target="_blank", style={"color": "#1b96bf", "textDecoration": "none"}), 
         html.A("]."),
-
         html.Ul("", style={"margin-bottom": "1em"}),
         html.A("KEY OUTBREAK STATISTICS: ", style={"fontWeight": "bold", "fontSize": "18px"}),
         html.A("Values are estimated from 200 stochastic simulations as follows."),
@@ -435,7 +424,6 @@ app.layout = dbc.Container(
             html.Li([html.I("Chance of an outbreak"), html.A([" – The proportion of 200 simulations in which at least 20 additional student become infected, not counting the initial cases."])]),
             html.Li([html.I("Outbreak size"), " – Among the simulations that produced at least 20 additional infections, the mean and 95% percentile interval in total number of infections. These values include the initial infections.", html.Br(style={"margin": "0", "padding": "0"})]),
         ], style={"margin-bottom": "1em"}),
-       
         html.A("PROJECTIONS: ", style={"fontWeight": "bold", "fontSize": "18px"}),
         html.A("The 20 curves in the graph correspond to 20 independent simulations selected at random from 200 stochastic simulations. The y-axis values are seven-day moving averages of the total number of people infected (both exposed and infectious cases). The highlighted curve corresponds to the simulation that produced a total attack rate closest to the median across the 200 simulations."),
         html.Ul("", style={"margin-bottom": "1em"}),
@@ -472,7 +460,6 @@ app.layout = dbc.Container(
 
 @callback(
     [Output('spaghetti_plot', 'figure'),
-     # Output('effective_reproduction_number', 'children'),
      Output('p_20_pct', 'children'),
      Output('cases_expected_over_20', 'children')
      ],
@@ -526,7 +513,7 @@ def update_graph(school_size, vax_rate, I0, R0, latent_period, infectious_period
     
     # light_grey = px.colors.qualitative.Pastel2[-1]
     light_grey = 'rgb(220, 220, 220)'
-    # light_grey = 'rgb(232, 232, 232)'
+    
     color_map = {
         x: light_grey
         for x in df_spaghetti_infected_ma['simulation_idx'].unique()
@@ -544,7 +531,9 @@ def update_graph(school_size, vax_rate, I0, R0, latent_period, infectious_period
         df_spaghetti_infected_ma.loc[df_spaghetti_infected_ma['simulation_idx'].isin(sample_idx)],
         df_spaghetti_infected_ma.loc[df_spaghetti_infected_ma['simulation_idx'] == index_sim_closest_median]
         ])
-    
+
+    # print(df_plot) 
+    # df_plot.to_csv("df_plot_output.csv", index=False)
         
     fig = px.line(
         df_plot,
@@ -553,10 +542,11 @@ def update_graph(school_size, vax_rate, I0, R0, latent_period, infectious_period
         color='simulation_idx',
         color_discrete_map=color_map,
          labels={'simulation_idx': '','number_infected': 'Number of students infected', 'day': 'Day DD', "number_infected_7_day_ma": "NN infected (7-day average)"},
-        # alpha=0.1
         )
     
-    fig.update_traces(hovertemplate="Day DD: %{x}<br>NN infected: %{y}<extra></extra>")
+    fig.update_traces(hovertemplate="Day %{x}<br>%{y:.1f} Infected<extra></extra>")
+    fig.update_traces(line=dict(width=2))  # Reduce line thickness
+
     fig.update_layout(showlegend=False,   
                       plot_bgcolor='white',  
                       xaxis=dict(
@@ -565,9 +555,9 @@ def update_graph(school_size, vax_rate, I0, R0, latent_period, infectious_period
         gridcolor="rgb(242,242,242)", 
         title_font=dict(size=20, color="black", family="Sans-serif"),  
         tickfont=dict(size=16, color="black", family="Sans-serif"), 
-        zeroline=True,  
-        zerolinecolor="black",  
-        linecolor="black", 
+        zeroline=False,  
+        #zerolinecolor="grey",  
+        linecolor="grey", 
         linewidth=2, 
         mirror=True  # Mirrors the axis line on all sides
     ),
