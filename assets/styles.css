@@ -26,3 +26,15 @@ button.accordion-button:hover {
     color: white !important; /* White text on hover */
     border: 2px solid #0056b3 !important; /* Darker blue border on hover */
 }
+
+.custom-tooltip {
+    text-transform: none !important;  /* Prevents uppercase */
+    font-size: 14px;                 /* Adjust font size */
+    font-family: Arial, sans-serif;   /* Set font */
+    background-color: rgba(0, 0, 0, 0.85) !important;  /* Darker background */
+    color: white !important;          /* White text */
+    border-radius: 5px;               /* Rounded corners */
+    padding: 5px 10px;                /* Proper padding */
+    box-shadow: none !important;      /* Removes Bootstrap shadow */
+    border: none !important;          /* Removes unwanted borders */
+}

@@ -6,7 +6,7 @@ Updated on Thu Feb 20 1:55:00 2025
 
 @author: rfp437
 """
-
+import dash
 from dash import Dash, html, dcc, callback, Output, Input#, State, Patch
 import plotly.express as px
 import pandas as pd
@@ -108,38 +108,63 @@ school_size_selector = dcc.Input(
             style={'display':'inline-block', 'fontFamily':'Sans-serif', 'font-size':'16pt', 'textAlign': 'center', 'margin-left':5}
         )
 
-R0_label = html.H4(
-    'Basic Reproduction Number (R0)',
+R0_label = html.H4([
+    'Basic Reproduction Number',
+     html.Span(" (R0)", 
+        id="rep-tooltip",  
+        style={"cursor": "pointer","color": "grey", "marginLeft": "5px"}
+    )],
     style={'display':'inline-block','margin-right':5, 'margin-left':5,'fontFamily':'Sans-serif', 'font-size':'16pt'})
-R0_selector = dcc.Input(
-            id='R0',
-            type='number',
-            placeholder='Reproductive number',
-            value=15.0,
-            style={'display':'inline-block', 'fontFamily':'Sans-serif', 'font-size':'14pt'}
-        )
+
+R0_selector = dcc.Slider(
+    id='R0',
+    min=12,
+    max=18,
+    step=0.1,
+    value=15,
+    included=False,
+    marks = {12: {'label': '12', 'style': {'font-size': '16pt', 'fontFamily': 'Sans-serif'}},
+             18: {'label': '18', 'style': {'font-size': '16pt', 'fontFamily': 'Sans-serif'}}
+            },
+    tooltip={'placement': 'top', 'always_visible': True, 'style': {'font-size': '16pt', 'fontFamily': 'Sans-serif'}},
+
+)
+
 
 latent_period_label = html.H4(
     'Average Latent Period (days)',
     style={'display':'inline-block','margin-right':5, 'margin-left':5,'fontFamily':'Sans-serif', 'font-size':'16pt'})
-latent_period_selector = dcc.Input(
-            id='latent_period',
-            type='number',
-            placeholder='Latent period (days)',
-            value=10.5,
-            style={'display':'inline-block', 'fontFamily':'Sans-serif', 'font-size':'14pt'}
-        )
 
+
+latent_period_selector = dcc.Slider(
+    id='latent_period',
+    min=7,
+    max=12,
+    step=0.1,
+    value=10.5,
+    included=False,
+    marks={7: {'label': '7', 'style': {'font-size': '16pt', 'fontFamily': 'Sans-serif'}},
+           12: {'label': '12', 'style': {'font-size': '16pt', 'fontFamily': 'Sans-serif'}},
+    },
+    tooltip={'placement': 'top', 'always_visible': True, 'style': {'font-size': '16pt', 'fontFamily': 'Sans-serif'}},
+)
+    
 infectious_period_label = html.H4(
     'Average Infectious Period (days)',
     style={'display':'inline-block','margin-right':5, 'margin-left':5,'fontFamily':'Sans-serif', 'font-size':'16pt'})
-infectious_period_selector = dcc.Input(
-            id='infectious_period',
-            type='number',
-            placeholder='Infectious period (days)',
-            value=8.0,
-            style={'display':'inline-block', 'fontFamily':'Sans-serif', 'font-size':'14pt'}
-        )
+
+infectious_period_selector = dcc.Slider(
+    id='infectious_period',
+    min=5,
+    max=9,
+    step=0.1,
+    value=8,
+    included=False,
+    marks={5: {'label': '5', 'style': {'font-size': '16pt', 'fontFamily': 'Sans-serif'}},
+           9: {'label': '9', 'style': {'font-size': '16pt', 'fontFamily': 'Sans-serif'}}
+           },
+    tooltip={'placement': 'top', 'always_visible': True, 'style': {'font-size': '16pt', 'fontFamily': 'Sans-serif'}},
+)
 
 app = Dash(
     prevent_initial_callbacks = 'initial_duplicate')
@@ -215,11 +240,18 @@ accordion = html.Div(
                     [
                         html.Br(),
                         dbc.Col(html.Div(R0_label),className="mb-2"),
+                        dbc.Tooltip(
+                            "The basic reproduction number is the expected number of people a single case will infect, assuming that nobody has immunity from vaccination or prior infection.",
+                            target="rep-tooltip",
+                            placement="top",
+                            style={"font-size": "14pt"},
+                            className="custom-tooltip"
+                        ),
                         dbc.Col(html.Div(R0_selector),className="mb-2"),
                         dbc.Col(html.Div(latent_period_label),className="mb-2"),
                         dbc.Col(html.Div(latent_period_selector),className="mb-2"),
                         dbc.Col(html.Div(infectious_period_label),className="mb-2"),
-                        dbc.Col(html.Div(infectious_period_selector),className="mb-2")
+                        dbc.Col(html.Div(infectious_period_selector),className="mb-2"),
                     ]
                 ),
                 title="Change Parameters ▾",
@@ -390,7 +422,12 @@ app.layout = dbc.Container(
         html.A("CDC’s Measles Clinical Diagnosis Fact Sheet", href="https://www.cdc.gov/measles/hcp/communication-resources/clinical-diagnosis-fact-sheet.html", target="_blank", style={"color": "#1b96bf", "textDecoration": "none"}),
         html.A("], and an average infectious period of 8 days ["), 
         html.A("CDC’s Measles Clinical Diagnosis Fact Sheet", href="https://www.cdc.gov/measles/hcp/communication-resources/clinical-diagnosis-fact-sheet.html", target="_blank", style={"color": "#1b96bf", "textDecoration": "none"}), 
-        html.A("]."), 
+        html.A("]. Parameter ranges are based on ["),
+        html.A("ECDC’s Factsheet about measles", href="https://www.ecdc.europa.eu/en/measles/facts", target="_blank", style={"color": "#1b96bf", "textDecoration": "none"}),
+        html.A("] and ["),
+        html.A("Bailey and Alfa-Steinberger 1970", href="https://doi.org/10.1093/biomet/57.1.141", target="_blank", style={"color": "#1b96bf", "textDecoration": "none"}), 
+        html.A("]."),
+
         html.Ul("", style={"margin-bottom": "1em"}),
         html.A("KEY OUTBREAK STATISTICS: ", style={"fontWeight": "bold", "fontSize": "18px"}),
         html.A("Values are estimated from 200 stochastic simulations as follows."),
@@ -515,10 +552,11 @@ def update_graph(school_size, vax_rate, I0, R0, latent_period, infectious_period
         y='number_infected_7_day_ma',
         color='simulation_idx',
         color_discrete_map=color_map,
-         labels={'simulation_idx': 'Simulation ID','number_infected': 'Number of people infected', 'day': 'Day DD', "number_infected_7_day_ma": "NN infected (7-day average)"},
+         labels={'simulation_idx': '','number_infected': 'Number of students infected', 'day': 'Day DD', "number_infected_7_day_ma": "NN infected (7-day average)"},
         # alpha=0.1
         )
     
+    fig.update_traces(hovertemplate="Day DD: %{x}<br>NN infected: %{y}<extra></extra>")
     fig.update_layout(showlegend=False,   
                       plot_bgcolor='white',  
                       xaxis=dict(
