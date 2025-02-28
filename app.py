@@ -297,7 +297,7 @@ app.layout = dbc.Container(
                             ]),
 
                             dbc.Row(
-                                dbc.Col(html.I("Enter value or select school from dropdown"),className="m-0 d-flex flex-column align-items-center", style={"font-size": "12pt"}),
+                                dbc.Col(html.I("Enter value or select school from dropdown"),className="d-flex flex-column align-items-center", style={"font-size": "12pt", "margin-bottom": "0.5em"}),
                             ),
                                 dbc.Row([
                                     dbc.Col(html.Div(vaccination_rate_selector), style={"font-size": "16pt"}),
