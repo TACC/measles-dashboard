@@ -176,7 +176,7 @@ navbar = dbc.Navbar(
         [
             html.Img(
                 src="/assets/epiengage_logo_orange.png",  # Place the image in the "assets" folder
-                height="40",
+                height="50",
                 className="header-logo",
                 style={"marginRight": "10px"},
             ),
@@ -251,6 +251,8 @@ accordion = html.Div(
                     ]
                 ),
                 title="Change Parameters ▾",
+                style={"textAlign": "center"}  # Add this line to center the text
+                
             ),
         ],
         flush=True,
@@ -391,12 +393,12 @@ app.layout = dbc.Container(
                  dbc.Col(
                     dbc.Card(
                         dbc.CardBody([
-                            html.H3("This graph shows 20 plausible school outbreak curves.", style={"text-align": "center", "margin-top": "2em", "margin-bottom": "1em", "margin-left": "1.8em", "font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "14pt", "font-weight":"400", "font-style": "italic"}),
+                            html.H3("This graph shows 20 plausible school outbreak curves.", style={"text-align": "center", "margin-top": "1em", "margin-left": "1.8em", "font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "14pt", "font-weight":"400", "font-style": "italic"}),
                             dcc.Graph(id="spaghetti_plot"),
                         ]),
                         style={'border':'none'}, 
                     ),
-            width=12, xl=9,
+            width=12, # set width to 12 for all screen sizes
         ),
             ], style={"border-top": "2px solid black", "border-left":"1em", "height": "100%", "width": "100%"}), 
         ])
