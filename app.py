@@ -398,10 +398,10 @@ app.layout = dbc.Container(
                         ]),
                         style={'border':'none'}, 
                     ),
-            width=12, # set width to 12 for all screen sizes
+            #width=12,# set width to 12 for all screen sizes
         ),
             ], style={"border-top": "2px solid black", "border-left":"1em", "height": "100%", "width": "100%"}), 
-        ])
+        ], className="col-xl-9"),
     ]),  
 
     html.Br(),
