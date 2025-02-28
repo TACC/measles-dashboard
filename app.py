@@ -77,7 +77,7 @@ school_dropdown = html.Div(
 
 vaccination_rate_label = html.H4(
     'Vaccination Rate (%)',
-    style={'display':'inline-block','margin-right':5, 'margin-left':5, 'fontFamily':'Sans-serif', 'font-size':'18pt'})
+    style={'display':'inline-block','margin-bottom':0, 'margin-right':5, 'margin-left':5, 'fontFamily':'Sans-serif', 'font-size':'18pt'})
 vaccination_rate_selector = dcc.Input(
             id='vax_rate',
             type='number',
@@ -105,7 +105,7 @@ school_size_selector = dcc.Input(
             type='number',
             placeholder='School enrollment (number of students)',
             value=500,
-            style={'display': 'flex', 'flexDirection': 'column', 'margin-left':'auto', 'fontFamily':'Sans-serif', 'font-size':'16pt', 'textAlign': 'center', 'width':'6ch'}
+            style={'display': 'flex', 'flexDirection': 'column', 'fontFamily':'Sans-serif', 'font-size':'16pt', 'textAlign': 'center', 'width':'6ch'}
         )
 
 R0_label = html.H4([
@@ -220,7 +220,8 @@ accordion_vax = dbc.Accordion(
                 ),
                 title="School Lookup ▾ ", 
                 style={"font-size": "18pt"}, 
-            ),
+                className="m-0"
+            ), 
         ],
         flush=True,
         always_open=False,  # Ensures sections can be toggled independently
@@ -275,33 +276,37 @@ app.layout = dbc.Container(
                     dbc.Card(
                         dbc.CardBody(
                             [
-                                html.H3("Model Inputs", style={"margin-left":"0.2em", "margin-top": "0.5em","font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "21pt", "font-weight":"500", "textAlign": "center"}, className="mt-2"),
+                                html.H3("Model Inputs", style={"margin-left":"0.2em", "margin-top": "0.5em","font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "24pt", "font-weight":"500", "textAlign": "center"}, className="mt-2"),
                                 html.Br(),
                                 dbc.Row([
-                                    dbc.Col(html.Div(school_size_label),className="mb-2"),
-                                    dbc.Col(html.Div(school_size_selector),className="mb-2"),
-                                ]),
+                                    dbc.Col([ 
+                                        html.Div(school_size_label), 
+                                        html.Div(school_size_selector),
+                                        ], className="d-flex flex-column align-items-center"),
+                                ], className="d-flex flex-column align-items-center mb-2"),
 
                                 dbc.Row([
-                                    dbc.Col(html.Div(I0_label),className="mb-2"),
-                                    dbc.Col(html.Div(I0_selector),className="mb-2"),
-                                ]),
+                                     dbc.Col([ 
+                                        html.Div(I0_label), 
+                                        html.Div(I0_selector),
+                                        ], className="d-flex flex-column align-items-center"),
+                                ], className="d-flex flex-column align-items-center mb-2"),
 
                                 dbc.Row([
-                                    dbc.Col(html.Div(vaccination_rate_label)),
+                                    dbc.Col(html.Div(vaccination_rate_label), className="d-flex flex-column align-items-center"),
                             ]),
 
                             dbc.Row(
-                                dbc.Col(html.I("Enter value or select school from dropdown"),className="m-0", style={"font-size": "12pt"}),
+                                dbc.Col(html.I("Enter value or select school from dropdown"),className="m-0 d-flex flex-column align-items-center", style={"font-size": "12pt"}),
                             ),
                                 dbc.Row([
-                                    dbc.Col(html.Div(vaccination_rate_selector), style={"font-size": "16pt", "margin-top": "1.5em"}),
-                                    dbc.Col(html.Div("OR"), style={"font-size": "16pt", "margin-top": "1.5em", "textAlign": "center"}),
-                                    dbc.Col(accordion_vax, className="mb-2 mt-2", style={"font-size": "16pt"}),
+                                    dbc.Col(html.Div(vaccination_rate_selector), style={"font-size": "16pt"}),
+                                    dbc.Col(html.P("OR"), style={"font-size": "16pt", "textAlign": "center", "padding":"none"}),
+                                    dbc.Col(accordion_vax, style={"font-size": "16pt", "padding": "none"}),
                                  ], style={"border-bottom": "2px solid black", "margin-right":"0.2em"}),
 
                                 html.Br(),
-                                html.H3("Epidemic Parameters", style={"margin-left":"0.2em", "margin-top": "0.5em","font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "21pt", "font-weight":"500", "textAlign": "center"}),
+                                html.H3("Epidemic Parameters", style={"margin-left":"0.2em", "margin-top": "0.5em","font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "24pt", "font-weight":"500", "textAlign": "center"}),
                                 html.Br(),
                                 dbc.Row(dbc.Col(html.I("Caution – Default values reflect published estimates. Significant changes may result in inaccurate projections."),className="m-0", style={"font-size": "14pt"})),
 
@@ -319,7 +324,7 @@ app.layout = dbc.Container(
         # Right section 
         dbc.Col([
         # Outcomes section
-         html.H3("School Outbreak Projections", style={"text-align": "center", "margin-top": "0.5em","font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "21pt", "font-weight":"500"}),
+         html.H3("School Outbreak Projections", style={"text-align": "center", "margin-top": "0.5em","font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "24pt", "font-weight":"500"}),
          html.H3("Note – All projections assume no intervention and do not account for infections of non-students in the surrounding community.", style={"text-align": "center", "margin-top": "0.5em", "margin-bottom": "1.8em", "font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "14pt", "font-weight":"400", "font-style": "italic"}),
           dbc.Row(
             [
