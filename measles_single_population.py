@@ -443,7 +443,7 @@ class StochasticSimulations:
             ax.set_xlabel('Number of days since beginning of outbreak')
             ax.set_ylabel('Number of infected individuals')
             
-            i_plot += 1
+            #i_plot += 1
             ax=axs[i_plot]
             sns.lineplot(
                 self.df_spaghetti_infectious,
