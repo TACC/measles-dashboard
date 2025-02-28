@@ -328,7 +328,7 @@ app.layout = dbc.Container(
         dbc.Col([
         # Outcomes section
          html.H3("School Outbreak Projections", style={"text-align": "center", "margin-top": "0.8em","font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "24pt", "font-weight":"500"}),
-         html.H3("Projections assume no interventions and no breakthrough infections in vaccinated students. They do not account for infections of non-students in the surrounding community.", style={"text-align": "center", "font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "14pt", "font-weight":"400", "font-style": "italic", "line-height": "1"}),
+         html.H3("Projections assume no interventions and no breakthrough infections in vaccinated students. They do not account for infections of non-students in the surrounding community.", style={"text-align": "center", "font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "12pt", "font-weight":"400", "font-style": "italic", "line-height": "1"}),
          #html.H3("In the statistics below, an “outbreak” is defined as any simulation with at least 20 new infections beyond the initial cases",style={"text-align": "center", "font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "14pt", "font-weight":"400", "font-style": "italic", "margin":"none"}),
          html.Br(), 
           dbc.Row(
