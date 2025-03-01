@@ -111,11 +111,7 @@ school_size_selector = dcc.Input(
         )
 
 R0_label = html.H4([
-    'Basic Reproduction Number',
-     html.Span(" (R0)", 
-        id="rep-tooltip",  
-        style={"cursor": "pointer","color": "grey", "marginLeft": "5px"}
-    )],
+    'Basic Reproduction Number (R0)'],
     style={'display':'inline-block','margin-right':5, 'margin-left':5,'fontFamily':'Sans-serif', 'font-size':'16pt'})
 
 R0_selector = dcc.Slider(
