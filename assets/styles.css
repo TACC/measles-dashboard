@@ -3,10 +3,10 @@ button.accordion-button {
     background-color: white !important; /* Set background color */
     color: black !important; /* Change text color */
     font-size: 14pt !important; /* Adjust font size */
-    margin-top: 1.5em;
     white-space: nowrap !important;
     height: 1.8em;
     border: 1px solid black !important; /* Thinner border */
+    margin-bottom: 1.5em;
 }
 
 /* When Accordion is Open */
