@@ -125,7 +125,7 @@ R0_selector = dcc.Slider(
              15: {'label': '15', 'style': {'font-size': '16pt', 'fontFamily': 'Sans-serif', 'fontWeight': 'bold'}},
              18: {'label': '18', 'style': {'font-size': '16pt', 'fontFamily': 'Sans-serif'}}
             },
-    tooltip={'placement': 'top', 'always_visible': True, 'style':{"fontSize": "16pt"}},
+    tooltip={'placement': 'top', 'always_visible': True, "style":{"fontSize": "16pt"}},
 
 )
 
@@ -145,7 +145,7 @@ latent_period_selector = dcc.Slider(
            10.5: {'label': '10.5', 'style': {'font-size': '16pt', 'fontFamily': 'Sans-serif', 'fontWeight': 'bold'}},
            12: {'label': '12', 'style': {'font-size': '16pt', 'fontFamily': 'Sans-serif'}},
     },
-    tooltip={'placement': 'top', 'always_visible': True, 'style':{"fontSize": "16pt"}},
+    tooltip={'placement': 'top', 'always_visible': True, "style":{"fontSize": "16pt"}},
 )
     
 infectious_period_label = html.H4(
@@ -163,7 +163,7 @@ infectious_period_selector = dcc.Slider(
            8: {'label': '8', 'style': {'font-size': '16pt', 'fontFamily': 'Sans-serif', 'fontWeight': 'bold'}},
            9: {'label': '9', 'style': {'font-size': '16pt', 'fontFamily': 'Sans-serif'}}
            },
-    tooltip={'placement': 'top', 'always_visible': True, 'style':{"fontSize": "16pt"}},
+    tooltip={'placement': 'top', 'always_visible': True, "style":{"fontSize": "16pt"}},
 )
 
 app = Dash(
