@@ -296,8 +296,8 @@ class StochasticSimulations:
         
         # model_list = []
         self.nb_infected_school1 = np.zeros(shape=(self.n_sim))
-        self.infectious_school_1 = np.zeros(shape=(self.n_sim, self.params['sim_duration_days']))
-        self.infected_school_1 = np.zeros(shape=(self.n_sim, self.params['sim_duration_days']))
+        self.infectious_school_1 = np.zeros(shape=(self.n_sim, self.params['sim_duration_days'] + 1))
+        self.infected_school_1 = np.zeros(shape=(self.n_sim, self.params['sim_duration_days'] + 1))
         
         seed_base = int(time.time() % 1 * 1000000)
         for i_sim in range(self.n_sim):
@@ -312,13 +312,19 @@ class StochasticSimulations:
             self.new_infected_pop_1 = model.R[:,0] - model.R[0,0] - params['I0'][0]
             self.nb_infected_school1[i_sim] = self.new_infected_pop_1[-1]
             
-            self.infectious_school_1[i_sim, :] = model.I[self.steps_per_day::self.steps_per_day, 0]
-            self.infected_school_1[i_sim, :] = model.I[self.steps_per_day::self.steps_per_day, 0] +\
-                model.E[self.steps_per_day::self.steps_per_day, 0]
+            #self.infectious_school_1[i_sim, :] = model.I[self.steps_per_day::self.steps_per_day, 0]
+            #self.infected_school_1[i_sim, :] = model.I[self.steps_per_day::self.steps_per_day, 0] +\
+            #    model.E[self.steps_per_day::self.steps_per_day, 0]
+            self.infectious_school_1[i_sim, :] = (
+                model.I[::self.steps_per_day, 0]
+            )
+            self.infected_school_1[i_sim, :] = (
+                    model.I[::self.steps_per_day, 0] + model.E[::self.steps_per_day, 0]
+            )
+
             self.infected_school_1_7day_ma = calculate_np_moving_average(
                 self.infected_school_1, 7, shorter_window_beginning=True)
             self.model = model
-            
         
         return
     
@@ -394,7 +400,7 @@ class StochasticSimulations:
             self.infected_school_1.T,
             colnames = list(range(self.n_sim)),
             id_col = 'day',
-            id_values = list(range(1,1+params['sim_duration_days'])),
+            id_values = list(range(1,2+params['sim_duration_days'])),
             var_name = 'simulation_idx',
             value_name='number_infected'
             )
@@ -402,7 +408,7 @@ class StochasticSimulations:
             self.infected_school_1_7day_ma.T,
             colnames = list(range(self.n_sim)),
             id_col = 'day',
-            id_values = list(range(1,1+params['sim_duration_days'])),
+            id_values = list(range(1,2+params['sim_duration_days'])),
             var_name = 'simulation_idx',
             value_name='number_infected_7_day_ma'
             )
@@ -410,7 +416,7 @@ class StochasticSimulations:
             self.infectious_school_1.T,
             colnames = list(range(self.n_sim)),
             id_col = 'day',
-            id_values = list(range(1,1+params['sim_duration_days'])),
+            id_values = list(range(1,2+params['sim_duration_days'])),
             var_name = 'simulation_idx',
             value_name='number_infectious'
             )
@@ -443,7 +449,7 @@ class StochasticSimulations:
             ax.set_xlabel('Number of days since beginning of outbreak')
             ax.set_ylabel('Number of infected individuals')
             
-            #i_plot += 1
+            i_plot += 1
             ax=axs[i_plot]
             sns.lineplot(
                 self.df_spaghetti_infectious,

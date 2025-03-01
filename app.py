@@ -45,9 +45,11 @@ county_dropdown = html.Div(
             value=initial_county,
             clearable=False,
             maxHeight=600,
-            optionHeight=50
+            optionHeight=50,
+            style={"whiteSpace": "nowrap", "width": "100%" },
+            
         ),
-    ],  className="mb-4",
+    ],  className="mb-4 m-0",
     style={'fontFamily':'Sans-serif', 'font-size':'16pt','whiteSpace': 'nowrap', 'overflow':'visible'}
 )
 
@@ -69,7 +71,7 @@ school_dropdown = html.Div(
             clearable=False,
             maxHeight=600,
             optionHeight=50,
-            style={"whiteSpace": "nowrap", "width": "100%"},
+            style={"whiteSpace": "nowrap", "width": "100%", 'font-size':'14pt'},
         ),
     ],  className="mb-4",
     style={'fontFamily':'Sans-serif', 'font-size':'16pt', 'whiteSpace': 'nowrap', 'overflow':'visible'}
@@ -109,11 +111,7 @@ school_size_selector = dcc.Input(
         )
 
 R0_label = html.H4([
-    'Basic Reproduction Number',
-     html.Span(" (R0)", 
-        id="rep-tooltip",  
-        style={"cursor": "pointer","color": "grey", "marginLeft": "5px"}
-    )],
+    'Basic Reproduction Number (R0)'],
     style={'display':'inline-block','margin-right':5, 'margin-left':5,'fontFamily':'Sans-serif', 'font-size':'16pt'})
 
 R0_selector = dcc.Slider(
@@ -124,6 +122,7 @@ R0_selector = dcc.Slider(
     value=15,
     included=False,
     marks = {12: {'label': '12', 'style': {'font-size': '16pt', 'fontFamily': 'Sans-serif'}},
+             15: {'label': '15', 'style': {'font-size': '16pt', 'fontFamily': 'Sans-serif', 'fontWeight': 'bold'}},
              18: {'label': '18', 'style': {'font-size': '16pt', 'fontFamily': 'Sans-serif'}}
             },
     tooltip={'placement': 'top', 'always_visible': True, 'style':{"fontSize": "16pt"}},
@@ -143,6 +142,7 @@ latent_period_selector = dcc.Slider(
     value=10.5,
     included=False,
     marks={7: {'label': '7', 'style': {'font-size': '16pt', 'fontFamily': 'Sans-serif'}},
+           10.5: {'label': '10.5', 'style': {'font-size': '16pt', 'fontFamily': 'Sans-serif', 'fontWeight': 'bold'}},
            12: {'label': '12', 'style': {'font-size': '16pt', 'fontFamily': 'Sans-serif'}},
     },
     tooltip={'placement': 'top', 'always_visible': True, 'style':{"fontSize": "16pt"}},
@@ -160,6 +160,7 @@ infectious_period_selector = dcc.Slider(
     value=8,
     included=False,
     marks={5: {'label': '5', 'style': {'font-size': '16pt', 'fontFamily': 'Sans-serif'}},
+           8: {'label': '8', 'style': {'font-size': '16pt', 'fontFamily': 'Sans-serif', 'fontWeight': 'bold'}},
            9: {'label': '9', 'style': {'font-size': '16pt', 'fontFamily': 'Sans-serif'}}
            },
     tooltip={'placement': 'top', 'always_visible': True, 'style':{"fontSize": "16pt"}},
@@ -208,10 +209,11 @@ footer = dbc.Container(
 )
 
 # Define the accordion separately
+
 accordion_vax = dbc.Accordion(
         [
             dbc.AccordionItem(
-                dbc.Col(
+                html.Div(
                     [
                         dbc.Col(html.Div(state_dropdown),className="mb-2"),
                         dbc.Col(html.Div(county_dropdown),className="mb-2"),
@@ -219,14 +221,15 @@ accordion_vax = dbc.Accordion(
                     ]
                 ),
                 title="School Lookup ▾ ", 
-                style={"font-size": "18pt"}, 
+                style={"font-size": "18pt", "width":"100%"}, 
                 className="m-0"
             ), 
         ],
         flush=True,
         always_open=False,  # Ensures sections can be toggled independently
         active_item=[],  # Empty list means all sections are closed by default
-    )
+)
+
 
 # Define the accordion separately
 accordion = html.Div(
@@ -237,13 +240,6 @@ accordion = html.Div(
                     [
                         html.Br(),
                         dbc.Col(html.Div(R0_label),className="mb-2"),
-                        dbc.Tooltip(
-                            "The basic reproduction number is the expected number of people a single case will infect, assuming that nobody has immunity from vaccination or prior infection.",
-                            target="rep-tooltip",
-                            placement="top",
-                            style={"font-size": "14pt"},
-                            className="custom-tooltip"
-                        ),
                         dbc.Col(html.Div(R0_selector),className="mb-2"),
                         dbc.Col(html.Div(latent_period_label),className="mb-2"),
                         dbc.Col(html.Div(latent_period_selector),className="mb-2"),
@@ -302,7 +298,7 @@ app.layout = dbc.Container(
                                 dbc.Row([
                                     dbc.Col([ 
                                         html.Div(vaccination_rate_selector), html.Div(" OR ", style={"font-size": "16pt", "margin-top": "0.5em", "margin-bottom": "0.5em"}),
-                                        html.Div(accordion_vax),
+                                        html.Div(accordion_vax, style={"width":"100%", "textAlign": "center"}),
                                         ], className="d-flex flex-column align-items-center"),
                                     #dbc.Col(html.Div(vaccination_rate_selector), style={"font-size": "16pt"}),
                                     #dbc.Col(accordion_vax, style={"font-size": "16pt", "padding": "none"}),
@@ -427,7 +423,8 @@ app.layout = dbc.Container(
         html.A("ECDC’s Factsheet about measles", href="https://www.ecdc.europa.eu/en/measles/facts", target="_blank", style={"color": "#1b96bf", "textDecoration": "none"}),
         html.A("] and ["),
         html.A("Bailey and Alfa-Steinberger 1970", href="https://doi.org/10.1093/biomet/57.1.141", target="_blank", style={"color": "#1b96bf", "textDecoration": "none"}), 
-        html.A("]."),
+        html.A("]. "),
+        html.A("The basic reproduction number is the expected number of people a single case will infect, assuming nobody has immunity from vaccination or prior infection. If a school has a high vaccination rate, the effective reproduction number at the start of an outbreak will be much lower than the basic reproduction number."),
         html.Ul("", style={"margin-bottom": "1em"}),
         html.A("KEY OUTBREAK STATISTICS: ", style={"fontWeight": "bold", "fontSize": "18px"}),
         html.A("Values are estimated from 200 stochastic simulations as follows."),
@@ -662,4 +659,4 @@ def update_school_vax_rate(school, county):
     
 
 if __name__ == '__main__':
-    app.run(debug=False, host='0.0.0.0')
+    app.run(debug=True, host='0.0.0.0')
