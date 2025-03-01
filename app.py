@@ -14,6 +14,7 @@ import numpy as np
 import copy
 import dash_bootstrap_components as dbc
 import measles_single_population as msp
+import subprocess
 
 df = pd.read_csv('TX_MMR_vax_rate.csv')
 df = df.loc[df['age_group'] == 'Kindergarten'].copy()
@@ -166,10 +167,14 @@ infectious_period_selector = dcc.Slider(
     tooltip={'placement': 'top', 'always_visible': True, "style":{"fontSize": "16pt"}},
 )
 
+result = subprocess.run("git symbolic-ref -q --short HEAD || git describe --tags --exact-match",
+                         shell=True, capture_output=True)
+version = result.stdout.decode("utf-8").strip() if result.stdout else "Unknown"
+
 app = Dash(
     prevent_initial_callbacks = 'initial_duplicate')
 server = app.server
-app.title = "epiENGAGE Measles Outbreak Simulator"
+app.title = f"epiENGAGE Measles Outbreak Simulator v-{version}"
 
 # Navbar component
 navbar = dbc.Navbar(
