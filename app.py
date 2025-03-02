@@ -363,7 +363,6 @@ app.layout = dbc.Container(
                                                     children='Chance of exceeding 20 new infections', 
                                                     style={'color': '#black', 'fontWeight': '500', 'font-size': '22pt', "margin":"none"}
                                         ),
-                                        # dcc.Markdown("*exceeding 20 new infections*", style={'font-size': '16pt', "margin":"none"}),
                                         dcc.Markdown(id='p_20_pct', 
                                                     style={'color': '#bf5700', 'fontWeight': '800', 'font-size': '23pt', 'margin-top':'0.5em'}
                                         ),
@@ -393,6 +392,7 @@ app.layout = dbc.Container(
                                                     children='Likely outbreak size', 
                                                     style={'color': '#black', 'fontWeight': '500', 'font-size': '22pt', 'margin':'none'}
                                         ),
+                                        dcc.Markdown("*if exceeds 20 new infections*", style={'font-size': '16pt', "margin":"none"}),
                                         dcc.Markdown(id='cases_expected_over_20', 
                                                     style={'color': '#bf5700', 'fontWeight': '800', 'font-size':'23pt', 'margin-top':'0.5em'}
                                         ),
