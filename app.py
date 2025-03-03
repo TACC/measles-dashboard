@@ -17,7 +17,7 @@ import measles_single_population as msp
 import subprocess
 
 df = pd.read_csv('TX_MMR_vax_rate.csv')
-df = df.loc[df['age_group'] == 'Kindergarten'].copy()
+# df = df.loc[df['age_group'] == 'Kindergarten'].copy()
 
 initial_county = 'Travis'
 states = ["Texas"]
@@ -75,8 +75,14 @@ grade_dropdown = html.Div(
 
 # df there should depend on the selected county
 df_county = df.loc[df['County'] == initial_county]
-school_options = sorted(df_county["School District or Name"].unique())
-initial_school = 'AUSTIN ISD'
+#school_options = sorted(df_county["School District or Name"].unique())
+
+school_options = sorted(
+    f"{name} ({age_group})"
+    for name, age_group in zip(df_county["School District or Name"], df_county["age_group"])
+)
+
+initial_school = 'AUSTIN ISD (Kindergarten)'
 
 if initial_school not in school_options:
     initial_school = school_options[0]
@@ -540,8 +546,7 @@ def update_graph(school_size, vax_rate, I0, R0, latent_period, infectious_period
     df_spaghetti_infected = stochastic_sim.df_spaghetti_infected
     df_spaghetti_infected_ma = stochastic_sim.df_spaghetti_infected_ma
     index_sim_closest_median = stochastic_sim.index_sim_closest_median
-    
-    # light_grey = px.colors.qualitative.Pastel2[-1]
+
     light_grey = 'rgb(220, 220, 220)'
     
     color_map = {
@@ -561,9 +566,6 @@ def update_graph(school_size, vax_rate, I0, R0, latent_period, infectious_period
         df_spaghetti_infected_ma.loc[df_spaghetti_infected_ma['simulation_idx'].isin(sample_idx)],
         df_spaghetti_infected_ma.loc[df_spaghetti_infected_ma['simulation_idx'] == index_sim_closest_median]
         ])
-
-    # print(df_plot) 
-    # df_plot.to_csv("df_plot_output.csv", index=False)
         
     fig = px.line(
         df_plot,
@@ -657,28 +659,37 @@ def update_graph(school_size, vax_rate, I0, R0, latent_period, infectious_period
 )
 def update_school_selector(county):
     df_county = df.loc[df['County'] == county]
-    new_school_options = sorted(df_county["School District or Name"].unique())
+    new_school_options = sorted(
+    f"{name} ({age_group})"
+    for name, age_group in zip(df_county["School District or Name"], df_county["age_group"])
+    )
     school_selected = new_school_options[0]
     
     return new_school_options, school_selected
 
 @callback(
      Output('vax_rate', 'value'),
-     [Input('school-dropdown', 'value'),
-      Input('county-dropdown', 'value')#,
+     [Input('school-dropdown', 'value')#,
+      #Input('county-dropdown', 'value')#,
       ]
 )
 
-def update_school_vax_rate(school, county):
-    df_school = df.loc[
-        (df['County'] == county) & 
-        (df['School District or Name'] == school)# &
-        ]
-    school_vax_rate_pct = df_school['MMR_Vaccination_Rate'].values[0]
-    school_vax_rate = float(school_vax_rate_pct.replace('%', ''))
-    
-        
-    return school_vax_rate
+def update_school_vax_rate(school_with_age): #county):
+    school, age_group = school_with_age.split(' (')
+    age_group = age_group.rstrip(")")
 
+    df_school = df.loc[
+        #(df['County'] == county) & 
+        (df['School District or Name'] == school) &
+        (df['age_group'] == age_group)
+        ]
+    
+    if not df_school.empty:
+        school_vax_rate_pct = df_school['MMR_Vaccination_Rate'].values[0]
+        school_vax_rate = float(school_vax_rate_pct.replace('%', ''))
+        return school_vax_rate
+    else:
+        school_vax_rate = 85
+    
 if __name__ == '__main__':
     app.run(debug=False, host='0.0.0.0')
