@@ -17,7 +17,7 @@ import measles_single_population as msp
 import subprocess
 
 df = pd.read_csv('TX_MMR_vax_rate.csv')
-df = df.loc[df['age_group'] == 'Kindergarten'].copy()
+# df = df.loc[df['age_group'] == 'Kindergarten'].copy()
 
 initial_county = 'Travis'
 states = ["Texas"]
@@ -54,10 +54,35 @@ county_dropdown = html.Div(
     style={'fontFamily':'Sans-serif', 'font-size':'16pt','whiteSpace': 'nowrap', 'overflow':'visible'}
 )
 
+'''
+grade_dropdown = html.Div(
+    [
+        dbc.Label("Select Grade Level", html_for="grade_dropdown"),
+        dcc.Dropdown(
+            id="grade-dropdown",
+            options=sorted(df["age_group"].unique(), reverse=True),
+            value='Kindergarten',
+            clearable=False,
+            maxHeight=600,
+            optionHeight=50,
+            style={"whiteSpace": "nowrap", "width": "100%" },
+        ),
+    ],  className="mb-4",
+    style={'fontFamily':'Sans-serif', 'font-size':'16pt',
+           'whiteSpace': 'nowrap', 'overflow':'visible'}
+)
+'''
+
 # df there should depend on the selected county
 df_county = df.loc[df['County'] == initial_county]
-school_options = sorted(df_county["School District or Name"].unique())
-initial_school = 'AUSTIN ISD'
+#school_options = sorted(df_county["School District or Name"].unique())
+
+school_options = sorted(
+    f"{name} ({age_group})"
+    for name, age_group in zip(df_county["School District or Name"], df_county["age_group"])
+)
+
+initial_school = 'AUSTIN ISD (Kindergarten)'
 
 if initial_school not in school_options:
     initial_school = school_options[0]
@@ -75,7 +100,7 @@ school_dropdown = html.Div(
             style={"whiteSpace": "nowrap", "width": "100%", 'font-size':'14pt'},
         ),
     ],  className="mb-4",
-    style={'fontFamily':'Sans-serif', 'font-size':'16pt', 'whiteSpace': 'nowrap', 'overflow':'visible'}
+    style={'fontFamily':'Sans-serif', 'font-size':'16pt', 'whiteSpace': 'normal', 'width': '100%'}
 )
 
 vaccination_rate_label = html.H4(
@@ -86,18 +111,9 @@ vaccination_rate_selector = dcc.Input(
             type='number',
             placeholder='Vaccination rate (%)',
             value=85,
+            min=0,
+            max=100,
             style={'display':'inline-block', 'fontFamily':'Sans-serif', 'font-size':'16pt', 'textAlign': 'center', 'width':'7ch'}
-        )
-
-I0_label = html.H4(
-    'Students Initially Infected',
-    style={'display':'inline-block', 'fontFamily':'Sans-serif', 'font-size':'18pt', 'whiteSpace': 'nowrap', 'overflow':'visible'})
-I0_selector = dcc.Input(
-            id='I0',
-            type='number',
-            placeholder='Number of students initially infected',
-            value=1.0,
-            style={'display': 'flex', 'flexDirection': 'column', 'margin-left':'auto', 'fontFamily':'Sans-serif', 'font-size':'16pt', 'textAlign': 'center', 'width':'6ch'}
         )
 
 school_size_label = html.H4(
@@ -109,6 +125,17 @@ school_size_selector = dcc.Input(
             placeholder='School enrollment (number of students)',
             value=500,
             style={'display': 'flex', 'flexDirection': 'column', 'fontFamily':'Sans-serif', 'font-size':'16pt', 'textAlign': 'center', 'width':'6ch'}
+        )
+
+I0_label = html.H4(
+    'Students Initially Infected',
+    style={'display':'inline-block', 'fontFamily':'Sans-serif', 'font-size':'18pt', 'whiteSpace': 'nowrap', 'overflow':'visible'})
+I0_selector = dcc.Input(
+            id='I0',
+            type='number',
+            placeholder='Number of students initially infected',
+            value=1.0,
+            style={'display': 'flex', 'flexDirection': 'column', 'margin-left':'auto', 'fontFamily':'Sans-serif', 'font-size':'16pt', 'textAlign': 'center', 'width':'6ch'}
         )
 
 R0_label = html.H4([
@@ -220,9 +247,10 @@ accordion_vax = dbc.Accordion(
             dbc.AccordionItem(
                 html.Div(
                     [
-                        dbc.Col(html.Div(state_dropdown),className="mb-2"),
-                        dbc.Col(html.Div(county_dropdown),className="mb-2"),
-                        dbc.Col(html.Div(school_dropdown),className="mb-2"),
+                        dbc.Col(html.Div(state_dropdown),className="mb-2 p-0"),
+                        dbc.Col(html.Div(county_dropdown),className="mb-2 p-0"),
+                        dbc.Col(html.Div(school_dropdown),className="mb-2 p-0"),
+                        #dbc.Col(html.Div(grade_dropdown),className="mb-2"),
                     ]
                 ),
                 title="School Lookup ▾ ", 
@@ -305,8 +333,6 @@ app.layout = dbc.Container(
                                         html.Div(vaccination_rate_selector), html.Div(" OR ", style={"font-size": "16pt", "margin-top": "0.5em", "margin-bottom": "0.5em"}),
                                         html.Div(accordion_vax, style={"width":"100%", "textAlign": "center"}),
                                         ], className="d-flex flex-column align-items-center"),
-                                    #dbc.Col(html.Div(vaccination_rate_selector), style={"font-size": "16pt"}),
-                                    #dbc.Col(accordion_vax, style={"font-size": "16pt", "padding": "none"}),
                                  ], style={"border-bottom": "2px solid black", "margin-right":"0.2em"}),
 
                                 html.Br(),
@@ -330,7 +356,6 @@ app.layout = dbc.Container(
         # Outcomes section
          html.H3("School Outbreak Projections", style={"text-align": "center", "margin-top": "0.8em","font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "24pt", "font-weight":"500"}),
          html.H3("Projections assume no interventions and no breakthrough infections in vaccinated students. They do not account for infections of non-students in the surrounding community.", style={"text-align": "center", "font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "12pt", "font-weight":"400", "font-style": "italic", "line-height": "1"}),
-         #html.H3("In the statistics below, an “outbreak” is defined as any simulation with at least 20 new infections beyond the initial cases",style={"text-align": "center", "font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "14pt", "font-weight":"400", "font-style": "italic", "margin":"none"}),
          html.Br(), 
           dbc.Row(
             [
@@ -343,10 +368,9 @@ app.layout = dbc.Container(
                                 html.Div(
                                     [
                                         dcc.Markdown(id='outbreak', 
-                                                    children='Chance of an outbreak', 
+                                                    children='Chance of exceeding 20 new infections', 
                                                     style={'color': '#black', 'fontWeight': '500', 'font-size': '22pt', "margin":"none"}
                                         ),
-                                        dcc.Markdown("*exceeding 20 new infections*", style={'font-size': '16pt', "margin":"none"}),
                                         dcc.Markdown(id='p_20_pct', 
                                                     style={'color': '#bf5700', 'fontWeight': '800', 'font-size': '23pt', 'margin-top':'0.5em'}
                                         ),
@@ -376,6 +400,7 @@ app.layout = dbc.Container(
                                                     children='Likely outbreak size', 
                                                     style={'color': '#black', 'fontWeight': '500', 'font-size': '22pt', 'margin':'none'}
                                         ),
+                                        dcc.Markdown("*if exceeds 20 new infections*", style={'font-size': '16pt', "margin":"none"}),
                                         dcc.Markdown(id='cases_expected_over_20', 
                                                     style={'color': '#bf5700', 'fontWeight': '800', 'font-size':'23pt', 'margin-top':'0.5em'}
                                         ),
@@ -406,11 +431,11 @@ app.layout = dbc.Container(
                             html.H3("This graph shows 20 plausible school outbreak curves.", style={"text-align": "center", "margin-top": "1em", "margin-bottom":"1em", "margin-left": "1.8em", "font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "14pt", "font-weight":"400", "font-style": "italic"}),
                             dcc.Graph(id="spaghetti_plot"),
                         ]),
-                        style={'border':'none'}, 
+                        style={'border':'none', 'padding': '0'}, 
                     ),
             #width=12,# set width to 12 for all screen sizes
         ),
-            ], style={"border-top": "2px solid black", "border-left":"1em", "height": "100%", "width": "100%", "margin-top": "1em"}), 
+            ], style={"border-top": "2px solid black", "border-left":"1em", "padding":"none", "height": "60%", "width": "100%", "margin-top": "1em"}), 
         ], className="col-xl-9"),
     ]),  
 
@@ -435,13 +460,13 @@ app.layout = dbc.Container(
         html.A("Values are estimated from 200 stochastic simulations as follows."),
         html.Ul([
             html.Li([html.I("Chance of an outbreak"), html.A([" – The proportion of 200 simulations in which at least 20 additional students become infected, not counting the initial cases."])]),
-            html.Li([html.I("Likely outbreak size"), " – For each simulation that results in at least 20 additional infections, the total number of students infected (including the initially infected) is calculated. The reported range (2.5th to 97.5th percentile) reflects the central 95% of these total infection counts.", html.Br(style={"margin": "0", "padding": "0"})]),
+            html.Li([html.I("Likely outbreak size"), " – For each simulation that results in at least 20 additional infections, the total number of students infected is calculated, including the students initially infected. The reported range reflects the middle 95% of these values (i.e., the 2.5th to 97.5th percentile).", html.Br(style={"margin": "0", "padding": "0"})]),
         ], style={"margin-bottom": "1em"}),
         html.A("PROJECTIONS: ", style={"fontWeight": "bold", "fontSize": "18px"}),
         html.A("The 20 curves in the graph correspond to 20 independent simulations selected at random from 200 stochastic simulations. The y-axis values are seven-day moving averages of the total number of people infected (both exposed and infectious cases). The highlighted curve corresponds to the simulation that produced a total outbreak size closest to the median across the 200 simulations."),
         html.Ul("", style={"margin-bottom": "1em"}),
         html.A("VACCINE RATES: ", style={"fontWeight": "bold", "fontSize": "18px"}),
-        html.A("The School Lookup menu gives the percent of kindergarten students who are completely vaccinated for MMR, as reported by the Texas Department of Health and Human Services for the 2023-2024 school year ["),
+        html.A("The School Lookup menu gives the percent of kindergarten and 7th grade students who are completely vaccinated for MMR, as reported by the Texas Department of Health and Human Services for the 2023-2024 school year ["),
         html.A("DSHS 2023-2024 Annual Report of Immunization Status", href="https://www.dshs.texas.gov/immunizations/data/school/coverage", target="_blank", style={"color": "#1b96bf", "textDecoration": "none"}),
         html.A("]."),
         html.Ul("", style={"margin-bottom": "1em"}),
@@ -523,8 +548,7 @@ def update_graph(school_size, vax_rate, I0, R0, latent_period, infectious_period
     df_spaghetti_infected = stochastic_sim.df_spaghetti_infected
     df_spaghetti_infected_ma = stochastic_sim.df_spaghetti_infected_ma
     index_sim_closest_median = stochastic_sim.index_sim_closest_median
-    
-    # light_grey = px.colors.qualitative.Pastel2[-1]
+
     light_grey = 'rgb(220, 220, 220)'
     
     color_map = {
@@ -544,9 +568,6 @@ def update_graph(school_size, vax_rate, I0, R0, latent_period, infectious_period
         df_spaghetti_infected_ma.loc[df_spaghetti_infected_ma['simulation_idx'].isin(sample_idx)],
         df_spaghetti_infected_ma.loc[df_spaghetti_infected_ma['simulation_idx'] == index_sim_closest_median]
         ])
-
-    # print(df_plot) 
-    # df_plot.to_csv("df_plot_output.csv", index=False)
         
     fig = px.line(
         df_plot,
@@ -640,28 +661,37 @@ def update_graph(school_size, vax_rate, I0, R0, latent_period, infectious_period
 )
 def update_school_selector(county):
     df_county = df.loc[df['County'] == county]
-    new_school_options = sorted(df_county["School District or Name"].unique())
+    new_school_options = sorted(
+    f"{name} ({age_group})"
+    for name, age_group in zip(df_county["School District or Name"], df_county["age_group"])
+    )
     school_selected = new_school_options[0]
     
     return new_school_options, school_selected
 
 @callback(
      Output('vax_rate', 'value'),
-     [Input('school-dropdown', 'value'),
-      Input('county-dropdown', 'value')#,
+     [Input('school-dropdown', 'value')#,
+      #Input('county-dropdown', 'value')#,
       ]
 )
-def update_school_vax_rate(school, county):
-    df_school = df.loc[
-        (df['County'] == county) & 
-        (df['School District or Name'] == school)# &
-        ]
-    school_vax_rate_pct = df_school['MMR_Vaccination_Rate'].values[0]
-    school_vax_rate = float(school_vax_rate_pct.replace('%', ''))
-    
-        
-    return school_vax_rate
-    
 
+def update_school_vax_rate(school_with_age): #county):
+    school, age_group = school_with_age.split(' (')
+    age_group = age_group.rstrip(")")
+
+    df_school = df.loc[
+        #(df['County'] == county) & 
+        (df['School District or Name'] == school) &
+        (df['age_group'] == age_group)
+        ]
+    
+    if not df_school.empty:
+        school_vax_rate_pct = df_school['MMR_Vaccination_Rate'].values[0]
+        school_vax_rate = float(school_vax_rate_pct.replace('%', ''))
+        return school_vax_rate
+    else:
+        school_vax_rate = 85
+    
 if __name__ == '__main__':
     app.run(debug=False, host='0.0.0.0')
