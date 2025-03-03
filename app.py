@@ -355,7 +355,9 @@ app.layout = dbc.Container(
         dbc.Col([
         # Outcomes section
          html.H3("School Outbreak Projections", style={"text-align": "center", "margin-top": "0.8em","font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "24pt", "font-weight":"500"}),
-         html.H3("Projections assume no interventions and no breakthrough infections in vaccinated students. They do not account for infections of non-students in the surrounding community.", style={"text-align": "center", "font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "12pt", "font-weight":"400", "font-style": "italic", "line-height": "1"}),
+        html.H3("Projections assume no interventions and no breakthrough infections among vaccinated students, ", style={"text-align": "center", "font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "12pt", "font-weight":"400", "font-style": "italic", "line-height": "0.6"}),
+        html.H3("and they do not account for infections among non-students in the surrounding community. ", style={"text-align": "center", "font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "12pt", "font-weight":"400", "font-style": "italic", "line-height": "0.6"}), 
+        html.H3("Active measles control measures could lead to substantially smaller and shorter outbreaks than these projections suggest.", style={"text-align": "center", "font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "12pt", "font-weight":"400", "font-style": "italic", "line-height": "0.6"}),
          html.Br(), 
           dbc.Row(
             [
@@ -369,10 +371,10 @@ app.layout = dbc.Container(
                                     [
                                         dcc.Markdown(id='outbreak', 
                                                     children='Chance of exceeding 20 new infections', 
-                                                    style={'color': '#black', 'fontWeight': '500', 'font-size': '22pt', "margin":"none"}
+                                                    style={'color': '#black', 'fontWeight': '500', 'font-size': '20pt', "margin":"none"}
                                         ),
                                         dcc.Markdown(id='p_20_pct', 
-                                                    style={'color': '#bf5700', 'fontWeight': '800', 'font-size': '23pt', 'margin-top':'0.5em'}
+                                                    style={'color': '#bf5700', 'fontWeight': '800', 'font-size': '22pt', 'margin-top':'0.5em'}
                                         ),
                                     ],
                                     style={
@@ -398,11 +400,11 @@ app.layout = dbc.Container(
                                     [
                                         dcc.Markdown(id='cases', 
                                                     children='Likely outbreak size', 
-                                                    style={'color': '#black', 'fontWeight': '500', 'font-size': '22pt', 'margin':'none'}
+                                                    style={'color': '#black', 'fontWeight': '500', 'font-size': '20pt', 'margin':'none'}
                                         ),
-                                        dcc.Markdown("*if exceeds 20 new infections*", style={'font-size': '16pt', "margin":"none"}),
+                                        dcc.Markdown("*if exceeds 20 new infections*", style={'font-size': '14pt', "margin":"none"}),
                                         dcc.Markdown(id='cases_expected_over_20', 
-                                                    style={'color': '#bf5700', 'fontWeight': '800', 'font-size':'23pt', 'margin-top':'0.5em'}
+                                                    style={'color': '#bf5700', 'fontWeight': '800', 'font-size':'22pt', 'margin-top':'0.5em'}
                                         ),
                                     ],
                                     style={
@@ -442,6 +444,11 @@ app.layout = dbc.Container(
     html.Br(),
 
     html.Div([
+        html.A("MEASLES VACCINATION:", style={"fontWeight": "bold", "fontSize": "18px"}),
+        html.A(" For additional information about measles vaccines, visit the "),
+        html.A("CDC's MMR vaccination webpage", href="https://www.cdc.gov/vaccines/vpd/mmr/public/index.html", target="_blank", style={"color": "#1b96bf", "textDecoration": "none"}),
+        html.A("."),
+        html.Ul("", style={"margin-bottom": "1em"}),
         html.A("MODEL: ", style={"fontWeight": "bold", "fontSize": "18px"}),
         html.A(["This dashboard uses a simple stochastic compartmental susceptible-exposed-infectious-removed (SEIR) model. The model only considers infections of students enrolled in the school and assumes that fully vaccinated students cannot be infected. The default parameters are based on estimates that are widely used by public health agencies: (1) a basic reproduction number (", html.I([html.A(["R", html.Sub("0")])])," ) of 15 ["]),
         html.A("ECDC’s Factsheet about measles", href="https://www.ecdc.europa.eu/en/measles/facts", target="_blank", style={"color": "#1b96bf", "textDecoration": "none"}),
