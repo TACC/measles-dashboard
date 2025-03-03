@@ -100,7 +100,7 @@ school_dropdown = html.Div(
             style={"whiteSpace": "nowrap", "width": "100%", 'font-size':'14pt'},
         ),
     ],  className="mb-4",
-    style={'fontFamily':'Sans-serif', 'font-size':'16pt', 'whiteSpace': 'nowrap', 'overflow':'visible'}
+    style={'fontFamily':'Sans-serif', 'font-size':'16pt', 'whiteSpace': 'normal', 'width': '100%'}
 )
 
 vaccination_rate_label = html.H4(
@@ -111,18 +111,9 @@ vaccination_rate_selector = dcc.Input(
             type='number',
             placeholder='Vaccination rate (%)',
             value=85,
+            min=0,
+            max=100,
             style={'display':'inline-block', 'fontFamily':'Sans-serif', 'font-size':'16pt', 'textAlign': 'center', 'width':'7ch'}
-        )
-
-I0_label = html.H4(
-    'Students Initially Infected',
-    style={'display':'inline-block', 'fontFamily':'Sans-serif', 'font-size':'18pt', 'whiteSpace': 'nowrap', 'overflow':'visible'})
-I0_selector = dcc.Input(
-            id='I0',
-            type='number',
-            placeholder='Number of students initially infected',
-            value=1.0,
-            style={'display': 'flex', 'flexDirection': 'column', 'margin-left':'auto', 'fontFamily':'Sans-serif', 'font-size':'16pt', 'textAlign': 'center', 'width':'6ch'}
         )
 
 school_size_label = html.H4(
@@ -134,6 +125,17 @@ school_size_selector = dcc.Input(
             placeholder='School enrollment (number of students)',
             value=500,
             style={'display': 'flex', 'flexDirection': 'column', 'fontFamily':'Sans-serif', 'font-size':'16pt', 'textAlign': 'center', 'width':'6ch'}
+        )
+
+I0_label = html.H4(
+    'Students Initially Infected',
+    style={'display':'inline-block', 'fontFamily':'Sans-serif', 'font-size':'18pt', 'whiteSpace': 'nowrap', 'overflow':'visible'})
+I0_selector = dcc.Input(
+            id='I0',
+            type='number',
+            placeholder='Number of students initially infected',
+            value=1.0,
+            style={'display': 'flex', 'flexDirection': 'column', 'margin-left':'auto', 'fontFamily':'Sans-serif', 'font-size':'16pt', 'textAlign': 'center', 'width':'6ch'}
         )
 
 R0_label = html.H4([
@@ -245,9 +247,9 @@ accordion_vax = dbc.Accordion(
             dbc.AccordionItem(
                 html.Div(
                     [
-                        dbc.Col(html.Div(state_dropdown),className="mb-2"),
-                        dbc.Col(html.Div(county_dropdown),className="mb-2"),
-                        dbc.Col(html.Div(school_dropdown),className="mb-2"),
+                        dbc.Col(html.Div(state_dropdown),className="mb-2 p-0"),
+                        dbc.Col(html.Div(county_dropdown),className="mb-2 p-0"),
+                        dbc.Col(html.Div(school_dropdown),className="mb-2 p-0"),
                         #dbc.Col(html.Div(grade_dropdown),className="mb-2"),
                     ]
                 ),
@@ -464,7 +466,7 @@ app.layout = dbc.Container(
         html.A("The 20 curves in the graph correspond to 20 independent simulations selected at random from 200 stochastic simulations. The y-axis values are seven-day moving averages of the total number of people infected (both exposed and infectious cases). The highlighted curve corresponds to the simulation that produced a total outbreak size closest to the median across the 200 simulations."),
         html.Ul("", style={"margin-bottom": "1em"}),
         html.A("VACCINE RATES: ", style={"fontWeight": "bold", "fontSize": "18px"}),
-        html.A("The School Lookup menu gives the percent of kindergarten students who are completely vaccinated for MMR, as reported by the Texas Department of Health and Human Services for the 2023-2024 school year ["),
+        html.A("The School Lookup menu gives the percent of kindergarten and 7th grade students who are completely vaccinated for MMR, as reported by the Texas Department of Health and Human Services for the 2023-2024 school year ["),
         html.A("DSHS 2023-2024 Annual Report of Immunization Status", href="https://www.dshs.texas.gov/immunizations/data/school/coverage", target="_blank", style={"color": "#1b96bf", "textDecoration": "none"}),
         html.A("]."),
         html.Ul("", style={"margin-bottom": "1em"}),

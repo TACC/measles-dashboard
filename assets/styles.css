@@ -38,3 +38,5 @@ button.accordion-button:hover {
     box-shadow: none !important;      /* Removes Bootstrap shadow */
     border: none !important;          /* Removes unwanted borders */
 }
+
+.VirtualizedSelectOption { white-space: nowrap; overflow: scroll; text-overflow: ellipsis; }
