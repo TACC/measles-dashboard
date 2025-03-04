@@ -300,7 +300,7 @@ app.layout = dbc.Container(
                                     html.Div(I0_label), 
                                     html.Div(I0_selector),
                                     ], className="d-flex flex-column align-items-center"),
-                                    html.Div(id='warning', style={"color": "red", "font-size": "12"}),
+                                    html.Div(id='warning', style={"color": "red", "font-size": "12"}, className="d-flex flex-column align-items-center"),
                             ], className="d-flex flex-column align-items-center mb-2"),
 
                             dbc.Row([
@@ -656,7 +656,7 @@ def enforce_max_I0(I0, school_size):
         return I0, ""
 
     if I0 > school_size:
-        return 1, "Initial number infected exceeds number of unvaccinated students."
+        return 0, "Initial number infected exceeds number of unvaccinated students."
 
     return I0, ""
 
