@@ -115,6 +115,7 @@ I0_selector = dcc.Input(
             type='number',
             placeholder='Number of students initially infected',
             value=1.0,
+            min=0,
             debounce=False,
             style={'display': 'flex', 'flexDirection': 'column', 'margin-left':'auto', 'fontFamily':'Sans-serif', 'font-size':'16pt', 'textAlign': 'center', 'width':'6ch'}
         )
@@ -550,7 +551,8 @@ def update_graph(school_size, vax_rate, I0, R0, latent_period, infectious_period
         x for x in df_spaghetti_infected_ma['simulation_idx'].unique()
         if x != index_sim_closest_median
         ]
-    sample_idx = np.random.choice(possible_idx, nb_curves_displayed, replace=False)
+        
+    sample_idx = np.random.Generator(np.random.MT19937(12345)).choice(possible_idx, nb_curves_displayed, replace=False)
     
     df_plot = pd.concat([
         df_spaghetti_infected_ma.loc[df_spaghetti_infected_ma['simulation_idx'].isin(sample_idx)],
