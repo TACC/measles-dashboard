@@ -713,4 +713,4 @@ def update_school_vax_rate(school_with_age): #county):
         school_vax_rate = 85
     
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0')
+    app.run(debug=False, host='0.0.0.0')
