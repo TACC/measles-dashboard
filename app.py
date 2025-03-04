@@ -104,6 +104,7 @@ school_size_selector = dcc.Input(
             type='number',
             placeholder='School enrollment (number of students)',
             value=500,
+            debounce=False,
             style={'display': 'flex', 'flexDirection': 'column', 'fontFamily':'Sans-serif', 'font-size':'16pt', 'textAlign': 'center', 'width':'6ch'}
         )
 
@@ -228,6 +229,7 @@ accordion_vax = dbc.Accordion(
             dbc.AccordionItem(
                 html.Div(
                     [
+                        html.H3("ISD vaccination rates are district-wide averages; individual schools may have significantly lower or higher rates.", style={"text-align": "center", "font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "12pt", "font-weight":"400", "font-style": "italic", "line-height": "1"}), 
                         dbc.Col(html.Div(state_dropdown),className="mb-2 p-0"),
                         dbc.Col(html.Div(county_dropdown),className="mb-2 p-0"),
                         dbc.Col(html.Div(school_dropdown),className="mb-2 p-0"),
@@ -653,7 +655,7 @@ def enforce_max_I0(I0, school_size):
         return I0, ""
 
     if I0 > school_size:
-        return school_size, "Initial number of infected students cannot exceed school enrollment."
+        return 1, "Initial number infected exceeds number of unvaccinated students."
 
     return I0, ""
 
