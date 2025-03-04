@@ -7,7 +7,7 @@ Updated on Thu Feb 20 1:55:00 2025
 @author: rfp437
 """
 import dash
-from dash import Dash, html, dcc, callback, Output, Input#, State, Patch
+from dash import Dash, html, dcc, callback, Output, Input, State # Patch
 import plotly.express as px
 import pandas as pd
 import numpy as np
@@ -54,28 +54,8 @@ county_dropdown = html.Div(
     style={'fontFamily':'Sans-serif', 'font-size':'16pt','whiteSpace': 'nowrap', 'overflow':'visible'}
 )
 
-'''
-grade_dropdown = html.Div(
-    [
-        dbc.Label("Select Grade Level", html_for="grade_dropdown"),
-        dcc.Dropdown(
-            id="grade-dropdown",
-            options=sorted(df["age_group"].unique(), reverse=True),
-            value='Kindergarten',
-            clearable=False,
-            maxHeight=600,
-            optionHeight=50,
-            style={"whiteSpace": "nowrap", "width": "100%" },
-        ),
-    ],  className="mb-4",
-    style={'fontFamily':'Sans-serif', 'font-size':'16pt',
-           'whiteSpace': 'nowrap', 'overflow':'visible'}
-)
-'''
-
 # df there should depend on the selected county
 df_county = df.loc[df['County'] == initial_county]
-#school_options = sorted(df_county["School District or Name"].unique())
 
 school_options = sorted(
     f"{name} ({age_group})"
@@ -135,6 +115,7 @@ I0_selector = dcc.Input(
             type='number',
             placeholder='Number of students initially infected',
             value=1.0,
+            debounce=False,
             style={'display': 'flex', 'flexDirection': 'column', 'margin-left':'auto', 'fontFamily':'Sans-serif', 'font-size':'16pt', 'textAlign': 'center', 'width':'6ch'}
         )
 
@@ -241,7 +222,6 @@ footer = dbc.Container(
 )
 
 # Define the accordion separately
-
 accordion_vax = dbc.Accordion(
         [
             dbc.AccordionItem(
@@ -250,7 +230,6 @@ accordion_vax = dbc.Accordion(
                         dbc.Col(html.Div(state_dropdown),className="mb-2 p-0"),
                         dbc.Col(html.Div(county_dropdown),className="mb-2 p-0"),
                         dbc.Col(html.Div(school_dropdown),className="mb-2 p-0"),
-                        #dbc.Col(html.Div(grade_dropdown),className="mb-2"),
                     ]
                 ),
                 title="School/District Lookup ▾ ", 
@@ -262,7 +241,6 @@ accordion_vax = dbc.Accordion(
         always_open=False,  # Ensures sections can be toggled independently
         active_item=[],  # Empty list means all sections are closed by default
 )
-
 
 # Define the accordion separately
 accordion = html.Div(
@@ -281,8 +259,7 @@ accordion = html.Div(
                     ]
                 ),
                 title="Change Parameters ▾",
-                style={"textAlign": "center"}  # Add this line to center the text
-                
+                style={"textAlign": "center"}  # Add this line to center the text 
             ),
         ],
         flush=True,
@@ -302,62 +279,59 @@ app.layout = dbc.Container(
     dbc.Row([
         # Left section
         dbc.Col(
-                    dbc.Card(
-                        dbc.CardBody(
-                            [
-                                html.H3("Model Inputs", style={"margin-left":"0.2em", "margin-top": "0.5em","font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "24pt", "font-weight":"500", "textAlign": "center"}, className="mt-2"),
-                                html.Br(),
-                                dbc.Row([
-                                    dbc.Col([ 
-                                        html.Div(school_size_label), 
-                                        html.Div(school_size_selector),
-                                        ], className="d-flex flex-column align-items-center"),
-                                ], className="d-flex flex-column align-items-center mb-2"),
-
-                                dbc.Row([
-                                     dbc.Col([ 
-                                        html.Div(I0_label), 
-                                        html.Div(I0_selector),
-                                        ], className="d-flex flex-column align-items-center"),
-                                ], className="d-flex flex-column align-items-center mb-2"),
-
-                                dbc.Row([
-                                    dbc.Col(html.Div(vaccination_rate_label), className="d-flex flex-column align-items-center"),
-                            ]),
+                dbc.Card(
+                    dbc.CardBody(
+                        [
+                            html.H3("Model Inputs", style={"margin-left":"0.2em", "margin-top": "0.5em","font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "24pt", "font-weight":"500", "textAlign": "center"}, className="mt-2"),
+                            html.Br(),
+                            dbc.Row([
+                                dbc.Col([ 
+                                    html.Div(school_size_label), 
+                                    html.Div(school_size_selector),
+                                    ], className="d-flex flex-column align-items-center"),
+                            ], className="d-flex flex-column align-items-center mb-2"),
 
                             dbc.Row([
-                                #html.H3("Enter value or select from lookup", className="align-items-center", style={"text-align": "center", "font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "12pt", "font-weight":"400", "font-style": "italic", "line-height": "1"}),
-                                dbc.Col([
-                                    html.H3("Enter value or select from Lookup.", style={"text-align": "center", "font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "12pt", "font-weight":"400", "font-style": "italic", "line-height": "1"}),
-                                    html.H3("Update School Enrollment above.", style={"text-align": "center", "font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "12pt", "font-weight":"400", "font-style": "italic", "line-height": "1"}), 
-                                ]),
-                                #dbc.Col(html.I("Update School Enrollment above."), style={"font-size": "16pt", "margin-top": "0.5em", "margin-bottom": "0.5em"}),className="d-flex flex-column align-items-center"),
-                            ]),
-                            
-                                dbc.Row([
                                     dbc.Col([ 
-                                        html.Div(vaccination_rate_selector), html.Div(" OR ", style={"font-size": "16pt", "margin-top": "0.5em", "margin-bottom": "0.5em"}),
-                                        html.Div(accordion_vax, style={"width":"100%", "textAlign": "center"}),
-                                        ], className="d-flex flex-column align-items-center"),
-                                 ], style={"border-bottom": "2px solid black", "margin-right":"0.2em"}),
+                                    html.Div(I0_label), 
+                                    html.Div(I0_selector),
+                                    ], className="d-flex flex-column align-items-center"),
+                                    html.Div(id='warning', style={"color": "red", "font-size": "12"}),
+                            ], className="d-flex flex-column align-items-center mb-2"),
 
-                                html.Br(),
-                                html.H3("Epidemic Parameters", style={"margin-left":"0.2em", "margin-top": "0.5em","font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "24pt", "font-weight":"500", "textAlign": "center"}),
-                                html.Br(),
-                                dbc.Row(dbc.Col(html.I("Caution – Default values reflect published estimates. Significant changes may result in inaccurate projections."),className="mb-2 align-items-center", style={"font-size": "14pt", "textAlign":"center"})),
+                            dbc.Row([
+                                dbc.Col(html.Div(vaccination_rate_label), className="d-flex flex-column align-items-center"),
+                        ]),
 
-                                dbc.Row([
-                                    dbc.Col(accordion,className="mb-2"),
+                        dbc.Row([
+                            dbc.Col([
+                                html.H3("Enter value or select from Lookup.", style={"text-align": "center", "font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "12pt", "font-weight":"400", "font-style": "italic", "line-height": "1"}),
+                                html.H3("Update School Enrollment above.", style={"text-align": "center", "font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "12pt", "font-weight":"400", "font-style": "italic", "line-height": "1"}), 
                             ]),
-                            ]
-                        ),
-                        style={'border': 'none'}
-                    ),
-                    width=3, xs=12, sm=12, md=12, lg=12, xl=3,  
-                    style={"border-right": "2px solid black", "padding": "10px"}, 
-        ),
+                        ]),
+                        
+                            dbc.Row([
+                                dbc.Col([ 
+                                    html.Div(vaccination_rate_selector), html.Div(" OR ", style={"font-size": "16pt", "margin-top": "0.5em", "margin-bottom": "0.5em"}),
+                                    html.Div(accordion_vax, style={"width":"100%", "textAlign": "center"}),
+                                    ], className="d-flex flex-column align-items-center"),
+                                ], style={"border-bottom": "2px solid black", "margin-right":"0.2em"}),
 
-        # Right section 
+                            html.Br(),
+                            html.H3("Epidemic Parameters", style={"margin-left":"0.2em", "margin-top": "0.5em","font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "24pt", "font-weight":"500", "textAlign": "center"}),
+                            html.Br(),
+                            dbc.Row(dbc.Col(html.I("Caution – Default values reflect published estimates. Significant changes may result in inaccurate projections."),className="mb-2 align-items-center", style={"font-size": "14pt", "textAlign":"center"})),
+
+                            dbc.Row([
+                                dbc.Col(accordion,className="mb-2"),
+                        ]),
+                        ]
+                    ),
+                    style={'border': 'none'}
+                ),
+                width=3, xs=12, sm=12, md=12, lg=12, xl=3,  
+                style={"border-right": "2px solid black", "padding": "10px"}, 
+        ),
         dbc.Col([
         # Outcomes section
         html.H3("School Outbreak Projections", style={"text-align": "center", "margin-top": "0.8em","font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "24pt", "font-weight":"500"}),
@@ -366,7 +340,6 @@ app.layout = dbc.Container(
          html.Br(), 
           dbc.Row(
             [
-             
                # Chance of an Outbreak
                 dbc.Col(
                     dbc.Card(
@@ -393,7 +366,6 @@ app.layout = dbc.Container(
                         ),
                         style={'border':'none'}  
                     ),
-
                 ),
 
                 # Expected Outbreak Size
@@ -430,7 +402,6 @@ app.layout = dbc.Container(
 
             html.Br(),
 
-            # Bottom Component in the Right Section
             dbc.Row([
                  dbc.Col(
                     dbc.Card(
@@ -440,7 +411,6 @@ app.layout = dbc.Container(
                         ]),
                         style={'border':'none', 'padding': '0'}, 
                     ),
-            #width=12,# set width to 12 for all screen sizes
         ),
             ], style={"border-top": "2px solid black", "border-left":"1em", "padding":"none", "height": "60%", "width": "100%", "margin-top": "1em"}), 
         ], className="col-xl-9"),
@@ -494,15 +464,14 @@ app.layout = dbc.Container(
         html.A("This dashboard was developed with support from the CDC’s Center for Forecasting and Outbreak Analytics.", style={"fontSize": "18px", "font-style": "italic"}),
     ],
     style={
-        "backgroundColor": "#eaebec",  # Gray background
-        "color": "black",  # White text color
+        "backgroundColor": "#eaebec",  
+        "color": "black", 
         "padding": "10px",
         "textAlign": "left",
         "marginBottom": "10px",
         "fontSize": "18px"
     }),
     
-
    dbc.Row([
         dbc.Col(html.Div([
             html.P("©2025 ", style={"display": "inline", "font-size": "11px", "color": "#ffffff"}),
@@ -529,7 +498,6 @@ app.layout = dbc.Container(
      Input('infectious_period', 'value')]
 )
 def update_graph(school_size, vax_rate, I0, R0, latent_period, infectious_period):
-    
     if school_size is None:
         school_size = 500
         
@@ -673,6 +641,22 @@ def update_graph(school_size, vax_rate, I0, R0, latent_period, infectious_period
     return fig, outbreak_over_20, cases_expected_over_20
 
 @callback(
+    [Output('I0','value'),
+    Output('warning','children')],
+    [Input('I0','value')],
+    [State('school_size','value')]
+)
+
+def enforce_max_I0(I0, school_size):
+    if school_size is None or I0 is None:
+        return I0, ""
+
+    if I0 > school_size:
+        return school_size, "Initial number of infected students cannot exceed school enrollment."
+
+    return I0, ""
+
+@callback(
      [Output('school-dropdown', 'options'),
       Output('school-dropdown', 'value')#,
       ],
@@ -691,9 +675,7 @@ def update_school_selector(county):
 
 @callback(
      Output('vax_rate', 'value'),
-     [Input('school-dropdown', 'value')#,
-      #Input('county-dropdown', 'value')#,
-      ]
+     [Input('school-dropdown', 'value')]
 )
 
 def update_school_vax_rate(school_with_age): #county):
