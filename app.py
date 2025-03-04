@@ -485,11 +485,11 @@ app.layout = dbc.Container(
         html.A("ADDITIONAL DETAILS: ", style={"fontWeight": "bold", "fontSize": "18px"}),
         html.A("epiENGAGE Measles Outbreak Simulator - Model Details", href="/assets/epiENGAGE_Measles_Outbreak_Simulator–Model Details-2025.pdf", target="_blank", style={"color": "#1b96bf", "textDecoration": "none"}),
         html.Ul("", style={"margin-bottom": "1em"}),
-        html.A("For questions, please contact ", style={"fontSize": "18px"}),
-        html.A("utpandemics@austin.utexas.edu", href="mailto:utpandemics@austin.utexas.edu", target="_blank", style={"color": "#1b96bf", "textDecoration": "none"}),
+        html.A("For questions, please contact ", style={"fontSize": "18px", "font-style": "italic"}),
+        html.A("utpandemics@austin.utexas.edu", href="mailto:utpandemics@austin.utexas.edu", target="_blank", style={"color": "#1b96bf", "textDecoration": "none", "font-style": "italic"}),
         html.A("."),
         html.Ul("", style={"margin-bottom": "1em"}),
-        html.A("This dashboard was developed with support from the CDC’s Center for Forecasting and Outbreak Analytics.", style={"fontSize": "18px"}),
+        html.A("This dashboard was developed with support from the CDC’s Center for Forecasting and Outbreak Analytics.", style={"fontSize": "18px", "font-style": "italic"}),
     ],
     style={
         "backgroundColor": "#eaebec",  # Gray background
