@@ -299,7 +299,7 @@ app.layout = dbc.Container(
                                     dbc.Col([ 
                                     html.Div(I0_label), 
                                     html.Div(I0_selector),
-                                    html.Div(id='warning', style={"color": "red", "font-size": "12"}, className="d-flex flex-column align-items-center"),
+                                    html.Div(id='warning', style={"color": "red", "font-size": "12", "text-align":"center"}, className="d-flex flex-column align-items-center"),
                                     ], className="d-flex flex-column align-items-center"),
                             ], className="d-flex flex-column align-items-center mb-2"),
 
