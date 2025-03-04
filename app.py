@@ -426,9 +426,8 @@ app.layout = dbc.Container(
         html.A("."),
         html.Ul("", style={"margin-bottom": "1em"}),
         html.A("MODEL: ", style={"fontWeight": "bold", "fontSize": "18px"}),
-        html.A("This dashboard uses a simple stochastic compartmental susceptible-exposed-infectious-removed (SEIR) model. The model includes only enrolled students, assumes vaccinated individuals cannot become infected, and does not consider intervention measures. Variations between simulation runs are expected, as the model incorporates the inherent randomness and uncertainty found in real-world conditions."),
-        html.Ul("", style={"margin-bottom": "1em"}),
-        html.A(["The default parameters are based on estimates that are widely used by public health agencies: (1) a basic reproduction number (", html.I([html.A(["R", html.Sub("0")])])," ) of 15 ["]),       
+        html.A("This dashboard uses a simple stochastic compartmental susceptible-exposed-infectious-removed (SEIR) model. The model includes only enrolled students, assumes vaccinated individuals cannot become infected, and does not consider intervention measures."),
+        html.A([" The default parameters are based on estimates that are widely used by public health agencies: (1) a basic reproduction number (", html.I([html.A(["R", html.Sub("0")])])," ) of 15 ["]),       
         html.A("ECDC’s Factsheet about measles", href="https://www.ecdc.europa.eu/en/measles/facts", target="_blank", style={"color": "#1b96bf", "textDecoration": "none"}),
         html.A("], (2) an average latent period of 10.5 days ["),
         html.A("CDC’s Measles Clinical Diagnosis Fact Sheet", href="https://www.cdc.gov/measles/hcp/communication-resources/clinical-diagnosis-fact-sheet.html", target="_blank", style={"color": "#1b96bf", "textDecoration": "none"}),
@@ -551,7 +550,7 @@ def update_graph(school_size, vax_rate, I0, R0, latent_period, infectious_period
         x for x in df_spaghetti_infected_ma['simulation_idx'].unique()
         if x != index_sim_closest_median
         ]
-        
+
     sample_idx = np.random.Generator(np.random.MT19937(12345)).choice(possible_idx, nb_curves_displayed, replace=False)
     
     df_plot = pd.concat([
