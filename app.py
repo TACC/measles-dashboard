@@ -325,10 +325,14 @@ app.layout = dbc.Container(
                                     dbc.Col(html.Div(vaccination_rate_label), className="d-flex flex-column align-items-center"),
                             ]),
 
-                            dbc.Row(
-                                dbc.Col(html.I("Enter value or select from lookup"),className="d-flex flex-column align-items-center", style={"font-size": "12pt", "margin-bottom": "0.5em"}),
+                            dbc.Row([
+                                #html.H3("Enter value or select from lookup", className="align-items-center", style={"text-align": "center", "font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "12pt", "font-weight":"400", "font-style": "italic", "line-height": "1"}),
+                                dbc.Col([
+                                    html.H3("Enter value or select from Lookup", style={"text-align": "center", "font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "12pt", "font-weight":"400", "font-style": "italic", "line-height": "1"}),
+                                    html.H3("Update School Enrollment above.", style={"text-align": "center", "font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "12pt", "font-weight":"400", "font-style": "italic", "line-height": "1"}), 
+                                ]),
                                 #dbc.Col(html.I("Update School Enrollment above."), style={"font-size": "16pt", "margin-top": "0.5em", "margin-bottom": "0.5em"}),className="d-flex flex-column align-items-center"),
-                            ),
+                            ]),
                             
                                 dbc.Row([
                                     dbc.Col([ 
@@ -356,10 +360,10 @@ app.layout = dbc.Container(
         # Right section 
         dbc.Col([
         # Outcomes section
-         html.H3("School Outbreak Projections", style={"text-align": "center", "margin-top": "0.8em","font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "24pt", "font-weight":"500"}),
-        html.H3("Projections assume no interventions and no breakthrough infections among vaccinated students, ", style={"text-align": "center", "font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "12pt", "font-weight":"400", "font-style": "italic", "line-height": "0.8"}),
-        html.H3("and they do not account for infections among non-students in the surrounding community. ", style={"text-align": "center", "font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "12pt", "font-weight":"400", "font-style": "italic", "line-height": "0.8"}), 
-        html.H3("Active measles control measures could lead to substantially smaller and shorter outbreaks than these projections suggest.", style={"text-align": "center", "font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "12pt", "font-weight":"400", "font-style": "italic", "line-height": "0.8"}),
+        html.H3("School Outbreak Projections", style={"text-align": "center", "margin-top": "0.8em","font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "24pt", "font-weight":"500"}),
+        html.H3("Projections assume no interventions and no breakthrough infections among vaccinated students, ", style={"text-align": "center", "font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "12pt", "font-weight":"400", "font-style": "italic", "line-height": "1"}),
+        html.H3("and they do not account for infections among non-students in the surrounding community. ", style={"text-align": "center", "font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "12pt", "font-weight":"400", "font-style": "italic", "line-height": "1"}), 
+        html.H3("Active measles control measures could lead to substantially smaller and shorter outbreaks than these projections suggest.", style={"text-align": "center", "font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "12pt", "font-weight":"400", "font-style": "italic", "line-height": "1"}),
          html.Br(), 
           dbc.Row(
             [
@@ -481,6 +485,12 @@ app.layout = dbc.Container(
         html.Ul("", style={"margin-bottom": "1em"}),
         html.A("ADDITIONAL DETAILS: ", style={"fontWeight": "bold", "fontSize": "18px"}),
         html.A("epiENGAGE Measles Outbreak Simulator - Model Details", href="/assets/epiENGAGE_Measles_Outbreak_Simulator–Model Details-2025.pdf", target="_blank", style={"color": "#1b96bf", "textDecoration": "none"}),
+        html.Ul("", style={"margin-bottom": "1em"}),
+        html.A("For questions, please contact ", style={"fontSize": "18px"}),
+        html.A("utpandemics@austin.utexas.edu", href="mailto:utpandemics@austin.utexas.edu", target="_blank", style={"color": "#1b96bf", "textDecoration": "none"}),
+        html.A("."),
+        html.Ul("", style={"margin-bottom": "1em"}),
+        html.A("This dashboard was developed with support from the CDC’s Center for Forecasting and Outbreak Analytics.", style={"fontSize": "18px"}),
     ],
     style={
         "backgroundColor": "#eaebec",  # Gray background
