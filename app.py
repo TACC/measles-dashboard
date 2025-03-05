@@ -186,6 +186,12 @@ app = Dash(
 server = app.server
 app.title = f"epiENGAGE Measles Outbreak Simulator v-{version}"
 
+# Add inline script to initialize Google Analytics
+app.scripts.append_script({
+    'external_url': 'https://www.googletagmanager.com/gtag/js?id=G-QS2CT3051Y'
+})
+app.scripts.append_script({'external_url':'/assets/gtag.js'})
+
 # Navbar component
 navbar = dbc.Navbar(
     dbc.Container(
