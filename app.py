@@ -186,33 +186,6 @@ app = Dash(
 server = app.server
 app.title = f"epiENGAGE Measles Outbreak Simulator v-{version}"
 
-# Add Google Analytics script
-app.index_string = '''
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>epiENGAGE Measles Outbreak Simulator</title>
-        <!-- Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-QS2CT3051Y"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-QS2CT3051Y');
-        </script>
-        <!-- End Google Analytics -->
-    </head>
-    <body>
-        {%app_entry%}
-        <footer>
-            {%config%}
-            {%scripts%}
-            {%renderer%}
-        </footer>
-    </body>
-</html>
-'''
-
 # Navbar component
 navbar = dbc.Navbar(
     dbc.Container(
