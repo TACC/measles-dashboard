@@ -235,8 +235,8 @@ accordion_vax = dbc.Accordion(
             dbc.AccordionItem(
                 html.Div(
                     [
-                        html.H3("ISD vaccination rates are district-wide averages.", style={"text-align": "center", "font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "12pt", "font-weight":"400", "font-style": "italic", "line-height": "1"}), 
-                        html.H3("Individual schools may have much lower or higher rates.", style={"text-align": "center", "font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "12pt", "font-weight":"400", "font-style": "italic", "line-height": "1"}),
+                        html.H3("ISD rates are district averages.", style={"text-align": "center", "font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "12pt", "font-weight":"400", "font-style": "italic", "line-height": "1"}), 
+                        html.H3("Rates at individual schools may be higher or lower.", style={"text-align": "center", "font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "12pt", "font-weight":"400", "font-style": "italic", "line-height": "1"}),
                         dbc.Col(html.Div(state_dropdown),className="mb-2 p-0"),
                         dbc.Col(html.Div(county_dropdown),className="mb-2 p-0"),
                         dbc.Col(html.Div(school_dropdown),className="mb-2 p-0"),
