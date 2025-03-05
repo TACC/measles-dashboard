@@ -160,7 +160,8 @@ class MetapopulationSEPIR:
         self.I_to_R = np.zeros((self.n_steps, self.n_pop))
 
         # Set initial conditions
-        self.I[0] = np.array(params['I0'])
+        self.I[0] = np.array(params['I0'])  # Set initial conditions for infections
+        '''
         self.R[0] = [
             int(self.N[i_pop] * params['vaccinated_percent'][i_pop])
             for i_pop in range(self.n_pop)
@@ -169,7 +170,21 @@ class MetapopulationSEPIR:
             min(self.R[0, i_pop], self.N[i_pop] - self.I[0, i_pop])
             for i_pop in range(self.n_pop)
         ]
-        self.S[0] = self.N - self.I[0] - self.R[0]
+        '''
+        # Compute number of recovered (vaccinated students moved to R), ensuring integer values
+        self.R[0] = np.array([
+            int(round(self.N[i_pop] * params['vaccinated_percent'][i_pop]))  # Round to ensure whole number
+            for i_pop in range(self.n_pop)
+        ])
+
+        # Compute the max possible I0 based on un-vaccinated students remaining
+        for i_pop in range(self.n_pop):
+            self.max_unvax = self.N[i_pop] - self.R[0, i_pop]  # Max susceptible (N - vaccinated)
+            self.I[0, i_pop] = int(np.minimum(self.I[0, i_pop], self.max_unvax))
+
+        self.R[0] = np.minimum(self.R[0], self.N - self.I[0]) # Ensure R does not exceed available population
+
+        self.S[0] = self.N - self.I[0] - self.R[0] # Final initial susceptible from what remains after Infected and Vaccinated
 
         # Current step tracker
         self.current_step = 0
@@ -321,6 +336,22 @@ class StochasticSimulations:
     def run_stochastic_model(self):
 
         for i_sim in range(self.n_sim):
+
+            # For reproducibility, create a FIXED starting point
+            #   for the random number generator. Simulations and
+            #   random variables are still RANDOM (pseudorandom,
+            #   as all computer code is), but the random starting
+            #   point is the same. Therefore, the pseudorandomness
+            #   does NOT change after refreshing or re-running an experiment,
+            #   and results are truly reproducible.
+
+            # NOTE: creating a new random number generator for every
+            #   replication is actually REALLY slow. Here, we just use
+            #   ONE random number generator rather than a new jumped one
+            #   for each replication. Still fixes reproducibility.
+            #   Still draws independent random numbers (recall that
+            #   RNGs move in-place after spitting out random numbers --
+            #   so their next sample starts where things last left off.)
 
             # Create and run model
             model = MetapopulationSEPIR(self.params)
@@ -554,7 +585,7 @@ params = {
     'is_stochastic': True,  # False for deterministic,
     "RNG_starting_seed": 147125098488
 }
-n_sim = 200
+n_sim = 100
 
 # %% Main
 ##########
@@ -563,6 +594,6 @@ if __name__ == "__main__":
     run_deterministic_model(params)
 
     # Stochastic runs
-    n_sim = 200
+    n_sim = 100
     stochastic_sim = StochasticSimulations(
         params, n_sim, print_summary_stats=True, show_plots=True)
