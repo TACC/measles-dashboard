@@ -585,7 +585,7 @@ params = {
     'is_stochastic': True,  # False for deterministic,
     "RNG_starting_seed": 147125098488
 }
-n_sim = 100
+n_sim = 200
 
 # %% Main
 ##########
@@ -594,6 +594,6 @@ if __name__ == "__main__":
     run_deterministic_model(params)
 
     # Stochastic runs
-    n_sim = 100
+    n_sim = 200
     stochastic_sim = StochasticSimulations(
         params, n_sim, print_summary_stats=True, show_plots=True)
