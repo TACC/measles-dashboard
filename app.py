@@ -104,6 +104,7 @@ school_size_selector = dcc.Input(
             type='number',
             placeholder='School enrollment (number of students)',
             value=500,
+            debounce=False,
             style={'display': 'flex', 'flexDirection': 'column', 'fontFamily':'Sans-serif', 'font-size':'16pt', 'textAlign': 'center', 'width':'6ch'}
         )
 
@@ -185,6 +186,12 @@ app = Dash(
 server = app.server
 app.title = f"epiENGAGE Measles Outbreak Simulator v-{version}"
 
+# Add inline script to initialize Google Analytics
+app.scripts.append_script({
+    'external_url': 'https://www.googletagmanager.com/gtag/js?id=G-QS2CT3051Y'
+})
+app.scripts.append_script({'external_url':'/assets/gtag.js'})
+
 # Navbar component
 navbar = dbc.Navbar(
     dbc.Container(
@@ -228,13 +235,15 @@ accordion_vax = dbc.Accordion(
             dbc.AccordionItem(
                 html.Div(
                     [
+                        html.H3("ISD rates are district averages.", style={"text-align": "center", "font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "12pt", "font-weight":"400", "font-style": "italic", "line-height": "1"}), 
+                        html.H3("Rates at individual schools may be higher or lower.", style={"text-align": "center", "font-family":  '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', "font-size": "12pt", "font-weight":"400", "font-style": "italic", "line-height": "1"}),
                         dbc.Col(html.Div(state_dropdown),className="mb-2 p-0"),
                         dbc.Col(html.Div(county_dropdown),className="mb-2 p-0"),
                         dbc.Col(html.Div(school_dropdown),className="mb-2 p-0"),
                     ]
                 ),
                 title="School/District Lookup ▾ ", 
-                style={"font-size": "18pt", "width":"100%"}, 
+                style={"font-size": "18pt", "width":"100%", "margin":"none"}, 
                 className="m-0"
             ), 
         ],
@@ -296,8 +305,8 @@ app.layout = dbc.Container(
                                     dbc.Col([ 
                                     html.Div(I0_label), 
                                     html.Div(I0_selector),
+                                    html.Div(id='warning', style={"color": "red", "font-size": "12", "text-align":"center"}, className="d-flex flex-column align-items-center"),
                                     ], className="d-flex flex-column align-items-center"),
-                                    html.Div(id='warning', style={"color": "red", "font-size": "12"}),
                             ], className="d-flex flex-column align-items-center mb-2"),
 
                             dbc.Row([
@@ -653,7 +662,7 @@ def enforce_max_I0(I0, school_size):
         return I0, ""
 
     if I0 > school_size:
-        return school_size, "Initial number of infected students cannot exceed school enrollment."
+        return 0, "Initial number infected exceeds number of unvaccinated students."
 
     return I0, ""
 

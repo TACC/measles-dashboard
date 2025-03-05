@@ -6,7 +6,7 @@ button.accordion-button {
     white-space: nowrap !important;
     height: 1.8em;
     border: 1px solid black !important; /* Thinner border */
-    margin-bottom: 1.5em;
+    margin-bottom: 0.5em;
 }
 
 /* When Accordion is Open */
@@ -40,3 +40,7 @@ button.accordion-button:hover {
 }
 
 .VirtualizedSelectOption { white-space: nowrap; overflow: scroll; text-overflow: ellipsis; }
+
+.accordion-header {
+    margin: 0px;
+}
