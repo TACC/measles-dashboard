@@ -6,6 +6,11 @@ Updated on Thu Feb 20 1:55:00 2025
 
 @author: rfp437
 """
+
+# TODO: streamline the single population / multiple population stuff?
+#   Some confusing stuff... e.g. remembering that some parameters are actually
+#   a LIST (but of 1 element, for 1 subpopulation)
+
 from dash import Dash, html, dcc, callback, Output, Input, State  # Patch
 import plotly.express as px
 import pandas as pd
@@ -36,7 +41,7 @@ DASHBOARD_CONFIG = {
 
 msp.MSP_PARAMS["simulation_seed"] = DASHBOARD_CONFIG["simulation_seed"]
 
-INPUT_DEFAULTS = {
+DASHBOARD_INPUT_DEFAULTS = {
     'school_size': 500,
     'vax_rate': 0.0,
     'I0': 1,
@@ -110,7 +115,7 @@ school_dropdown = html.Div(
 )
 
 vaccination_rate_selector = dcc.Input(
-    id='vax_rate',
+    id='vax_rate_selector',
     type='number',
     placeholder='Vaccination rate (%)',
     value=85,
@@ -121,7 +126,7 @@ vaccination_rate_selector = dcc.Input(
 )
 
 school_size_selector = dcc.Input(
-    id='school_size',
+    id='school_size_selector',
     type='number',
     placeholder='School enrollment (number of students)',
     value=500,
@@ -130,7 +135,7 @@ school_size_selector = dcc.Input(
 )
 
 I0_selector = dcc.Input(
-    id='I0',
+    id='I0_selector',
     type='number',
     placeholder='Number of students initially infected',
     value=1.0,
@@ -140,7 +145,7 @@ I0_selector = dcc.Input(
 )
 
 R0_selector = dcc.Slider(
-    id='R0',
+    id='R0_selector',
     min=12,
     max=18,
     step=0.1,
@@ -155,7 +160,7 @@ R0_selector = dcc.Slider(
 )
 
 latent_period_selector = dcc.Slider(
-    id='latent_period',
+    id='latent_period_selector',
     min=7,
     max=12,
     step=0.1,
@@ -169,7 +174,7 @@ latent_period_selector = dcc.Slider(
 )
 
 infectious_period_selector = dcc.Slider(
-    id='infectious_period',
+    id='infectious_period_selector',
     min=5,
     max=9,
     step=0.1,
@@ -249,7 +254,11 @@ school_district_accordion = dbc.Accordion(
 
 app.layout = dbc.Container(
     [
-        dbc.Row([navbar], className="my-2"),
+        dcc.Store(id="inputs_are_valid", data=True),
+
+        dcc.Store(id="dashboard_params", data=copy.deepcopy(msp.MSP_PARAMS)),
+
+dbc.Row([navbar], className="my-2"),
         html.Br(),
         html.Br(),
 
@@ -288,9 +297,51 @@ app.layout = dbc.Container(
     ], fluid=True, style={"min-height": "100vh", "display": "flex", "flex-direction": "column"})
 
 
-def check_inputs_validity(init_infected: int,
-                          total_enrollment: int,
-                          vax_proportion: float):
+@callback(
+[Output('dashboard_params', 'data')],
+[State('dashboard_params', 'data'),
+    Input('school_size_selector', 'value'),
+     Input('vax_rate_selector', 'value'),
+     Input('I0_selector', 'value'),
+     Input('R0_selector', 'value'),
+     Input('latent_period_selector', 'value'),
+     Input('infectious_period_selector', 'value')])
+def create_params_from_selectors(params_dict,
+                                 school_size,
+                                 vax_rate,
+                                 I0,
+                                 R0,
+                                 latent_period,
+                                 infectious_period):
+
+    school_size = school_size if school_size is not None else DASHBOARD_INPUT_DEFAULTS['school_size']
+    vax_rate = vax_rate if vax_rate is not None else DASHBOARD_INPUT_DEFAULTS['vax_rate']
+    I0 = I0 if I0 is not None else DASHBOARD_INPUT_DEFAULTS['I0']
+    R0 = R0 if R0 is not None else DASHBOARD_INPUT_DEFAULTS['R0']
+    latent_period = latent_period if latent_period is not None else DASHBOARD_INPUT_DEFAULTS['latent_period']
+    infectious_period = infectious_period if infectious_period is not None else DASHBOARD_INPUT_DEFAULTS['infectious_period']
+
+    params_dict['population'] = [int(school_size)]
+    params_dict['vaccinated_percent'] = [0.01 * float(vax_rate)]
+    params_dict['I0'] = [int(I0)]
+    params_dict['R0'] = float(R0)
+    params_dict['incubation_period'] = float(latent_period)
+    params_dict['infectious_period'] = float(infectious_period)
+
+    # Bug I got stuck on for awhile -- dcc.State can certainly handle dictionaries
+    # HOWEVER -- callbacks always expect the return type to be a list or tuple
+    #   if there are multiple values -- so we wrap the dictionary in a list,
+    #   but we do not have to modify anything else -- dash just knows how to
+    #   parse this output :)
+    return [params_dict]
+
+
+@callback(
+    [Output('inputs_are_valid', 'data'),
+     Output('warning_str', 'children')],
+    [Input('dashboard_params', 'data')]
+)
+def check_inputs_validity(params_dict: dict) -> str:
     """
     IMPORTANT: vax_proportion must be between [0,1] --
 
@@ -299,63 +350,37 @@ def check_inputs_validity(init_infected: int,
         -- sometimes it's in percent form (so like an int, like 95)
         and sometimes it's in decimal form
     """
-    if total_enrollment is None or init_infected is None or vax_proportion is None:
-        return False
 
-    elif init_infected > int((1 - vax_proportion) * total_enrollment):
-        return False
+    warning_str = "Invalid inputs: The number of initially infected students " \
+                  "cannot exceed the number of unvaccinated students. Please adjust."
+
+    # Assuming single population -- again, single population / multiple population stuff
+    #   is confusing here -- and the hardcoding could accidentally lead to mistakes in future
+
+    if params_dict["I0"][0] > int((1 - params_dict["vaccinated_percent"][0]) * params_dict["population"][0]):
+        return False, warning_str
 
     else:
-        return True
+        return True, ""
 
 
 @callback(
     [Output('spaghetti_plot', 'figure'),
      Output('prob_20plus_new_str', 'children'),
-     Output('cases_expected_over_20_str', 'children'),
-     Output('warning_str', 'children')
+     Output('cases_expected_over_20_str', 'children')
      ],
-    [Input('school_size', 'value'),
-     Input('vax_rate', 'value'),
-     Input('I0', 'value'),
-     Input('R0', 'value'),
-     Input('latent_period', 'value'),
-     Input('infectious_period', 'value')]
+    [Input('dashboard_params', 'data'),
+     Input('inputs_are_valid', 'data')]
 )
-def update_graph(school_size,
-                 vax_rate,
-                 I0,
-                 R0,
-                 latent_period,
-                 infectious_period):
-
-    school_size = school_size if school_size is not None else INPUT_DEFAULTS['school_size']
-    vax_rate = vax_rate if vax_rate is not None else INPUT_DEFAULTS['vax_rate']
-    I0 = I0 if I0 is not None else INPUT_DEFAULTS['I0']
-    R0 = R0 if R0 is not None else INPUT_DEFAULTS['R0']
-    latent_period = latent_period if latent_period is not None else INPUT_DEFAULTS['latent_period']
-    infectious_period = infectious_period if infectious_period is not None else INPUT_DEFAULTS['infectious_period']
-
-    R0 = max(R0, 0)
+def update_graph(params_dict: dict,
+                 inputs_are_valid: bool):
 
     # Update parameters, run simulations
     n_sim = DASHBOARD_CONFIG["num_simulations"]
 
-    params = copy.deepcopy(msp.MSP_PARAMS)
-    params['population'] = [int(school_size)]
-    params['vaccinated_percent'] = [0.01 * float(vax_rate)]
-    params['I0'] = [int(I0)]
-    params['R0'] = float(R0)
-    params['incubation_period'] = float(latent_period)
-    params['infectious_period'] = float(infectious_period)
-
-    inputs_are_valid = check_inputs_validity(init_infected=params["I0"][0],
-                                             total_enrollment=params["population"][0],
-                                             vax_proportion=params["vaccinated_percent"][0])
-
     if inputs_are_valid:
         stochastic_sim = msp.StochasticSimulations(
-            params, n_sim, print_summary_stats=False, show_plots=False)
+            params_dict, n_sim, print_summary_stats=False, show_plots=False)
 
         fig = msp.gimme_spaghetti_infected_ma(sim=stochastic_sim,
                                               nb_curves_displayed=20,
@@ -365,13 +390,14 @@ def update_graph(school_size,
             msp.create_strs_20plus_new_and_outbreak(stochastic_sim,
                                                     DASHBOARD_CONFIG["outbreak_size_uncertainty_displayed"])
 
-        return fig, prob_20plus_new_str, cases_expected_over_20_str, ""
+        return fig, prob_20plus_new_str, cases_expected_over_20_str
 
     else:
-        warning_str = "Invalid inputs: there are more initially " \
-                  "infected than unvaccinated students. Please adjust."
 
-        return px.line(), "", "", warning_str
+        # Note -- returning None instead of empty dict is a big mistake --
+        #   doesn't work and also messes up the graphs for correct inputs!
+        #   Be very careful with the syntax here.
+        return {}, "", ""
 
 
 @callback(
@@ -393,7 +419,7 @@ def update_school_selector(county):
 
 
 @callback(
-    Output('vax_rate', 'value'),
+    Output('vax_rate_selector', 'value'),
     [Input('school-dropdown', 'value')]
 )
 def update_school_vax_rate(school_with_age):  # county):
