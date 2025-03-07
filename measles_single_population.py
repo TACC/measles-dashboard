@@ -545,26 +545,6 @@ def run_deterministic_model(params):
     model_deterministic.plot_results()
 
 
-SPAGHETTI_PLOT_AXIS_CONFIG = {
-    'showgrid': True,
-    'gridcolor': "rgb(242,242,242)",
-    'title_font': {
-        'size': 20,
-        'color': "black",
-        'family': "Sans-serif"
-    },
-    'tickfont': {
-        'size': 16,
-        'color': "black",
-        'family': "Sans-serif"
-    },
-    'zeroline': True,
-    'zerolinecolor': "white",
-    'linewidth': 2,
-    'mirror': True
-}
-
-
 def create_strs_20plus_new_and_outbreak(sim: StochasticSimulations,
                                         outbreak_size_uncertainty_displayed: OUTBREAK_SIZE_UNCERTAINTY_OPTIONS):
     """
@@ -601,74 +581,6 @@ def create_strs_20plus_new_and_outbreak(sim: StochasticSimulations,
         cases_expected_over_20_str = uncertainty_outbreak_size_str + " total cases"
 
     return prob_20plus_new_str, cases_expected_over_20_str
-
-
-def gimme_spaghetti_infected_ma(sim: StochasticSimulations,
-                                nb_curves_displayed: int,
-                                curve_selection_seed: int):
-    """
-    Guess who named this function? ;)
-    Hope whoever is reading this has a good day! :)
-
-    TODO: can be refactored to plot other dataframes too,
-    not just infected moving average.
-
-    Returns plotly.graph_objects.Figure
-    """
-
-    df_spaghetti_infected_ma = sim.df_spaghetti_infected_ma
-    index_sim_closest_median = sim.index_sim_closest_median
-
-    light_grey = 'rgb(220, 220, 220)'
-
-    color_map = {
-        x: light_grey
-        for x in df_spaghetti_infected_ma['simulation_idx'].unique()
-    }
-    color_map[index_sim_closest_median] = 'rgb(0, 153, 204)'  # blue
-
-    possible_idx = [
-        x for x in df_spaghetti_infected_ma['simulation_idx'].unique()
-        if x != index_sim_closest_median
-    ]
-
-    sample_idx = np.random.Generator(
-        np.random.MT19937(curve_selection_seed)).choice(possible_idx,
-                                                        nb_curves_displayed,
-                                                        replace=False)
-
-    df_plot = pd.concat([
-        df_spaghetti_infected_ma.loc[df_spaghetti_infected_ma['simulation_idx'].isin(sample_idx)],
-        df_spaghetti_infected_ma.loc[df_spaghetti_infected_ma['simulation_idx'] == index_sim_closest_median]
-    ])
-
-    fig = px.line(
-        df_plot,
-        x='day',
-        y='number_infected_7_day_ma',
-        color='simulation_idx',
-        color_discrete_map=color_map,
-        labels={'simulation_idx': '', 'number_infected': 'Number of students infected', 'day': 'Day DD',
-                "number_infected_7_day_ma": "NN infected (7-day average)"},
-    )
-
-    fig.update_traces(hovertemplate="Day %{x}<br>%{y:.1f} Infected<extra></extra>")
-    fig.update_traces(line=dict(width=2))  # Reduce line thickness
-
-    fig.update_layout(showlegend=False,
-                      plot_bgcolor='white',
-                      margin=dict(l=0, r=0, t=0, b=0),
-                      xaxis=dict(
-                          title="Day",
-                          **SPAGHETTI_PLOT_AXIS_CONFIG,
-                          linecolor="grey"),
-                      yaxis=dict(
-                          title="Number of infected students",
-                          **SPAGHETTI_PLOT_AXIS_CONFIG,
-                          linecolor="black"
-                      ))
-
-    return fig
 
 
 # Set parameters
