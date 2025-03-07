@@ -368,8 +368,8 @@ def update_graph(school_size,
         return fig, prob_20plus_new_str, cases_expected_over_20_str, ""
 
     else:
-        warning_str = "Invalid inputs: there are more initially " \
-                  "infected than unvaccinated students. Please adjust."
+        warning_str = "Invalid input: The number of initially infected students " \
+                  "cannot exceed the number of unvaccinated students. Please adjust."
 
         return px.line(), "", "", warning_str
 
@@ -415,4 +415,4 @@ def update_school_vax_rate(school_with_age):  # county):
 
 
 if __name__ == '__main__':
-    app.run(debug=False, host='0.0.0.0')
+    app.run(debug=True, host='0.0.0.0')
