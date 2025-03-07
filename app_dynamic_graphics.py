@@ -5,7 +5,7 @@ from dash import Dash, html, dcc, callback, Output, Input, State
 import dash_bootstrap_components as dbc
 
 from app_styles import BASE_FONT_FAMILY_STR, SELECTOR_NOTE_STYLE, RESULTS_HEADER_STYLE
-
+from app_computation_functions import EMPTY_SPAGHETTI_PLOT_INFECTED_MA
 
 def results_header():
     return dbc.Row(
@@ -85,7 +85,7 @@ def spaghetti_plot_section():
                                                "margin-left": "1.8em",
                                                "font-family": BASE_FONT_FAMILY_STR,
                                                "font-size": "14pt", "font-weight": "400", "font-style": "italic"}),
-                                dcc.Graph(id="spaghetti_plot"),
+                                dcc.Graph(id="spaghetti_plot", figure=EMPTY_SPAGHETTI_PLOT_INFECTED_MA),
                             ]),
                             style={'border': 'none', 'padding': '0'},
                         ),

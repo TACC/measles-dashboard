@@ -31,6 +31,8 @@ from app_dynamic_graphics import results_header, spaghetti_plot_section, \
 from app_styles import BASE_FONT_STYLE, BASE_FONT_FAMILY_STR, \
     SELECTOR_DISPLAY_STYLE, DROPDOWN_BASE_CONFIG, SELECTOR_TOOLTIP_STYLE, \
     SELECTOR_NOTE_STYLE, RESULTS_HEADER_STYLE
+from app_computation_functions import create_data_spaghetti_plot_infected_ma, \
+    get_spaghetti_plot_infected_ma, EMPTY_SPAGHETTI_PLOT_INFECTED_MA
 
 DASHBOARD_CONFIG = {
     'num_simulations': 200,
@@ -251,14 +253,13 @@ school_district_accordion = dbc.Accordion(
     active_item=[],  # Empty list means all sections are closed by default
 )
 
-
 app.layout = dbc.Container(
     [
         dcc.Store(id="inputs_are_valid", data=True),
 
         dcc.Store(id="dashboard_params", data=copy.deepcopy(msp.MSP_PARAMS)),
 
-dbc.Row([navbar], className="my-2"),
+        dbc.Row([navbar], className="my-2"),
         html.Br(),
         html.Br(),
 
@@ -298,9 +299,9 @@ dbc.Row([navbar], className="my-2"),
 
 
 @callback(
-[Output('dashboard_params', 'data')],
-[State('dashboard_params', 'data'),
-    Input('school_size_selector', 'value'),
+    [Output('dashboard_params', 'data')],
+    [State('dashboard_params', 'data'),
+     Input('school_size_selector', 'value'),
      Input('vax_rate_selector', 'value'),
      Input('I0_selector', 'value'),
      Input('R0_selector', 'value'),
@@ -313,13 +314,13 @@ def create_params_from_selectors(params_dict,
                                  R0,
                                  latent_period,
                                  infectious_period):
-
     school_size = school_size if school_size is not None else DASHBOARD_INPUT_DEFAULTS['school_size']
     vax_rate = vax_rate if vax_rate is not None else DASHBOARD_INPUT_DEFAULTS['vax_rate']
     I0 = I0 if I0 is not None else DASHBOARD_INPUT_DEFAULTS['I0']
     R0 = R0 if R0 is not None else DASHBOARD_INPUT_DEFAULTS['R0']
     latent_period = latent_period if latent_period is not None else DASHBOARD_INPUT_DEFAULTS['latent_period']
-    infectious_period = infectious_period if infectious_period is not None else DASHBOARD_INPUT_DEFAULTS['infectious_period']
+    infectious_period = infectious_period if infectious_period is not None else DASHBOARD_INPUT_DEFAULTS[
+        'infectious_period']
 
     params_dict['population'] = [int(school_size)]
     params_dict['vaccinated_percent'] = [0.01 * float(vax_rate)]
@@ -374,7 +375,6 @@ def check_inputs_validity(params_dict: dict) -> str:
 )
 def update_graph(params_dict: dict,
                  inputs_are_valid: bool):
-
     # Update parameters, run simulations
     n_sim = DASHBOARD_CONFIG["num_simulations"]
 
@@ -382,9 +382,13 @@ def update_graph(params_dict: dict,
         stochastic_sim = msp.StochasticSimulations(
             params_dict, n_sim, print_summary_stats=False, show_plots=False)
 
-        fig = msp.gimme_spaghetti_infected_ma(sim=stochastic_sim,
-                                              nb_curves_displayed=20,
-                                              curve_selection_seed=DASHBOARD_CONFIG["spaghetti_curve_selection_seed"])
+        (plot_df, plot_color_map) = \
+            create_data_spaghetti_plot_infected_ma(sim=stochastic_sim,
+                                                   nb_curves_displayed=20,
+                                                   curve_selection_seed=DASHBOARD_CONFIG[
+                                                       "spaghetti_curve_selection_seed"])
+
+        fig = get_spaghetti_plot_infected_ma(plot_df, plot_color_map)
 
         prob_20plus_new_str, cases_expected_over_20_str = \
             msp.create_strs_20plus_new_and_outbreak(stochastic_sim,
@@ -397,7 +401,7 @@ def update_graph(params_dict: dict,
         # Note -- returning None instead of empty dict is a big mistake --
         #   doesn't work and also messes up the graphs for correct inputs!
         #   Be very careful with the syntax here.
-        return {}, "", ""
+        return EMPTY_SPAGHETTI_PLOT_INFECTED_MA, "", ""
 
 
 @callback(

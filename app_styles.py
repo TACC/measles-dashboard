@@ -32,3 +32,23 @@ SELECTOR_NOTE_STYLE = {"text-align": "center",
 
 RESULTS_HEADER_STYLE = {'color': '#black', 'fontWeight': '500',
                         'font-size': '20pt', "margin": "none"}
+
+SPAGHETTI_PLOT_AXIS_CONFIG = {
+    'showgrid': True,
+    'gridcolor': "rgb(242,242,242)",
+    'title_font': {
+        'size': 20,
+        'color': "black",
+        'family': "Sans-serif"
+    },
+    'tickfont': {
+        'size': 16,
+        'color': "black",
+        'family': "Sans-serif"
+    },
+    'zeroline': True,
+    'zerolinecolor': "white",
+    'linewidth': 2,
+    'mirror': True,
+    'range': [0, None]
+}
