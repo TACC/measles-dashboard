@@ -1,6 +1,11 @@
 from dash import Dash, html, dcc, callback, Output, Input, State
 import dash_bootstrap_components as dbc
 
+NO_WRAP_FULL_WIDTH = {
+    "whiteSpace": "nowrap",
+    "width": "100%"
+}
+
 DROPDOWN_BASE_CONFIG = {
     "clearable": False,
     "maxHeight": 600,
@@ -20,6 +25,9 @@ SELECTOR_DISPLAY_STYLE = {
     'textAlign': 'center',
     'width': '6ch'
 }
+
+SELECTOR_LABEL_STYLE = {'display': 'inline-block', 'margin-right': 5, 'margin-left': 5, 'fontFamily': 'Sans-serif',
+           'font-size': '16pt'}
 
 SELECTOR_TOOLTIP_STYLE = {'placement': 'top', 'always_visible': True, "style": {"fontSize": "16pt"}}
 
@@ -51,4 +59,8 @@ SPAGHETTI_PLOT_AXIS_CONFIG = {
     'linewidth': 2,
     'mirror': True,
     'range': [0, None]
+}
+
+BOTTOM_CREDITS_TEXT_STYLE = {
+    "color": "#ffffff", "text-decoration": "none", "font-size": "11px"
 }

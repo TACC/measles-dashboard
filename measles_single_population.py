@@ -193,7 +193,7 @@ class MetapopulationSEPIR:
 
         self.I[0] = np.array(params['I0'])
         self.R[0] = [
-            int(self.N[i_pop] * params['vaccinated_percent'][i_pop])
+            int(self.N[i_pop] * params['vax_prop'][i_pop])
             for i_pop in range(self.n_pop)
         ]
         self.R[0] = [
@@ -601,7 +601,7 @@ MSP_PARAMS = {
     'other_contacts': 2.2823,
     'population': [500],
     'I0': [1],
-    'vaccinated_percent': [0.9],  # number between 0 and 1
+    'vax_prop': [0.9],  # number between 0 and 1
     'sim_duration_days': 250,
     'time_step_days': 0.25,
     'is_stochastic': True,  # False for deterministic,

@@ -5,6 +5,8 @@ Created on Mon Feb 17 16:39:51 2025
 Updated on Thu Feb 20 1:55:00 2025
 
 @author: rfp437
+
+>(^_^)> ~~~~
 """
 
 # TODO: streamline the single population / multiple population stuff?
@@ -20,282 +22,112 @@ import dash_bootstrap_components as dbc
 import measles_single_population as msp
 import subprocess
 
-from enum import Enum
-
-from app_static_graphics import navbar, footer, \
-    vaccination_rate_label, school_size_label, I0_label, R0_label, \
-    latent_period_label, infectious_period_label, bottom_info_section, \
+from app_static_graphics import navbar, bottom_info_section, \
     bottom_credits, school_outbreak_projections_header
 from app_dynamic_graphics import results_header, spaghetti_plot_section, \
-    inputs_panels
-from app_styles import BASE_FONT_STYLE, BASE_FONT_FAMILY_STR, \
-    SELECTOR_DISPLAY_STYLE, DROPDOWN_BASE_CONFIG, SELECTOR_TOOLTIP_STYLE, \
-    SELECTOR_NOTE_STYLE, RESULTS_HEADER_STYLE
+    dashboard_input_panel
 from app_computation_functions import create_data_spaghetti_plot_infected_ma, \
     get_spaghetti_plot_infected_ma, EMPTY_SPAGHETTI_PLOT_INFECTED_MA
+from app_selectors import SELECTOR_DEFAULTS
 
 DASHBOARD_CONFIG = {
     'num_simulations': 200,
     'outbreak_size_uncertainty_displayed': msp.OUTBREAK_SIZE_UNCERTAINTY_OPTIONS.NINETY_FIVE,
     'simulation_seed': 147125098488,
-    'spaghetti_curve_selection_seed': 12345
+    'spaghetti_curve_selection_seed': 12345,
 }
 
 msp.MSP_PARAMS["simulation_seed"] = DASHBOARD_CONFIG["simulation_seed"]
 
-DASHBOARD_INPUT_DEFAULTS = {
-    'school_size': 500,
-    'vax_rate': 0.0,
-    'I0': 1,
-    'R0': 15.0,
-    'latent_period': 10.5,
-    'infectious_period': 8.0}
+# TODO -- again, this can be streamlined... but here is
+#   the initial stab at generalizing the code to multiple states...
+#   We can also cache the dataframe subsets...
+# TODO -- maybe... put state-to-CSV mapping in JSON file?
 
-# TODO: move selectors to their own file
-# TODO: what is df and df_county doing? The way these dataframes are
-#   hardcoded into these functions seems risky.
+TX_df = pd.read_csv('TX_MMR_vax_rate.csv')
+NC_df = pd.read_csv('NC_MMR_vax_rate.csv')
 
-df = pd.read_csv('TX_MMR_vax_rate.csv')
+states = ("Texas", "North Carolina")
 
-initial_county = 'Travis'
-states = ["Texas"]
+state_to_df_map = {
+    "Texas": TX_df,
+    "North Carolina": NC_df
+}
 
-state_dropdown = html.Div(
-    [
-        dbc.Label("Select State"),
-        dcc.Dropdown(
-            id="state-dropdown",
-            options=states,
-            value="Texas",
-            **DROPDOWN_BASE_CONFIG
-        ),
-    ], className="mb-4",
-    style={**BASE_FONT_STYLE}
+
+def get_county_subset_df(state_str, county_str) -> pd.DataFrame:
+
+    state_subset_df = state_to_df_map[state_str]
+    county_subset_df = state_subset_df[state_subset_df["County"] == county_str]
+
+    return county_subset_df
+
+# Generalizing state/county/school selection for different states
+#   After state selection, county selection options should update
+#   After county selection, school selection options should update
+
+
+@callback(
+    [Output("county_selector", "options"),
+     Output("county_selector", "value")],
+    [Input("state_selector", "value")],
+    prevent_initial_call=True
 )
+def update_county_selector(state):
 
-county_dropdown = html.Div(
-    [
-        dbc.Label("Select Texas County", html_for="county_dropdown"),
-        dcc.Dropdown(
-            id="county-dropdown",
-            options=sorted(df["County"].unique()),
-            value=initial_county,
-            **DROPDOWN_BASE_CONFIG,
-            style={"whiteSpace": "nowrap", "width": "100%"},
+    new_county_options = sorted(state_to_df_map[state]["County"].unique())
+    default_county_displayed = new_county_options[0]
 
-        ),
-    ], className="mb-4 m-0",
-    style={**BASE_FONT_STYLE, 'whiteSpace': 'nowrap', 'overflow': 'visible'}
+    return new_county_options, default_county_displayed
+
+
+@callback(
+    [Output('school_selector', 'options'),
+     Output('school_selector', 'value')
+     ],
+    [State('state_selector', 'value'),
+     Input('county_selector', 'value')],
+    prevent_initial_call=True
 )
+def update_school_selector(state, county):
 
-# df there should depend on the selected county
-df_county = df.loc[df['County'] == initial_county]
-
-school_options = sorted(
-    f"{name} ({age_group})"
-    for name, age_group in zip(df_county["School District or Name"], df_county["age_group"])
-)
-
-initial_school = 'AUSTIN ISD (Kindergarten)'
-
-if initial_school not in school_options:
-    initial_school = school_options[0]
-
-school_dropdown = html.Div(
-    [
-        dbc.Label("Select a School District", html_for="school_dropdown",
-                  style={**BASE_FONT_STYLE}),
-        dcc.Dropdown(
-            id="school-dropdown",
-            options=school_options,
-            value=initial_school,
-            **DROPDOWN_BASE_CONFIG,
-            style={"whiteSpace": "nowrap", "width": "100%", 'font-size': '14pt'},
-        ),
-    ], className="mb-4",
-    style={**BASE_FONT_STYLE, 'whiteSpace': 'normal', 'width': '100%'}
-)
-
-vaccination_rate_selector = dcc.Input(
-    id='vax_rate_selector',
-    type='number',
-    placeholder='Vaccination rate (%)',
-    value=85,
-    min=0,
-    max=100,
-    style={**SELECTOR_DISPLAY_STYLE, **BASE_FONT_STYLE,
-           'width': '7ch'}
-)
-
-school_size_selector = dcc.Input(
-    id='school_size_selector',
-    type='number',
-    placeholder='School enrollment (number of students)',
-    value=500,
-    debounce=False,
-    style={**SELECTOR_DISPLAY_STYLE, **BASE_FONT_STYLE}
-)
-
-I0_selector = dcc.Input(
-    id='I0_selector',
-    type='number',
-    placeholder='Number of students initially infected',
-    value=1.0,
-    min=0,
-    debounce=False,
-    style={**SELECTOR_DISPLAY_STYLE, 'margin-left': 'auto', **BASE_FONT_STYLE}
-)
-
-R0_selector = dcc.Slider(
-    id='R0_selector',
-    min=12,
-    max=18,
-    step=0.1,
-    value=15,
-    included=False,
-    marks={12: {'label': '12', 'style': {**BASE_FONT_STYLE}},
-           15: {'label': '15', 'style': {**BASE_FONT_STYLE, 'fontWeight': 'bold'}},
-           18: {'label': '18', 'style': {**BASE_FONT_STYLE}}
-           },
-    tooltip={**SELECTOR_TOOLTIP_STYLE},
-
-)
-
-latent_period_selector = dcc.Slider(
-    id='latent_period_selector',
-    min=7,
-    max=12,
-    step=0.1,
-    value=10.5,
-    included=False,
-    marks={7: {'label': '7', 'style': {**BASE_FONT_STYLE}},
-           10.5: {'label': '10.5', 'style': {**BASE_FONT_STYLE, 'fontWeight': 'bold'}},
-           12: {'label': '12', 'style': {**BASE_FONT_STYLE}},
-           },
-    tooltip={**SELECTOR_TOOLTIP_STYLE},
-)
-
-infectious_period_selector = dcc.Slider(
-    id='infectious_period_selector',
-    min=5,
-    max=9,
-    step=0.1,
-    value=8,
-    included=False,
-    marks={5: {'label': '5', 'style': {**BASE_FONT_STYLE}},
-           8: {'label': '8', 'style': {**BASE_FONT_STYLE, 'fontWeight': 'bold'}},
-           9: {'label': '9', 'style': {**BASE_FONT_STYLE}}
-           },
-    tooltip={**SELECTOR_TOOLTIP_STYLE},
-)
-
-result = subprocess.run("git symbolic-ref -q --short HEAD || git describe --tags --exact-match",
-                        shell=True, capture_output=True)
-version = result.stdout.decode("utf-8").strip() if result.stdout else "Unknown"
-
-app = Dash(
-    prevent_initial_callbacks='initial_duplicate')
-server = app.server
-app.title = f"epiENGAGE Measles Outbreak Simulator v-{version}"
-
-# Add inline script to initialize Google Analytics
-app.scripts.append_script({
-    'external_url': 'https://www.googletagmanager.com/gtag/js?id=G-QS2CT3051Y'
-})
-app.scripts.append_script({'external_url': '/assets/gtag.js'})
-
-# Define the accordion separately
-epi_params_accordion = html.Div(
-    dbc.Accordion(
-        [
-            dbc.AccordionItem(
-                dbc.Col(
-                    [
-                        html.Br(),
-                        dbc.Col(html.Div(R0_label), className="mb-2"),
-                        dbc.Col(html.Div(R0_selector), className="mb-2"),
-                        dbc.Col(html.Div(latent_period_label), className="mb-2"),
-                        dbc.Col(html.Div(latent_period_selector), className="mb-2"),
-                        dbc.Col(html.Div(infectious_period_label), className="mb-2"),
-                        dbc.Col(html.Div(infectious_period_selector), className="mb-2"),
-                    ]
-                ),
-                title="Change Parameters ▾",
-                style={"textAlign": "center"}  # Add this line to center the text
-            ),
-        ],
-        flush=True,
-        always_open=False,  # Ensures sections can be toggled independently
-        active_item=[],  # Empty list means all sections are closed by default
+    df = get_county_subset_df(state, county)
+    new_school_options = sorted(
+        f"{name} ({age_group})"
+        for name, age_group in zip(df["School District or Name"], df["age_group"])
     )
+    default_school_displayed = new_school_options[0]
+
+    return new_school_options, default_school_displayed
+
+
+@callback(
+    Output('vax_rate_selector', 'value'),
+    [State('state_selector', 'value'),
+     State('county_selector', 'value'),
+     Input('school_selector', 'value')]
 )
+def get_school_vax_rate(state_str,
+                        county_str,
+                        school_with_age_str) -> float:
+    county_subset_df = get_county_subset_df(state_str, county_str)
 
-# Define the accordion separately
-school_district_accordion = dbc.Accordion(
-    [
-        dbc.AccordionItem(
-            html.Div(
-                [
-                    html.H3("ISD rates are district averages.", style={**SELECTOR_NOTE_STYLE}),
-                    html.H3("Rates at individual schools may be higher or lower.", style={**SELECTOR_NOTE_STYLE}),
-                    dbc.Col(html.Div(state_dropdown), className="mb-2 p-0"),
-                    dbc.Col(html.Div(county_dropdown), className="mb-2 p-0"),
-                    dbc.Col(html.Div(school_dropdown), className="mb-2 p-0"),
-                ]
-            ),
-            title="School/District Lookup ▾ ",
-            style={"font-size": "18pt", "width": "100%", "margin": "none"},
-            className="m-0"
-        ),
-    ],
-    flush=True,
-    always_open=False,  # Ensures sections can be toggled independently
-    active_item=[],  # Empty list means all sections are closed by default
-)
+    if school_with_age_str:
 
-app.layout = dbc.Container(
-    [
-        dcc.Store(id="inputs_are_valid", data=True),
+        school, age_group = school_with_age_str.split(' (')
+        age_group = age_group.rstrip(")")
 
-        dcc.Store(id="dashboard_params", data=copy.deepcopy(msp.MSP_PARAMS)),
+        df_school = county_subset_df.loc[
+            (county_subset_df['School District or Name'] == school) & (county_subset_df['age_group'] == age_group)]
 
-        dbc.Row([navbar], className="my-2"),
-        html.Br(),
-        html.Br(),
+        school_vax_rate_pct = df_school['MMR_Vaccination_Rate'].values[0]
+        school_vax_rate = float(school_vax_rate_pct.replace('%', ''))
 
-        # Main Layout with Left and Right Sections
-        dbc.Row([
-            # Left section
-            html.Br(),
+        return school_vax_rate
 
-            inputs_panels(school_size_header=school_size_label,
-                          school_size_input=school_size_selector,
-                          I0_header=I0_label,
-                          I0_input=I0_selector,
-                          vaccination_rate_header=vaccination_rate_label,
-                          vaccination_rate_input=vaccination_rate_selector,
-                          top_accordion=school_district_accordion,
-                          bottom_accordion=epi_params_accordion),
-            dbc.Col([
-                html.Br(),
+    else:
 
-                school_outbreak_projections_header(),
-
-                html.Br(),
-
-                results_header(),
-
-                html.Br(),
-
-                spaghetti_plot_section()], className="col-xl-9")
-        ]),
-
-        html.Br(),
-
-        bottom_info_section(),
-
-        bottom_credits()
-    ], fluid=True, style={"min-height": "100vh", "display": "flex", "flex-direction": "column"})
+        return SELECTOR_DEFAULTS["vax_rate"]
 
 
 @callback(
@@ -309,21 +141,21 @@ app.layout = dbc.Container(
      Input('infectious_period_selector', 'value')])
 def create_params_from_selectors(params_dict,
                                  school_size,
-                                 vax_rate,
+                                 vax_rate_percent,
                                  I0,
                                  R0,
                                  latent_period,
                                  infectious_period):
-    school_size = school_size if school_size is not None else DASHBOARD_INPUT_DEFAULTS['school_size']
-    vax_rate = vax_rate if vax_rate is not None else DASHBOARD_INPUT_DEFAULTS['vax_rate']
-    I0 = I0 if I0 is not None else DASHBOARD_INPUT_DEFAULTS['I0']
-    R0 = R0 if R0 is not None else DASHBOARD_INPUT_DEFAULTS['R0']
-    latent_period = latent_period if latent_period is not None else DASHBOARD_INPUT_DEFAULTS['latent_period']
-    infectious_period = infectious_period if infectious_period is not None else DASHBOARD_INPUT_DEFAULTS[
+    school_size = school_size if school_size is not None else SELECTOR_DEFAULTS['school_size']
+    vax_rate_percent = vax_rate_percent if vax_rate_percent is not None else SELECTOR_DEFAULTS['vax_rate_percent']
+    I0 = I0 if I0 is not None else SELECTOR_DEFAULTS['I0']
+    R0 = R0 if R0 is not None else SELECTOR_DEFAULTS['R0']
+    latent_period = latent_period if latent_period is not None else SELECTOR_DEFAULTS['latent_period']
+    infectious_period = infectious_period if infectious_period is not None else SELECTOR_DEFAULTS[
         'infectious_period']
 
     params_dict['population'] = [int(school_size)]
-    params_dict['vaccinated_percent'] = [0.01 * float(vax_rate)]
+    params_dict['vax_prop'] = [0.01 * float(vax_rate_percent)]
     params_dict['I0'] = [int(I0)]
     params_dict['R0'] = float(R0)
     params_dict['incubation_period'] = float(latent_period)
@@ -358,7 +190,7 @@ def check_inputs_validity(params_dict: dict) -> str:
     # Assuming single population -- again, single population / multiple population stuff
     #   is confusing here -- and the hardcoding could accidentally lead to mistakes in future
 
-    if params_dict["I0"][0] > int((1 - params_dict["vaccinated_percent"][0]) * params_dict["population"][0]):
+    if params_dict["I0"][0] > int((1 - params_dict["vax_prop"][0]) * params_dict["population"][0]):
         return False, warning_str
 
     else:
@@ -404,44 +236,57 @@ def update_graph(params_dict: dict,
         return EMPTY_SPAGHETTI_PLOT_INFECTED_MA, "", ""
 
 
-@callback(
-    [Output('school-dropdown', 'options'),
-     Output('school-dropdown', 'value')  # ,
-     ],
-    [Input('county-dropdown', 'value')],
-    prevent_initial_call=True
-)
-def update_school_selector(county):
-    df_county = df.loc[df['County'] == county]
-    new_school_options = sorted(
-        f"{name} ({age_group})"
-        for name, age_group in zip(df_county["School District or Name"], df_county["age_group"])
-    )
-    school_selected = new_school_options[0]
+result = subprocess.run("git symbolic-ref -q --short HEAD || git describe --tags --exact-match",
+                        shell=True, capture_output=True)
+version = result.stdout.decode("utf-8").strip() if result.stdout else "Unknown"
 
-    return new_school_options, school_selected
+app = Dash(
+    prevent_initial_callbacks='initial_duplicate')
+server = app.server     # Do we need this?
+app.title = f"epiENGAGE Measles Outbreak Simulator v-{version}"
 
+# Add inline script to initialize Google Analytics
+app.scripts.append_script({
+    'external_url': 'https://www.googletagmanager.com/gtag/js?id=G-QS2CT3051Y'
+})
+app.scripts.append_script({'external_url': '/assets/gtag.js'})
 
-@callback(
-    Output('vax_rate_selector', 'value'),
-    [Input('school-dropdown', 'value')]
-)
-def update_school_vax_rate(school_with_age):  # county):
-    school, age_group = school_with_age.split(' (')
-    age_group = age_group.rstrip(")")
+app.layout = dbc.Container(
+    [
+        dcc.Store(id="inputs_are_valid", data=True),
+        dcc.Store(id="dashboard_params", data=copy.deepcopy(msp.MSP_PARAMS)),
 
-    df_school = df.loc[
-        # (df['County'] == county) &
-        (df['School District or Name'] == school) &
-        (df['age_group'] == age_group)
-        ]
+        dbc.Row([navbar], className="my-2"),
+        html.Br(),
+        html.Br(),
 
-    if not df_school.empty:
-        school_vax_rate_pct = df_school['MMR_Vaccination_Rate'].values[0]
-        school_vax_rate = float(school_vax_rate_pct.replace('%', ''))
-        return school_vax_rate
-    else:
-        school_vax_rate = 85
+        # Main Layout with Left and Right Sections
+        dbc.Row([
+            # Left section
+            html.Br(),
+
+            dashboard_input_panel(),
+
+            dbc.Col([
+                html.Br(),
+
+                school_outbreak_projections_header(),
+
+                html.Br(),
+
+                results_header(),
+
+                html.Br(),
+
+                spaghetti_plot_section()], className="col-xl-9")
+        ]),
+
+        html.Br(),
+
+        bottom_info_section(),
+
+        bottom_credits()
+    ], fluid=True, style={"min-height": "100vh", "display": "flex", "flex-direction": "column"})
 
 
 if __name__ == '__main__':

@@ -4,7 +4,8 @@
 from dash import Dash, html, dcc, callback, Output, Input, State
 import dash_bootstrap_components as dbc
 
-from app_styles import RESULTS_HEADER_STYLE, BASE_FONT_FAMILY_STR, SELECTOR_NOTE_STYLE
+from app_styles import SELECTOR_LABEL_STYLE, BASE_FONT_FAMILY_STR, SELECTOR_NOTE_STYLE, \
+    BOTTOM_CREDITS_TEXT_STYLE
 
 # Navbar component
 navbar = dbc.Navbar(
@@ -47,35 +48,17 @@ footer = dbc.Container(
 # Labels
 ########
 
-vaccination_rate_label = html.H4(
-    'Vaccination Rate (%)',
-    style={'display': 'inline-block', 'margin-bottom': 0, 'margin-right': 5, 'margin-left': 5,
-           'fontFamily': 'Sans-serif', 'font-size': '18pt'})
+vaccination_rate_label = html.H4('Vaccination Rate (%)', style={**SELECTOR_LABEL_STYLE})
 
-school_size_label = html.H4(
-    'School Enrollment',
-    style={'display': 'inline-block', 'fontFamily': 'Sans-serif', 'font-size': '18pt', 'whiteSpace': 'nowrap',
-           'overflow': 'visible'})
+school_size_label = html.H4('School Enrollment', style={**SELECTOR_LABEL_STYLE})
 
-I0_label = html.H4(
-    'Students Initially Infected',
-    style={'display': 'inline-block', 'fontFamily': 'Sans-serif', 'font-size': '18pt', 'whiteSpace': 'nowrap',
-           'overflow': 'visible'})
+I0_label = html.H4('Students Initially Infected', style={**SELECTOR_LABEL_STYLE})
 
-R0_label = html.H4([
-    'Basic Reproduction Number (R0)'],
-    style={'display': 'inline-block', 'margin-right': 5, 'margin-left': 5, 'fontFamily': 'Sans-serif',
-           'font-size': '16pt'})
+R0_label = html.H4(['Basic Reproduction Number (R0)'], style={**SELECTOR_LABEL_STYLE})
 
-latent_period_label = html.H4(
-    'Average Latent Period (days)',
-    style={'display': 'inline-block', 'margin-right': 5, 'margin-left': 5, 'fontFamily': 'Sans-serif',
-           'font-size': '16pt'})
+latent_period_label = html.H4('Average Latent Period (days)', style={**SELECTOR_LABEL_STYLE})
 
-infectious_period_label = html.H4(
-    'Average Infectious Period (days)',
-    style={'display': 'inline-block', 'margin-right': 5, 'margin-left': 5, 'fontFamily': 'Sans-serif',
-           'font-size': '16pt'})
+infectious_period_label = html.H4('Average Infectious Period (days)', style={**SELECTOR_LABEL_STYLE})
 
 
 def school_outbreak_projections_header():
@@ -187,10 +170,10 @@ def bottom_credits():
             dbc.Col(html.Div([
                 html.P("©2025 ", style={"display": "inline", "font-size": "11px", "color": "#ffffff"}),
                 html.A("Texas Advanced Computing Center", href="https://www.tacc.utexas.edu/", target="_blank",
-                       style={"color": "#ffffff", "text-decoration": "none", "font-size": "11px"}),
+                       style={**BOTTOM_CREDITS_TEXT_STYLE}),
                 html.Br(),
                 html.A("The University of Texas at Austin, Office of the Vice President for Research",
                        href="https://research.utexas.edu", target="_blank",
-                       style={"color": "#ffffff", "text-decoration": "none", "font-size": "11px"}),
+                       style={**BOTTOM_CREDITS_TEXT_STYLE}),
             ], style={"textAlign": "center", "padding": "10px"}), width=12)
         ], style={"backgroundColor": "#292929", "marginTop": "auto"})
