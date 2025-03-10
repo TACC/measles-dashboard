@@ -1,4 +1,4 @@
-"Facility_Number","School_Type","School_District_or_Name","County","MMR_Vaccination_Rate","age_group","Facility_Adress"
+"Facility_Number","School_Type","School District or Name","County","MMR_Vaccination_Rate","age_group","Facility_Adress"
 3700011,"School District","Cumberland County Schools","Cumberland County",0.867167196072769,"Kindergarten",NA
 3700012,"School District","Pitt County Schools","Pitt County",0.942493946731235,"Kindergarten",NA
 3700030,"School District","Alamance-Burlington Schools","Alamance County",0.951035781544256,"Kindergarten",NA

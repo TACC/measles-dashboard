@@ -62,73 +62,10 @@ def get_county_subset_df(state_str, county_str) -> pd.DataFrame:
 
     return county_subset_df
 
+
 # Generalizing state/county/school selection for different states
 #   After state selection, county selection options should update
 #   After county selection, school selection options should update
-
-
-# @callback(
-#     [Output("county_selector", "options"),
-#      Output("county_selector", "value")],
-#     [Input("state_selector", "value")],
-#     prevent_initial_call=True
-# )
-# def update_county_selector(state):
-#
-#     new_county_options = sorted(state_to_df_map[state]["County"].unique())
-#     default_county_displayed = new_county_options[0]
-#
-#     return new_county_options, default_county_displayed
-#
-#
-# @callback(
-#     [Output('school_selector', 'options'),
-#      Output('school_selector', 'value')],
-#     [State('state_selector', 'value'),
-#      Input('county_selector', 'value')],
-#     prevent_initial_call=True
-# )
-# def update_school_selector(state, county):
-#
-#     df = get_county_subset_df(state, county)
-#     new_school_options = sorted(
-#         f"{name} ({age_group})"
-#         for name, age_group in zip(df["School District or Name"], df["age_group"])
-#     )
-#     default_school_displayed = new_school_options[0]
-#
-#     return new_school_options, default_school_displayed
-
-
-@callback(
-    [Output('vax_rate_selector', 'value')],
-    [State('state_selector', 'value'),
-     State('county_selector', 'value'),
-     Input('school_selector', 'value')],
-    prevent_initial_call=True
-)
-def get_school_vax_rate(state_str,
-                        county_str,
-                        school_with_age_str) -> float:
-
-    if school_with_age_str:
-
-        county_subset_df = get_county_subset_df(state_str, county_str)
-
-        school, age_group = school_with_age_str.split(' (')
-        age_group = age_group.rstrip(")")
-
-        df_school = county_subset_df.loc[
-            (county_subset_df['School District or Name'] == school) & (county_subset_df['age_group'] == age_group)]
-
-        school_vax_rate_pct = df_school['MMR_Vaccination_Rate'].values[0]
-        school_vax_rate = float(school_vax_rate_pct.replace('%', ''))
-
-        return school_vax_rate
-
-    else:
-
-        return SELECTOR_DEFAULTS["vax_rate"]
 
 
 @callback(
@@ -139,7 +76,8 @@ def get_school_vax_rate(state_str,
      Input('I0_selector', 'value'),
      Input('R0_selector', 'value'),
      Input('latent_period_selector', 'value'),
-     Input('infectious_period_selector', 'value')])
+     Input('infectious_period_selector', 'value')],
+prevent_initial_call=True)
 def create_params_from_selectors(params_dict,
                                  school_size,
                                  vax_rate_percent,
@@ -234,6 +172,79 @@ def update_graph(params_dict: dict,
         #   doesn't work and also messes up the graphs for correct inputs!
         #   Be very careful with the syntax here.
         return EMPTY_SPAGHETTI_PLOT_INFECTED_MA, "", ""
+
+
+@callback(
+    [Output("county_selector", "options"),
+     Output("county_selector", "value")],
+    [Input("state_selector", "value")],
+    prevent_initial_call=True
+)
+def update_county_selector(state):
+
+    new_county_options = sorted(state_to_df_map[state]["County"].unique())
+    default_county_displayed = new_county_options[0]
+
+    return new_county_options, default_county_displayed
+
+
+
+@callback(
+    [Output('school_selector', 'options'),
+     Output('school_selector', 'value')],
+    [State('state_selector', 'value'),
+     Input('county_selector', 'value')],
+    prevent_initial_call=True
+)
+def update_school_selector(state, county):
+
+    df = get_county_subset_df(state, county)
+    new_school_options = sorted(
+        f"{name} ({age_group})"
+        for name, age_group in zip(df["School District or Name"], df["age_group"])
+    )
+    default_school_displayed = new_school_options[0]
+
+    return new_school_options, default_school_displayed
+
+
+@callback(
+    [Output('vax_rate_selector', 'value')],
+    [State('state_selector', 'value'),
+     State('county_selector', 'value'),
+     Input('school_selector', 'value')],
+    prevent_initial_call=True
+)
+def get_school_vax_rate(state_str,
+                        county_str,
+                        school_with_age_str) -> float:
+
+    if school_with_age_str:
+
+        county_subset_df = get_county_subset_df(state_str, county_str)
+
+        school, age_group = school_with_age_str.split(' (')
+        age_group = age_group.rstrip(")")
+
+        df_school = county_subset_df.loc[
+            (county_subset_df['School District or Name'] == school) & (county_subset_df['age_group'] == age_group)]
+
+        school_vax_rate_pct = df_school['MMR_Vaccination_Rate'].values[0]
+
+        if not isinstance(school_vax_rate_pct, str):
+            if school_vax_rate_pct < 1:
+                return school_vax_rate_pct
+            else:
+                return school_vax_rate_pct * 100
+        else:
+            school_vax_rate = float(school_vax_rate_pct.replace('%', ''))
+
+
+        return school_vax_rate
+
+    else:
+
+        return SELECTOR_DEFAULTS["vax_rate"]
 
 
 result = subprocess.run("git symbolic-ref -q --short HEAD || git describe --tags --exact-match",

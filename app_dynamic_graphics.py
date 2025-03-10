@@ -257,4 +257,4 @@ def dashboard_input_panel():
                                vaccination_rate_header=vaccination_rate_label,
                                vaccination_rate_input=vaccination_rate_selector,
                                top_accordion=school_district_accordion,
-                               bottom_accordion=epi_params_accordion),
+                               bottom_accordion=epi_params_accordion)
