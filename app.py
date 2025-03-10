@@ -232,19 +232,18 @@ def get_school_vax_rate(state_str,
         school_vax_rate_pct = df_school['MMR_Vaccination_Rate'].values[0]
 
         if not isinstance(school_vax_rate_pct, str):
-            if school_vax_rate_pct < 1:
-                return school_vax_rate_pct
+            if school_vax_rate_pct <= 1:
+                return [school_vax_rate_pct * 100]
             else:
-                return school_vax_rate_pct * 100
+                return [school_vax_rate_pct]
         else:
             school_vax_rate = float(school_vax_rate_pct.replace('%', ''))
 
-
-        return school_vax_rate
+        return [school_vax_rate]
 
     else:
 
-        return SELECTOR_DEFAULTS["vax_rate"]
+        return [SELECTOR_DEFAULTS["vax_rate"]]
 
 
 result = subprocess.run("git symbolic-ref -q --short HEAD || git describe --tags --exact-match",
