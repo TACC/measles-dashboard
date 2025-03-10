@@ -67,52 +67,53 @@ def get_county_subset_df(state_str, county_str) -> pd.DataFrame:
 #   After county selection, school selection options should update
 
 
+# @callback(
+#     [Output("county_selector", "options"),
+#      Output("county_selector", "value")],
+#     [Input("state_selector", "value")],
+#     prevent_initial_call=True
+# )
+# def update_county_selector(state):
+#
+#     new_county_options = sorted(state_to_df_map[state]["County"].unique())
+#     default_county_displayed = new_county_options[0]
+#
+#     return new_county_options, default_county_displayed
+#
+#
+# @callback(
+#     [Output('school_selector', 'options'),
+#      Output('school_selector', 'value')],
+#     [State('state_selector', 'value'),
+#      Input('county_selector', 'value')],
+#     prevent_initial_call=True
+# )
+# def update_school_selector(state, county):
+#
+#     df = get_county_subset_df(state, county)
+#     new_school_options = sorted(
+#         f"{name} ({age_group})"
+#         for name, age_group in zip(df["School District or Name"], df["age_group"])
+#     )
+#     default_school_displayed = new_school_options[0]
+#
+#     return new_school_options, default_school_displayed
+
+
 @callback(
-    [Output("county_selector", "options"),
-     Output("county_selector", "value")],
-    [Input("state_selector", "value")],
-    prevent_initial_call=True
-)
-def update_county_selector(state):
-
-    new_county_options = sorted(state_to_df_map[state]["County"].unique())
-    default_county_displayed = new_county_options[0]
-
-    return new_county_options, default_county_displayed
-
-
-@callback(
-    [Output('school_selector', 'options'),
-     Output('school_selector', 'value')
-     ],
-    [State('state_selector', 'value'),
-     Input('county_selector', 'value')],
-    prevent_initial_call=True
-)
-def update_school_selector(state, county):
-
-    df = get_county_subset_df(state, county)
-    new_school_options = sorted(
-        f"{name} ({age_group})"
-        for name, age_group in zip(df["School District or Name"], df["age_group"])
-    )
-    default_school_displayed = new_school_options[0]
-
-    return new_school_options, default_school_displayed
-
-
-@callback(
-    Output('vax_rate_selector', 'value'),
+    [Output('vax_rate_selector', 'value')],
     [State('state_selector', 'value'),
      State('county_selector', 'value'),
-     Input('school_selector', 'value')]
+     Input('school_selector', 'value')],
+    prevent_initial_call=True
 )
 def get_school_vax_rate(state_str,
                         county_str,
                         school_with_age_str) -> float:
-    county_subset_df = get_county_subset_df(state_str, county_str)
 
     if school_with_age_str:
+
+        county_subset_df = get_county_subset_df(state_str, county_str)
 
         school, age_group = school_with_age_str.split(' (')
         age_group = age_group.rstrip(")")
@@ -200,8 +201,7 @@ def check_inputs_validity(params_dict: dict) -> str:
 @callback(
     [Output('spaghetti_plot', 'figure'),
      Output('prob_20plus_new_str', 'children'),
-     Output('cases_expected_over_20_str', 'children')
-     ],
+     Output('cases_expected_over_20_str', 'children')],
     [Input('dashboard_params', 'data'),
      Input('inputs_are_valid', 'data')]
 )
@@ -290,4 +290,4 @@ app.layout = dbc.Container(
 
 
 if __name__ == '__main__':
-    app.run(debug=False, host='0.0.0.0')
+    app.run(debug=True, host='0.0.0.0')
