@@ -137,6 +137,8 @@ school_district_accordion = dbc.Accordion(
                 [
                     html.H3("ISD rates are district averages.", style={**SELECTOR_NOTE_STYLE}),
                     html.H3("Rates at individual schools may be higher or lower.", style={**SELECTOR_NOTE_STYLE}),
+                    html.H3("School Enrollment does not update automatically -- update above.",
+                            style={**SELECTOR_NOTE_STYLE, "font-weight": "bold"}),
                     dbc.Col(html.Div(state_selector), className="mb-2 p-0"),
 
                     dbc.Row([
@@ -150,7 +152,8 @@ school_district_accordion = dbc.Accordion(
                     dbc.Row([
                         dbc.Col([
                             html.H3("Select County before School.", style={**SELECTOR_NOTE_STYLE}),
-                        ]),
+                            html.H3("Lookup populates Vaccination Rate.", style={**SELECTOR_NOTE_STYLE})
+                        ])
                     ]),
 
                     dbc.Col(html.Div(school_selector), className="mb-2 p-0"),
@@ -212,8 +215,7 @@ def input_panel_builder(school_size_header: html.H4,
 
                     dbc.Row([
                         dbc.Col([
-                            html.H3("Enter value or select from Lookup.", style={**SELECTOR_NOTE_STYLE}),
-                            html.H3("Update School Enrollment above.", style={**SELECTOR_NOTE_STYLE}),
+                            html.H3("Enter value or select from Lookup.", style={**SELECTOR_NOTE_STYLE})
                         ]),
                     ]),
 

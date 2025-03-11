@@ -25,7 +25,7 @@ SELECTOR_DEFAULTS =\
      "I0": 1,
      "R0": 15.0,
      "latent_period": 10.5,
-     "infectious_period": 8.0}
+     "infectious_period": 5.0}
 
 school_size_selector = dcc.Input(
     id='school_size_selector',
@@ -87,7 +87,7 @@ county_selector = html.Div(
 
 school_selector = html.Div(
     [
-        dbc.Label("Select a School District", html_for="school_selector",
+        dbc.Label("Select a School/District", html_for="school_selector",
                   style={**BASE_FONT_STYLE}),
         dcc.Dropdown(
             id="school_selector",

@@ -89,17 +89,16 @@ def school_outbreak_projections_header():
 # bottom info section
 def bottom_info_section():
     return html.Div([
-            html.A("MEASLES VACCINATION:", style={"fontWeight": "bold", "fontSize": "18px"}),
-            html.A(" For additional information about measles vaccines, visit the "),
+            html.A("MEASLES VACCINATION: ", style={"fontWeight": "bold", "fontSize": "18px"}),
+            html.A("Two doses of the MMR vaccine are recommended by doctors as the best way to protect against measles, mumps, and rubella. For additional information about measles vaccines, visit the ["),
             html.A("CDC's MMR vaccination webpage", href="https://www.cdc.gov/vaccines/vpd/mmr/public/index.html",
                    target="_blank", style={"color": "#1b96bf", "textDecoration": "none"}),
-            html.A("."),
+            html.A("]."),
             html.Ul("", style={"margin-bottom": "1em"}),
             html.A("MODEL: ", style={"fontWeight": "bold", "fontSize": "18px"}),
             html.A(
-                "This dashboard uses a simple stochastic compartmental susceptible-exposed-infectious-removed (SEIR) model. The model includes only enrolled students, assumes vaccinated individuals cannot become infected, and does not consider intervention measures."),
-            html.A([
-                " The default parameters are based on estimates that are widely used by public health agencies: (1) a basic reproduction number (",
+                "This dashboard uses a simple stochastic compartmental susceptible-exposed-infectious-removed (SEIR) model. The model includes only enrolled students, assumes vaccinated individuals cannot become infected, and does not consider intervention measures. Public health interventions––such as exclusion from school, active case finding, quarantine, isolation, and vaccination––would likely result in shorter and smaller outbreaks compared to these projections. The default parameters are based on estimates that are widely used by public health agencies: "),
+            html.A(["(1) a basic reproduction number (",
                 html.I([html.A(["R", html.Sub("0")])]), " ) of 15 ["]),
             html.A("ECDC’s Factsheet about measles", href="https://www.ecdc.europa.eu/en/measles/facts",
                    target="_blank", style={"color": "#1b96bf", "textDecoration": "none"}),
@@ -107,11 +106,11 @@ def bottom_info_section():
             html.A("CDC’s Measles Clinical Diagnosis Fact Sheet",
                    href="https://www.cdc.gov/measles/hcp/communication-resources/clinical-diagnosis-fact-sheet.html",
                    target="_blank", style={"color": "#1b96bf", "textDecoration": "none"}),
-            html.A("], and (3) an average infectious period of 8 days ["),
+            html.A("], and (3) an average infectious period of 5 days, derived from a total infectious period of approximately 8 days ["),
             html.A("CDC’s Measles Clinical Diagnosis Fact Sheet",
                    href="https://www.cdc.gov/measles/hcp/communication-resources/clinical-diagnosis-fact-sheet.html",
                    target="_blank", style={"color": "#1b96bf", "textDecoration": "none"}),
-            html.A("]. Parameter ranges are based on ["),
+            html.A("],  assuming students remain home after symptom onset. Parameter ranges are based on ["),
             html.A("ECDC’s Factsheet about measles", href="https://www.ecdc.europa.eu/en/measles/facts",
                    target="_blank", style={"color": "#1b96bf", "textDecoration": "none"}),
             html.A("] and ["),
@@ -119,24 +118,25 @@ def bottom_info_section():
                    style={"color": "#1b96bf", "textDecoration": "none"}),
             html.A("]. "),
             html.A(
-                "The basic reproduction number is the expected number of people a single case will infect, assuming nobody has immunity from vaccination or prior infection. If a school has a high vaccination rate, the effective reproduction number at the start of an outbreak will be much lower than the basic reproduction number."),
+                ["The basic reproduction number is the expected number of people a single case will infect, assuming nobody has immunity from vaccination or prior infection. If prior immunity exists due to vaccination, the effective reproduction number at the start of an outbreak will be lower than the basic reproduction number. Individual schools may experience higher or lower ",
+                html.I(["R", html.Sub("0")]), " values depending on classroom structures, daily activities, and other contextual factors."]),
             html.Ul("", style={"margin-bottom": "1em"}),
             html.A("KEY OUTBREAK STATISTICS: ", style={"fontWeight": "bold", "fontSize": "18px"}),
             html.A("Values are estimated from 200 stochastic simulations as follows."),
             html.Ul([
                 html.Li([html.I("Chance of exceeding 20 infections"), html.A([
-                    " – The proportion of 200 simulations in which at least 20 additional students become infected, not counting the initial cases."])]),
+                    " – the proportion of 200 simulations in which at least 20 additional students become infected (excluding the initial cases). The threshold of 20 infections was selected to differentiate between introductions that lead to sustained transmission from those that quickly fade out."])]),
                 html.Li([html.I("Likely outbreak size"),
                          " – For each simulation that results in at least 20 additional infections, the total number of students infected is calculated, including the students initially infected. The reported range reflects the middle 95% of these values (i.e., the 2.5th to 97.5th percentile).",
                          html.Br(style={"margin": "0", "padding": "0"})]),
             ], style={"margin-bottom": "1em"}),
             html.A("PROJECTIONS: ", style={"fontWeight": "bold", "fontSize": "18px"}),
             html.A(
-                "The 20 curves in the graph correspond to 20 independent simulations selected at random from 200 stochastic simulations. The y-axis values are seven-day moving averages of the total number of people currently infected (both exposed and infectious cases). The highlighted curve corresponds to the simulation that produced a total outbreak size closest to the median across the 200 simulations."),
+                "The 20 curves in the graph correspond to 20 independent simulations selected at random from 200 stochastic simulations. The y-axis values are seven-day moving averages of the total number of people currently infected (both exposed and infectious cases). The highlighted curve corresponds to the simulation that produced a total outbreak size closest to the median across the 200 simulations. Variations between simulation curves are expected, as the model accounts for inherent randomness and uncertainty present under real-world conditions."),
             html.Ul("", style={"margin-bottom": "1em"}),
             html.A("VACCINE RATES: ", style={"fontWeight": "bold", "fontSize": "18px"}),
             html.A(
-                "The School Lookup menu gives the percent of kindergarten and 7th grade students who are completely vaccinated for MMR, as reported by the Texas Department of Health and Human Services for the 2023-2024 school year ["),
+                "The School Lookup menu gives MMR vaccination rates for schools and school districts provided by individual cities, counties, or states. They may be out of date and may not represent all grades in a school. For the state of Texas, the data are the percent of kindergarten or 7th grade students who are completely vaccinated for MMR, as reported by the Texas Department of Health and Human Services for the 2023-2024 school year ["),
             html.A("DSHS 2023-2024 Annual Report of Immunization Status",
                    href="https://www.dshs.texas.gov/immunizations/data/school/coverage", target="_blank",
                    style={"color": "#1b96bf", "textDecoration": "none"}),
