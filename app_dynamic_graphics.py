@@ -4,8 +4,17 @@
 from dash import Dash, html, dcc, callback, Output, Input, State
 import dash_bootstrap_components as dbc
 
-from app_styles import BASE_FONT_FAMILY_STR, SELECTOR_NOTE_STYLE, RESULTS_HEADER_STYLE
+from app_static_graphics import \
+    vaccination_rate_label, school_size_label, I0_label, R0_label, \
+    latent_period_label, infectious_period_label
+from app_styles import BASE_FONT_FAMILY_STR, RESULTS_HEADER_STYLE, \
+    SELECTOR_NOTE_STYLE
 from app_computation_functions import EMPTY_SPAGHETTI_PLOT_INFECTED_MA
+from app_selectors import school_size_selector, \
+    I0_selector, vaccination_rate_selector, state_selector, \
+    county_selector, school_selector, R0_selector, latent_period_selector, \
+    infectious_period_selector
+
 
 def results_header():
     return dbc.Row(
@@ -77,31 +86,98 @@ def results_header():
 
 def spaghetti_plot_section():
     return dbc.Row([
-                    dbc.Col(
-                        dbc.Card(
-                            dbc.CardBody([
-                                html.H3("This graph shows 20 plausible school outbreak curves.",
-                                        style={"text-align": "center", "margin-top": "1em", "margin-bottom": "1em",
-                                               "margin-left": "1.8em",
-                                               "font-family": BASE_FONT_FAMILY_STR,
-                                               "font-size": "14pt", "font-weight": "400", "font-style": "italic"}),
-                                dcc.Graph(id="spaghetti_plot", figure=EMPTY_SPAGHETTI_PLOT_INFECTED_MA),
-                            ]),
-                            style={'border': 'none', 'padding': '0'},
-                        ),
-                    ),
-                ], style={"border-top": "2px solid black", "border-left": "1em", "padding": "none", "height": "60%",
-                          "width": "100%", "margin-top": "1em"})
+        dbc.Col(
+            dbc.Card(
+                dbc.CardBody([
+                    html.H3("This graph shows 20 plausible school outbreak curves.",
+                            style={"text-align": "center", "margin-top": "1em", "margin-bottom": "1em",
+                                   "margin-left": "1.8em",
+                                   "font-family": BASE_FONT_FAMILY_STR,
+                                   "font-size": "14pt", "font-weight": "400", "font-style": "italic"}),
+                    dcc.Graph(id="spaghetti_plot", figure=EMPTY_SPAGHETTI_PLOT_INFECTED_MA),
+                ]),
+                style={'border': 'none', 'padding': '0'},
+            ),
+        ),
+    ], style={"border-top": "2px solid black", "border-left": "1em", "padding": "none", "height": "60%",
+              "width": "100%", "margin-top": "1em"})
 
 
-def inputs_panels(school_size_header: html.H4,
-                  school_size_input: dcc.Input,
-                  I0_header: html.H4,
-                  I0_input: dcc.Input,
-                  vaccination_rate_header: html.H4,
-                  vaccination_rate_input: dcc.Input,
-                  top_accordion: dbc.Accordion,
-                  bottom_accordion: dbc.Accordion) -> dbc.Col:
+# Define the accordion separately
+epi_params_accordion = html.Div(
+    dbc.Accordion(
+        [
+            dbc.AccordionItem(
+                dbc.Col(
+                    [
+                        html.Br(),
+                        dbc.Col(html.Div(R0_label), className="mb-2"),
+                        dbc.Col(html.Div(R0_selector), className="mb-2"),
+                        dbc.Col(html.Div(latent_period_label), className="mb-2"),
+                        dbc.Col(html.Div(latent_period_selector), className="mb-2"),
+                        dbc.Col(html.Div(infectious_period_label), className="mb-2"),
+                        dbc.Col(html.Div(infectious_period_selector), className="mb-2"),
+                    ]
+                ),
+                title="Change Parameters ▾",
+                style={"textAlign": "center"}  # Add this line to center the text
+            ),
+        ],
+        flush=True,
+        always_open=False,  # Ensures sections can be toggled independently
+        active_item=[],  # Empty list means all sections are closed by default
+    )
+)
+
+# Define the accordion separately
+school_district_accordion = dbc.Accordion(
+    [
+        dbc.AccordionItem(
+            html.Div(
+                [
+                    html.H3("ISD rates are district averages.", style={**SELECTOR_NOTE_STYLE}),
+                    html.H3("Rates at individual schools may be higher or lower.", style={**SELECTOR_NOTE_STYLE}),
+                    html.H3("School Enrollment does not update automatically -- update above.",
+                            style={**SELECTOR_NOTE_STYLE, "font-weight": "bold"}),
+                    dbc.Col(html.Div(state_selector), className="mb-2 p-0"),
+
+                    dbc.Row([
+                        dbc.Col([
+                            html.H3("Select State before County.", style={**SELECTOR_NOTE_STYLE}),
+                        ]),
+                    ]),
+
+                    dbc.Col(html.Div(county_selector), className="mb-2 p-0"),
+
+                    dbc.Row([
+                        dbc.Col([
+                            html.H3("Select County before School.", style={**SELECTOR_NOTE_STYLE}),
+                            html.H3("Lookup populates Vaccination Rate.", style={**SELECTOR_NOTE_STYLE})
+                        ])
+                    ]),
+
+                    dbc.Col(html.Div(school_selector), className="mb-2 p-0"),
+                ]
+            ),
+            title="School/District Lookup ▾ ",
+            style={"font-size": "18pt", "width": "100%", "margin": "none"},
+            className="m-0"
+        ),
+    ],
+    flush=True,
+    always_open=False,  # Ensures sections can be toggled independently
+    active_item=[],  # Empty list means all sections are closed by default
+)
+
+
+def input_panel_builder(school_size_header: html.H4,
+                        school_size_input: dcc.Input,
+                        I0_header: html.H4,
+                        I0_input: dcc.Input,
+                        vaccination_rate_header: html.H4,
+                        vaccination_rate_input: dcc.Input,
+                        top_accordion: dbc.Accordion,
+                        bottom_accordion: dbc.Accordion) -> dbc.Col:
     return dbc.Col(
         dbc.Card(
             dbc.CardBody(
@@ -139,8 +215,7 @@ def inputs_panels(school_size_header: html.H4,
 
                     dbc.Row([
                         dbc.Col([
-                            html.H3("Enter value or select from Lookup.", style={**SELECTOR_NOTE_STYLE}),
-                            html.H3("Update School Enrollment above.", style={**SELECTOR_NOTE_STYLE}),
+                            html.H3("Enter value or select from Lookup.", style={**SELECTOR_NOTE_STYLE})
                         ]),
                     ]),
 
@@ -174,3 +249,14 @@ def inputs_panels(school_size_header: html.H4,
         width=3, xs=12, sm=12, md=12, lg=12, xl=3,
         style={"border-right": "2px solid black", "padding": "10px"},
     )
+
+
+def dashboard_input_panel():
+    return input_panel_builder(school_size_header=school_size_label,
+                               school_size_input=school_size_selector,
+                               I0_header=I0_label,
+                               I0_input=I0_selector,
+                               vaccination_rate_header=vaccination_rate_label,
+                               vaccination_rate_input=vaccination_rate_selector,
+                               top_accordion=school_district_accordion,
+                               bottom_accordion=epi_params_accordion)
