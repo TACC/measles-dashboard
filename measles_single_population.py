@@ -559,7 +559,16 @@ def create_strs_20plus_new_and_outbreak(sim: StochasticSimulations,
         not just hardcoded 20.
     """
 
-    prob_20plus_new_str = '{:.0%}'.format(sim.probability_20_plus_cases)
+    probability_20_plus_cases = sim.probability_20_plus_cases
+
+    if probability_20_plus_cases < 0.01:
+        prob_20plus_new_str = "< 1%"
+    elif probability_20_plus_cases > 0.99:
+        prob_20plus_new_str = "> 99%"
+    else:
+        prob_20plus_new_str = '{:.0%}'.format(probability_20_plus_cases)
+
+    # breakpoint()
 
     if sim.mean_outbreak_given_20_new_infections == 'NA':
         cases_expected_over_20_str = "Fewer than 20 new infections"
@@ -608,6 +617,24 @@ MSP_PARAMS = {
     "simulation_seed": 147125098488
 }
 
+MSP_PARAMS = {
+    'R0': 18.0,  # transmission rate
+    # 'sigma': 1/10.5,    # 10.5 days average latent period
+    # 'rho': 1/1,         # 1 days average pre-symptomatic period
+    # 'gamma': 1/8,       # 7 days average infectious period
+    'incubation_period': 12,
+    'infectious_period': 9,
+    'school_contacts': 5.63424,
+    'other_contacts': 2.2823,
+    'population': [5000],
+    'I0': [1000],
+    'vax_prop': [0.0],  # number between 0 and 1
+    'sim_duration_days': 250,
+    'time_step_days': 0.25,
+    'is_stochastic': True,  # False for deterministic,
+    "simulation_seed": 147125098488
+}
+
 # %% Main
 ##########
 # Example usage
@@ -616,6 +643,11 @@ if __name__ == "__main__":
 
     # Stochastic runs
     # n_sim = 200
-    n_sim = 20
+    n_sim = 200
     stochastic_sim = StochasticSimulations(
         MSP_PARAMS, n_sim, print_summary_stats=True, show_plots=True)
+
+    create_strs_20plus_new_and_outbreak(stochastic_sim,
+                                        OUTBREAK_SIZE_UNCERTAINTY_OPTIONS.IQR)
+
+    # breakpoint()

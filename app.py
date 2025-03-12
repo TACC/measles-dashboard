@@ -171,6 +171,10 @@ def update_graph(params_dict: dict,
             msp.create_strs_20plus_new_and_outbreak(stochastic_sim,
                                                     DASHBOARD_CONFIG["outbreak_size_uncertainty_displayed"])
 
+        # ">" needs an escape in HTML!!!!
+        if prob_20plus_new_str == "> 99%":
+            prob_20plus_new_str = "\> 99%"
+
         return fig, prob_20plus_new_str, cases_expected_over_20_str
 
     else:
