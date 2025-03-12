@@ -1,13 +1,16 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Mon Feb 17 16:39:51 2025
-Updated on Thu Feb 20 1:55:00 2025
-
 @author: rfp437
 
 >(^_^)> ~~~~
 """
+
+# TODO: we should probably make the dictionary of params be a
+#   dataclass with a decent name like MSP_params or something -- because
+#   we keep passing it as an argument and ASSUME certain things about the field names
+#   and data types -- so we should make these assumptions explicit, and the
+#   dataclass does that for us
 
 # TODO: streamline the single population / multiple population stuff?
 #   Some confusing stuff... e.g. remembering that some parameters are actually

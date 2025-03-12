@@ -139,7 +139,7 @@ def bottom_info_section():
             html.Ul("", style={"margin-bottom": "1em"}),
             html.A("VACCINE RATES: ", style={"fontWeight": "bold", "fontSize": "18px"}),
             html.A(
-                "The School Lookup menu gives MMR vaccination rates for schools and school districts provided by individual cities, counties, or states. They may be out of date and may not represent all grades in a school. For the state of Texas, the data are the percent of kindergarten or 7th grade students who are completely vaccinated for MMR, as reported by the Texas Department of Health and Human Services for the 2023-2024 school year ["),
+                "The School/District Lookup menu gives MMR vaccination rates for schools and school districts provided by individual cities, counties, or states. They may be out of date and may not represent all grades in a school. For the state of Texas, the data are the percent of kindergarten or 7th grade students who are completely vaccinated for MMR, as reported by the Texas Department of Health and Human Services for the 2023-2024 school year ["),
             html.A("DSHS 2023-2024 Annual Report of Immunization Status",
                    href="https://www.dshs.texas.gov/immunizations/data/school/coverage", target="_blank",
                    style={"color": "#1b96bf", "textDecoration": "none"}),
