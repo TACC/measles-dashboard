@@ -15,11 +15,11 @@ county_options_default_list = list(pd.read_csv("Texas_Counties.csv").columns)
 school_options_default_list = list(pd.read_csv("Texas_Travis_Schools.csv").columns)
 
 SELECTOR_DEFAULTS =\
-    {"county_selector_default": "Travis",
-     "state_selector_default": "Texas",
-     "school_selector_default": "AUSTIN ISD (Kindergarten)",
-     "county_options_default": county_options_default_list,
-     "school_options_default": school_options_default_list,
+    {"county_selector_default": "",
+     "state_selector_default": "",
+     "school_selector_default": "",
+     "county_options_default": [],
+     "school_options_default": [],
      "school_size": 500,
      "vax_rate": 85,
      "I0": 1,
@@ -136,8 +136,8 @@ infectious_period_selector = dcc.Slider(
     step=0.1,
     value=SELECTOR_DEFAULTS["infectious_period"],
     included=False,
-    marks={5: {'label': '5', 'style': {**BASE_FONT_STYLE}},
-           8: {'label': '8', 'style': {**BASE_FONT_STYLE, 'fontWeight': 'bold'}},
+    marks={5: {'label': '5', 'style': {**BASE_FONT_STYLE, 'fontWeight': 'bold'}},
+           7: {'label': '7', 'style': {**BASE_FONT_STYLE}},
            9: {'label': '9', 'style': {**BASE_FONT_STYLE}}
            },
     tooltip={**SELECTOR_TOOLTIP_STYLE},
