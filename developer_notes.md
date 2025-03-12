@@ -10,6 +10,12 @@ TODO: we need a script to assess validity and format of new states' datasets!
 - `TX_MMR_vax_rate.csv` 
 - `NC_MMR_vax_rate.csv` -- new dataset without duplicates 03/11/2025 
 
+### Fixing default values bug -- 03/12/2025 LP
+- **Problem:** Initially we wanted to 
+- **Impact:**
+- **Fix:**
+- **Technical details:**
+
 ## Tues Mar 7 - Mon Mar 11
 All following changes documented and implemented by LP
 

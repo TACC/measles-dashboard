@@ -607,7 +607,6 @@ MSP_PARAMS = {
     'is_stochastic': True,  # False for deterministic,
     "simulation_seed": 147125098488
 }
-n_sim = 200
 
 # %% Main
 ##########
@@ -616,6 +615,7 @@ if __name__ == "__main__":
     run_deterministic_model(MSP_PARAMS)
 
     # Stochastic runs
-    n_sim = 200
+    # n_sim = 200
+    n_sim = 20
     stochastic_sim = StochasticSimulations(
         MSP_PARAMS, n_sim, print_summary_stats=True, show_plots=True)
