@@ -87,7 +87,7 @@ county_selector = html.Div(
 
 school_selector = html.Div(
     [
-        dbc.Label("Select a School/District", html_for="school_selector",
+        dbc.Label("Select School/District", html_for="school_selector",
                   style={**BASE_FONT_STYLE}),
         dcc.Dropdown(
             id="school_selector",
@@ -131,12 +131,13 @@ latent_period_selector = dcc.Slider(
 
 infectious_period_selector = dcc.Slider(
     id='infectious_period_selector',
-    min=5,
+    min=4,
     max=9,
     step=0.1,
     value=SELECTOR_DEFAULTS["infectious_period"],
     included=False,
-    marks={5: {'label': '5', 'style': {**BASE_FONT_STYLE, 'fontWeight': 'bold'}},
+    marks={4: {'label': '4', 'style': {**BASE_FONT_STYLE}},
+           5: {'label': '5', 'style': {**BASE_FONT_STYLE, 'fontWeight': 'bold'}},
            7: {'label': '7', 'style': {**BASE_FONT_STYLE}},
            9: {'label': '9', 'style': {**BASE_FONT_STYLE}}
            },
