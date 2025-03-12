@@ -144,7 +144,7 @@ def bottom_info_section():
                    href="https://www.dshs.texas.gov/immunizations/data/school/coverage", target="_blank",
                    style={"color": "#1b96bf", "textDecoration": "none"}),
             html.A("]."),
-            html.A("or the state of North Carolina, the data are the percent of kindergarten students who received all required MMR doses, as reported by the North Carolina Department of Health and Human Services for the 2023-2024 academic year ["),
+            html.A(" For the state of North Carolina, the data are the percent of kindergarten students who received all required MMR doses, as reported by the North Carolina Department of Health and Human Services for the 2023-2024 academic year ["),
             html.A("NCDHHS Kindergarten Immunization Data Dashboard",
                    href="https://www.dph.ncdhhs.gov/programs/epidemiology/immunization/data/kindergarten-dashboard", target="_blank",
                    style={"color": "#1b96bf", "textDecoration": "none"}),
