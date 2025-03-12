@@ -76,8 +76,7 @@ def get_county_subset_df(state_str, county_str) -> pd.DataFrame:
      Input('I0_selector', 'value'),
      Input('R0_selector', 'value'),
      Input('latent_period_selector', 'value'),
-     Input('infectious_period_selector', 'value')],
-prevent_initial_call=True)
+     Input('infectious_period_selector', 'value')])
 def create_params_from_selectors(params_dict,
                                  school_size,
                                  vax_rate_percent,
@@ -300,4 +299,4 @@ app.layout = dbc.Container(
 
 
 if __name__ == '__main__':
-    app.run(debug=False, host='0.0.0.0')
+    app.run(debug=True, host='0.0.0.0')
