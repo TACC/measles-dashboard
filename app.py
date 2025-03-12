@@ -50,6 +50,11 @@ msp.MSP_PARAMS["simulation_seed"] = DASHBOARD_CONFIG["simulation_seed"]
 TX_df = pd.read_csv('TX_MMR_vax_rate.csv')
 NC_df = pd.read_csv('NC_MMR_vax_rate.csv')
 
+# TODO: need to do this before `app.py` in separate script
+#   for dataframe pre-processing
+
+NC_df["MMR_Vaccination_Rate"] = np.round(NC_df["MMR_Vaccination_Rate"] * 10000) / 10000
+
 states = ("Texas", "North Carolina")
 
 state_to_df_map = {

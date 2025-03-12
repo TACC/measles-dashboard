@@ -6,7 +6,7 @@ from app_styles import BASE_FONT_STYLE, \
     SELECTOR_DISPLAY_STYLE, DROPDOWN_BASE_CONFIG, SELECTOR_TOOLTIP_STYLE, \
     NO_WRAP_FULL_WIDTH
 
-states_list = ["Texas", "North Carolina"]
+states_list = ["North Carolina", "Texas"]
 
 # Ew I don't like this... but time-sensitive deadline means we
 #   gotta change this later...
@@ -138,7 +138,6 @@ infectious_period_selector = dcc.Slider(
     included=False,
     marks={4: {'label': '4', 'style': {**BASE_FONT_STYLE}},
            5: {'label': '5', 'style': {**BASE_FONT_STYLE, 'fontWeight': 'bold'}},
-           7: {'label': '7', 'style': {**BASE_FONT_STYLE}},
            9: {'label': '9', 'style': {**BASE_FONT_STYLE}}
            },
     tooltip={**SELECTOR_TOOLTIP_STYLE},
