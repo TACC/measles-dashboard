@@ -11,10 +11,10 @@ TODO: we need a script to assess validity and format of new states' datasets!
 - `NC_MMR_vax_rate.csv` -- new dataset without duplicates 03/11/2025 
 
 ### Fixing default values bug -- 03/12/2025 LP
-- **Problem:** Initially we wanted to 
-- **Impact:**
-- **Fix:**
-- **Technical details:**
+- **Problem:** The initial fix to address the request to "set the default vaccination rate to 85 rather than be populated from the default Austin ID (Kindergarten) school field" led to some weird behavior. The simulation that was initially loaded did not actually correspond to a vaccination rate of 85, even though that was what was displayed.
+- **Impact:** Confusion because increasing the vaccination rate seemed to make results worse -- but this was not because of a simulation bug, it was because the default value was not actually 85 even though that was what was displayed.
+- **Fix:** The `State`, `County`, and `School/District` dropdowns have empty strings as default values!
+- **Technical details:** I thought that adding `prevent_initial_call=True` to certain callbacks would help, but I don't think it completely fixed the weirdness. Might be worth looking into in the future if we need to add more complicated default value stuff.
 
 ## Tues Mar 7 - Mon Mar 11
 All following changes documented and implemented by LP

@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Sun Feb 16 12:19:50 2025
-
 @author: rfp437
+
+>(^_^)> ~~~~
 """
 
 # %% Imports and parameters
