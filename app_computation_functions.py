@@ -56,6 +56,7 @@ def get_spaghetti_plot_infected_ma(df_plot: pd.DataFrame,
 def create_data_spaghetti_plot_infected_ma(sim: msp.StochasticSimulations,
                                            nb_curves_displayed: int,
                                            curve_selection_seed: int):
+
     df_spaghetti_infected_ma = sim.df_spaghetti_infected_ma
     index_sim_closest_median = sim.index_sim_closest_median
 

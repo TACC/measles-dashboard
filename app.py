@@ -50,11 +50,6 @@ msp.MSP_PARAMS["simulation_seed"] = DASHBOARD_CONFIG["simulation_seed"]
 TX_df = pd.read_csv('TX_MMR_vax_rate.csv')
 NC_df = pd.read_csv('NC_MMR_vax_rate.csv')
 
-# TODO: need to do this before `app.py` in separate script
-#   for dataframe pre-processing
-
-NC_df["MMR_Vaccination_Rate"] = np.round(NC_df["MMR_Vaccination_Rate"] * 10000) / 10000
-
 states = ("Texas", "North Carolina")
 
 state_to_df_map = {
@@ -156,8 +151,13 @@ def update_graph(params_dict: dict,
     n_sim = DASHBOARD_CONFIG["num_simulations"]
 
     if inputs_are_valid:
-        stochastic_sim = msp.StochasticSimulations(
-            params_dict, n_sim, print_summary_stats=False, show_plots=False)
+        stochastic_sim = msp.StochasticSimulations(params_dict, n_sim)
+        stochastic_sim.run_stochastic_model(track_infected=True)
+        stochastic_sim.prep_across_rep_plot_data(include_infected_7day_ma=True)
+        stochastic_sim.calculate_20_plus_new_cases_statistics()
+
+        prob_20plus_new_str, cases_expected_over_20_str = \
+            stochastic_sim.create_strs_20plus_new_and_outbreak(DASHBOARD_CONFIG["outbreak_size_uncertainty_displayed"])
 
         (plot_df, plot_color_map) = \
             create_data_spaghetti_plot_infected_ma(sim=stochastic_sim,
@@ -166,10 +166,6 @@ def update_graph(params_dict: dict,
                                                        "spaghetti_curve_selection_seed"])
 
         fig = get_spaghetti_plot_infected_ma(plot_df, plot_color_map)
-
-        prob_20plus_new_str, cases_expected_over_20_str = \
-            msp.create_strs_20plus_new_and_outbreak(stochastic_sim,
-                                                    DASHBOARD_CONFIG["outbreak_size_uncertainty_displayed"])
 
         # ">" needs an escape in HTML!!!!
         if prob_20plus_new_str == "> 99%":
@@ -212,7 +208,7 @@ def update_school_selector(state, county):
     df = get_county_subset_df(state, county)
     new_school_options = sorted(
         f"{name} ({age_group})"
-        for name, age_group in zip(df["School District or Name"], df["age_group"])
+        for name, age_group in zip(df["School District or Name"], df["Age Group"])
     )
     default_school_displayed = new_school_options[0]
 
@@ -238,19 +234,12 @@ def get_school_vax_rate(state_str,
         age_group = age_group.rstrip(")")
 
         df_school = county_subset_df.loc[
-            (county_subset_df['School District or Name'] == school) & (county_subset_df['age_group'] == age_group)]
+            (county_subset_df['School District or Name'] == school) &
+            (county_subset_df['Age Group'] == age_group)]
 
-        school_vax_rate_pct = df_school['MMR_Vaccination_Rate'].values[0]
+        school_vax_rate_pct = df_school['MMR Vaccination Rate'].values[0]
 
-        if not isinstance(school_vax_rate_pct, str):
-            if school_vax_rate_pct <= 1:
-                return [school_vax_rate_pct * 100]
-            else:
-                return [school_vax_rate_pct]
-        else:
-            school_vax_rate = float(school_vax_rate_pct.replace('%', ''))
-
-        return [school_vax_rate]
+        return [school_vax_rate_pct]
 
     else:
 
