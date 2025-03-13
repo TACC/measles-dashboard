@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Sun Feb 16 12:19:50 2025
-
 @author: rfp437
+
+>(^_^)> ~~~~
 """
 
 # %% Imports and parameters
@@ -172,10 +172,11 @@ class MetapopulationSEPIR:
         # Time array
         self.t = np.linspace(0, params['sim_duration_days'], self.n_steps)
 
+        self.params = params
+
         # Initialize compartments as 2D arrays [time_step, population]
         self.S = np.zeros((self.n_steps, self.n_pop))
         self.E = np.zeros((self.n_steps, self.n_pop))
-        self.P = np.zeros((self.n_steps, self.n_pop))
         self.I = np.zeros((self.n_steps, self.n_pop))
         self.R = np.zeros((self.n_steps, self.n_pop))
 
@@ -193,7 +194,7 @@ class MetapopulationSEPIR:
 
         self.I[0] = np.array(params['I0'])
         self.R[0] = [
-            int(self.N[i_pop] * params['vaccinated_percent'][i_pop])
+            int(self.N[i_pop] * params['vax_prop'][i_pop])
             for i_pop in range(self.n_pop)
         ]
         self.R[0] = [
@@ -204,6 +205,11 @@ class MetapopulationSEPIR:
 
         # Current step tracker
         self.current_step = 0
+
+        self.df_spaghetti_infectious = pd.DataFrame([])
+        self.df_spaghetti_infected = pd.DataFrame([])
+        self.df_spaghetti_infected_ma = pd.DataFrame([])
+        self.df_spaghetti_incidence = pd.DataFrame([])
 
     def get_compartment_transition(self,
                                    rate: float,
@@ -302,6 +308,33 @@ class MetapopulationSEPIR:
         while self.step():
             pass
 
+    def clear(self):
+        # Reset stored values to defaults / empty arrays
+
+        self.S = np.zeros((self.n_steps, self.n_pop))
+        self.E = np.zeros((self.n_steps, self.n_pop))
+        self.I = np.zeros((self.n_steps, self.n_pop))
+        self.R = np.zeros((self.n_steps, self.n_pop))
+
+        self.S_to_E = np.zeros((self.n_steps, self.n_pop))
+        self.E_to_I = np.zeros((self.n_steps, self.n_pop))
+        self.I_to_R = np.zeros((self.n_steps, self.n_pop))
+
+        params = self.params
+
+        self.I[0] = np.array(params['I0'])
+        self.R[0] = [
+            int(self.N[i_pop] * params['vax_prop'][i_pop])
+            for i_pop in range(self.n_pop)
+        ]
+        self.R[0] = [
+            min(self.R[0, i_pop], self.N[i_pop] - self.I[0, i_pop])
+            for i_pop in range(self.n_pop)
+        ]
+        self.S[0] = self.N - self.I[0] - self.R[0]
+
+        self.current_step = 0
+
     def plot_results(self):
         """Plot the results for all populations"""
         fig, axes = plt.subplots(self.n_pop, 1, figsize=(10, 6 * self.n_pop))
@@ -330,8 +363,7 @@ class StochasticSimulations:
     summary statistics and creates plots.
     """
 
-    def __init__(self, params, n_sim, print_summary_stats=False,
-                 show_plots=True):
+    def __init__(self, params, n_sim):
         self.params = copy.deepcopy(params)
         self.params['sigma'] = 1.0 / self.params['incubation_period']
         self.params['gamma'] = 1.0 / self.params['infectious_period']
@@ -339,8 +371,6 @@ class StochasticSimulations:
         self.RNG = np.random.Generator(np.random.MT19937(seed=params["simulation_seed"]))
 
         self.n_sim = n_sim
-        self.print_summary_stats = print_summary_stats
-        self.show_plots = show_plots
         self.steps_per_day = int(np.round(1.0 / params['time_step_days'], 0))
 
         self.new_infected_school1 = np.zeros(shape=(n_sim))
@@ -351,14 +381,30 @@ class StochasticSimulations:
         self.mean_outbreak_given_20_new_infections = 'NA'
         self.mean_outbreak_given_20_new_infections_min = 'NA'
         self.mean_outbreak_given_20_new_infections_max = 'NA'
+        
+        self.index_sim_closest_median = None
+        self.outbreak_given_20_new_infections_quantiles = {}
+        self.df_new_infected_empirical_dist = pd.DataFrame([])
 
-        self.run_stochastic_model()
-        self.calculate_summary_statistics_stochastic_runs()
-        self.create_plots()
+        self.probability_5_plus_new_cases = None
+        self.probability_10_plus_new_cases = None
+        self.probability_20_plus_new_cases = None
 
-    def run_stochastic_model(self):
+        self.incidence_school_1_7day_ma = np.array([])
+        self.infected_school_1_7day_ma = np.array([])
+
+        self.model = MetapopulationSEPIR(self.params)
+        self.model.RNG = self.RNG
+
+    def run_stochastic_model(self,
+                             track_infectious=False,
+                             track_infected=False,
+                             track_incidence=False,
+                             print_summary_stats=False,
+                             show_plots=False):
 
         for i_sim in range(self.n_sim):
+
             # For reproducibility, create a FIXED starting point
             #   for the random number generator. Simulations and
             #   random variables are still RANDOM (pseudorandom,
@@ -375,117 +421,72 @@ class StochasticSimulations:
             #   RNGs move in-place after spitting out random numbers --
             #   so their next sample starts where things last left off.)
 
-            # Create and run model
-            model = MetapopulationSEPIR(self.params)
-            model.RNG = self.RNG
+            model = self.model
+
             model.simulate()
 
-            # Update so I0 is not param input, but what I0 was really used
-            self.cumulative_new_infected_pop_1 = model.R[:, 0] - model.R[0, 0] - model.I[0, 0]  # params['I0'][0]
+            self.cumulative_new_infected_pop_1 = model.R[:, 0] - model.R[0, 0] - self.params['I0'][0]
             self.new_infected_school1[i_sim] = self.cumulative_new_infected_pop_1[-1]
 
-            self.infectious_school_1[i_sim, :] = (
-                model.I[::self.steps_per_day, 0]
-            )
-            self.infected_school_1[i_sim, :] = (
-                    model.I[::self.steps_per_day, 0] + model.E[::self.steps_per_day, 0]
-            )
+            if track_infectious:
+                self.infectious_school_1[i_sim, :] = (
+                    model.I[::self.steps_per_day, 0]
+                )
 
-            # At Lauren's request -- from Slack 03042025 --
-            # "just the number of new transitions from S to E"
-            # Note -- because incidence is S_to_E at a given time (and not cumulative),
-            #   we have to SUM all the people that move from S_to_E within a day --
-            #   i.e. summing all the people that move from S to E over self.steps_per_day --
-            #   this is DIFFERENT than checking I every day (every self.steps_per_day)
+            if track_infected:
+                self.infected_school_1[i_sim, :] = (
+                        model.I[::self.steps_per_day, 0] + model.E[::self.steps_per_day, 0]
+                )
 
-            S_to_E_school_1 = model.S_to_E[:, 0]
-            total_steps = len(S_to_E_school_1)
+            if track_incidence:
+                # At Lauren's request -- from Slack 03042025 --
+                # "just the number of new transitions from S to E"
+                # Note -- because incidence is S_to_E at a given time (and not cumulative),
+                #   we have to SUM all the people that move from S_to_E within a day --
+                #   i.e. summing all the people that move from S to E over self.steps_per_day --
+                #   this is DIFFERENT than checking I every day (every self.steps_per_day)
 
-            self.incidence_school_1[i_sim, :] = \
-                np.add.reduceat(S_to_E_school_1, np.arange(0, total_steps, self.steps_per_day))
+                S_to_E_school_1 = model.S_to_E[:, 0]
+                total_steps = len(S_to_E_school_1)
 
-            # assert np.sum(self.incidence_school_1[i_sim, :]) == \
-            #       self.cumulative_new_infected_pop_1[-1]
+                self.incidence_school_1[i_sim, :] = \
+                    np.add.reduceat(S_to_E_school_1, np.arange(0, total_steps, self.steps_per_day))
 
-            self.incidence_school_1_7day_ma = calculate_np_moving_average(self.incidence_school_1, 7)
+                # assert np.sum(self.incidence_school_1[i_sim, :]) == \
+                #       self.cumulative_new_infected_pop_1[-1]
 
+            model.clear()
+
+        self.process_across_rep_output()
+
+        if print_summary_stats:
+            self.print_summary_stats()
+        if show_plots:
+            self.create_plots()
+
+        return
+
+    def prep_across_rep_plot_data(self,
+                                  include_infectious=False,
+                                  include_infected=False,
+                                  include_infected_7day_ma=True,
+                                  include_incidence=False):
+
+        plot_data_dict = {}
+
+        if include_infectious:
+            plot_data_dict["df_spaghetti_infectious"] = (self.infectious_school_1, "number_infectious")
+
+        if include_infected:
+            plot_data_dict["df_spaghetti_infected"] = (self.infected_school_1, "number_infected")
+
+        if include_infected_7day_ma:
             self.infected_school_1_7day_ma = calculate_np_moving_average(self.infected_school_1, 7)
+            plot_data_dict["df_spaghetti_infected_ma"] = (self.infected_school_1_7day_ma, "number_infected_7_day_ma")
 
-            self.model = model
-
-        return
-
-    def calculate_summary_statistics_stochastic_runs(self):
-
-        unique, counts = np.unique(self.new_infected_school1, return_counts=True)
-        df_infected_1 = pd.DataFrame({
-            'new_infected': unique,
-            'num_simulations': counts
-        })
-        df_infected_1['probability'] = df_infected_1['num_simulations'] / self.n_sim
-
-        median_new_infected = np.median(self.new_infected_school1)
-        self.index_sim_closest_median = min(
-            range(len(self.new_infected_school1)),
-            key=lambda i: abs(self.new_infected_school1[i] - median_new_infected)
-        )
-
-        self.probability_5_plus_cases = df_infected_1.loc[
-            df_infected_1['new_infected'] >= 5, 'probability'].sum()
-        self.probability_10_plus_cases = df_infected_1.loc[
-            df_infected_1['new_infected'] >= 10, 'probability'].sum()
-        self.probability_20_plus_cases = df_infected_1.loc[
-            df_infected_1['new_infected'] >= 20, 'probability'].sum()
-
-        p_5_pct = '{:.0%}'.format(self.probability_5_plus_cases)
-        p_10_pct = '{:.0%}'.format(self.probability_10_plus_cases)
-        p_20_pct = '{:.0%}'.format(self.probability_20_plus_cases)
-
-        self.expected_infections_all_sim = self.new_infected_school1.mean()
-        df_over_20 = df_infected_1.loc[
-            df_infected_1['new_infected'] >= 20]  # , 'new_infected']
-        if len(df_over_20) > 0:
-            # change param input infections to what was used by the model
-            self.mean_outbreak_given_20_new_infections = self.model.I[0, 0] + \
-                                                         (df_over_20['new_infected'] * df_over_20[
-                                                             'probability']).sum() / \
-                                                         df_over_20['probability'].sum()
-            cases_over_20 = self.new_infected_school1[
-                self.new_infected_school1 >= 20]
-            quantile_list = [0, 2.5, 5, 10, 25, 50, 75, 90, 95, 97.5, 100]
-            self.expected_outbreak_quantiles = {
-                q: get_percentile_from_list(cases_over_20, q)
-                for q in quantile_list
-            }
-        # else: expected outbreak attributes remain NA
-
-        self.df_infected_1 = df_infected_1
-
-        if self.print_summary_stats:
-            print('Probability of 5 or more cases in outbreak:', p_5_pct)
-            print('Probability of 10 or more cases in outbreak:', p_10_pct)
-            print('Probability of 20 or more cases in outbreak:', p_20_pct)
-
-            print('Expected number of infections across all simulations:',
-                  int(self.expected_infections_all_sim), 'cases')
-
-            if self.mean_outbreak_given_20_new_infections == 'NA':
-                mean_outbreak_given_20_new_infections_print = self.mean_outbreak_given_20_new_infections
-            else:
-                mean_outbreak_given_20_new_infections_print = int(self.mean_outbreak_given_20_new_infections)
-            print('Expected number of infections across outbreaks of size 20 or more:',
-                  mean_outbreak_given_20_new_infections_print, 'cases')
-
-        return
-
-    def create_plots(self):
-
-        plot_data_dict = {
-            "df_spaghetti_infected": (self.infected_school_1, "number_infected"),
-            "df_spaghetti_infected_ma": (self.infected_school_1_7day_ma, "number_infected_7_day_ma"),
-            "df_spaghetti_infectious": (self.infectious_school_1, "number_infectious"),
-            "df_spaghetti_incidence": (self.incidence_school_1, "number_incidence")
-        }
+        if include_incidence:
+            self.incidence_school_1_7day_ma = calculate_np_moving_average(self.incidence_school_1, 7)
+            plot_data_dict["df_spaghetti_incidence"] = (self.incidence_school_1, "number_incidence")
 
         id_values = list(range(1, 2 + MSP_PARAMS['sim_duration_days']))
 
@@ -498,6 +499,127 @@ class StochasticSimulations:
                 id_values=id_values,
                 value_name=value_name
             ))
+
+    def process_across_rep_output(self):
+
+        self.compute_index_sim_closest_median()
+        self.compute_new_infected_empirical_dist()
+
+    def compute_index_sim_closest_median(self):
+        median_new_infected = np.median(self.new_infected_school1)
+        self.index_sim_closest_median = min(
+            range(len(self.new_infected_school1)),
+            key=lambda i: abs(self.new_infected_school1[i] - median_new_infected)
+        )
+        
+    def compute_new_infected_empirical_dist(self):
+        unique, counts = np.unique(self.new_infected_school1, return_counts=True)
+        self.df_new_infected_empirical_dist = pd.DataFrame({
+            'new_infected': unique,
+            'num_simulations': counts,
+            'probability': counts / self.n_sim
+        })
+
+    def calculate_20_plus_new_cases_statistics(self):
+
+        # TODO: Can make 20 an argument to this function rather than hardcoded
+
+        df_new_infected_empirical_dist = self.df_new_infected_empirical_dist
+
+        self.probability_20_plus_new_cases = df_new_infected_empirical_dist.loc[
+            df_new_infected_empirical_dist['new_infected'] >= 20, 'probability'].sum()
+
+        df_over_20 = df_new_infected_empirical_dist.loc[
+            df_new_infected_empirical_dist['new_infected'] >= 20]  # , 'new_infected']
+
+        if len(df_over_20) > 0:
+            self.mean_outbreak_given_20_new_infections = \
+                self.params["I0"][0] + (df_over_20['new_infected'] *
+                                      df_over_20['probability']).sum() / self.probability_20_plus_new_cases
+            cases_over_20 = self.new_infected_school1[
+                self.new_infected_school1 >= 20]
+
+            quantile_list = [0, 2.5, 5, 10, 25, 50, 75, 90, 95, 97.5, 100]
+            self.outbreak_given_20_new_infections_quantiles = {
+                q: get_percentile_from_list(cases_over_20, q)
+                for q in quantile_list
+            }
+        # else: expected outbreak attributes remain NA
+
+    def create_strs_20plus_new_and_outbreak(self,
+                                            outbreak_size_uncertainty_displayed: OUTBREAK_SIZE_UNCERTAINTY_OPTIONS):
+        """
+        Sorry for this UGLY function name :)
+
+        Returns 2 strings to populate the written text portion of the dashboard
+        - 1st string corresponds to probability of exceeding 20 new infections
+        - 2nd corresponds to likely (expected) outbreak size if there are 20+ new infections
+
+        TODO: in the future, we can write this function and also related functions
+            in the StochasticSims class to take in an arbitrary new infection cut-off,
+            not just hardcoded 20.
+        """
+
+        probability_20_plus_new_cases = self.probability_20_plus_new_cases
+
+        if probability_20_plus_new_cases < 0.01:
+            prob_20plus_new_str = "< 1%"
+        elif probability_20_plus_new_cases > 0.99:
+            prob_20plus_new_str = "> 99%"
+        else:
+            prob_20plus_new_str = '{:.0%}'.format(probability_20_plus_new_cases)
+
+        # breakpoint()
+
+        if self.mean_outbreak_given_20_new_infections == 'NA':
+            cases_expected_over_20_str = "Fewer than 20 new infections"
+
+        else:
+
+            if outbreak_size_uncertainty_displayed == OUTBREAK_SIZE_UNCERTAINTY_OPTIONS.NINETY:
+                quantile_lb, quantile_ub, range_name = 5, 95, '90% CI'
+            elif outbreak_size_uncertainty_displayed == OUTBREAK_SIZE_UNCERTAINTY_OPTIONS.NINETY_FIVE:
+                quantile_lb, quantile_ub, range_name = 2.5, 97.5, '95% CI'
+            elif outbreak_size_uncertainty_displayed == OUTBREAK_SIZE_UNCERTAINTY_OPTIONS.RANGE:
+                quantile_lb, quantile_ub, range_name = 0, 100, 'range'
+            elif outbreak_size_uncertainty_displayed == OUTBREAK_SIZE_UNCERTAINTY_OPTIONS.IQR:
+                quantile_lb, quantile_ub, range_name = 25, 75, 'IQR'
+
+            uncertainty_outbreak_size_str = str(
+                int(self.outbreak_given_20_new_infections_quantiles[quantile_lb])) + ' - ' + \
+                                            str(int(self.outbreak_given_20_new_infections_quantiles[quantile_ub]))
+
+            cases_expected_over_20_str = uncertainty_outbreak_size_str + " total cases"
+
+        return prob_20plus_new_str, cases_expected_over_20_str
+    
+    def print_summary_stats(self):
+
+        df_new_infected_empirical_dist = self.df_new_infected_empirical_dist
+        
+        self.probability_5_plus_new_cases = df_new_infected_empirical_dist.loc[
+            df_new_infected_empirical_dist['new_infected'] >= 5, 'probability'].sum()
+        self.probability_10_plus_new_cases = df_new_infected_empirical_dist.loc[
+            df_new_infected_empirical_dist['new_infected'] >= 10, 'probability'].sum()
+        self.probability_20_plus_new_cases = df_new_infected_empirical_dist.loc[
+            df_new_infected_empirical_dist['new_infected'] >= 20, 'probability'].sum()
+
+        p_5_pct = '{:.0%}'.format(self.probability_5_plus_new_cases)
+        p_10_pct = '{:.0%}'.format(self.probability_10_plus_new_cases)
+        p_20_pct = '{:.0%}'.format(self.probability_20_plus_new_cases)
+        
+        print('Probability of 5 or more cases in outbreak:', p_5_pct)
+        print('Probability of 10 or more cases in outbreak:', p_10_pct)
+        print('Probability of 20 or more cases in outbreak:', p_20_pct)
+
+        if self.mean_outbreak_given_20_new_infections == 'NA':
+            mean_outbreak_given_20_new_infections_print = self.mean_outbreak_given_20_new_infections
+        else:
+            mean_outbreak_given_20_new_infections_print = int(self.mean_outbreak_given_20_new_infections)
+        print('Expected number of infections across outbreaks of size 20 or more:',
+              mean_outbreak_given_20_new_infections_print, 'cases')
+
+    def create_plots(self):
 
         if self.show_plots:
 
@@ -545,44 +667,6 @@ def run_deterministic_model(params):
     model_deterministic.plot_results()
 
 
-def create_strs_20plus_new_and_outbreak(sim: StochasticSimulations,
-                                        outbreak_size_uncertainty_displayed: OUTBREAK_SIZE_UNCERTAINTY_OPTIONS):
-    """
-    Sorry for this UGLY function name :)
-
-    Returns 2 strings to populate the written text portion of the dashboard
-    - 1st string corresponds to probability of exceeding 20 new infections
-    - 2nd corresponds to likely (expected) outbreak size if there are 20+ new infections
-
-    TODO: in the future, we can write this function and also related functions
-        in the StochasticSims class to take in an arbitrary new infection cut-off,
-        not just hardcoded 20.
-    """
-
-    prob_20plus_new_str = '{:.0%}'.format(sim.probability_20_plus_cases)
-
-    if sim.mean_outbreak_given_20_new_infections == 'NA':
-        cases_expected_over_20_str = "Fewer than 20 new infections"
-
-    else:
-
-        if outbreak_size_uncertainty_displayed == OUTBREAK_SIZE_UNCERTAINTY_OPTIONS.NINETY:
-            quantile_lb, quantile_ub, range_name = 5, 95, '90% CI'
-        elif outbreak_size_uncertainty_displayed == OUTBREAK_SIZE_UNCERTAINTY_OPTIONS.NINETY_FIVE:
-            quantile_lb, quantile_ub, range_name = 2.5, 97.5, '95% CI'
-        elif outbreak_size_uncertainty_displayed == OUTBREAK_SIZE_UNCERTAINTY_OPTIONS.RANGE:
-            quantile_lb, quantile_ub, range_name = 0, 100, 'range'
-        elif outbreak_size_uncertainty_displayed == OUTBREAK_SIZE_UNCERTAINTY_OPTIONS.IQR:
-            quantile_lb, quantile_ub, range_name = 25, 75, 'IQR'
-
-        uncertainty_outbreak_size_str = str(int(sim.expected_outbreak_quantiles[quantile_lb])) + ' - ' + \
-                                        str(int(sim.expected_outbreak_quantiles[quantile_ub]))
-
-        cases_expected_over_20_str = uncertainty_outbreak_size_str + " total cases"
-
-    return prob_20plus_new_str, cases_expected_over_20_str
-
-
 # Set parameters
 # Natural history parameters
 # https://www.cdc.gov/measles/hcp/communication-resources/clinical-diagnosis-fact-sheet.html
@@ -601,13 +685,30 @@ MSP_PARAMS = {
     'other_contacts': 2.2823,
     'population': [500],
     'I0': [1],
-    'vaccinated_percent': [0.9],  # number between 0 and 1
+    'vax_prop': [0.9],  # number between 0 and 1
     'sim_duration_days': 250,
     'time_step_days': 0.25,
     'is_stochastic': True,  # False for deterministic,
     "simulation_seed": 147125098488
 }
-n_sim = 200
+
+MSP_PARAMS = {
+    'R0': 15.0,  # transmission rate
+    # 'sigma': 1/10.5,    # 10.5 days average latent period
+    # 'rho': 1/1,         # 1 days average pre-symptomatic period
+    # 'gamma': 1/8,       # 7 days average infectious period
+    'incubation_period': 10.5,
+    'infectious_period': 5,
+    'school_contacts': 5.63424,
+    'other_contacts': 2.2823,
+    'population': [500],
+    'I0': [1],
+    'vax_prop': [0.85],  # number between 0 and 1
+    'sim_duration_days': 250,
+    'time_step_days': 0.25,
+    'is_stochastic': True,  # False for deterministic,
+    "simulation_seed": 147125098488
+}
 
 # %% Main
 ##########
@@ -616,6 +717,15 @@ if __name__ == "__main__":
     run_deterministic_model(MSP_PARAMS)
 
     # Stochastic runs
-    n_sim = 200
-    stochastic_sim = StochasticSimulations(
-        MSP_PARAMS, n_sim, print_summary_stats=True, show_plots=True)
+    # n_sim = 200
+    import time
+    start = time.time()
+
+    n_sim = 200 # 2.8811910152435303 to # 1.0790390968322754 for population 500, init infected 1
+    stochastic_sim = StochasticSimulations(MSP_PARAMS, n_sim)
+    stochastic_sim.run_stochastic_model(track_infected=True)
+    stochastic_sim.prep_across_rep_plot_data(include_infected_7day_ma=True)
+    stochastic_sim.calculate_20_plus_new_cases_statistics()
+    stochastic_sim.create_strs_20plus_new_and_outbreak(OUTBREAK_SIZE_UNCERTAINTY_OPTIONS.NINETY_FIVE)
+
+    print(time.time() - start)
