@@ -104,6 +104,3 @@ def check_vaccination_rate_CSV(filename: str):
         return "This CSV appears valid and correctly formatted."
     else:
         return "This CSV has validity or formatting issues -- please amend."
-
-
-breakpoint()
