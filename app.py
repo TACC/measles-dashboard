@@ -151,8 +151,13 @@ def update_graph(params_dict: dict,
     n_sim = DASHBOARD_CONFIG["num_simulations"]
 
     if inputs_are_valid:
-        stochastic_sim = msp.StochasticSimulations(
-            params_dict, n_sim, print_summary_stats=False, show_plots=False)
+        stochastic_sim = msp.StochasticSimulations(params_dict, n_sim)
+        stochastic_sim.run_stochastic_model(track_infected=True)
+        stochastic_sim.prep_across_rep_plot_data(include_infected_7day_ma=True)
+        stochastic_sim.calculate_20_plus_new_cases_statistics()
+
+        prob_20plus_new_str, cases_expected_over_20_str = \
+            stochastic_sim.create_strs_20plus_new_and_outbreak(DASHBOARD_CONFIG["outbreak_size_uncertainty_displayed"])
 
         (plot_df, plot_color_map) = \
             create_data_spaghetti_plot_infected_ma(sim=stochastic_sim,
@@ -161,10 +166,6 @@ def update_graph(params_dict: dict,
                                                        "spaghetti_curve_selection_seed"])
 
         fig = get_spaghetti_plot_infected_ma(plot_df, plot_color_map)
-
-        prob_20plus_new_str, cases_expected_over_20_str = \
-            msp.create_strs_20plus_new_and_outbreak(stochastic_sim,
-                                                    DASHBOARD_CONFIG["outbreak_size_uncertainty_displayed"])
 
         # ">" needs an escape in HTML!!!!
         if prob_20plus_new_str == "> 99%":

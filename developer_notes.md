@@ -15,6 +15,18 @@ TODO: we need a script to assess validity and format of new states' datasets!
 - Note: 03/13/2025 changed TX and NC CSV columns to be more consistent -- and got rid of underscores. Using `vax_rate_csv_checker.py`, will enforce this for new vaccination data.
 - Note: 03/13/2025 changed TX and NC CSV "MMR Vaccination Rate" column to be expressed as float -- percentage instead of decimals, with 2 decimal points only, will enforce this for new vaccination data.
 
+### Improving dashboard results generation time -- 03/13/2025 LP
+- **Problem:** Dashboard simulation was a little bit slow...
+- **Impact:** Users had to wait a bit to get results after adjusting parameters, and researchers have a slower time running large sets of experiments and replications.
+- **Fix:** Refactor the code to allow specification of what post-processing to do. For the dashboard, only save data relevant to the dashboard and only do computations relevant to the dashboard results.
+- **Technical details:** Reduced wall-clock time from 2.8s to 1.09s --  more than 60% (for 200 replications and default dashboard parameters). Rather than create a new `MetapopulationSEPIR` instance for each simulation replication, clear the results on a single instance between replications. Additionally, allow specification (via function arguments) of what computations to carry out. This allows the dashboard to only compute the results necessary for the dashboard, rather than needing to compute a whole suite of other computations. In the future, we might want to consider caching of results and further optimization (feedback from other users).
+
+### Fixing float formatting for vaccination rates -- 03/13/2025 LP
+- **Problem:** Even though vaccination rates (this was specifically for NC) were rounded to 2 decimal places, they would occassionally render with way too many decimal places on the website.
+- **Impact:** Hard-to-read and not user-friendly UI.
+- **Fix:** Fix the data pipeline so that states' CSV vaccination files all follow a specific format, and make sure to avoid using `float` again in the dash components.
+- **Technical details:** Due to floating point issues, Python can misbehave and render something like `float(95)` as `95.00000001`.
+
 ### Fixing default values bug -- 03/12/2025 LP
 - **Problem:** The initial fix to address the request to "set the default vaccination rate to 85 rather than be populated from the default Austin ID (Kindergarten) school field" led to some weird behavior. The simulation that was initially loaded did not actually correspond to a vaccination rate of 85, even though that was what was displayed.
 - **Impact:** Confusion because increasing the vaccination rate seemed to make results worse -- but this was not because of a simulation bug, it was because the default value was not actually 85 even though that was what was displayed.
