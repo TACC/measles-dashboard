@@ -50,11 +50,6 @@ msp.MSP_PARAMS["simulation_seed"] = DASHBOARD_CONFIG["simulation_seed"]
 TX_df = pd.read_csv('TX_MMR_vax_rate.csv')
 NC_df = pd.read_csv('NC_MMR_vax_rate.csv')
 
-# TODO: need to do this before `app.py` in separate script
-#   for dataframe pre-processing
-
-NC_df["MMR_Vaccination_Rate"] = np.round(NC_df["MMR_Vaccination_Rate"] * 10000) / 10000
-
 states = ("Texas", "North Carolina")
 
 state_to_df_map = {
@@ -212,7 +207,7 @@ def update_school_selector(state, county):
     df = get_county_subset_df(state, county)
     new_school_options = sorted(
         f"{name} ({age_group})"
-        for name, age_group in zip(df["School District or Name"], df["age_group"])
+        for name, age_group in zip(df["School District or Name"], df["Age Group"])
     )
     default_school_displayed = new_school_options[0]
 
@@ -238,19 +233,12 @@ def get_school_vax_rate(state_str,
         age_group = age_group.rstrip(")")
 
         df_school = county_subset_df.loc[
-            (county_subset_df['School District or Name'] == school) & (county_subset_df['age_group'] == age_group)]
+            (county_subset_df['School District or Name'] == school) &
+            (county_subset_df['Age Group'] == age_group)]
 
-        school_vax_rate_pct = df_school['MMR_Vaccination_Rate'].values[0]
+        school_vax_rate_pct = df_school['MMR Vaccination Rate'].values[0]
 
-        if not isinstance(school_vax_rate_pct, str):
-            if school_vax_rate_pct <= 1:
-                return [school_vax_rate_pct * 100]
-            else:
-                return [school_vax_rate_pct]
-        else:
-            school_vax_rate = float(school_vax_rate_pct.replace('%', ''))
-
-        return [school_vax_rate]
+        return [school_vax_rate_pct]
 
     else:
 
