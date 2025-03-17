@@ -6,6 +6,28 @@ TODO: we really really need tests! For both `app.py` (callbacks) and also for `m
 
 TODO: we need a script to assess validity and format of new states' datasets!
 
+## Vaccinated and variable outbreak treshold -- 03/17/2025 RP
+
+### Vaccinated compartment
+- Added a vaccinated compartment
+  - Updated the epidemiological model so vaccinated individuals can now be infected and in turn infect others
+  - This mostly required changes to the file `measles_single_population.py` at the beginning, and we now have a few more epi parameters, the two main ones being the relative susceptibility of vaccinated individuals and their relative infectiousness
+  - Because breakthrough infections are typically much milder and much less infectious, I am not sure whether it makes sense to show results that aggregate breakthrough and non-vaccinated individuals. So the code is able to split the main model results (data for curves, outbreak probabilities and size) between vaccinated and not, or to combine them by using the variables `combine_vax_curves` and `combine_vax_stats`
+  - Right now the number of breakthrough infections seems kind of high using a relative susceptibility of 3% (~ vaccine efficacy of 97%) for vaccinated individuals
+  - The various app files have been updated (with some ugly duplicate code in places) so we can visualize the results for both vaccinated and not at the same time. That behavior can be turned on and off using the variable DEBUG_VAX in the file `config.py`. The changes below are for testing and demonstrating the impact of parameters, the plan is not to keep those in the final version
+    - When this is turned on there are 2 graphs, the top one showing not vaccinated individuals, and the bottom one showing vaccinated individuals only with the probability and expected size of outbreak
+    - Within the epi parameters in the accordion the 2 main vaccinated parameters (relative susceptibility and infectiousness) are available as sliders
+  - Setting `vaccine_efficacy` equal to 1.0 should be equivalent to running the model without vaccines
+
+### Threshold oubreak value
+- Updated the epi model and the app to include the option to vary the outbreak threshold value from 20 to some other value
+- The default value is now 10
+- Added a slider in the epi parameters accordion that lets the user choose between 3 and 30
+- That parameter is passed as a list to `StochasticSimulations` since we could technically calculate the metrics for all possible values on the slider and not have to rerun simulations to update the result
+  - The epi model can calculate results for a list of values. The app code would need to be updated so the callback only updates the summary statistics and does not rerun simulations as it does now
+  - We would need to check whether calculating summary statistics for all possible threshold values slows down the code (first guess is this should be minimal compared to running 200 simulations) 
+
+
 ## State Vaccination Data Status
 - `TX_MMR_vax_rate.csv` 
 - `NC_MMR_vax_rate.csv`
