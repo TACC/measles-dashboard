@@ -5,6 +5,8 @@ import pandas as pd
 from app_styles import BASE_FONT_STYLE, \
     SELECTOR_DISPLAY_STYLE, DROPDOWN_BASE_CONFIG, SELECTOR_TOOLTIP_STYLE, \
     NO_WRAP_FULL_WIDTH
+    
+import config
 
 states_list = ["North Carolina", "Texas"]
 
@@ -25,7 +27,11 @@ SELECTOR_DEFAULTS =\
      "I0": 1,
      "R0": 15.0,
      "latent_period": 10.5,
-     "infectious_period": 5.0}
+     "infectious_period": 5.0,
+     "outbreak_threshold": 20,
+     "vaccine_efficacy_selector": 0.97,
+     "vaccinated_infectiousness_selector": 0.05,
+     }
 
 school_size_selector = dcc.Input(
     id='school_size_selector',
@@ -142,3 +148,47 @@ infectious_period_selector = dcc.Slider(
            },
     tooltip={**SELECTOR_TOOLTIP_STYLE},
 )
+
+threshold_selector = dcc.Slider(
+    id='threshold_selector',
+    min=3,
+    max=30,
+    step=1,
+    value=SELECTOR_DEFAULTS["outbreak_threshold"],
+    included=False,
+    marks={3: {'label': '3', 'style': {**BASE_FONT_STYLE}},
+           10: {'label': '10', 'style': {**BASE_FONT_STYLE}},
+           20: {'label': '20', 'style': {**BASE_FONT_STYLE, 'fontWeight': 'bold'}},
+           30: {'label': '30', 'style': {**BASE_FONT_STYLE}}
+           },
+    tooltip={**SELECTOR_TOOLTIP_STYLE},
+)
+
+if config.DEBUG_VAX:
+    vaccine_efficacy_selector = dcc.Slider(
+        id='vaccine_efficacy_selector',
+        min=0.9,
+        max=1.0,
+        step=0.01,
+        value=SELECTOR_DEFAULTS["vaccine_efficacy_selector"],
+        included=False,
+        marks={0.9: {'label': '0.9', 'style': {**BASE_FONT_STYLE}},
+            0.97: {'label': '0.97', 'style': {**BASE_FONT_STYLE, 'fontWeight': 'bold'}},
+            1: {'label': '1.0', 'style': {**BASE_FONT_STYLE}},
+            },
+        tooltip={**SELECTOR_TOOLTIP_STYLE},
+    )
+
+    vaccinated_infectiousness_selector = dcc.Slider(
+        id='vaccinated_infectiousness_selector',
+        min=0.0,
+        max=0.2,
+        step=0.01,
+        value=SELECTOR_DEFAULTS["vaccinated_infectiousness_selector"],
+        included=False,
+        marks={0: {'label': '0.0', 'style': {**BASE_FONT_STYLE}},
+            0.05: {'label': '0.05', 'style': {**BASE_FONT_STYLE, 'fontWeight': 'bold'}},
+            0.2: {'label': '0.2', 'style': {**BASE_FONT_STYLE}},
+            },
+        tooltip={**SELECTOR_TOOLTIP_STYLE},
+    )

@@ -6,6 +6,8 @@ import dash_bootstrap_components as dbc
 
 from app_styles import SELECTOR_LABEL_STYLE, BASE_FONT_FAMILY_STR, SELECTOR_NOTE_STYLE, \
     BOTTOM_CREDITS_TEXT_STYLE
+    
+import config
 
 # Navbar component
 navbar = dbc.Navbar(
@@ -59,6 +61,13 @@ R0_label = html.H4(['Basic Reproduction Number (R0)'], style={**SELECTOR_LABEL_S
 latent_period_label = html.H4('Average Latent Period (days)', style={**SELECTOR_LABEL_STYLE})
 
 infectious_period_label = html.H4('Average Infectious Period (days)', style={**SELECTOR_LABEL_STYLE})
+
+threshold_selector_label = html.H4('Outbreak Threshold', style={**SELECTOR_LABEL_STYLE})
+
+if config.DEBUG_VAX:
+    vaccine_efficacy_selector_label = html.H4('Vaccine Efficacy', style={**SELECTOR_LABEL_STYLE})
+    
+    vaccinated_infectiousness_selector_label = html.H4('Relative Infectiousness Vaccinated', style={**SELECTOR_LABEL_STYLE})
 
 
 def school_outbreak_projections_header():

@@ -7,7 +7,8 @@ from app_styles import SPAGHETTI_PLOT_AXIS_CONFIG
 
 
 def get_spaghetti_plot_infected_ma(df_plot: pd.DataFrame,
-                                   spaghetti_color_map: dict):
+                                   spaghetti_color_map: dict,
+                                   y_name: str = 'number_infected_7_day_ma'):
     """
     TODO: can be refactored to plot other dataframes too,
     not just infected moving average.
@@ -25,11 +26,11 @@ def get_spaghetti_plot_infected_ma(df_plot: pd.DataFrame,
     fig = px.line(
         df_plot,
         x='day',
-        y='number_infected_7_day_ma',
+        y=y_name,
         color='simulation_idx',
         color_discrete_map=spaghetti_color_map,
         labels={'simulation_idx': '', 'number_infected': 'Number of students infected', 'day': 'Day DD',
-                "number_infected_7_day_ma": "NN infected (7-day average)"},
+                y_name: "NN infected (7-day average)"},
     )
 
     fig.update_traces(hovertemplate="Day %{x}<br>%{y:.1f} Infected<extra></extra>")
@@ -55,9 +56,13 @@ def get_spaghetti_plot_infected_ma(df_plot: pd.DataFrame,
 
 def create_data_spaghetti_plot_infected_ma(sim: msp.StochasticSimulations,
                                            nb_curves_displayed: int,
-                                           curve_selection_seed: int):
+                                           curve_selection_seed: int,
+                                           group_graphed: str = 'all'):
 
-    df_spaghetti_infected_ma = sim.df_spaghetti_infected_ma
+    if group_graphed == 'all':
+        df_spaghetti_infected_ma = sim.df_spaghetti_infected_ma
+    else:
+        df_spaghetti_infected_ma = sim.df_spaghetti_infected_vaccinated_ma
     index_sim_closest_median = sim.index_sim_closest_median
 
     light_grey = 'rgb(220, 220, 220)'

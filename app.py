@@ -32,6 +32,11 @@ from app_dynamic_graphics import results_header, spaghetti_plot_section, \
 from app_computation_functions import create_data_spaghetti_plot_infected_ma, \
     get_spaghetti_plot_infected_ma, EMPTY_SPAGHETTI_PLOT_INFECTED_MA
 from app_selectors import SELECTOR_DEFAULTS
+import config
+
+if config.DEBUG_VAX:
+    from app_dynamic_graphics import results_header_vaccinated, spaghetti_plot_section_vaccinated
+    
 
 DASHBOARD_CONFIG = {
     'num_simulations': 200,
@@ -70,44 +75,102 @@ def get_county_subset_df(state_str, county_str) -> pd.DataFrame:
 #   After state selection, county selection options should update
 #   After county selection, school selection options should update
 
+if config.DEBUG_VAX:
+    @callback(
+        [Output('dashboard_params', 'data')],
+        [State('dashboard_params', 'data'),
+        Input('school_size_selector', 'value'),
+        Input('vax_rate_selector', 'value'),
+        Input('I0_selector', 'value'),
+        Input('R0_selector', 'value'),
+        Input('latent_period_selector', 'value'),
+        Input('infectious_period_selector', 'value'),
+        Input('threshold_selector', 'value'),
+        Input('vaccine_efficacy_selector', 'value'),
+        Input('vaccinated_infectiousness_selector', 'value')]
+        )
+    def create_params_from_selectors(params_dict,
+                                    school_size,
+                                    vax_rate_percent,
+                                    I0,
+                                    R0,
+                                    latent_period,
+                                    infectious_period,
+                                    outbreak_threshold,
+                                    vaccine_efficacy,
+                                    vaccinated_infectiousness):
+        school_size = school_size if school_size is not None else SELECTOR_DEFAULTS['school_size']
+        vax_rate_percent = vax_rate_percent if vax_rate_percent is not None else SELECTOR_DEFAULTS['vax_rate_percent']
+        I0 = I0 if I0 is not None else SELECTOR_DEFAULTS['I0']
+        R0 = R0 if R0 is not None else SELECTOR_DEFAULTS['R0']
+        latent_period = latent_period if latent_period is not None else SELECTOR_DEFAULTS['latent_period']
+        infectious_period = infectious_period if infectious_period is not None else SELECTOR_DEFAULTS[
+            'infectious_period']
+        outbreak_threshold = outbreak_threshold if outbreak_threshold is not None else SELECTOR_DEFAULTS[
+            'threshold_selector']
+        vaccine_efficacy = vaccine_efficacy if vaccine_efficacy is not None else SELECTOR_DEFAULTS[
+            'vaccine_efficacy_selector']
+        vaccinated_infectiousness = vaccinated_infectiousness if vaccinated_infectiousness is not None else SELECTOR_DEFAULTS[
+            'vaccinated_infectiousness_selector']
 
-@callback(
-    [Output('dashboard_params', 'data')],
-    [State('dashboard_params', 'data'),
-     Input('school_size_selector', 'value'),
-     Input('vax_rate_selector', 'value'),
-     Input('I0_selector', 'value'),
-     Input('R0_selector', 'value'),
-     Input('latent_period_selector', 'value'),
-     Input('infectious_period_selector', 'value')])
-def create_params_from_selectors(params_dict,
-                                 school_size,
-                                 vax_rate_percent,
-                                 I0,
-                                 R0,
-                                 latent_period,
-                                 infectious_period):
-    school_size = school_size if school_size is not None else SELECTOR_DEFAULTS['school_size']
-    vax_rate_percent = vax_rate_percent if vax_rate_percent is not None else SELECTOR_DEFAULTS['vax_rate_percent']
-    I0 = I0 if I0 is not None else SELECTOR_DEFAULTS['I0']
-    R0 = R0 if R0 is not None else SELECTOR_DEFAULTS['R0']
-    latent_period = latent_period if latent_period is not None else SELECTOR_DEFAULTS['latent_period']
-    infectious_period = infectious_period if infectious_period is not None else SELECTOR_DEFAULTS[
-        'infectious_period']
+        params_dict['population'] = [int(school_size)]
+        params_dict['vax_prop'] = [0.01 * float(vax_rate_percent)]
+        params_dict['I0'] = [int(I0)]
+        params_dict['R0'] = float(R0)
+        params_dict['incubation_period'] = float(latent_period)
+        params_dict['infectious_period'] = float(infectious_period)
+        params_dict['threshold_values'] = [int(outbreak_threshold)]
+        params_dict['vaccine_efficacy'] = float(vaccine_efficacy)
+        params_dict['relative_infectiousness_vaccinated'] = float(vaccinated_infectiousness)
 
-    params_dict['population'] = [int(school_size)]
-    params_dict['vax_prop'] = [0.01 * float(vax_rate_percent)]
-    params_dict['I0'] = [int(I0)]
-    params_dict['R0'] = float(R0)
-    params_dict['incubation_period'] = float(latent_period)
-    params_dict['infectious_period'] = float(infectious_period)
+        # Bug I got stuck on for awhile -- dcc.State can certainly handle dictionaries
+        # HOWEVER -- callbacks always expect the return type to be a list or tuple
+        #   if there are multiple values -- so we wrap the dictionary in a list,
+        #   but we do not have to modify anything else -- dash just knows how to
+        #   parse this output :)
+        return [params_dict]
+else:
+    @callback(
+        [Output('dashboard_params', 'data')],
+        [State('dashboard_params', 'data'),
+        Input('school_size_selector', 'value'),
+        Input('vax_rate_selector', 'value'),
+        Input('I0_selector', 'value'),
+        Input('R0_selector', 'value'),
+        Input('latent_period_selector', 'value'),
+        Input('infectious_period_selector', 'value'),
+        Input('threshold_selector', 'value')]
+        )
+    def create_params_from_selectors(params_dict,
+                                    school_size,
+                                    vax_rate_percent,
+                                    I0,
+                                    R0,
+                                    latent_period,
+                                    infectious_period,
+                                    threshold_selector):
+        school_size = school_size if school_size is not None else SELECTOR_DEFAULTS['school_size']
+        vax_rate_percent = vax_rate_percent if vax_rate_percent is not None else SELECTOR_DEFAULTS['vax_rate_percent']
+        I0 = I0 if I0 is not None else SELECTOR_DEFAULTS['I0']
+        R0 = R0 if R0 is not None else SELECTOR_DEFAULTS['R0']
+        latent_period = latent_period if latent_period is not None else SELECTOR_DEFAULTS['latent_period']
+        infectious_period = infectious_period if infectious_period is not None else SELECTOR_DEFAULTS[
+            'infectious_period']
 
-    # Bug I got stuck on for awhile -- dcc.State can certainly handle dictionaries
-    # HOWEVER -- callbacks always expect the return type to be a list or tuple
-    #   if there are multiple values -- so we wrap the dictionary in a list,
-    #   but we do not have to modify anything else -- dash just knows how to
-    #   parse this output :)
-    return [params_dict]
+        params_dict['population'] = [int(school_size)]
+        params_dict['vax_prop'] = [0.01 * float(vax_rate_percent)]
+        params_dict['I0'] = [int(I0)]
+        params_dict['R0'] = float(R0)
+        params_dict['incubation_period'] = float(latent_period)
+        params_dict['infectious_period'] = float(infectious_period)
+        params_dict['threshold_values'] = [int(threshold_selector)]
+
+        # Bug I got stuck on for awhile -- dcc.State can certainly handle dictionaries
+        # HOWEVER -- callbacks always expect the return type to be a list or tuple
+        #   if there are multiple values -- so we wrap the dictionary in a list,
+        #   but we do not have to modify anything else -- dash just knows how to
+        #   parse this output :)
+        return [params_dict]
 
 
 @callback(
@@ -137,48 +200,122 @@ def check_inputs_validity(params_dict: dict) -> str:
     else:
         return True, ""
 
+if config.DEBUG_VAX:
+    @callback(
+        [Output('spaghetti_plot', 'figure'),
+        Output('prob_20plus_new_str', 'children'),
+        Output('cases_expected_over_20_str', 'children'),
+        Output('spaghetti_plot_vaccinated', 'figure'),
+        Output('prob_20plus_new_str_vaccinated', 'children'),
+        Output('cases_expected_over_20_str_vaccinated', 'children')],
+        [Input('dashboard_params', 'data'),
+        Input('inputs_are_valid', 'data')]
+    )
+    def update_graph(params_dict: dict,
+                    inputs_are_valid: bool):
+        # Update parameters, run simulations
+        n_sim = DASHBOARD_CONFIG["num_simulations"]
 
-@callback(
-    [Output('spaghetti_plot', 'figure'),
-     Output('prob_20plus_new_str', 'children'),
-     Output('cases_expected_over_20_str', 'children')],
-    [Input('dashboard_params', 'data'),
-     Input('inputs_are_valid', 'data')]
-)
-def update_graph(params_dict: dict,
-                 inputs_are_valid: bool):
-    # Update parameters, run simulations
-    n_sim = DASHBOARD_CONFIG["num_simulations"]
+        if inputs_are_valid:
+            stochastic_sim = msp.StochasticSimulations(params_dict, n_sim)
+            stochastic_sim.run_stochastic_model(
+                track_infected=True,
+                combine_vax_curves=False,
+                combine_vax_stats=False)
+            stochastic_sim.prep_across_rep_plot_data(include_infected_7day_ma=True)
+            
+            stochastic_sim.calculate_threshold_statistis(DASHBOARD_CONFIG["outbreak_size_uncertainty_displayed"])
+            threshold_value = stochastic_sim.threshold_values_list[0]
+            prob_20plus_new_str = stochastic_sim.outbreak_over_threshold_infections_str[threshold_value]['probability']
+            cases_expected_over_20_str = stochastic_sim.outbreak_over_threshold_infections_str[threshold_value]['range']
+            # For vaccinated
+            prob_20plus_vaccinated_new_str = stochastic_sim.outbreak_vaccinated_over_threshold_infections_str[threshold_value]['probability']
+            range_20plus_vaccinated_new_str = stochastic_sim.outbreak_vaccinated_over_threshold_infections_str[threshold_value]['range']
 
-    if inputs_are_valid:
-        stochastic_sim = msp.StochasticSimulations(params_dict, n_sim)
-        stochastic_sim.run_stochastic_model(track_infected=True)
-        stochastic_sim.prep_across_rep_plot_data(include_infected_7day_ma=True)
-        stochastic_sim.calculate_20_plus_new_cases_statistics()
+            (plot_df, plot_color_map) = \
+                create_data_spaghetti_plot_infected_ma(sim=stochastic_sim,
+                                                    nb_curves_displayed=20,
+                                                    curve_selection_seed=DASHBOARD_CONFIG[
+                                                        "spaghetti_curve_selection_seed"])
 
-        prob_20plus_new_str, cases_expected_over_20_str = \
-            stochastic_sim.create_strs_20plus_new_and_outbreak(DASHBOARD_CONFIG["outbreak_size_uncertainty_displayed"])
+            fig = get_spaghetti_plot_infected_ma(plot_df, plot_color_map)
 
-        (plot_df, plot_color_map) = \
-            create_data_spaghetti_plot_infected_ma(sim=stochastic_sim,
-                                                   nb_curves_displayed=20,
-                                                   curve_selection_seed=DASHBOARD_CONFIG[
-                                                       "spaghetti_curve_selection_seed"])
+            (plot_df_vaccinated, plot_color_map_vaccinated) = \
+                create_data_spaghetti_plot_infected_ma(sim=stochastic_sim,
+                                                    nb_curves_displayed=20,
+                                                    curve_selection_seed=DASHBOARD_CONFIG[
+                                                        "spaghetti_curve_selection_seed"],
+                                                    group_graphed='vaccinated')
 
-        fig = get_spaghetti_plot_infected_ma(plot_df, plot_color_map)
+            fig_vaccinated = get_spaghetti_plot_infected_ma(
+                plot_df_vaccinated, plot_color_map_vaccinated,
+                y_name='number_infected_vaccinated_7_day_ma')
 
-        # ">" needs an escape in HTML!!!!
-        if prob_20plus_new_str == "> 99%":
-            prob_20plus_new_str = "\> 99%"
+            # ">" needs an escape in HTML!!!!
+            if prob_20plus_new_str == "> 99%":
+                prob_20plus_new_str = "\> 99%"
+                
+            if prob_20plus_vaccinated_new_str == "> 99%":
+                prob_20plus_vaccinated_new_str = "\> 99%"
 
-        return fig, prob_20plus_new_str, cases_expected_over_20_str
+            return fig, prob_20plus_new_str, cases_expected_over_20_str, \
+                fig_vaccinated, prob_20plus_vaccinated_new_str, range_20plus_vaccinated_new_str
 
-    else:
+        else:
 
-        # Note -- returning None instead of empty dict is a big mistake --
-        #   doesn't work and also messes up the graphs for correct inputs!
-        #   Be very careful with the syntax here.
-        return EMPTY_SPAGHETTI_PLOT_INFECTED_MA, "", ""
+            # Note -- returning None instead of empty dict is a big mistake --
+            #   doesn't work and also messes up the graphs for correct inputs!
+            #   Be very careful with the syntax here.
+            return EMPTY_SPAGHETTI_PLOT_INFECTED_MA, "", ""
+else:
+    @callback(
+        [Output('spaghetti_plot', 'figure'),
+        Output('prob_20plus_new_str', 'children'),
+        Output('cases_expected_over_20_str', 'children')],
+        [Input('dashboard_params', 'data'),
+        Input('inputs_are_valid', 'data')]
+    )
+    def update_graph(params_dict: dict,
+                    inputs_are_valid: bool):
+        # Update parameters, run simulations
+        n_sim = DASHBOARD_CONFIG["num_simulations"]
+
+        if inputs_are_valid:
+            stochastic_sim = msp.StochasticSimulations(params_dict, n_sim)
+            stochastic_sim.run_stochastic_model(
+                track_infected=True,
+                combine_vax_curves=True,
+                combine_vax_stats=True)
+            stochastic_sim.prep_across_rep_plot_data(include_infected_7day_ma=True)
+            
+            stochastic_sim.calculate_threshold_statistis(DASHBOARD_CONFIG["outbreak_size_uncertainty_displayed"])
+            threshold_value = stochastic_sim.threshold_values_list[0]
+            prob_20plus_new_str = stochastic_sim.outbreak_over_threshold_infections_str[threshold_value]['probability']
+            cases_expected_over_20_str = stochastic_sim.outbreak_over_threshold_infections_str[threshold_value]['range']
+            # For vaccinated
+            prob_20plus_vaccinated_new_str = stochastic_sim.outbreak_vaccinated_over_threshold_infections_str[threshold_value]['probability']
+            range_20plus_vaccinated_new_str = stochastic_sim.outbreak_vaccinated_over_threshold_infections_str[threshold_value]['range']
+
+            (plot_df, plot_color_map) = \
+                create_data_spaghetti_plot_infected_ma(sim=stochastic_sim,
+                                                    nb_curves_displayed=20,
+                                                    curve_selection_seed=DASHBOARD_CONFIG[
+                                                        "spaghetti_curve_selection_seed"])
+
+            fig = get_spaghetti_plot_infected_ma(plot_df, plot_color_map)
+
+            # ">" needs an escape in HTML!!!!
+            if prob_20plus_new_str == "> 99%":
+                prob_20plus_new_str = "\> 99%"
+
+            return fig, prob_20plus_new_str, cases_expected_over_20_str
+
+        else:
+
+            # Note -- returning None instead of empty dict is a big mistake --
+            #   doesn't work and also messes up the graphs for correct inputs!
+            #   Be very careful with the syntax here.
+            return EMPTY_SPAGHETTI_PLOT_INFECTED_MA, "", ""
 
 
 @callback(
@@ -261,6 +398,41 @@ app.scripts.append_script({
 })
 app.scripts.append_script({'external_url': '/assets/gtag.js'})
 
+if config.DEBUG_VAX:
+    app_results_col = dbc.Col([
+                html.Br(),
+
+                school_outbreak_projections_header(),
+
+                html.Br(),
+
+                results_header(),
+
+                html.Br(),
+
+                spaghetti_plot_section(),
+    
+                html.Br(),
+
+                results_header_vaccinated(),
+
+                html.Br(),
+
+                spaghetti_plot_section_vaccinated()], className="col-xl-9")
+else:
+    app_results_col = dbc.Col([
+                html.Br(),
+
+                school_outbreak_projections_header(),
+
+                html.Br(),
+
+                results_header(),
+
+                html.Br(),
+
+                spaghetti_plot_section()], className="col-xl-9")
+
 app.layout = dbc.Container(
     [
         dcc.Store(id="inputs_are_valid", data=True),
@@ -277,18 +449,7 @@ app.layout = dbc.Container(
 
             dashboard_input_panel(),
 
-            dbc.Col([
-                html.Br(),
-
-                school_outbreak_projections_header(),
-
-                html.Br(),
-
-                results_header(),
-
-                html.Br(),
-
-                spaghetti_plot_section()], className="col-xl-9")
+            app_results_col
         ]),
 
         html.Br(),

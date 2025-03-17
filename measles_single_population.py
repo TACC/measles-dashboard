@@ -168,6 +168,13 @@ class MetapopulationSEPIR:
         self.beta = beta  # transmission rate
         self.sigma = 1.0 / params["incubation_period"]  # rate of progression from E to I
         self.gamma = 1.0 / params["infectious_period"]  # recovery rate
+        self.sigma_vax = 1.0 / params["incubation_period_vaccinated"]  # rate of progression from E to I for vaccinated
+        self.gamma_vax = 1.0 / params["infectious_period_vaccinated"]  # recovery rate for vaccinated
+        
+        self.beta_vax = params['relative_infectiousness_vaccinated'] * params['R0'] / \
+            (params["incubation_period_vaccinated"] * self.total_contacts)
+        self.skip_vax_to_R = params['skip_vaccinated_to_recovered'] # Go from V to R_V, no E_V and I_V steps
+        self.vaccine_efficacy = params['vaccine_efficacy']
 
         # Time array
         self.t = np.linspace(0, params['sim_duration_days'], self.n_steps)
@@ -179,6 +186,10 @@ class MetapopulationSEPIR:
         self.E = np.zeros((self.n_steps, self.n_pop))
         self.I = np.zeros((self.n_steps, self.n_pop))
         self.R = np.zeros((self.n_steps, self.n_pop))
+        self.V = np.zeros((self.n_steps, self.n_pop)) # vaccinated
+        self.E_V = np.zeros((self.n_steps, self.n_pop)) # vaccinated breakthrough infections
+        self.I_V = np.zeros((self.n_steps, self.n_pop)) # vaccinated breakthrough infections
+        self.R_V = np.zeros((self.n_steps, self.n_pop)) # vaccinated breakthrough infections
 
         # Add storage of transition variables
         # Used to compute incidence
@@ -186,6 +197,9 @@ class MetapopulationSEPIR:
         self.S_to_E = np.zeros((self.n_steps, self.n_pop))
         self.E_to_I = np.zeros((self.n_steps, self.n_pop))
         self.I_to_R = np.zeros((self.n_steps, self.n_pop))
+        self.V_to_E_V = np.zeros((self.n_steps, self.n_pop))
+        self.E_V_to_I_V = np.zeros((self.n_steps, self.n_pop))
+        self.I_V_to_R_V = np.zeros((self.n_steps, self.n_pop))
 
         # Set initial conditions
         # 03052025 1:1 with Lauren -- Lauren does not want
@@ -193,15 +207,15 @@ class MetapopulationSEPIR:
         #   to have guard rails on the user inputs
 
         self.I[0] = np.array(params['I0'])
-        self.R[0] = [
+        self.V[0] = [
             int(self.N[i_pop] * params['vax_prop'][i_pop])
             for i_pop in range(self.n_pop)
         ]
-        self.R[0] = [
-            min(self.R[0, i_pop], self.N[i_pop] - self.I[0, i_pop])
+        self.V[0] = [
+            min(self.V[0, i_pop], self.N[i_pop] - self.I[0, i_pop])
             for i_pop in range(self.n_pop)
         ]
-        self.S[0] = self.N - self.I[0] - self.R[0]
+        self.S[0] = self.N - self.I[0] - self.V[0]
 
         # Current step tracker
         self.current_step = 0
@@ -234,13 +248,16 @@ class MetapopulationSEPIR:
         """
         total_rate = rate * compartment_count
 
-        if self.is_stochastic:
-            delta = self.RNG.poisson(total_rate)
+        if total_rate > 0.0:
+            if self.is_stochastic:
+                delta = self.RNG.poisson(total_rate)
+            else:
+                delta = total_rate
+                
+            delta = min(delta, compartment_count)
         else:
-            delta = total_rate
-
-        delta = min(delta, compartment_count)
-
+            delta = 0.0
+        
         return delta
 
     def calculate_compartment_updates(self,
@@ -263,20 +280,44 @@ class MetapopulationSEPIR:
         t = self.current_step
         dt = self.dt
 
-        force_of_infection = self.beta * self.total_contacts * dt * \
-                             self.I[t, ix_pop] / self.N[ix_pop]
+        force_of_infection = self.total_contacts * dt * \
+            (self.beta * self.I[t, ix_pop] + self.beta_vax * self.I_V[t, ix_pop]) / self.N[ix_pop]
+        force_of_infection_vaccinated =  \
+            force_of_infection * (1 - self.vaccine_efficacy)
 
         dS_out = self.get_compartment_transition(force_of_infection, self.S[t, ix_pop])
         dE_out = self.get_compartment_transition(self.sigma * dt, self.E[t, ix_pop])
         dI_out = self.get_compartment_transition(self.gamma * dt, self.I[t, ix_pop])
+        
+        dV_out = self.get_compartment_transition(force_of_infection_vaccinated, self.V[t, ix_pop])
+        if not(self.skip_vax_to_R):
+            dE_V_out = self.get_compartment_transition(self.sigma_vax * dt, self.E_V[t, ix_pop])
+            dI_V_out = self.get_compartment_transition(self.gamma_vax * dt, self.I_V[t, ix_pop])
+        else:
+            dE_V_out = 0
+            dI_V_out = 0
 
         dS = -dS_out
         dE = dS_out - dE_out
         dI = dE_out - dI_out
         dR = dI_out
+        
+        dV = -dV_out
+        if not(self.skip_vax_to_R):
+            dE_V = dV_out - dE_V_out
+            dI_V = dE_V_out - dI_V_out
+            dR_V = dI_V_out
+        else:
+            dE_V = 0
+            dI_V = 0
+            dR_V = dV_out
 
-        updates_dict = {"dS": dS, "dE": dE, "dI": dI, "dR": dR,
-                        "dS_out": dS_out, "dE_out": dE_out, "dI_out": dI_out}
+        updates_dict = {
+            "dS": dS, "dE": dE, "dI": dI, "dR": dR,
+            "dV": dV, "dE_V": dE_V, "dI_V": dI_V, "dR_V": dR_V,
+            "dS_out": dS_out, "dE_out": dE_out, "dI_out": dI_out,
+            "dV_out": dV_out, "dE_V_out": dE_V_out, "dI_V_out": dI_V_out,
+            }
 
         return updates_dict
 
@@ -294,11 +335,20 @@ class MetapopulationSEPIR:
             self.E[self.current_step + 1, ix_pop] = self.E[self.current_step, ix_pop] + updates["dE"]
             self.I[self.current_step + 1, ix_pop] = self.I[self.current_step, ix_pop] + updates["dI"]
             self.R[self.current_step + 1, ix_pop] = self.R[self.current_step, ix_pop] + updates["dR"]
+            
+            self.V[self.current_step + 1, ix_pop] = self.V[self.current_step, ix_pop] + updates["dV"]
+            self.E_V[self.current_step + 1, ix_pop] = self.E_V[self.current_step, ix_pop] + updates["dE_V"]
+            self.I_V[self.current_step + 1, ix_pop] = self.I_V[self.current_step, ix_pop] + updates["dI_V"]
+            self.R_V[self.current_step + 1, ix_pop] = self.R_V[self.current_step, ix_pop] + updates["dR_V"]
 
             # Also update transition variables history
             self.S_to_E[self.current_step + 1, ix_pop] = updates["dS_out"]
             self.E_to_I[self.current_step + 1, ix_pop] = updates["dE_out"]
             self.I_to_R[self.current_step + 1, ix_pop] = updates["dI_out"]
+            
+            self.V_to_E_V[self.current_step + 1, ix_pop] = updates["dV_out"]
+            self.E_V_to_I_V[self.current_step + 1, ix_pop] = updates["dE_V_out"]
+            self.I_V_to_R_V[self.current_step + 1, ix_pop] = updates["dI_V_out"]
 
         self.current_step += 1
         return True
@@ -315,23 +365,30 @@ class MetapopulationSEPIR:
         self.E = np.zeros((self.n_steps, self.n_pop))
         self.I = np.zeros((self.n_steps, self.n_pop))
         self.R = np.zeros((self.n_steps, self.n_pop))
+        self.V = np.zeros((self.n_steps, self.n_pop)) # vaccinated
+        self.E_V = np.zeros((self.n_steps, self.n_pop)) # vaccinated breakthrough infections
+        self.I_V = np.zeros((self.n_steps, self.n_pop)) # vaccinated breakthrough infections
+        self.R_V = np.zeros((self.n_steps, self.n_pop)) # vaccinated breakthrough infections
 
         self.S_to_E = np.zeros((self.n_steps, self.n_pop))
         self.E_to_I = np.zeros((self.n_steps, self.n_pop))
         self.I_to_R = np.zeros((self.n_steps, self.n_pop))
+        self.V_to_E_V = np.zeros((self.n_steps, self.n_pop))
+        self.E_V_to_I_V = np.zeros((self.n_steps, self.n_pop))
+        self.I_V_to_R_V = np.zeros((self.n_steps, self.n_pop))
 
         params = self.params
 
         self.I[0] = np.array(params['I0'])
-        self.R[0] = [
+        self.V[0] = [
             int(self.N[i_pop] * params['vax_prop'][i_pop])
             for i_pop in range(self.n_pop)
         ]
-        self.R[0] = [
-            min(self.R[0, i_pop], self.N[i_pop] - self.I[0, i_pop])
+        self.V[0] = [
+            min(self.V[0, i_pop], self.N[i_pop] - self.I[0, i_pop])
             for i_pop in range(self.n_pop)
         ]
-        self.S[0] = self.N - self.I[0] - self.R[0]
+        self.S[0] = self.N - self.I[0] - self.V[0]
 
         self.current_step = 0
 
@@ -343,10 +400,15 @@ class MetapopulationSEPIR:
 
         for pop in range(self.n_pop):
             ax = axes[pop]
-            ax.plot(self.t, self.S[:, pop], label='Susceptible')
-            ax.plot(self.t, self.E[:, pop], label='Exposed')
-            ax.plot(self.t, self.I[:, pop], label='Infectious')
-            ax.plot(self.t, self.R[:, pop], label='Recovered')
+            vaccinated_linestyle = 'dashed'
+            ax.plot(self.t, self.S[:, pop], label='Susceptible', color='blue')
+            ax.plot(self.t, self.E[:, pop], label='Exposed', color='orange')
+            ax.plot(self.t, self.I[:, pop], label='Infectious', color='red')
+            ax.plot(self.t, self.R[:, pop], label='Recovered', color='green')
+            ax.plot(self.t, self.V[:, pop], label='Vaccinated', color='blue', linestyle=vaccinated_linestyle)
+            ax.plot(self.t, self.E_V[:, pop], label='Vaccinated Exposed', color='orange', linestyle=vaccinated_linestyle)
+            ax.plot(self.t, self.I_V[:, pop], label='Vaccinated Infectious', color='red', linestyle=vaccinated_linestyle)
+            ax.plot(self.t, self.R_V[:, pop], label='Vaccinated Recovered', color='green', linestyle=vaccinated_linestyle)
             ax.set_xlabel('Time (days)')
             ax.set_ylabel('Number of individuals')
             ax.set_title(f'Population {pop + 1} SEPIR Dynamics')
@@ -365,8 +427,8 @@ class StochasticSimulations:
 
     def __init__(self, params, n_sim):
         self.params = copy.deepcopy(params)
-        self.params['sigma'] = 1.0 / self.params['incubation_period']
-        self.params['gamma'] = 1.0 / self.params['infectious_period']
+        # self.params['sigma'] = 1.0 / self.params['incubation_period']
+        # self.params['gamma'] = 1.0 / self.params['infectious_period']
 
         self.RNG = np.random.Generator(np.random.MT19937(seed=params["simulation_seed"]))
 
@@ -374,24 +436,54 @@ class StochasticSimulations:
         self.steps_per_day = int(np.round(1.0 / params['time_step_days'], 0))
 
         self.new_infected_school1 = np.zeros(shape=(n_sim))
+        self.new_infected_vaccinated_school1 = np.zeros(shape=(n_sim))
         self.infectious_school_1 = np.zeros(shape=(n_sim, params['sim_duration_days'] + 1))
+        self.infectious_vaccinated_school_1 = np.zeros(shape=(n_sim, params['sim_duration_days'] + 1))
         self.infected_school_1 = np.zeros(shape=(n_sim, params['sim_duration_days'] + 1))
+        self.infected_vaccinated_school_1 = np.zeros(shape=(n_sim, params['sim_duration_days'] + 1))
         self.incidence_school_1 = np.zeros(shape=(n_sim, params['sim_duration_days'] + 1))
+        self.incidence_vaccinated_school_1 = np.zeros(shape=(n_sim, params['sim_duration_days'] + 1))
 
-        self.mean_outbreak_given_20_new_infections = 'NA'
-        self.mean_outbreak_given_20_new_infections_min = 'NA'
-        self.mean_outbreak_given_20_new_infections_max = 'NA'
+        self.threshold_values_list = params.get('threshold_values', [20]) # to be passed as input if user chosen
+        self.mean_outbreak_given_threshold_new_infections = {
+            x: {'mean': 'NA', 
+                'min': 'NA', 
+                'max': 'NA',}
+            for x in self.threshold_values_list
+        }
+        self.mean_outbreak_vaccinated_given_threshold_new_infections = copy.deepcopy(
+            self.mean_outbreak_given_threshold_new_infections
+        )
         
         self.index_sim_closest_median = None
-        self.outbreak_given_20_new_infections_quantiles = {}
+        self.outbreak_given_threshold_new_infections_quantiles = {
+            x: {}
+            for x in self.threshold_values_list
+        }
+        self.outbreak_vaccinated_given_threshold_new_infections_quantiles = copy.deepcopy(
+            self.outbreak_given_threshold_new_infections_quantiles
+        )
+        self.outbreak_over_threshold_infections_str = {
+            x: {'probability': 'NA', 'range': 'NA'}
+            for x in self.threshold_values_list
+        }
+        self.outbreak_vaccinated_over_threshold_infections_str = copy.deepcopy(
+            self.outbreak_over_threshold_infections_str)
+        # self.outbreak_given_20_new_infections_quantiles = {}
         self.df_new_infected_empirical_dist = pd.DataFrame([])
+        self.df_new_infected_vaccinated_empirical_dist = pd.DataFrame([])
 
-        self.probability_5_plus_new_cases = None
-        self.probability_10_plus_new_cases = None
-        self.probability_20_plus_new_cases = None
+        self.probability_threshold_plus_cases = {}
+        self.probability_threshold_plus_cases_vaccinated = {}
+        
+        # self.probability_5_plus_new_cases = None
+        # self.probability_10_plus_new_cases = None
+        # self.probability_20_plus_new_cases = None
 
         self.incidence_school_1_7day_ma = np.array([])
+        self.incidence_vaccinated_school_1_7day_ma = np.array([])
         self.infected_school_1_7day_ma = np.array([])
+        self.infected_vaccinated_school_1_7day_ma = np.array([])
 
         self.model = MetapopulationSEPIR(self.params)
         self.model.RNG = self.RNG
@@ -400,8 +492,25 @@ class StochasticSimulations:
                              track_infectious=False,
                              track_infected=False,
                              track_incidence=False,
+                             combine_vax_curves=False,
+                             combine_vax_stats=False,
                              print_summary_stats=False,
                              show_plots=False):
+        """_summary_
+
+        Parameters
+        ----------
+        combine_vax_curves : bool, optional
+            If True the vaccinated breakthrough compartments are combined
+            with the non-vaccinated for variables used to create curbes. 
+            Otherwise vaccinated specific variables are populated.
+            Default: False.
+        combine_vax_stats : bool, optional
+            Same as combine_vax_curves, but for summary statistics variables.
+            Default: False.
+        """
+        self.combine_vax_curves = combine_vax_curves
+        self.combine_vax_stats = combine_vax_stats
 
         for i_sim in range(self.n_sim):
 
@@ -425,18 +534,43 @@ class StochasticSimulations:
 
             model.simulate()
 
-            self.cumulative_new_infected_pop_1 = model.R[:, 0] - model.R[0, 0] - self.params['I0'][0]
-            self.new_infected_school1[i_sim] = self.cumulative_new_infected_pop_1[-1]
+            if self.combine_vax_stats:
+                self.cumulative_new_infected_pop_1 = model.R[:, 0] - model.R[0, 0] - self.params['I0'][0] +\
+                    model.R_V[:, 0] - model.R_V[0, 0]
+                self.new_infected_school1[i_sim] = self.cumulative_new_infected_pop_1[-1]
+            else:
+                self.cumulative_new_infected_pop_1 = model.R[:, 0] - model.R[0, 0] - self.params['I0'][0]
+                self.new_infected_school1[i_sim] = self.cumulative_new_infected_pop_1[-1]
+                
+                self.cumulative_new_infected_vaccinated_pop_1 = model.R_V[:, 0] - model.R_V[0, 0]
+                self.new_infected_vaccinated_school1[i_sim] = self.cumulative_new_infected_vaccinated_pop_1[-1]
 
             if track_infectious:
-                self.infectious_school_1[i_sim, :] = (
-                    model.I[::self.steps_per_day, 0]
-                )
+                if self.combine_vax_curves:
+                    self.infectious_school_1[i_sim, :] = (
+                        model.I[::self.steps_per_day, 0] + model.I_V[::self.steps_per_day, 0]
+                    )
+                else:
+                    self.infectious_school_1[i_sim, :] = (
+                        model.I[::self.steps_per_day, 0]
+                    )
+                    self.infectious_vaccinated_school_1[i_sim, :] = (
+                        model.I_V[::self.steps_per_day, 0]
+                    )
 
             if track_infected:
-                self.infected_school_1[i_sim, :] = (
+                if self.combine_vax_curves:
+                    self.infected_school_1[i_sim, :] = (
+                            model.I[::self.steps_per_day, 0] + model.E[::self.steps_per_day, 0] +\
+                            model.I_V[::self.steps_per_day, 0] + model.E_V[::self.steps_per_day, 0]
+                    )
+                else:
+                    self.infected_school_1[i_sim, :] = (
                         model.I[::self.steps_per_day, 0] + model.E[::self.steps_per_day, 0]
-                )
+                    )
+                    self.infected_vaccinated_school_1[i_sim, :] = (
+                        model.I_V[::self.steps_per_day, 0] + model.E_V[::self.steps_per_day, 0]
+                    )
 
             if track_incidence:
                 # At Lauren's request -- from Slack 03042025 --
@@ -446,11 +580,21 @@ class StochasticSimulations:
                 #   i.e. summing all the people that move from S to E over self.steps_per_day --
                 #   this is DIFFERENT than checking I every day (every self.steps_per_day)
 
-                S_to_E_school_1 = model.S_to_E[:, 0]
-                total_steps = len(S_to_E_school_1)
+                if self.combine_vax_curves:
+                    S_to_E_school_1 = model.S_to_E[:, 0] + model.V_to_E_V[:, 0]
+                    total_steps = len(S_to_E_school_1)
 
-                self.incidence_school_1[i_sim, :] = \
-                    np.add.reduceat(S_to_E_school_1, np.arange(0, total_steps, self.steps_per_day))
+                    self.incidence_school_1[i_sim, :] = \
+                        np.add.reduceat(S_to_E_school_1, np.arange(0, total_steps, self.steps_per_day))
+                else:
+                    S_to_E_school_1 = model.S_to_E[:, 0]
+                    V_to_E_V_school_1 = model.V_to_E_V[:, 0]
+                    total_steps = len(S_to_E_school_1)
+
+                    self.incidence_school_1[i_sim, :] = \
+                        np.add.reduceat(S_to_E_school_1, np.arange(0, total_steps, self.steps_per_day))
+                    self.incidence_vaccinated_school_1[i_sim, :] = \
+                        np.add.reduceat(V_to_E_V_school_1, np.arange(0, total_steps, self.steps_per_day))
 
                 # assert np.sum(self.incidence_school_1[i_sim, :]) == \
                 #       self.cumulative_new_infected_pop_1[-1]
@@ -470,23 +614,48 @@ class StochasticSimulations:
                                   include_infectious=False,
                                   include_infected=False,
                                   include_infected_7day_ma=True,
-                                  include_incidence=False):
+                                  include_incidence=False,
+                                  include_incidence_7day_ma=False):
 
         plot_data_dict = {}
 
         if include_infectious:
             plot_data_dict["df_spaghetti_infectious"] = (self.infectious_school_1, "number_infectious")
+            
+            if not(self.combine_vax_curves):
+                plot_data_dict["df_spaghetti_infectious_vaccinated"] = (
+                    self.infectious_vaccinated_school_1, "number_infectious_vaccinated")
 
         if include_infected:
             plot_data_dict["df_spaghetti_infected"] = (self.infected_school_1, "number_infected")
+            
+            if not(self.combine_vax_curves):
+                plot_data_dict["df_spaghetti_infected_vaccinated"] = (self.infected_vaccinated_school_1, "number_infected_vaccinated")
 
         if include_infected_7day_ma:
             self.infected_school_1_7day_ma = calculate_np_moving_average(self.infected_school_1, 7)
             plot_data_dict["df_spaghetti_infected_ma"] = (self.infected_school_1_7day_ma, "number_infected_7_day_ma")
+            
+            if not(self.combine_vax_curves):
+                self.infected_vaccinated_school_1_7day_ma = calculate_np_moving_average(self.infected_vaccinated_school_1, 7)
+                plot_data_dict["df_spaghetti_infected_vaccinated_ma"] = (
+                    self.infected_vaccinated_school_1_7day_ma, "number_infected_vaccinated_7_day_ma")
 
         if include_incidence:
-            self.incidence_school_1_7day_ma = calculate_np_moving_average(self.incidence_school_1, 7)
             plot_data_dict["df_spaghetti_incidence"] = (self.incidence_school_1, "number_incidence")
+            
+            if not(self.combine_vax_curves):
+                plot_data_dict["df_spaghetti_incidence_vaccinated"] = (
+                    self.incidence_vaccinated_school_1, "number_incidence_vaccinated")
+        
+        if include_incidence_7day_ma:
+            self.incidence_school_1_7day_ma = calculate_np_moving_average(self.incidence_school_1, 7)
+            plot_data_dict["df_spaghetti_incidence_ma"] = (self.incidence_school_1_7day_ma, "number_incidence_7_day_ma")
+            
+            if not(self.combine_vax_curves):
+                self.incidence_vaccinated_school_1_7day_ma = calculate_np_moving_average(self.incidence_vaccinated_school_1, 7)
+                plot_data_dict["df_spaghetti_incidence_vaccinated_ma"] = (
+                    self.incidence_vaccinated_school_1_7day_ma, "number_incidence_vaccinated_7_day_ma")
 
         id_values = list(range(1, 2 + MSP_PARAMS['sim_duration_days']))
 
@@ -513,41 +682,83 @@ class StochasticSimulations:
         )
         
     def compute_new_infected_empirical_dist(self):
+        
         unique, counts = np.unique(self.new_infected_school1, return_counts=True)
         self.df_new_infected_empirical_dist = pd.DataFrame({
             'new_infected': unique,
             'num_simulations': counts,
             'probability': counts / self.n_sim
         })
+        
+        if not(self.combine_vax_stats):
+            unique, counts = np.unique(self.new_infected_vaccinated_school1, return_counts=True)
+            self.df_new_infected_vaccinated_empirical_dist = pd.DataFrame({
+                'new_infected': unique,
+                'num_simulations': counts,
+                'probability': counts / self.n_sim
+            })
 
-    def calculate_20_plus_new_cases_statistics(self):
+    def calculate_threshold_statistis(
+        self,
+        outbreak_size_uncertainty_displayed: OUTBREAK_SIZE_UNCERTAINTY_OPTIONS):
+        
+        for threshold_value in self.threshold_values_list:
+            self.calculate_threshold_plus_new_cases_statistics(
+                threshold_value)
+            self.create_strs_threshold_plus_new_and_outbreak(
+                outbreak_size_uncertainty_displayed, threshold_value)
+            
+            if not(self.combine_vax_stats):
+                self.calculate_threshold_plus_new_cases_statistics(
+                    threshold_value, subgroup='vaccinated')
+                self.create_strs_threshold_plus_new_and_outbreak(
+                    outbreak_size_uncertainty_displayed, threshold_value,
+                    subgroup='vaccinated')
+        
+    def calculate_threshold_plus_new_cases_statistics(
+        self, 
+        threshold_value: int,
+        subgroup: str = 'all'):
+        
+        if subgroup == 'vaccinated':
+            df_new_infected_empirical_dist = self.df_new_infected_vaccinated_empirical_dist
+            df_new_infected = self.new_infected_vaccinated_school1
+            probability_threshold_plus_attr_name = 'probability_threshold_plus_cases_vaccinated'
+            mean_outbreak_stats_attr_name = 'mean_outbreak_vaccinated_given_threshold_new_infections'
+            outbreak_quantiles_attr_name = 'outbreak_vaccinated_given_threshold_new_infections_quantiles'
+        else:
+            df_new_infected_empirical_dist = self.df_new_infected_empirical_dist
+            df_new_infected = self.new_infected_school1
+            probability_threshold_plus_attr_name = 'probability_threshold_plus_cases'
+            mean_outbreak_stats_attr_name = 'mean_outbreak_given_threshold_new_infections'
+            outbreak_quantiles_attr_name = 'outbreak_given_threshold_new_infections_quantiles'
 
-        # TODO: Can make 20 an argument to this function rather than hardcoded
 
-        df_new_infected_empirical_dist = self.df_new_infected_empirical_dist
+        probability_above_threshold = df_new_infected_empirical_dist.loc[
+            df_new_infected_empirical_dist['new_infected'] >= threshold_value, 'probability'].sum()
+        getattr(self, probability_threshold_plus_attr_name)[threshold_value] = probability_above_threshold
 
-        self.probability_20_plus_new_cases = df_new_infected_empirical_dist.loc[
-            df_new_infected_empirical_dist['new_infected'] >= 20, 'probability'].sum()
+        df_over_threshold = df_new_infected_empirical_dist.loc[
+            df_new_infected_empirical_dist['new_infected'] >= threshold_value]
 
-        df_over_20 = df_new_infected_empirical_dist.loc[
-            df_new_infected_empirical_dist['new_infected'] >= 20]  # , 'new_infected']
-
-        if len(df_over_20) > 0:
-            self.mean_outbreak_given_20_new_infections = \
-                self.params["I0"][0] + (df_over_20['new_infected'] *
-                                      df_over_20['probability']).sum() / self.probability_20_plus_new_cases
-            cases_over_20 = self.new_infected_school1[
-                self.new_infected_school1 >= 20]
+        if len(df_over_threshold) > 0:
+            getattr(self, mean_outbreak_stats_attr_name)[threshold_value]['mean'] = \
+                self.params["I0"][0] + (df_over_threshold['new_infected'] *
+                    df_over_threshold['probability']).sum() / probability_above_threshold
+            cases_over_threshold = df_new_infected[df_new_infected >= threshold_value]
 
             quantile_list = [0, 2.5, 5, 10, 25, 50, 75, 90, 95, 97.5, 100]
-            self.outbreak_given_20_new_infections_quantiles = {
-                q: get_percentile_from_list(cases_over_20, q)
+            getattr(self, outbreak_quantiles_attr_name)[threshold_value] = {
+                q: get_percentile_from_list(cases_over_threshold, q)
                 for q in quantile_list
             }
         # else: expected outbreak attributes remain NA
 
-    def create_strs_20plus_new_and_outbreak(self,
-                                            outbreak_size_uncertainty_displayed: OUTBREAK_SIZE_UNCERTAINTY_OPTIONS):
+    def create_strs_threshold_plus_new_and_outbreak(
+        self,
+        outbreak_size_uncertainty_displayed: OUTBREAK_SIZE_UNCERTAINTY_OPTIONS,
+        threshold_value: int,
+        subgroup: str = 'all'):
         """
         Sorry for this UGLY function name :)
 
@@ -559,20 +770,34 @@ class StochasticSimulations:
             in the StochasticSims class to take in an arbitrary new infection cut-off,
             not just hardcoded 20.
         """
-
-        probability_20_plus_new_cases = self.probability_20_plus_new_cases
-
-        if probability_20_plus_new_cases < 0.01:
-            prob_20plus_new_str = "< 1%"
-        elif probability_20_plus_new_cases > 0.99:
-            prob_20plus_new_str = "> 99%"
+        
+        if subgroup == 'vaccinated':
+            probability_threshold_plus_new_cases = self.probability_threshold_plus_cases_vaccinated[threshold_value]
+            mean_outbreak_size_over = self.mean_outbreak_vaccinated_given_threshold_new_infections[threshold_value]['mean']
+            outbreak_size_quantiles = self.outbreak_vaccinated_given_threshold_new_infections_quantiles[threshold_value]
+            outbreak_infections_str_attr_name = 'outbreak_vaccinated_over_threshold_infections_str'
         else:
-            prob_20plus_new_str = '{:.0%}'.format(probability_20_plus_new_cases)
+            probability_threshold_plus_new_cases = self.probability_threshold_plus_cases[threshold_value]
+            mean_outbreak_size_over = self.mean_outbreak_given_threshold_new_infections[threshold_value]['mean']
+            outbreak_size_quantiles = self.outbreak_given_threshold_new_infections_quantiles[threshold_value]
+            outbreak_infections_str_attr_name = 'outbreak_over_threshold_infections_str'
+            
+
+        # probability_20_plus_new_cases = self.probability_20_plus_new_cases
+        # probability_threshold_plus_new_cases = self.probability_threshold_plus_cases[threshold_value]
+
+        if probability_threshold_plus_new_cases < 0.01:
+            prob_threshold_plus_new_str = "< 1%"
+        elif probability_threshold_plus_new_cases > 0.99:
+            prob_threshold_plus_new_str = "> 99%"
+        else:
+            prob_threshold_plus_new_str = '{:.0%}'.format(probability_threshold_plus_new_cases)
 
         # breakpoint()
 
-        if self.mean_outbreak_given_20_new_infections == 'NA':
-            cases_expected_over_20_str = "Fewer than 20 new infections"
+        # if self.mean_outbreak_given_20_new_infections == 'NA':
+        if mean_outbreak_size_over == 'NA':
+            cases_expected_over_threshold_str = "Fewer than {} new infections".format(int(threshold_value))
 
         else:
 
@@ -585,39 +810,36 @@ class StochasticSimulations:
             elif outbreak_size_uncertainty_displayed == OUTBREAK_SIZE_UNCERTAINTY_OPTIONS.IQR:
                 quantile_lb, quantile_ub, range_name = 25, 75, 'IQR'
 
-            uncertainty_outbreak_size_str = str(
-                int(self.outbreak_given_20_new_infections_quantiles[quantile_lb])) + ' - ' + \
-                                            str(int(self.outbreak_given_20_new_infections_quantiles[quantile_ub]))
+            uncertainty_outbreak_size_str = str(int(outbreak_size_quantiles[quantile_lb])) + ' - ' + \
+                    str(int(outbreak_size_quantiles[quantile_ub]))
 
-            cases_expected_over_20_str = uncertainty_outbreak_size_str + " total cases"
+            cases_expected_over_threshold_str = uncertainty_outbreak_size_str + " total cases"
+            getattr(self, outbreak_infections_str_attr_name)[threshold_value] = {
+                'probability': prob_threshold_plus_new_str,
+                'range': cases_expected_over_threshold_str,
+            }
 
-        return prob_20plus_new_str, cases_expected_over_20_str
+        # return prob_threshold_plus_new_str, cases_expected_over_threshold_str
     
     def print_summary_stats(self):
 
         df_new_infected_empirical_dist = self.df_new_infected_empirical_dist
         
-        self.probability_5_plus_new_cases = df_new_infected_empirical_dist.loc[
-            df_new_infected_empirical_dist['new_infected'] >= 5, 'probability'].sum()
-        self.probability_10_plus_new_cases = df_new_infected_empirical_dist.loc[
-            df_new_infected_empirical_dist['new_infected'] >= 10, 'probability'].sum()
-        self.probability_20_plus_new_cases = df_new_infected_empirical_dist.loc[
-            df_new_infected_empirical_dist['new_infected'] >= 20, 'probability'].sum()
+        sample_thresholds_list = [5, 10, 20]
+        for sample_threshold in sample_thresholds_list:
+            self.probability_n_plus_new_cases = df_new_infected_empirical_dist.loc[
+                df_new_infected_empirical_dist['new_infected'] >= sample_threshold, 'probability'].sum()
+            p_n_pct = '{:.0%}'.format(self.probability_n_plus_new_cases)
+            print('Probability of', sample_threshold,'or more cases in outbreak:', p_n_pct)
 
-        p_5_pct = '{:.0%}'.format(self.probability_5_plus_new_cases)
-        p_10_pct = '{:.0%}'.format(self.probability_10_plus_new_cases)
-        p_20_pct = '{:.0%}'.format(self.probability_20_plus_new_cases)
-        
-        print('Probability of 5 or more cases in outbreak:', p_5_pct)
-        print('Probability of 10 or more cases in outbreak:', p_10_pct)
-        print('Probability of 20 or more cases in outbreak:', p_20_pct)
-
-        if self.mean_outbreak_given_20_new_infections == 'NA':
-            mean_outbreak_given_20_new_infections_print = self.mean_outbreak_given_20_new_infections
-        else:
-            mean_outbreak_given_20_new_infections_print = int(self.mean_outbreak_given_20_new_infections)
-        print('Expected number of infections across outbreaks of size 20 or more:',
-              mean_outbreak_given_20_new_infections_print, 'cases')
+        for threshold_value in self.threshold_values_list:
+            mean_outbreak_size = self.mean_outbreak_given_threshold_new_infections[threshold_value]['mean']
+            if mean_outbreak_size == 'NA':
+                mean_outbreak_size_print = mean_outbreak_size
+            else:
+                mean_outbreak_size_print = int(mean_outbreak_size)
+            print('Expected number of infections across outbreaks of size', str(threshold_value), 'or more:',
+                mean_outbreak_size_print, 'cases')
 
     def create_plots(self):
 
@@ -699,11 +921,17 @@ MSP_PARAMS = {
     # 'gamma': 1/8,       # 7 days average infectious period
     'incubation_period': 10.5,
     'infectious_period': 5,
+    'incubation_period_vaccinated': 12,
+    'infectious_period_vaccinated': 9,
+    'relative_infectiousness_vaccinated': 0.05, #
+    'vaccine_efficacy': 0.97, # 1.0 means perfect protection
+    'skip_vaccinated_to_recovered': False, # if True vaccinated infected go straight to R
     'school_contacts': 5.63424,
     'other_contacts': 2.2823,
     'population': [500],
     'I0': [1],
     'vax_prop': [0.85],  # number between 0 and 1
+    'threshold_values': [20], # outbreak threshold
     'sim_duration_days': 250,
     'time_step_days': 0.25,
     'is_stochastic': True,  # False for deterministic,
@@ -714,7 +942,7 @@ MSP_PARAMS = {
 ##########
 # Example usage
 if __name__ == "__main__":
-    run_deterministic_model(MSP_PARAMS)
+    # run_deterministic_model(MSP_PARAMS)
 
     # Stochastic runs
     # n_sim = 200
@@ -723,9 +951,26 @@ if __name__ == "__main__":
 
     n_sim = 200 # 2.8811910152435303 to # 1.0790390968322754 for population 500, init infected 1
     stochastic_sim = StochasticSimulations(MSP_PARAMS, n_sim)
-    stochastic_sim.run_stochastic_model(track_infected=True)
+    
+    stochastic_sim.run_stochastic_model(
+        track_infected=True,
+        combine_vax_curves=False,
+        combine_vax_stats=True)
     stochastic_sim.prep_across_rep_plot_data(include_infected_7day_ma=True)
-    stochastic_sim.calculate_20_plus_new_cases_statistics()
-    stochastic_sim.create_strs_20plus_new_and_outbreak(OUTBREAK_SIZE_UNCERTAINTY_OPTIONS.NINETY_FIVE)
+    
+    stochastic_sim.calculate_threshold_statistis(OUTBREAK_SIZE_UNCERTAINTY_OPTIONS.NINETY_FIVE)
+    for threshold_value in stochastic_sim.threshold_values_list:
+        print('\n\nThreshold value:', threshold_value)
+        prob_20plus_new_str = stochastic_sim.outbreak_over_threshold_infections_str[threshold_value]['probability']
+        range_20plus_new_str = stochastic_sim.outbreak_over_threshold_infections_str[threshold_value]['range']
+        prob_20plus_vaccinated_new_str = stochastic_sim.outbreak_vaccinated_over_threshold_infections_str[threshold_value]['probability']
+        range_20plus_vaccinated_new_str = stochastic_sim.outbreak_vaccinated_over_threshold_infections_str[threshold_value]['range']
+        print('Outbreak threshold:', threshold_value)
+        print(prob_20plus_new_str, ' probability, range:', range_20plus_new_str)
+        print('\nVaccinated:\n', prob_20plus_vaccinated_new_str, 'probability, range:', range_20plus_vaccinated_new_str)
+    # stochastic_sim.calculate_threshold_plus_new_cases_statistics()
+    # stochastic_sim.create_strs_20plus_new_and_outbreak(OUTBREAK_SIZE_UNCERTAINTY_OPTIONS.NINETY_FIVE)
 
     print(time.time() - start)
+    
+    run_deterministic_model(MSP_PARAMS)

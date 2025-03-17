@@ -6,15 +6,21 @@ import dash_bootstrap_components as dbc
 
 from app_static_graphics import \
     vaccination_rate_label, school_size_label, I0_label, R0_label, \
-    latent_period_label, infectious_period_label
+    latent_period_label, infectious_period_label, threshold_selector_label
 from app_styles import BASE_FONT_FAMILY_STR, RESULTS_HEADER_STYLE, \
     SELECTOR_NOTE_STYLE
 from app_computation_functions import EMPTY_SPAGHETTI_PLOT_INFECTED_MA
 from app_selectors import school_size_selector, \
     I0_selector, vaccination_rate_selector, state_selector, \
     county_selector, school_selector, R0_selector, latent_period_selector, \
-    infectious_period_selector
+    infectious_period_selector, threshold_selector
 
+import config
+if config.DEBUG_VAX:
+    from app_static_graphics import vaccine_efficacy_selector_label, \
+        vaccinated_infectiousness_selector_label
+    from app_selectors import vaccine_efficacy_selector, \
+        vaccinated_infectiousness_selector
 
 def results_header():
     return dbc.Row(
@@ -83,51 +89,190 @@ def results_header():
         ],
     )
 
-
-def spaghetti_plot_section():
-    return dbc.Row([
-        dbc.Col(
-            dbc.Card(
-                dbc.CardBody([
-                    html.H3("This graph shows 20 plausible school outbreak curves.",
-                            style={"text-align": "center", "margin-top": "1em", "margin-bottom": "1em",
-                                   "margin-left": "1.8em",
-                                   "font-family": BASE_FONT_FAMILY_STR,
-                                   "font-size": "14pt", "font-weight": "400", "font-style": "italic"}),
-                    dcc.Graph(id="spaghetti_plot", figure=EMPTY_SPAGHETTI_PLOT_INFECTED_MA),
-                ]),
-                style={'border': 'none', 'padding': '0'},
+if not(config.DEBUG_VAX):
+    def spaghetti_plot_section():
+        return dbc.Row([
+            dbc.Col(
+                dbc.Card(
+                    dbc.CardBody([
+                        html.H3("This graph shows 20 plausible school outbreak curves.",
+                                style={"text-align": "center", "margin-top": "1em", "margin-bottom": "1em",
+                                    "margin-left": "1.8em",
+                                    "font-family": BASE_FONT_FAMILY_STR,
+                                    "font-size": "14pt", "font-weight": "400", "font-style": "italic"}),
+                        dcc.Graph(id="spaghetti_plot", figure=EMPTY_SPAGHETTI_PLOT_INFECTED_MA),
+                    ]),
+                    style={'border': 'none', 'padding': '0'},
+                ),
             ),
-        ),
-    ], style={"border-top": "2px solid black", "border-left": "1em", "padding": "none", "height": "60%",
-              "width": "100%", "margin-top": "1em"})
+        ], style={"border-top": "2px solid black", "border-left": "1em", "padding": "none", "height": "60%",
+                "width": "100%", "margin-top": "1em"})
+    
+if config.DEBUG_VAX:
+    def spaghetti_plot_section():
+        return dbc.Row([
+            dbc.Col(
+                dbc.Card(
+                    dbc.CardBody([
+                        html.H3("This graph shows 20 plausible school outbreak curves.",
+                                style={"text-align": "center", "margin-top": "1em", "margin-bottom": "1em",
+                                    "margin-left": "1.8em",
+                                    "font-family": BASE_FONT_FAMILY_STR,
+                                    "font-size": "14pt", "font-weight": "400", "font-style": "italic"}),
+                        dcc.Graph(id="spaghetti_plot", figure=EMPTY_SPAGHETTI_PLOT_INFECTED_MA),
+                    ]),
+                    style={'border': 'none', 'padding': '0'},
+                ),
+            ),
+        ], style={"border-top": "2px solid black", "border-left": "1em", "padding": "none", "height": "35%",
+                "width": "100%", "margin-top": "1em"})
+
+    def results_header_vaccinated():
+        return dbc.Row(
+            [
+                # Chance of an Outbreak
+                dbc.Col(
+                    dbc.Card(
+                        dbc.CardBody(
+                            [
+                                html.Div(
+                                    [
+                                        dcc.Markdown(id='outbreak_vaccinated',
+                                                    children='Chance of exceeding 20 new infections among vaccinated',
+                                                    style={**RESULTS_HEADER_STYLE, 'fontWeight': '500'}
+                                                    ),
+                                        dcc.Markdown(id='prob_20plus_new_str_vaccinated',
+                                                    style={**RESULTS_HEADER_STYLE, 'color': '#bf5700',
+                                                            "font-size": "22pt", "font-weight": "800"}
+                                                    ),
+                                    ],
+                                    style={
+                                        'textAlign': 'center',
+                                        'fontFamily': BASE_FONT_FAMILY_STR,
+                                        'fontSize': '18pt',
+                                        'border': 'none'
+                                    }
+                                )
+                            ]
+                        ),
+                        style={'border': 'none'}
+                    ),
+                ),
+
+                # Expected Outbreak Size
+                dbc.Col(
+                    dbc.Card(
+                        dbc.CardBody(
+                            [
+                                html.Div(
+                                    [
+                                        dcc.Markdown(id='cases_vaccinated',
+                                                    children='Likely outbreak size among vaccinated',
+                                                    style={'color': '#black', 'fontWeight': '500',
+                                                            'font-size': '20pt', 'margin': 'none'}
+                                                    ),
+                                        dcc.Markdown("*if exceeds 20 new infections*",
+                                                    style={'font-size': '14pt', "margin": "none"}),
+                                        dcc.Markdown(id='cases_expected_over_20_str_vaccinated',
+                                                    style={'color': '#bf5700', 'fontWeight': '800',
+                                                            'font-size': '22pt', 'margin-top': '0.5em'}
+                                                    ),
+                                    ],
+                                    style={
+                                        'textAlign': 'center',
+                                        'fontFamily': BASE_FONT_FAMILY_STR,
+                                        'fontSize': '18pt',
+                                        'border': 'none'
+                                    }
+                                )
+                            ]
+                        ),
+                        style={'border': 'none'}
+                    ),
+                    style={'borderLeft': '3px solid #bf5700'}
+                ),
+            ],
+            style={"border-top": "2px solid black"}
+        )
+    
+    def spaghetti_plot_section_vaccinated():
+        return dbc.Row([
+            dbc.Col(
+                dbc.Card(
+                    dbc.CardBody([
+                        html.H3("This graph shows 20 plausible school outbreak curves among vaccinated individuals.",
+                                style={"text-align": "center", "margin-top": "1em", "margin-bottom": "1em",
+                                    "margin-left": "1.8em",
+                                    "font-family": BASE_FONT_FAMILY_STR,
+                                    "font-size": "14pt", "font-weight": "400", "font-style": "italic"}),
+                        dcc.Graph(id="spaghetti_plot_vaccinated", figure=EMPTY_SPAGHETTI_PLOT_INFECTED_MA),
+                    ]),
+                    style={'border': 'none', 'padding': '0'},
+                ),
+            ),
+        ], style={"border-top": "2px solid black", "border-left": "1em", "padding": "none", "height": "60%",
+                "width": "100%", "margin-top": "1em"})
 
 
 # Define the accordion separately
-epi_params_accordion = html.Div(
-    dbc.Accordion(
-        [
-            dbc.AccordionItem(
-                dbc.Col(
-                    [
-                        html.Br(),
-                        dbc.Col(html.Div(R0_label), className="mb-2"),
-                        dbc.Col(html.Div(R0_selector), className="mb-2"),
-                        dbc.Col(html.Div(latent_period_label), className="mb-2"),
-                        dbc.Col(html.Div(latent_period_selector), className="mb-2"),
-                        dbc.Col(html.Div(infectious_period_label), className="mb-2"),
-                        dbc.Col(html.Div(infectious_period_selector), className="mb-2"),
-                    ]
+if config.DEBUG_VAX:
+    epi_params_accordion = html.Div(
+        dbc.Accordion(
+            [
+                dbc.AccordionItem(
+                    dbc.Col(
+                        [
+                            html.Br(),
+                            dbc.Col(html.Div(R0_label), className="mb-2"),
+                            dbc.Col(html.Div(R0_selector), className="mb-2"),
+                            dbc.Col(html.Div(latent_period_label), className="mb-2"),
+                            dbc.Col(html.Div(latent_period_selector), className="mb-2"),
+                            dbc.Col(html.Div(infectious_period_label), className="mb-2"),
+                            dbc.Col(html.Div(infectious_period_selector), className="mb-2"),
+                            dbc.Col(html.Div(threshold_selector_label), className="mb-2"),
+                            dbc.Col(html.Div(threshold_selector), className="mb-2"),
+                            dbc.Col(html.Div(vaccine_efficacy_selector_label), className="mb-2"),
+                            dbc.Col(html.Div(vaccine_efficacy_selector), className="mb-2"),
+                            dbc.Col(html.Div(vaccinated_infectiousness_selector_label), className="mb-2"),
+                            dbc.Col(html.Div(vaccinated_infectiousness_selector), className="mb-2"),
+                        ]
+                    ),
+                    title="Change Parameters ▾",
+                    style={"textAlign": "center"}  # Add this line to center the text
                 ),
-                title="Change Parameters ▾",
-                style={"textAlign": "center"}  # Add this line to center the text
-            ),
-        ],
-        flush=True,
-        always_open=False,  # Ensures sections can be toggled independently
-        active_item=[],  # Empty list means all sections are closed by default
+            ],
+            flush=True,
+            always_open=False,  # Ensures sections can be toggled independently
+            active_item=[],  # Empty list means all sections are closed by default
+        )
     )
-)
+else:
+    epi_params_accordion = html.Div(
+        dbc.Accordion(
+            [
+                dbc.AccordionItem(
+                    dbc.Col(
+                        [
+                            html.Br(),
+                            dbc.Col(html.Div(R0_label), className="mb-2"),
+                            dbc.Col(html.Div(R0_selector), className="mb-2"),
+                            dbc.Col(html.Div(latent_period_label), className="mb-2"),
+                            dbc.Col(html.Div(latent_period_selector), className="mb-2"),
+                            dbc.Col(html.Div(infectious_period_label), className="mb-2"),
+                            dbc.Col(html.Div(infectious_period_selector), className="mb-2"),
+                            dbc.Col(html.Div(threshold_selector_label), className="mb-2"),
+                            dbc.Col(html.Div(threshold_selector), className="mb-2"),
+                        ]
+                    ),
+                    title="Change Parameters ▾",
+                    style={"textAlign": "center"}  # Add this line to center the text
+                ),
+            ],
+            flush=True,
+            always_open=False,  # Ensures sections can be toggled independently
+            active_item=[],  # Empty list means all sections are closed by default
+        )
+    )
 
 # Define the accordion separately
 school_district_accordion = dbc.Accordion(
