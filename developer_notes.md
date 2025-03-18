@@ -17,6 +17,7 @@ TODO: we need a script to assess validity and format of new states' datasets!
   - The various app files have been updated (with some ugly duplicate code in places) so we can visualize the results for both vaccinated and not at the same time. That behavior can be turned on and off using the variable DEBUG_VAX in the file `config.py`. The changes below are for testing and demonstrating the impact of parameters, the plan is not to keep those in the final version
     - When this is turned on there are 2 graphs, the top one showing not vaccinated individuals, and the bottom one showing vaccinated individuals only with the probability and expected size of outbreak
     - Within the epi parameters in the accordion the 2 main vaccinated parameters (relative susceptibility and infectiousness) are available as sliders
+    - A slider that can be equal to 0 (False) or 1 (True) can be used to choose whether to show cases and infected curves for vaccinated with unvaccinated (slider to True) or separately in the second graph
   - Setting `vaccine_efficacy` equal to 1.0 should be equivalent to running the model without vaccines
 
 ### Threshold oubreak value

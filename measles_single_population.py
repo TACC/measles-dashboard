@@ -172,7 +172,7 @@ class MetapopulationSEPIR:
         self.gamma_vax = 1.0 / params["infectious_period_vaccinated"]  # recovery rate for vaccinated
         
         self.beta_vax = params['relative_infectiousness_vaccinated'] * params['R0'] / \
-            (params["incubation_period_vaccinated"] * self.total_contacts)
+            (params["infectious_period_vaccinated"] * self.total_contacts)
         self.skip_vax_to_R = params['skip_vaccinated_to_recovered'] # Go from V to R_V, no E_V and I_V steps
         self.vaccine_efficacy = params['vaccine_efficacy']
 
@@ -814,6 +814,8 @@ class StochasticSimulations:
                     str(int(outbreak_size_quantiles[quantile_ub]))
 
             cases_expected_over_threshold_str = uncertainty_outbreak_size_str + " total cases"
+            if subgroup == 'vaccinated':
+                cases_expected_over_threshold_str += ' (out of {})'.format(int(self.model.V[0,0]))
             getattr(self, outbreak_infections_str_attr_name)[threshold_value] = {
                 'probability': prob_threshold_plus_new_str,
                 'range': cases_expected_over_threshold_str,
@@ -921,8 +923,8 @@ MSP_PARAMS = {
     # 'gamma': 1/8,       # 7 days average infectious period
     'incubation_period': 10.5,
     'infectious_period': 5,
-    'incubation_period_vaccinated': 12,
-    'infectious_period_vaccinated': 9,
+    'incubation_period_vaccinated': 10.5,
+    'infectious_period_vaccinated': 5,
     'relative_infectiousness_vaccinated': 0.05, #
     'vaccine_efficacy': 0.97, # 1.0 means perfect protection
     'skip_vaccinated_to_recovered': False, # if True vaccinated infected go straight to R

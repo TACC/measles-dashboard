@@ -87,7 +87,8 @@ if config.DEBUG_VAX:
         Input('infectious_period_selector', 'value'),
         Input('threshold_selector', 'value'),
         Input('vaccine_efficacy_selector', 'value'),
-        Input('vaccinated_infectiousness_selector', 'value')]
+        Input('vaccinated_infectiousness_selector', 'value'),
+        Input('combine_vaccinated_results_selector', 'value')]
         )
     def create_params_from_selectors(params_dict,
                                     school_size,
@@ -98,7 +99,8 @@ if config.DEBUG_VAX:
                                     infectious_period,
                                     outbreak_threshold,
                                     vaccine_efficacy,
-                                    vaccinated_infectiousness):
+                                    vaccinated_infectiousness,
+                                    combine_vaccinated_results):
         school_size = school_size if school_size is not None else SELECTOR_DEFAULTS['school_size']
         vax_rate_percent = vax_rate_percent if vax_rate_percent is not None else SELECTOR_DEFAULTS['vax_rate_percent']
         I0 = I0 if I0 is not None else SELECTOR_DEFAULTS['I0']
@@ -112,6 +114,8 @@ if config.DEBUG_VAX:
             'vaccine_efficacy_selector']
         vaccinated_infectiousness = vaccinated_infectiousness if vaccinated_infectiousness is not None else SELECTOR_DEFAULTS[
             'vaccinated_infectiousness_selector']
+        combine_vaccinated_results = combine_vaccinated_results if combine_vaccinated_results is not None else SELECTOR_DEFAULTS[
+            'combine_vaccinated_results_selector']
 
         params_dict['population'] = [int(school_size)]
         params_dict['vax_prop'] = [0.01 * float(vax_rate_percent)]
@@ -119,9 +123,12 @@ if config.DEBUG_VAX:
         params_dict['R0'] = float(R0)
         params_dict['incubation_period'] = float(latent_period)
         params_dict['infectious_period'] = float(infectious_period)
+        params_dict['incubation_period_vaccinated'] = float(latent_period)
+        params_dict['infectious_period_vaccinated'] = float(infectious_period)
         params_dict['threshold_values'] = [int(outbreak_threshold)]
         params_dict['vaccine_efficacy'] = float(vaccine_efficacy)
         params_dict['relative_infectiousness_vaccinated'] = float(vaccinated_infectiousness)
+        params_dict['combine_vaccinated_results'] = bool(int(combine_vaccinated_results))
 
         # Bug I got stuck on for awhile -- dcc.State can certainly handle dictionaries
         # HOWEVER -- callbacks always expect the return type to be a list or tuple
@@ -163,6 +170,8 @@ else:
         params_dict['R0'] = float(R0)
         params_dict['incubation_period'] = float(latent_period)
         params_dict['infectious_period'] = float(infectious_period)
+        params_dict['incubation_period_vaccinated'] = float(latent_period)
+        params_dict['infectious_period_vaccinated'] = float(infectious_period)
         params_dict['threshold_values'] = [int(threshold_selector)]
 
         # Bug I got stuck on for awhile -- dcc.State can certainly handle dictionaries
@@ -220,8 +229,8 @@ if config.DEBUG_VAX:
             stochastic_sim = msp.StochasticSimulations(params_dict, n_sim)
             stochastic_sim.run_stochastic_model(
                 track_infected=True,
-                combine_vax_curves=False,
-                combine_vax_stats=False)
+                combine_vax_curves=params_dict['combine_vaccinated_results'],
+                combine_vax_stats=params_dict['combine_vaccinated_results'])
             stochastic_sim.prep_across_rep_plot_data(include_infected_7day_ma=True)
             
             stochastic_sim.calculate_threshold_statistis(DASHBOARD_CONFIG["outbreak_size_uncertainty_displayed"])
@@ -240,16 +249,18 @@ if config.DEBUG_VAX:
 
             fig = get_spaghetti_plot_infected_ma(plot_df, plot_color_map)
 
-            (plot_df_vaccinated, plot_color_map_vaccinated) = \
-                create_data_spaghetti_plot_infected_ma(sim=stochastic_sim,
-                                                    nb_curves_displayed=20,
-                                                    curve_selection_seed=DASHBOARD_CONFIG[
-                                                        "spaghetti_curve_selection_seed"],
-                                                    group_graphed='vaccinated')
-
-            fig_vaccinated = get_spaghetti_plot_infected_ma(
-                plot_df_vaccinated, plot_color_map_vaccinated,
-                y_name='number_infected_vaccinated_7_day_ma')
+            if not(params_dict['combine_vaccinated_results']):
+                (plot_df_vaccinated, plot_color_map_vaccinated) = \
+                    create_data_spaghetti_plot_infected_ma(sim=stochastic_sim,
+                                                        nb_curves_displayed=20,
+                                                        curve_selection_seed=DASHBOARD_CONFIG[
+                                                            "spaghetti_curve_selection_seed"],
+                                                        group_graphed='vaccinated')
+                fig_vaccinated = get_spaghetti_plot_infected_ma(
+                    plot_df_vaccinated, plot_color_map_vaccinated,
+                    y_name='number_infected_vaccinated_7_day_ma')
+            else:
+                fig_vaccinated = EMPTY_SPAGHETTI_PLOT_INFECTED_MA
 
             # ">" needs an escape in HTML!!!!
             if prob_20plus_new_str == "> 99%":

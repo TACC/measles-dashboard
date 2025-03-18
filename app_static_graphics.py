@@ -68,6 +68,8 @@ if config.DEBUG_VAX:
     vaccine_efficacy_selector_label = html.H4('Vaccine Efficacy', style={**SELECTOR_LABEL_STYLE})
     
     vaccinated_infectiousness_selector_label = html.H4('Relative Infectiousness Vaccinated', style={**SELECTOR_LABEL_STYLE})
+    
+    combine_vaccinated_results_label = html.H4('Combine Vaccinated Outcomes', style={**SELECTOR_LABEL_STYLE})
 
 
 def school_outbreak_projections_header():

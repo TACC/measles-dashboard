@@ -18,9 +18,9 @@ from app_selectors import school_size_selector, \
 import config
 if config.DEBUG_VAX:
     from app_static_graphics import vaccine_efficacy_selector_label, \
-        vaccinated_infectiousness_selector_label
+        vaccinated_infectiousness_selector_label, combine_vaccinated_results_label
     from app_selectors import vaccine_efficacy_selector, \
-        vaccinated_infectiousness_selector
+        vaccinated_infectiousness_selector, combine_vaccinated_results_selector
 
 def results_header():
     return dbc.Row(
@@ -235,6 +235,8 @@ if config.DEBUG_VAX:
                             dbc.Col(html.Div(vaccine_efficacy_selector), className="mb-2"),
                             dbc.Col(html.Div(vaccinated_infectiousness_selector_label), className="mb-2"),
                             dbc.Col(html.Div(vaccinated_infectiousness_selector), className="mb-2"),
+                            dbc.Col(html.Div(combine_vaccinated_results_label), className="mb-2"),
+                            dbc.Col(html.Div(combine_vaccinated_results_selector), className="mb-2"),
                         ]
                     ),
                     title="Change Parameters ▾",

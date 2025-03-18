@@ -31,6 +31,7 @@ SELECTOR_DEFAULTS =\
      "outbreak_threshold": 20,
      "vaccine_efficacy_selector": 0.97,
      "vaccinated_infectiousness_selector": 0.05,
+     "combine_vaccinated_results_selector": 0,
      }
 
 school_size_selector = dcc.Input(
@@ -189,6 +190,19 @@ if config.DEBUG_VAX:
         marks={0: {'label': '0.0', 'style': {**BASE_FONT_STYLE}},
             0.05: {'label': '0.05', 'style': {**BASE_FONT_STYLE, 'fontWeight': 'bold'}},
             0.2: {'label': '0.2', 'style': {**BASE_FONT_STYLE}},
+            },
+        tooltip={**SELECTOR_TOOLTIP_STYLE},
+    )
+    
+    combine_vaccinated_results_selector = dcc.Slider(
+        id='combine_vaccinated_results_selector',
+        min=0,
+        max=1,
+        step=1,
+        value=SELECTOR_DEFAULTS["combine_vaccinated_results_selector"],
+        included=False,
+        marks={0: {'label': 'False', 'style': {**BASE_FONT_STYLE}, 'fontWeight': 'bold'},
+            1: {'label': 'True', 'style': {**BASE_FONT_STYLE}},
             },
         tooltip={**SELECTOR_TOOLTIP_STYLE},
     )
