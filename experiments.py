@@ -24,7 +24,7 @@ from matplotlib.ticker import FuncFormatter
 
 # Using default dashboard parameters otherwise
 
-params_dict = copy.deepcopy(msp.MSP_PARAMS)
+params_dict = copy.deepcopy(msp.DEFAULT_MSP_PARAMS)
 params_dict["population"] = [500]
 params_dict["simulation_seed"] = 147125098488
 

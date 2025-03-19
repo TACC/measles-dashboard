@@ -58,7 +58,7 @@ def check_vaccination_rates_nonzero(df):
 
     if not (df["MMR Vaccination Rate"] > 1e-6).all():
         print("Error: Some MMR Vaccination Rate entries are zero. Please check "
-              "for non-responses mistakenly coded as zeros, which is incorrect.")
+              "for non-responses mistakenly coded as empty, which is incorrect.")
         return False
     else:
         return True

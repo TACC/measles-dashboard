@@ -6,12 +6,6 @@
 >(^_^)> ~~~~
 """
 
-# TODO: we should probably make the dictionary of params be a
-#   dataclass with a decent name like MSP_params or something -- because
-#   we keep passing it as an argument and ASSUME certain things about the field names
-#   and data types -- so we should make these assumptions explicit, and the
-#   dataclass does that for us
-
 # TODO: streamline the single population / multiple population stuff?
 #   Some confusing stuff... e.g. remembering that some parameters are actually
 #   a LIST (but of 1 element, for 1 subpopulation)
@@ -40,7 +34,7 @@ DASHBOARD_CONFIG = {
     'spaghetti_curve_selection_seed': 12345,
 }
 
-msp.MSP_PARAMS["simulation_seed"] = DASHBOARD_CONFIG["simulation_seed"]
+msp.DEFAULT_MSP_PARAMS["simulation_seed"] = DASHBOARD_CONFIG["simulation_seed"]
 
 # TODO -- again, this can be streamlined... but here is
 #   the initial stab at generalizing the code to multiple states...
@@ -277,7 +271,7 @@ app.scripts.append_script({'external_url': '/assets/gtag.js'})
 app.layout = dbc.Container(
     [
         dcc.Store(id="inputs_are_valid", data=True),
-        dcc.Store(id="dashboard_params", data=copy.deepcopy(msp.MSP_PARAMS)),
+        dcc.Store(id="dashboard_params", data=copy.deepcopy(msp.DEFAULT_MSP_PARAMS)),
 
         dbc.Row([navbar], className="my-2"),
         html.Br(),
