@@ -79,14 +79,17 @@ def get_county_subset_df(state_str, county_str) -> pd.DataFrame:
      Input('I0_selector', 'value'),
      Input('R0_selector', 'value'),
      Input('latent_period_selector', 'value'),
-     Input('infectious_period_selector', 'value')])
+     Input('infectious_period_selector', 'value'),
+     Input('threshold_selector', 'value')]
+    )
 def create_params_from_selectors(params_dict,
                                  school_size,
                                  vax_rate_percent,
                                  I0,
                                  R0,
                                  latent_period,
-                                 infectious_period):
+                                 infectious_period,
+                                 outbreak_threshold):
     school_size = school_size if school_size is not None else SELECTOR_DEFAULTS['school_size']
     vax_rate_percent = vax_rate_percent if vax_rate_percent is not None else SELECTOR_DEFAULTS['vax_rate_percent']
     I0 = I0 if I0 is not None else SELECTOR_DEFAULTS['I0']
@@ -94,6 +97,8 @@ def create_params_from_selectors(params_dict,
     latent_period = latent_period if latent_period is not None else SELECTOR_DEFAULTS['latent_period']
     infectious_period = infectious_period if infectious_period is not None else SELECTOR_DEFAULTS[
         'infectious_period']
+    outbreak_threshold = outbreak_threshold if outbreak_threshold is not None else SELECTOR_DEFAULTS[
+        'outbreak_threshold']
 
     params_dict['population'] = [int(school_size)]
     params_dict['vax_prop'] = [0.01 * float(vax_rate_percent)]
@@ -101,6 +106,7 @@ def create_params_from_selectors(params_dict,
     params_dict['R0'] = float(R0)
     params_dict['incubation_period'] = float(latent_period)
     params_dict['infectious_period'] = float(infectious_period)
+    params_dict['threshold_values'] = [int(outbreak_threshold)]
 
     # Bug I got stuck on for awhile -- dcc.State can certainly handle dictionaries
     # HOWEVER -- callbacks always expect the return type to be a list or tuple
@@ -140,8 +146,10 @@ def check_inputs_validity(params_dict: dict) -> str:
 
 @callback(
     [Output('spaghetti_plot', 'figure'),
-     Output('prob_20plus_new_str', 'children'),
-     Output('cases_expected_over_20_str', 'children')],
+     Output('prob_threshold_plus_new_str', 'children'),
+     Output('cases_expected_over_threshold_str', 'children'),
+     Output('outbreak_title', 'children'),
+     Output('cases_condition', 'children')],
     [Input('dashboard_params', 'data'),
      Input('inputs_are_valid', 'data')]
 )
@@ -154,10 +162,10 @@ def update_graph(params_dict: dict,
         stochastic_sim = msp.StochasticSimulations(params_dict, n_sim)
         stochastic_sim.run_stochastic_model(track_infected=True)
         stochastic_sim.prep_across_rep_plot_data(include_infected_7day_ma=True)
-        stochastic_sim.calculate_20_plus_new_cases_statistics()
+        stochastic_sim.calculate_threshold_plus_new_cases_statistics()
 
-        prob_20plus_new_str, cases_expected_over_20_str = \
-            stochastic_sim.create_strs_20plus_new_and_outbreak(DASHBOARD_CONFIG["outbreak_size_uncertainty_displayed"])
+        prob_threshold_plus_new_str, cases_expected_over_threshold_str = \
+            stochastic_sim.create_strs_threshold_plus_new_and_outbreak(DASHBOARD_CONFIG["outbreak_size_uncertainty_displayed"])
 
         (plot_df, plot_color_map) = \
             create_data_spaghetti_plot_infected_ma(sim=stochastic_sim,
@@ -168,10 +176,15 @@ def update_graph(params_dict: dict,
         fig = get_spaghetti_plot_infected_ma(plot_df, plot_color_map)
 
         # ">" needs an escape in HTML!!!!
-        if prob_20plus_new_str == "> 99%":
-            prob_20plus_new_str = "\> 99%"
+        if prob_threshold_plus_new_str == "> 99%":
+            prob_threshold_plus_new_str = "\> 99%"
+            
+        threshold_value = int(params_dict['threshold_values'][0])
+        outbreak_title_str = 'Chance of exceeding {} new infections'.format(threshold_value)
+        cases_condition_str = '*if exceeds {} new infections*'.format(threshold_value)
 
-        return fig, prob_20plus_new_str, cases_expected_over_20_str
+        return fig, prob_threshold_plus_new_str, cases_expected_over_threshold_str, \
+            outbreak_title_str, cases_condition_str
 
     else:
 
@@ -300,4 +313,4 @@ app.layout = dbc.Container(
 
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0')
+    app.run(debug=False, host='0.0.0.0')

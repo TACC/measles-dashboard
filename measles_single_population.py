@@ -377,18 +377,16 @@ class StochasticSimulations:
         self.infectious_school_1 = np.zeros(shape=(n_sim, params['sim_duration_days'] + 1))
         self.infected_school_1 = np.zeros(shape=(n_sim, params['sim_duration_days'] + 1))
         self.incidence_school_1 = np.zeros(shape=(n_sim, params['sim_duration_days'] + 1))
+        
+        self.threshold_values_list = params.get('threshold_values', [20]) # to be passed as input if user chosen
 
-        self.mean_outbreak_given_20_new_infections = 'NA'
-        self.mean_outbreak_given_20_new_infections_min = 'NA'
-        self.mean_outbreak_given_20_new_infections_max = 'NA'
+        self.mean_outbreak_given_threshold_new_infections = 'NA'
+        self.mean_outbreak_given_threshold_new_infections_min = 'NA'
+        self.mean_outbreak_given_threshold_new_infections_max = 'NA'
         
         self.index_sim_closest_median = None
-        self.outbreak_given_20_new_infections_quantiles = {}
+        self.outbreak_given_outbreak_new_infections_quantiles = {}
         self.df_new_infected_empirical_dist = pd.DataFrame([])
-
-        self.probability_5_plus_new_cases = None
-        self.probability_10_plus_new_cases = None
-        self.probability_20_plus_new_cases = None
 
         self.incidence_school_1_7day_ma = np.array([])
         self.infected_school_1_7day_ma = np.array([])
@@ -520,59 +518,58 @@ class StochasticSimulations:
             'probability': counts / self.n_sim
         })
 
-    def calculate_20_plus_new_cases_statistics(self):
+    def calculate_threshold_plus_new_cases_statistics(self):
 
-        # TODO: Can make 20 an argument to this function rather than hardcoded
+        threshold_value = self.threshold_values_list[0]
 
         df_new_infected_empirical_dist = self.df_new_infected_empirical_dist
 
-        self.probability_20_plus_new_cases = df_new_infected_empirical_dist.loc[
-            df_new_infected_empirical_dist['new_infected'] >= 20, 'probability'].sum()
+        self.probability_threshold_plus_new_cases = df_new_infected_empirical_dist.loc[
+            df_new_infected_empirical_dist['new_infected'] >= threshold_value, 'probability'].sum()
 
-        df_over_20 = df_new_infected_empirical_dist.loc[
-            df_new_infected_empirical_dist['new_infected'] >= 20]  # , 'new_infected']
+        df_over_threshold = df_new_infected_empirical_dist.loc[
+            df_new_infected_empirical_dist['new_infected'] >= threshold_value]  # , 'new_infected']
 
-        if len(df_over_20) > 0:
-            self.mean_outbreak_given_20_new_infections = \
-                self.params["I0"][0] + (df_over_20['new_infected'] *
-                                      df_over_20['probability']).sum() / self.probability_20_plus_new_cases
-            cases_over_20 = self.new_infected_school1[
-                self.new_infected_school1 >= 20]
+        if len(df_over_threshold) > 0:
+            self.mean_outbreak_given_threshold_new_infections = \
+                self.params["I0"][0] + (df_over_threshold['new_infected'] *
+                                      df_over_threshold['probability']).sum() / self.probability_threshold_plus_new_cases
+            cases_over_threshold = self.new_infected_school1[
+                self.new_infected_school1 >= threshold_value]
 
             quantile_list = [0, 2.5, 5, 10, 25, 50, 75, 90, 95, 97.5, 100]
-            self.outbreak_given_20_new_infections_quantiles = {
-                q: get_percentile_from_list(cases_over_20, q)
+            self.outbreak_given_threshold_new_infections_quantiles = {
+                q: get_percentile_from_list(cases_over_threshold, q)
                 for q in quantile_list
             }
         # else: expected outbreak attributes remain NA
 
-    def create_strs_20plus_new_and_outbreak(self,
+    def create_strs_threshold_plus_new_and_outbreak(self,
                                             outbreak_size_uncertainty_displayed: OUTBREAK_SIZE_UNCERTAINTY_OPTIONS):
         """
         Sorry for this UGLY function name :)
 
         Returns 2 strings to populate the written text portion of the dashboard
-        - 1st string corresponds to probability of exceeding 20 new infections
-        - 2nd corresponds to likely (expected) outbreak size if there are 20+ new infections
+        - 1st string corresponds to probability of exceeding X new infections,
+          where X is the chosen outbreak threshold_value
+        - 2nd corresponds to likely (expected) outbreak size if there are X+ new infections
 
-        TODO: in the future, we can write this function and also related functions
-            in the StochasticSims class to take in an arbitrary new infection cut-off,
-            not just hardcoded 20.
         """
 
-        probability_20_plus_new_cases = self.probability_20_plus_new_cases
+        probability_threshold_plus_new_cases = self.probability_threshold_plus_new_cases
 
-        if probability_20_plus_new_cases < 0.01:
-            prob_20plus_new_str = "< 1%"
-        elif probability_20_plus_new_cases > 0.99:
-            prob_20plus_new_str = "> 99%"
+        if probability_threshold_plus_new_cases < 0.01:
+            prob_threshold_plus_new_str = "< 1%"
+        elif probability_threshold_plus_new_cases > 0.99:
+            prob_threshold_plus_new_str = "> 99%"
         else:
-            prob_20plus_new_str = '{:.0%}'.format(probability_20_plus_new_cases)
+            prob_threshold_plus_new_str = '{:.0%}'.format(probability_threshold_plus_new_cases)
 
         # breakpoint()
 
-        if self.mean_outbreak_given_20_new_infections == 'NA':
-            cases_expected_over_20_str = "Fewer than 20 new infections"
+        if self.mean_outbreak_given_threshold_new_infections == 'NA':
+            cases_expected_over_threshold_str = "Fewer than {} new infections".format(
+                int(self.threshold_values_list[0]))
 
         else:
 
@@ -586,38 +583,31 @@ class StochasticSimulations:
                 quantile_lb, quantile_ub, range_name = 25, 75, 'IQR'
 
             uncertainty_outbreak_size_str = str(
-                int(self.outbreak_given_20_new_infections_quantiles[quantile_lb])) + ' - ' + \
-                                            str(int(self.outbreak_given_20_new_infections_quantiles[quantile_ub]))
+                int(self.outbreak_given_threshold_new_infections_quantiles[quantile_lb])) + ' - ' + \
+                                            str(int(self.outbreak_given_threshold_new_infections_quantiles[quantile_ub]))
 
-            cases_expected_over_20_str = uncertainty_outbreak_size_str + " total cases"
+            cases_expected_over_threshold_str = uncertainty_outbreak_size_str + " total cases"
 
-        return prob_20plus_new_str, cases_expected_over_20_str
+        return prob_threshold_plus_new_str, cases_expected_over_threshold_str
     
     def print_summary_stats(self):
 
         df_new_infected_empirical_dist = self.df_new_infected_empirical_dist
         
-        self.probability_5_plus_new_cases = df_new_infected_empirical_dist.loc[
-            df_new_infected_empirical_dist['new_infected'] >= 5, 'probability'].sum()
-        self.probability_10_plus_new_cases = df_new_infected_empirical_dist.loc[
-            df_new_infected_empirical_dist['new_infected'] >= 10, 'probability'].sum()
-        self.probability_20_plus_new_cases = df_new_infected_empirical_dist.loc[
-            df_new_infected_empirical_dist['new_infected'] >= 20, 'probability'].sum()
+        sample_thresholds_list = [5, 10, 20]
+        for sample_threshold in sample_thresholds_list:
+            self.probability_n_plus_new_cases = df_new_infected_empirical_dist.loc[
+                df_new_infected_empirical_dist['new_infected'] >= sample_threshold, 'probability'].sum()
+            p_n_pct = '{:.0%}'.format(self.probability_n_plus_new_cases)
+            print('Probability of', sample_threshold,'or more cases in outbreak:', p_n_pct)
 
-        p_5_pct = '{:.0%}'.format(self.probability_5_plus_new_cases)
-        p_10_pct = '{:.0%}'.format(self.probability_10_plus_new_cases)
-        p_20_pct = '{:.0%}'.format(self.probability_20_plus_new_cases)
-        
-        print('Probability of 5 or more cases in outbreak:', p_5_pct)
-        print('Probability of 10 or more cases in outbreak:', p_10_pct)
-        print('Probability of 20 or more cases in outbreak:', p_20_pct)
-
-        if self.mean_outbreak_given_20_new_infections == 'NA':
-            mean_outbreak_given_20_new_infections_print = self.mean_outbreak_given_20_new_infections
+        if self.mean_outbreak_given_threshold_new_infections == 'NA':
+            mean_outbreak_given_threshold_new_infections_print = self.mean_outbreak_given_threshold_new_infections
         else:
-            mean_outbreak_given_20_new_infections_print = int(self.mean_outbreak_given_20_new_infections)
-        print('Expected number of infections across outbreaks of size 20 or more:',
-              mean_outbreak_given_20_new_infections_print, 'cases')
+            mean_outbreak_given_threshold_new_infections_print = int(self.mean_outbreak_given_threshold_new_infections)
+        print('Expected number of infections across outbreaks of size {} or more:'.format(
+                int(self.threshold_values_list[0])),
+              mean_outbreak_given_threshold_new_infections_print, 'cases')
 
     def create_plots(self):
 
@@ -686,6 +676,7 @@ MSP_PARAMS = {
     'population': [500],
     'I0': [1],
     'vax_prop': [0.85],  # number between 0 and 1
+    'threshold_values': [20], # outbreak threshold, only first value used for now
     'sim_duration_days': 250,
     'time_step_days': 0.25,
     'is_stochastic': True,  # False for deterministic,
@@ -707,7 +698,7 @@ if __name__ == "__main__":
     stochastic_sim = StochasticSimulations(MSP_PARAMS, n_sim)
     stochastic_sim.run_stochastic_model(track_infected=True)
     stochastic_sim.prep_across_rep_plot_data(include_infected_7day_ma=True)
-    stochastic_sim.calculate_20_plus_new_cases_statistics()
-    stochastic_sim.create_strs_20plus_new_and_outbreak(OUTBREAK_SIZE_UNCERTAINTY_OPTIONS.NINETY_FIVE)
+    stochastic_sim.calculate_threshold_plus_new_cases_statistics()
+    stochastic_sim.create_strs_threshold_plus_new_and_outbreak(OUTBREAK_SIZE_UNCERTAINTY_OPTIONS.NINETY_FIVE)
 
     print(time.time() - start)

@@ -6,6 +6,12 @@ TODO: we really really need tests! For both `app.py` (callbacks) and also for `m
 
 TODO: we need a script to assess validity and format of new states' datasets!
 
+## Making outbreak threshold a user input
+- The threshold of 20 used in the summary statistics, "Chance of exceeding 20 new infections" and "Likely outbreak size" has been replaced with a default value of 10, and the user can now choose which value to use (between 3 and 25)
+- The file `measles_single_population.py` was updated so the threshold value is now passed as an input. The current input is a list, but statistics are only calculated for the first value of that list
+- The app is updated to include the slider and to have that value create a callback. The label of that slider needs to be updated, probably along with the names of the summary statistics above the graph (we tried with Lauren, but everybody was too tired)
+- In the summary statistics titles the values of 20 are dynamically changed too in "Chance of exceeding 20 new infections" and "if exceeds 20 new infections" under "Likely outbreak size"
+
 ## State Vaccination Data Status
 - `TX_MMR_vax_rate.csv` 
 - `NC_MMR_vax_rate.csv`

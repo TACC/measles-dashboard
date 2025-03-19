@@ -60,6 +60,8 @@ latent_period_label = html.H4('Average Latent Period (days)', style={**SELECTOR_
 
 infectious_period_label = html.H4('Average Infectious Period (days)', style={**SELECTOR_LABEL_STYLE})
 
+threshold_selector_label = html.H4('Minimum Outbreak Size (new infections)', style={**SELECTOR_LABEL_STYLE})
+
 
 def school_outbreak_projections_header():
 
@@ -125,12 +127,14 @@ def bottom_info_section():
                  html.I([html.A(["R"])]), html.Sub("0"), " values depending on classroom structures, daily activities, and other contextual factors."]),
             html.Ul("", style={"margin-bottom": "1em"}),
             html.A("KEY OUTBREAK STATISTICS: ", style={"fontWeight": "bold", "fontSize": "18px"}),
-            html.A("Values are estimated from 200 stochastic simulations as follows."),
+            html.A(["These values are derived from 200 stochastic simulations. The default outbreak threshold of", html.I("10 additional infections"), html.A(" can be adjusted under ")]),
+            html.I("Change Parameters"),
+            html.A("."),
             html.Ul([
-                html.Li([html.I("Chance of exceeding 20 infections"), html.A([
-                    " – the proportion of 200 simulations in which at least 20 additional students become infected (excluding the initial cases). The threshold of 20 infections was selected to differentiate between introductions that lead to sustained transmission from those that quickly fade out."])]),
-                html.Li([html.I("Likely outbreak size"),
-                         " – For each simulation that results in at least 20 additional infections, the total number of students infected is calculated, including the students initially infected. The reported range reflects the middle 95% of these values (i.e., the 2.5th to 97.5th percentile).",
+                html.Li([html.I("Chance of Exceeding 10 Infections"), html.A([
+                    " – The proportion of simulations (out of 200) in which at least 10 additional students become infected (excluding the initial cases). The threshold of 10 infections was chosen to distinguish introductions that lead to sustained transmission from those that quickly fade out."])]),
+                html.Li([html.I("Likely Outbreak Size"),
+                         " – Among simulations that surpass the 10-infection threshold, the total number of infected students is calculated (including the initially infected students). The reported range corresponds to the middle 95% of these values (i.e., the 2.5th to 97.5th percentile).",
                          html.Br(style={"margin": "0", "padding": "0"})]),
             ], style={"margin-bottom": "1em"}),
             html.A("PROJECTIONS: ", style={"fontWeight": "bold", "fontSize": "18px"}),
