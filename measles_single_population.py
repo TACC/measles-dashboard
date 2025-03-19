@@ -680,24 +680,6 @@ MSP_PARAMS = {
     # 'rho': 1/1,         # 1 days average pre-symptomatic period
     # 'gamma': 1/8,       # 7 days average infectious period
     'incubation_period': 10.5,
-    'infectious_period': 8.0,
-    'school_contacts': 5.63424,
-    'other_contacts': 2.2823,
-    'population': [500],
-    'I0': [1],
-    'vax_prop': [0.9],  # number between 0 and 1
-    'sim_duration_days': 250,
-    'time_step_days': 0.25,
-    'is_stochastic': True,  # False for deterministic,
-    "simulation_seed": 147125098488
-}
-
-MSP_PARAMS = {
-    'R0': 15.0,  # transmission rate
-    # 'sigma': 1/10.5,    # 10.5 days average latent period
-    # 'rho': 1/1,         # 1 days average pre-symptomatic period
-    # 'gamma': 1/8,       # 7 days average infectious period
-    'incubation_period': 10.5,
     'infectious_period': 5,
     'school_contacts': 5.63424,
     'other_contacts': 2.2823,
