@@ -128,7 +128,7 @@ def bottom_info_section():
             html.Ul("", style={"margin-bottom": "1em"}),
             html.A("KEY OUTBREAK STATISTICS: ", style={"fontWeight": "bold", "fontSize": "18px"}),
             html.A("These values are derived from 200 stochastic simulations. The default outbreak threshold of “10 additional infections” can be adjusted under "),
-            html.A("Change Parameters", style={"fontWeight": "bold", "fontSize": "18px"}),
+            html.I("Change Parameters"),
             html.A("."),
             html.Ul([
                 html.Li([html.I("Chance of Exceeding 10 Infections"), html.A([
