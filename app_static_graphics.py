@@ -131,9 +131,9 @@ def bottom_info_section():
             html.A("Change Parameters", style={"fontWeight": "bold", "fontSize": "18px"}),
             html.A("."),
             html.Ul([
-                html.Li([html.B("Chance of Exceeding 10 Infections"), html.A([
+                html.Li([html.I("Chance of Exceeding 10 Infections"), html.A([
                     " – The proportion of simulations (out of 200) in which at least 10 additional students become infected (excluding the initial cases). The threshold of 10 infections was chosen to distinguish introductions that lead to sustained transmission from those that quickly fade out."])]),
-                html.Li([html.B("Likely Outbreak Size"),
+                html.Li([html.I("Likely Outbreak Size"),
                          " – Among simulations that surpass the 10-infection threshold, the total number of infected students is calculated (including the initially infected students). The reported range corresponds to the middle 95% of these values (i.e., the 2.5th to 97.5th percentile).",
                          html.Br(style={"margin": "0", "padding": "0"})]),
             ], style={"margin-bottom": "1em"}),
