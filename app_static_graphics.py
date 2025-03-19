@@ -60,6 +60,8 @@ latent_period_label = html.H4('Average Latent Period (days)', style={**SELECTOR_
 
 infectious_period_label = html.H4('Average Infectious Period (days)', style={**SELECTOR_LABEL_STYLE})
 
+threshold_selector_label = html.H4('Outbreak Threshold (LABEL TO WORKSHOP)', style={**SELECTOR_LABEL_STYLE})
+
 
 def school_outbreak_projections_header():
 
@@ -127,10 +129,10 @@ def bottom_info_section():
             html.A("KEY OUTBREAK STATISTICS: ", style={"fontWeight": "bold", "fontSize": "18px"}),
             html.A("Values are estimated from 200 stochastic simulations as follows."),
             html.Ul([
-                html.Li([html.I("Chance of exceeding 20 infections"), html.A([
-                    " – the proportion of 200 simulations in which at least 20 additional students become infected (excluding the initial cases). The threshold of 20 infections was selected to differentiate between introductions that lead to sustained transmission from those that quickly fade out."])]),
+                html.Li([html.I("Chance of exceeding 10 infections"), html.A([
+                    " – the proportion of 200 simulations in which at least 10 additional students become infected (excluding the initial cases). The threshold of 10 infections was selected to differentiate between introductions that lead to sustained transmission from those that quickly fade out."])]),
                 html.Li([html.I("Likely outbreak size"),
-                         " – For each simulation that results in at least 20 additional infections, the total number of students infected is calculated, including the students initially infected. The reported range reflects the middle 95% of these values (i.e., the 2.5th to 97.5th percentile).",
+                         " – For each simulation that results in at least 10 additional infections, the total number of students infected is calculated, including the students initially infected. The reported range reflects the middle 95% of these values (i.e., the 2.5th to 97.5th percentile).",
                          html.Br(style={"margin": "0", "padding": "0"})]),
             ], style={"margin-bottom": "1em"}),
             html.A("PROJECTIONS: ", style={"fontWeight": "bold", "fontSize": "18px"}),

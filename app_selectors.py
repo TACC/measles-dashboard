@@ -25,7 +25,9 @@ SELECTOR_DEFAULTS =\
      "I0": 1,
      "R0": 15.0,
      "latent_period": 10.5,
-     "infectious_period": 5.0}
+     "infectious_period": 5.0,
+     "outbreak_threshold": 10,
+     }
 
 school_size_selector = dcc.Input(
     id='school_size_selector',
@@ -139,6 +141,20 @@ infectious_period_selector = dcc.Slider(
     marks={4: {'label': '4', 'style': {**BASE_FONT_STYLE}},
            5: {'label': '5', 'style': {**BASE_FONT_STYLE, 'fontWeight': 'bold'}},
            9: {'label': '9', 'style': {**BASE_FONT_STYLE}}
+           },
+    tooltip={**SELECTOR_TOOLTIP_STYLE},
+)
+
+threshold_selector = dcc.Slider(
+    id='threshold_selector',
+    min=3,
+    max=25,
+    step=1,
+    value=SELECTOR_DEFAULTS["outbreak_threshold"],
+    included=False,
+    marks={3: {'label': '3', 'style': {**BASE_FONT_STYLE}},
+           10: {'label': '10', 'style': {**BASE_FONT_STYLE, 'fontWeight': 'bold'}},
+           25: {'label': '25', 'style': {**BASE_FONT_STYLE}}
            },
     tooltip={**SELECTOR_TOOLTIP_STYLE},
 )

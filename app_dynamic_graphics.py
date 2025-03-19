@@ -6,14 +6,14 @@ import dash_bootstrap_components as dbc
 
 from app_static_graphics import \
     vaccination_rate_label, school_size_label, I0_label, R0_label, \
-    latent_period_label, infectious_period_label
+    latent_period_label, infectious_period_label, threshold_selector_label
 from app_styles import BASE_FONT_FAMILY_STR, RESULTS_HEADER_STYLE, \
     SELECTOR_NOTE_STYLE
 from app_computation_functions import EMPTY_SPAGHETTI_PLOT_INFECTED_MA
 from app_selectors import school_size_selector, \
     I0_selector, vaccination_rate_selector, state_selector, \
     county_selector, school_selector, R0_selector, latent_period_selector, \
-    infectious_period_selector
+    infectious_period_selector, threshold_selector
 
 
 def results_header():
@@ -26,7 +26,7 @@ def results_header():
                         [
                             html.Div(
                                 [
-                                    dcc.Markdown(id='outbreak',
+                                    dcc.Markdown(id='outbreak_title',
                                                  children='Chance of exceeding 20 new infections',
                                                  style={**RESULTS_HEADER_STYLE, 'fontWeight': '500'}
                                                  ),
@@ -60,7 +60,8 @@ def results_header():
                                                  style={'color': '#black', 'fontWeight': '500',
                                                         'font-size': '20pt', 'margin': 'none'}
                                                  ),
-                                    dcc.Markdown("*if exceeds 20 new infections*",
+                                    dcc.Markdown(id='cases_condition',
+                                                 children="*if exceeds 20 new infections*",
                                                  style={'font-size': '14pt', "margin": "none"}),
                                     dcc.Markdown(id='cases_expected_over_20_str',
                                                  style={'color': '#bf5700', 'fontWeight': '800',
@@ -117,6 +118,8 @@ epi_params_accordion = html.Div(
                         dbc.Col(html.Div(latent_period_selector), className="mb-2"),
                         dbc.Col(html.Div(infectious_period_label), className="mb-2"),
                         dbc.Col(html.Div(infectious_period_selector), className="mb-2"),
+                        dbc.Col(html.Div(threshold_selector_label), className="mb-2"),
+                        dbc.Col(html.Div(threshold_selector), className="mb-2"),
                     ]
                 ),
                 title="Change Parameters ▾",
