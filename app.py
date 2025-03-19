@@ -146,8 +146,8 @@ def check_inputs_validity(params_dict: dict) -> str:
 
 @callback(
     [Output('spaghetti_plot', 'figure'),
-     Output('prob_20plus_new_str', 'children'),
-     Output('cases_expected_over_20_str', 'children'),
+     Output('prob_threshold_plus_new_str', 'children'),
+     Output('cases_expected_over_threshold_str', 'children'),
      Output('outbreak_title', 'children'),
      Output('cases_condition', 'children')],
     [Input('dashboard_params', 'data'),

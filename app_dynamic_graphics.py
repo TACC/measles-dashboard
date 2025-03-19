@@ -27,10 +27,10 @@ def results_header():
                             html.Div(
                                 [
                                     dcc.Markdown(id='outbreak_title',
-                                                 children='Chance of exceeding 20 new infections',
+                                                 children='Chance of exceeding 10 new infections',
                                                  style={**RESULTS_HEADER_STYLE, 'fontWeight': '500'}
                                                  ),
-                                    dcc.Markdown(id='prob_20plus_new_str',
+                                    dcc.Markdown(id='prob_threshold_plus_new_str',
                                                  style={**RESULTS_HEADER_STYLE, 'color': '#bf5700',
                                                         "font-size": "22pt", "font-weight": "800"}
                                                  ),
@@ -61,9 +61,9 @@ def results_header():
                                                         'font-size': '20pt', 'margin': 'none'}
                                                  ),
                                     dcc.Markdown(id='cases_condition',
-                                                 children="*if exceeds 20 new infections*",
+                                                 children="*if exceeds 10 new infections*",
                                                  style={'font-size': '14pt', "margin": "none"}),
-                                    dcc.Markdown(id='cases_expected_over_20_str',
+                                    dcc.Markdown(id='cases_expected_over_threshold_str',
                                                  style={'color': '#bf5700', 'fontWeight': '800',
                                                         'font-size': '22pt', 'margin-top': '0.5em'}
                                                  ),
