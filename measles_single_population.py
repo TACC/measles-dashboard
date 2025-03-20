@@ -20,10 +20,13 @@ import plotly.express as px
 from enum import Enum
 
 from enum import Enum
-from typing import TypedDict
+from typing import TypedDict, Type
 
 from numpy.lib.stride_tricks import sliding_window_view
 
+from abc import ABC, abstractmethod
+
+from multiprocessing import Pool, cpu_count
 
 # %% Print options
 ##################
@@ -77,15 +80,6 @@ DEFAULT_MSP_PARAMS: MeaslesParameters = \
         'is_stochastic': True,  # False for deterministic,
         "simulation_seed": 147125098488
     }
-
-
-# %% Constants
-###############
-class OUTBREAK_SIZE_UNCERTAINTY_OPTIONS(Enum):
-    NINETY = '90'
-    NINETY_FIVE = '95'
-    RANGE = 'range'
-    IQR = 'IQR'
 
 
 # %% Functions
@@ -154,20 +148,23 @@ def calculate_np_moving_average(
             numpy 2D array of same size as input.
     """
 
+    # Metapopulation formatting issues...
+    results_array = np.atleast_2d(results_array)
+
     array_window = sliding_window_view(results_array, window_shape=(window,), axis=1)
     array_ma = array_window.mean(axis=-1)
 
     if shorter_window_beginning:
-        pre_pad = np.cumsum(results_array[:, :window-1], axis=1) / np.arange(1, window)
+        pre_pad = np.cumsum(results_array[:, :window - 1], axis=1) / np.arange(1, window)
     else:
-        pre_pad = np.full((results_array.shape[0], window-1), np.nan)
+        pre_pad = np.full((results_array.shape[0], window - 1), np.nan)
 
     return np.column_stack((pre_pad, array_ma))
 
 
 # %% Model
 ##########
-class MetapopulationSEPIR:
+class MetapopSEIR:
 
     def __init__(self,
                  params: dict):
@@ -184,6 +181,7 @@ class MetapopulationSEPIR:
 
         self.n_pop = len(params['population'])  # number of populations
         self.N = np.array(params['population'])  # population size
+        self.steps_per_day = int(1.0 / params['time_step_days'])
         self.dt = params['time_step_days']
         self.n_steps = 1 + int(
             params['sim_duration_days'] / self.dt)  # number of time steps
@@ -237,11 +235,6 @@ class MetapopulationSEPIR:
 
         # Current step tracker
         self.current_step = 0
-
-        self.df_spaghetti_infectious = pd.DataFrame([])
-        self.df_spaghetti_infected = pd.DataFrame([])
-        self.df_spaghetti_infected_ma = pd.DataFrame([])
-        self.df_spaghetti_incidence = pd.DataFrame([])
 
     def get_compartment_transition(self,
                                    rate: float,
@@ -319,7 +312,6 @@ class MetapopulationSEPIR:
 
         # Loop through populations
         for ix_pop in range(self.n_pop):
-
             updates = self.calculate_compartment_updates(ix_pop)
             current_step = self.current_step
 
@@ -388,208 +380,119 @@ class MetapopulationSEPIR:
         plt.show()
 
 
-class StochasticSimulations:
-    """
-    Runs stochastic simulations based on passed parameters, and then calculates
-    summary statistics and creates plots.
-    """
+class AcrossRepStat:
 
-    def __init__(self, params, n_sim):
-        self.params = copy.deepcopy(params)
-        self.params['sigma'] = 1.0 / self.params['incubation_period']
-        self.params['gamma'] = 1.0 / self.params['infectious_period']
+    def __init__(self):
+        self.data = np.array([])
 
-        self.RNG = np.random.Generator(np.random.MT19937(seed=params["simulation_seed"]))
+    def clear(self):
+        self.data[:] = 0
 
-        self.n_sim = n_sim
-        self.steps_per_day = int(np.round(1.0 / params['time_step_days'], 0))
 
-        self.new_infected_school1 = np.zeros(shape=(n_sim))
-        self.infectious_school_1 = np.zeros(shape=(n_sim, params['sim_duration_days'] + 1))
-        self.infected_school_1 = np.zeros(shape=(n_sim, params['sim_duration_days'] + 1))
-        self.incidence_school_1 = np.zeros(shape=(n_sim, params['sim_duration_days'] + 1))
+class AcrossRepSamplePath(AcrossRepStat):
 
-        self.threshold_values_list = params.get('threshold_values', [20])  # to be passed as input if user chosen
+    def __init__(self,
+                 num_reps: int,
+                 num_days: int):
+        self.num_reps = num_reps
+        self.num_days = num_days
 
-        self.mean_outbreak_given_threshold_new_infections = 'NA'
-        self.mean_outbreak_given_threshold_new_infections_min = 'NA'
-        self.mean_outbreak_given_threshold_new_infections_max = 'NA'
+        self.data = np.zeros(shape=(num_reps, num_days + 1))
+        self.df_simple_spaghetti = None
 
-        self.index_sim_closest_median = None
-        self.outbreak_given_threshold_new_infections_quantiles = {}
-        self.df_new_infected_empirical_dist = pd.DataFrame([])
+    def create_df_simple_spaghetti(self):
+        self.df_simple_spaghetti = \
+            transform_matrix_to_long_df(self.data.T,
+                                        colnames=list(range(self.num_reps)),
+                                        id_col="day",
+                                        var_name="simulation_idx",
+                                        id_values=np.arange(1, 2 + self.num_days),
+                                        value_name="result")
 
-        self.incidence_school_1_7day_ma = np.array([])
-        self.infected_school_1_7day_ma = np.array([])
+    def show_simple_spaghetti(self,
+                              ylabel_str=""):
+        self.create_df_simple_spaghetti()
 
-        self.df_spaghetti_infectious = pd.DataFrame([])
-        self.df_spaghetti_infected = pd.DataFrame([])
-        self.df_spaghetti_infected_ma = pd.DataFrame([])
-        self.df_spaghetti_incidence = pd.DataFrame([])
+        plt.figure(figsize=(10, 6))
 
-        self.probability_threshold_plus_new_cases = None
-        self.probability_n_plus_new_cases = None
-
-        self.model = MetapopulationSEPIR(self.params)
-        self.model.RNG = self.RNG
-
-    def run_stochastic_model(self,
-                             track_infectious=False,
-                             track_infected=False,
-                             track_incidence=False,
-                             print_summary_stats=False,
-                             show_plots=False):
-
-        for i_sim in range(self.n_sim):
-
-            # For reproducibility, create a FIXED starting point
-            #   for the random number generator. Simulations and
-            #   random variables are still RANDOM (pseudorandom,
-            #   as all computer code is), but the random starting
-            #   point is the same. Therefore, the pseudorandomness
-            #   does NOT change after refreshing or re-running an experiment,
-            #   and results are truly reproducible.
-
-            # NOTE: creating a new random number generator for every
-            #   replication is actually REALLY slow. Here, we just use
-            #   ONE random number generator rather than a new jumped one
-            #   for each replication. Still fixes reproducibility.
-            #   Still draws independent random numbers (recall that
-            #   RNGs move in-place after spitting out random numbers --
-            #   so their next sample starts where things last left off.)
-
-            model = self.model
-
-            model.simulate()
-
-            self.cumulative_new_infected_pop_1 = model.R[:, 0] - model.R[0, 0] - self.params['I0'][0]
-            self.new_infected_school1[i_sim] = self.cumulative_new_infected_pop_1[-1]
-
-            if track_infectious:
-                self.infectious_school_1[i_sim, :] = (
-                    model.I[::self.steps_per_day, 0]
-                )
-
-            if track_infected:
-                self.infected_school_1[i_sim, :] = (
-                        model.I[::self.steps_per_day, 0] + model.E[::self.steps_per_day, 0]
-                )
-
-            if track_incidence:
-                # At Lauren's request -- from Slack 03042025 --
-                # "just the number of new transitions from S to E"
-                # Note -- because incidence is S_to_E at a given time (and not cumulative),
-                #   we have to SUM all the people that move from S_to_E within a day --
-                #   i.e. summing all the people that move from S to E over self.steps_per_day --
-                #   this is DIFFERENT than checking I every day (every self.steps_per_day)
-
-                S_to_E_school_1 = model.S_to_E[:, 0]
-                total_steps = len(S_to_E_school_1)
-
-                self.incidence_school_1[i_sim, :] = \
-                    np.add.reduceat(S_to_E_school_1, np.arange(0, total_steps, self.steps_per_day))
-
-                # assert np.sum(self.incidence_school_1[i_sim, :]) == \
-                #       self.cumulative_new_infected_pop_1[-1]
-
-            model.clear()
-
-        self.process_across_rep_output()
-
-        if print_summary_stats:
-            self.print_summary_stats()
-        if show_plots:
-            self.create_plots()
-
-        return
-
-    def prep_across_rep_plot_data(self,
-                                  include_infectious=False,
-                                  include_infected=False,
-                                  include_infected_7day_ma=True,
-                                  include_incidence=False):
-
-        plot_data_dict = {}
-
-        if include_infectious:
-            plot_data_dict["df_spaghetti_infectious"] = (self.infectious_school_1, "number_infectious")
-
-        if include_infected:
-            plot_data_dict["df_spaghetti_infected"] = (self.infected_school_1, "number_infected")
-
-        if include_infected_7day_ma:
-            self.infected_school_1_7day_ma = calculate_np_moving_average(self.infected_school_1, 7)
-            plot_data_dict["df_spaghetti_infected_ma"] = (self.infected_school_1_7day_ma, "number_infected_7_day_ma")
-
-        if include_incidence:
-            self.incidence_school_1_7day_ma = calculate_np_moving_average(self.incidence_school_1, 7)
-            plot_data_dict["df_spaghetti_incidence"] = (self.incidence_school_1, "number_incidence")
-
-        id_values = list(range(1, 2 + DEFAULT_MSP_PARAMS['sim_duration_days']))
-
-        for df_name, (matrix, value_name) in plot_data_dict.items():
-            setattr(self, df_name, transform_matrix_to_long_df(
-                matrix.T,
-                colnames=list(range(self.n_sim)),
-                id_col="day",
-                var_name="simulation_idx",
-                id_values=id_values,
-                value_name=value_name
-            ))
-
-    def process_across_rep_output(self):
-
-        self.compute_index_sim_closest_median()
-        self.compute_new_infected_empirical_dist()
-
-    def compute_index_sim_closest_median(self):
-        median_new_infected = np.median(self.new_infected_school1)
-        self.index_sim_closest_median = min(
-            range(len(self.new_infected_school1)),
-            key=lambda i: abs(self.new_infected_school1[i] - median_new_infected)
+        sns.lineplot(
+            data=self.df_spaghetti,
+            x="day",
+            y="result",
+            units="simulation_idx",
+            alpha=0.1,
+            estimator=None
         )
 
-    def compute_new_infected_empirical_dist(self):
-        unique, counts = np.unique(self.new_infected_school1, return_counts=True)
-        self.df_new_infected_empirical_dist = pd.DataFrame({
+        plt.xlabel("Days")
+        plt.ylabel(ylabel_str)
+
+        plt.show()
+
+
+class AcrossRepPoint(AcrossRepStat):
+
+    def __init__(self,
+                 num_reps: int):
+        self.num_reps = num_reps
+        self.data = np.zeros(shape=(num_reps,))
+
+    def get_exceedance_probability(self,
+                                   threshold: int):
+        return np.mean(self.data >= threshold)
+
+    def get_conditional_mean_on_exceedance(self,
+                                           threshold: int):
+        data_subset = self.data[self.data >= threshold]
+
+        if data_subset.size == 0:
+            return -1
+        else:
+            return data_subset.mean()
+
+    def old_func(self):
+
+        unique, counts = np.unique(self.data, return_counts=True)
+        df = pd.DataFrame({
             'new_infected': unique,
             'num_simulations': counts,
-            'probability': counts / self.n_sim
+            'probability': counts / self.num_reps
         })
 
-    def calculate_threshold_plus_new_cases_statistics(self):
+        print(df.loc[df['new_infected'] >= 10, 'probability'].sum())
 
-        threshold_value = self.threshold_values_list[0]
-        df_new_infected_empirical_dist = self.df_new_infected_empirical_dist
+    def get_quantiles_conditional_on_exceedance(self,
+                                                quantiles_list: list[float],
+                                                threshold: int):
+        data_subset = self.data[self.data >= threshold]
+        return [np.percentile(data_subset, q) for q in quantiles_list]
 
-        threshold_mask = df_new_infected_empirical_dist['new_infected'] >= threshold_value
+    def get_index_sim_median(self):
+        data = self.data
+        idx_median = np.argmin(np.abs(data - np.median(data)))
 
-        probability_threshold_plus_new_cases = \
-            df_new_infected_empirical_dist.loc[threshold_mask, 'probability'].sum()
+        return idx_median
 
-        if probability_threshold_plus_new_cases > 0:
-            df_over_threshold = df_new_infected_empirical_dist[threshold_mask]
+    def show_histogram(self,
+                       xlabel_str: str = ""):
+        plt.figure(figsize=(10, 6))
 
-            self.mean_outbreak_given_threshold_new_infections = \
-                self.params["I0"][0] + np.dot(df_over_threshold['new_infected'],
-                                              df_over_threshold['probability']) / probability_threshold_plus_new_cases
+        sns.histplot(
+            data=self.data,
+            stat="percent"
+        )
 
-            cases_over_threshold = self.new_infected_school1[self.new_infected_school1 >= threshold_value]
+        plt.xlabel(xlabel_str)
+        plt.ylabel("Probability (%)")
 
-            quantile_list = [0, 2.5, 5, 10, 25, 50, 75, 90, 95, 97.5, 100]
+        plt.show()
 
-            self.outbreak_given_threshold_new_infections_quantiles = {
-                q: np.percentile(cases_over_threshold, q) for q in quantile_list
-            }
-        # else: expected outbreak attributes remain NA
-
-        self.probability_threshold_plus_new_cases = probability_threshold_plus_new_cases
-
-    def create_strs_threshold_plus_new_and_outbreak(self,
-                                                    outbreak_size_uncertainty_displayed: OUTBREAK_SIZE_UNCERTAINTY_OPTIONS):
+    def get_dashboard_results_strs(self,
+                                   init_infected: int,
+                                   threshold: int,
+                                   lb_quantile: float = 2.5,
+                                   ub_quantile: float = 97.5):
         """
-        Sorry for this UGLY function name :)
-
         Returns 2 strings to populate the written text portion of the dashboard
         - 1st string corresponds to probability of exceeding X new infections,
           where X is the chosen outbreak threshold_value
@@ -597,104 +500,83 @@ class StochasticSimulations:
 
         """
 
-        probability_threshold_plus_new_cases = self.probability_threshold_plus_new_cases
+        exceedance_prob = self.get_exceedance_probability(threshold)
 
-        if probability_threshold_plus_new_cases < 0.01:
-            prob_threshold_plus_new_str = "< 1%"
-        elif probability_threshold_plus_new_cases > 0.99:
-            prob_threshold_plus_new_str = "> 99%"
+        if exceedance_prob < 0.01:
+            exceedance_prob_str = "< 1%"
+        elif exceedance_prob > 0.99:
+            exceedance_prob_str = "> 99%"
         else:
-            prob_threshold_plus_new_str = '{:.0%}'.format(probability_threshold_plus_new_cases)
+            exceedance_prob_str = '{:.0%}'.format(exceedance_prob)
 
-        # breakpoint()
+        new_cases_conditional_mean = self.get_conditional_mean_on_exceedance(threshold)
 
-        if self.mean_outbreak_given_threshold_new_infections == 'NA':
-            cases_expected_over_threshold_str = "Fewer than {} new infections".format(
-                int(self.threshold_values_list[0]))
+        if new_cases_conditional_mean == -1:
+            all_cases_conditional_quantiles_str = "Fewer than {} new infections".format(int(threshold))
 
         else:
 
-            if outbreak_size_uncertainty_displayed == OUTBREAK_SIZE_UNCERTAINTY_OPTIONS.NINETY:
-                quantile_lb, quantile_ub, range_name = 5, 95, '90% CI'
-            elif outbreak_size_uncertainty_displayed == OUTBREAK_SIZE_UNCERTAINTY_OPTIONS.NINETY_FIVE:
-                quantile_lb, quantile_ub, range_name = 2.5, 97.5, '95% CI'
-            elif outbreak_size_uncertainty_displayed == OUTBREAK_SIZE_UNCERTAINTY_OPTIONS.RANGE:
-                quantile_lb, quantile_ub, range_name = 0, 100, 'range'
-            elif outbreak_size_uncertainty_displayed == OUTBREAK_SIZE_UNCERTAINTY_OPTIONS.IQR:
-                quantile_lb, quantile_ub, range_name = 25, 75, 'IQR'
+            lb_new, ub_new = self.get_quantiles_conditional_on_exceedance([lb_quantile, ub_quantile], threshold)
 
-            uncertainty_outbreak_size_str = str(
-                int(self.outbreak_given_threshold_new_infections_quantiles[quantile_lb])) + ' - ' + \
-                                            str(int(
-                                                self.outbreak_given_threshold_new_infections_quantiles[quantile_ub]))
+            lb_total, ub_total = init_infected + lb_new, init_infected + ub_new
 
-            cases_expected_over_threshold_str = uncertainty_outbreak_size_str + " total cases"
+            all_cases_conditional_quantiles_str = str(int(lb_total)) + ' - ' + str(int(ub_total)) + " total cases"
 
-        return prob_threshold_plus_new_str, cases_expected_over_threshold_str
+        return exceedance_prob_str, all_cases_conditional_quantiles_str
 
-    def print_summary_stats(self):
 
-        df_new_infected_empirical_dist = self.df_new_infected_empirical_dist
+class Experiment(ABC):
 
-        sample_thresholds_list = [5, 10, 20]
-        for sample_threshold in sample_thresholds_list:
-            self.probability_n_plus_new_cases = df_new_infected_empirical_dist.loc[
-                df_new_infected_empirical_dist['new_infected'] >= sample_threshold, 'probability'].sum()
-            p_n_pct = '{:.0%}'.format(self.probability_n_plus_new_cases)
-            print('Probability of', sample_threshold, 'or more cases in outbreak:', p_n_pct)
+    def __init__(self,
+                 params: MeaslesParameters,
+                 num_reps: int):
+        self.params = copy.deepcopy(params)
+        self.num_reps = num_reps
 
-        if self.mean_outbreak_given_threshold_new_infections == 'NA':
-            mean_outbreak_given_threshold_new_infections_print = self.mean_outbreak_given_threshold_new_infections
-        else:
-            mean_outbreak_given_threshold_new_infections_print = int(self.mean_outbreak_given_threshold_new_infections)
-        print('Expected number of infections across outbreaks of size {} or more:'.format(
-            int(self.threshold_values_list[0])),
-            mean_outbreak_given_threshold_new_infections_print, 'cases')
+        self.model = MetapopSEIR(self.params)
+        self.model.RNG = np.random.Generator(np.random.MT19937(seed=params["simulation_seed"]))
 
-    def create_plots(self):
+        self.run()
 
-        if self.show_plots:
+    @abstractmethod
+    def run(self):
+        pass
 
-            nb_plots = 4
-            fig, axs = plt.subplots(nb_plots, 1, figsize=(10, 6 * nb_plots))
 
-            # Histogram
-            sns.histplot(
-                data=self.new_infected_school1,
-                stat="percent",
-                ax=axs[0]
-            )
-            axs[0].set_xlabel("Total infections")
-            axs[0].set_ylabel("Probability (%)")
+class DashboardExperiment(Experiment):
 
-            # Line charts
-            plot_data = [
-                (self.df_spaghetti_infected, "number_infected", "Infected individuals"),
-                (self.df_spaghetti_infectious, "number_infectious", "Infectious individuals"),
-                (self.df_spaghetti_incidence, "number_incidence", "Newly exposed individuals"),
-            ]
+    def __init__(self,
+                 params: MeaslesParameters,
+                 num_reps: int):
+        self.ma7_num_infected_school_1 = AcrossRepSamplePath(num_reps=num_reps,
+                                                             num_days=params['sim_duration_days'])
+        self.total_new_cases_school_1 = AcrossRepPoint(num_reps=num_reps)
 
-            for ax, (data, y_col, ylabel) in zip(axs[1:], plot_data):
-                sns.lineplot(
-                    data=data,
-                    x="day",
-                    y=y_col,
-                    units="simulation_idx",
-                    alpha=0.1,
-                    estimator=None,
-                    ax=ax
-                )
-                ax.set_xlabel("Days since outbreak start")
-                ax.set_ylabel(ylabel)
+        super().__init__(params, num_reps)
 
-            plt.show()
+    def run(self):
+
+        ma7_num_infected = self.ma7_num_infected_school_1.data
+        total_new_cases = self.total_new_cases_school_1.data
+
+        model = self.model
+
+        for rep in range(self.num_reps):
+            model.simulate()
+
+            ma7_num_infected[rep] = \
+                calculate_np_moving_average(
+                    np.add(model.I[::model.steps_per_day, 0], model.E[::model.steps_per_day, 0]), 7)
+
+            total_new_cases[rep] = np.sum(model.S_to_E[:, 0])
+
+            model.clear()
 
 
 def run_deterministic_model(params):
-    # # Create and run model
     params_deterministic = copy.deepcopy(params)
     params_deterministic['is_stochastic'] = False
-    model_deterministic = MetapopulationSEPIR(params_deterministic)
+    model_deterministic = MetapopSEIR(params_deterministic)
     model_deterministic.simulate()
     model_deterministic.plot_results()
 
@@ -702,20 +584,24 @@ def run_deterministic_model(params):
 # %% Main
 ##########
 # Example usage
-if __name__ == "__main__":
-    # run_deterministic_model(DEFAULT_MSP_PARAMS)
 
-    # Stochastic runs
-    # n_sim = 200
-    import time
+if __name__ == "__main__":
 
     start = time.time()
 
-    n_sim = 200  # 2.8811910152435303 to # 1.0790390968322754 for population 500, init infected 1
-    stochastic_sim = StochasticSimulations(DEFAULT_MSP_PARAMS, n_sim)
-    stochastic_sim.run_stochastic_model(track_infected=True)
-    stochastic_sim.prep_across_rep_plot_data(include_infected_7day_ma=True)
-    stochastic_sim.calculate_threshold_plus_new_cases_statistics()
-    stochastic_sim.create_strs_threshold_plus_new_and_outbreak(OUTBREAK_SIZE_UNCERTAINTY_OPTIONS.NINETY_FIVE)
+    demo = DashboardExperiment(DEFAULT_MSP_PARAMS, 200)
+
+    demo.ma7_num_infected_school_1.create_df_simple_spaghetti()
+    ix_median = demo.total_new_cases_school_1.get_index_sim_median()
+
+    prob_threshold_plus_new_str, cases_expected_over_threshold_str = \
+        demo.total_new_cases_school_1.get_dashboard_results_strs(DEFAULT_MSP_PARAMS["I0"][0],
+                                                                 DEFAULT_MSP_PARAMS["threshold_values"][0],
+                                                                 2.5,
+                                                                 97.5)
 
     print(time.time() - start)
+
+    print(prob_threshold_plus_new_str, cases_expected_over_threshold_str)
+
+    breakpoint()

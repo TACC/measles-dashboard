@@ -23,13 +23,12 @@ from app_static_graphics import navbar, bottom_info_section, \
     bottom_credits, school_outbreak_projections_header
 from app_dynamic_graphics import results_header, spaghetti_plot_section, \
     dashboard_input_panel
-from app_computation_functions import create_data_spaghetti_plot_infected_ma, \
-    get_spaghetti_plot_infected_ma, EMPTY_SPAGHETTI_PLOT_INFECTED_MA
+from app_computation_functions import get_dashboard_results_fig, \
+    get_dashboard_spaghetti, EMPTY_SPAGHETTI_PLOT_INFECTED_MA
 from app_selectors import SELECTOR_DEFAULTS
 
 DASHBOARD_CONFIG = {
     'num_simulations': 200,
-    'outbreak_size_uncertainty_displayed': msp.OUTBREAK_SIZE_UNCERTAINTY_OPTIONS.NINETY_FIVE,
     'simulation_seed': 147125098488,
     'spaghetti_curve_selection_seed': 12345,
 }
@@ -53,7 +52,6 @@ state_to_df_map = {
 
 
 def get_county_subset_df(state_str, county_str) -> pd.DataFrame:
-
     state_subset_df = state_to_df_map[state_str]
     county_subset_df = state_subset_df[state_subset_df["County"] == county_str]
 
@@ -75,7 +73,7 @@ def get_county_subset_df(state_str, county_str) -> pd.DataFrame:
      Input('latent_period_selector', 'value'),
      Input('infectious_period_selector', 'value'),
      Input('threshold_selector', 'value')]
-    )
+)
 def create_params_from_selectors(params_dict,
                                  school_size,
                                  vax_rate_percent,
@@ -149,36 +147,38 @@ def check_inputs_validity(params_dict: dict) -> str:
 )
 def update_graph(params_dict: dict,
                  inputs_are_valid: bool):
-    # Update parameters, run simulations
+
     n_sim = DASHBOARD_CONFIG["num_simulations"]
 
     if inputs_are_valid:
-        stochastic_sim = msp.StochasticSimulations(params_dict, n_sim)
-        stochastic_sim.run_stochastic_model(track_infected=True)
-        stochastic_sim.prep_across_rep_plot_data(include_infected_7day_ma=True)
-        stochastic_sim.calculate_threshold_plus_new_cases_statistics()
+
+        measles_results = msp.DashboardExperiment(params_dict, n_sim)
+
+        measles_results.ma7_num_infected_school_1.create_df_simple_spaghetti()
+        ix_median = measles_results.total_new_cases_school_1.get_index_sim_median()
 
         prob_threshold_plus_new_str, cases_expected_over_threshold_str = \
-            stochastic_sim.create_strs_threshold_plus_new_and_outbreak(DASHBOARD_CONFIG["outbreak_size_uncertainty_displayed"])
+            measles_results.total_new_cases_school_1.get_dashboard_results_strs(params_dict["I0"][0],
+                                                                                params_dict["threshold_values"][0],
+                                                                                2.5,
+                                                                                97.5)
 
-        (plot_df, plot_color_map) = \
-            create_data_spaghetti_plot_infected_ma(sim=stochastic_sim,
-                                                   nb_curves_displayed=20,
-                                                   curve_selection_seed=DASHBOARD_CONFIG[
-                                                       "spaghetti_curve_selection_seed"])
-
-        fig = get_spaghetti_plot_infected_ma(plot_df, plot_color_map)
+        fig = get_dashboard_results_fig(df_spaghetti=measles_results.ma7_num_infected_school_1.df_simple_spaghetti,
+                                        index_sim_closest_median=ix_median,
+                                        nb_curves_displayed=20,
+                                        curve_selection_seed=DASHBOARD_CONFIG[
+                                            "spaghetti_curve_selection_seed"])
 
         # ">" needs an escape in HTML!!!!
         if prob_threshold_plus_new_str == "> 99%":
             prob_threshold_plus_new_str = "\> 99%"
-            
+
         threshold_value = int(params_dict['threshold_values'][0])
         outbreak_title_str = 'Chance of exceeding {} new infections'.format(threshold_value)
         cases_condition_str = '*if exceeds {} new infections*'.format(threshold_value)
 
         return fig, prob_threshold_plus_new_str, cases_expected_over_threshold_str, \
-            outbreak_title_str, cases_condition_str
+               outbreak_title_str, cases_condition_str
 
     else:
 
@@ -195,12 +195,10 @@ def update_graph(params_dict: dict,
     prevent_initial_call=True
 )
 def update_county_selector(state):
-
     new_county_options = sorted(state_to_df_map[state]["County"].unique())
     default_county_displayed = new_county_options[0]
 
     return new_county_options, default_county_displayed
-
 
 
 @callback(
@@ -211,7 +209,6 @@ def update_county_selector(state):
     prevent_initial_call=True
 )
 def update_school_selector(state, county):
-
     df = get_county_subset_df(state, county)
     new_school_options = sorted(
         f"{name} ({age_group})"
@@ -232,7 +229,6 @@ def update_school_selector(state, county):
 def get_school_vax_rate(state_str,
                         county_str,
                         school_with_age_str) -> float:
-
     if school_with_age_str:
 
         county_subset_df = get_county_subset_df(state_str, county_str)
@@ -259,7 +255,7 @@ version = result.stdout.decode("utf-8").strip() if result.stdout else "Unknown"
 
 app = Dash(
     prevent_initial_callbacks='initial_duplicate')
-server = app.server     # Do we need this?
+server = app.server  # Do we need this?
 app.title = f"epiENGAGE Measles Outbreak Simulator v-{version}"
 
 # Add inline script to initialize Google Analytics
@@ -304,7 +300,6 @@ app.layout = dbc.Container(
 
         bottom_credits()
     ], fluid=True, style={"min-height": "100vh", "display": "flex", "flex-direction": "column"})
-
 
 if __name__ == '__main__':
     app.run(debug=False, host='0.0.0.0')
