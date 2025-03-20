@@ -450,17 +450,6 @@ class AcrossRepPoint(AcrossRepStat):
         else:
             return data_subset.mean()
 
-    def old_func(self):
-
-        unique, counts = np.unique(self.data, return_counts=True)
-        df = pd.DataFrame({
-            'new_infected': unique,
-            'num_simulations': counts,
-            'probability': counts / self.num_reps
-        })
-
-        print(df.loc[df['new_infected'] >= 10, 'probability'].sum())
-
     def get_quantiles_conditional_on_exceedance(self,
                                                 quantiles_list: list[float],
                                                 threshold: int):
@@ -516,7 +505,9 @@ class AcrossRepPoint(AcrossRepStat):
 
         else:
 
-            lb_new, ub_new = self.get_quantiles_conditional_on_exceedance([lb_quantile, ub_quantile], threshold)
+            lb_new, ub_new = \
+                self.get_quantiles_conditional_on_exceedance([lb_quantile,
+                                                              ub_quantile], threshold)
 
             lb_total, ub_total = init_infected + lb_new, init_infected + ub_new
 
@@ -590,9 +581,7 @@ if __name__ == "__main__":
     start = time.time()
 
     demo = DashboardExperiment(DEFAULT_MSP_PARAMS, 200)
-
     demo.ma7_num_infected_school_1.create_df_simple_spaghetti()
-    ix_median = demo.total_new_cases_school_1.get_index_sim_median()
 
     prob_threshold_plus_new_str, cases_expected_over_threshold_str = \
         demo.total_new_cases_school_1.get_dashboard_results_strs(DEFAULT_MSP_PARAMS["I0"][0],
@@ -603,5 +592,3 @@ if __name__ == "__main__":
     print(time.time() - start)
 
     print(prob_threshold_plus_new_str, cases_expected_over_threshold_str)
-
-    breakpoint()
