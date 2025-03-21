@@ -6,7 +6,13 @@ from app_styles import BASE_FONT_STYLE, \
     SELECTOR_DISPLAY_STYLE, DROPDOWN_BASE_CONFIG, SELECTOR_TOOLTIP_STYLE, \
     NO_WRAP_FULL_WIDTH
 
-states_list = ("New York", "North Carolina", "Pennsylvania", "Texas")
+# IMPORTANT NOTE: if we change the "min" to 0 or 1 for `I0_selector` and `school_size_selector`,
+#   then negative values make the box RED -- but the warning doesn't trigger!
+#   It's interesting... the warning only triggers when inputs are received --
+#   setting the minimum doesn't allow input reception -- soooo we do NOT set the minimum
+#   in the selectors, and we trigger the (external) error message instead!
+
+states_list = ("North Carolina", "Pennsylvania", "Texas")
 
 # Ew I don't like this... but time-sensitive deadline means we
 #   gotta change this later...
@@ -43,7 +49,6 @@ I0_selector = dcc.Input(
     type='number',
     placeholder='Number of students initially infected',
     value=SELECTOR_DEFAULTS["I0"],
-    min=0,
     debounce=False,
     style={**SELECTOR_DISPLAY_STYLE, 'margin-left': 'auto', **BASE_FONT_STYLE}
 )

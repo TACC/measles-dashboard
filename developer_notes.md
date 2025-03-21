@@ -6,20 +6,40 @@ TODO: we really really need tests! For both `app.py` (callbacks) and also for `m
 
 TODO: we need a script to assess validity and format of new states' datasets!
 
-## Making outbreak threshold a user input
-- The threshold of 20 used in the summary statistics, "Chance of exceeding 20 new infections" and "Likely outbreak size" has been replaced with a default value of 10, and the user can now choose which value to use (between 3 and 25)
-- The file `measles_single_population.py` was updated so the threshold value is now passed as an input. The current input is a list, but statistics are only calculated for the first value of that list
-- The app is updated to include the slider and to have that value create a callback. The label of that slider needs to be updated, probably along with the names of the summary statistics above the graph (we tried with Lauren, but everybody was too tired)
-- In the summary statistics titles the values of 20 are dynamically changed too in "Chance of exceeding 20 new infections" and "if exceeds 20 new infections" under "Likely outbreak size"
-
 ## State Vaccination Data Status
 - `TX_MMR_vax_rate.csv` 
 - `NC_MMR_vax_rate.csv`
   - new dataset without duplicates 03/11/2025 
   - Converted "MMR_Vaccination_Rate" to percent (not decimal), with decimals only out to two places (rounded) to avoid display overflow in vaccination rate selector. Note that if this conversion is not done in the CSV itself, but instead in `app.py`, Python might display 95 as 95.00000000000001 for example, which is not good.
   - Deleted "Nature School @ Camp Albemarle" because had vaccination rate of 0
+- `NY_MMR_vax_rate.csv` 
+  - As of 03/21/2025 NOT including right now -- waiting for data validation
+  - Changed blank "Age Group" to "All Grades" as requested by Remy and Lauren
+- `PA_MMR_vax_rate.csv`
+  - Manually created this file from relevant columns in larger spreadsheet
+- Note: 03/21/2025 in the event where there were multiple values with the same school district or name, county, and age group combinations but different addresses, we appended the last two words (usually the street name and then something like "Street" or "Road") to the "School District or Name" column. 
 - Note: 03/13/2025 changed TX and NC CSV columns to be more consistent -- and got rid of underscores. Using `vax_rate_csv_checker.py`, will enforce this for new vaccination data.
 - Note: 03/13/2025 changed TX and NC CSV "MMR Vaccination Rate" column to be expressed as float -- percentage instead of decimals, with 2 decimal points only, will enforce this for new vaccination data.
+
+### Spring cleaning, bug fixing, Pennsylvania, minor adjustments -- 03/21/2025 LP
+- Dramatic refactoring for `measles_single_population.py`:
+  - The class for handling stochastic simulations was getting very cluttered and entangled -- created `AcrossRepStat` class to help with this.
+  - We should create a subclass of `Experiment` to deal with tracking different sample paths and point estimates -- this will help with experimentation of what to show in the dashboard (e.g. incidence).
+- 3 bugs
+  - Quantiles did not included initial number infected in the total outbreak size.
+  - Formatting issues (Python's "Banker's Rounding") caused weird results in probability report -- this was due to floating point errors from unnecessary computation, leading to certain cases where increasing the vaccination rate appeared to increase the probability of more than X new cases (this probability was actually the SAME, just formatted differently and thus rounded differently).
+  - Dynamic threshold setting caused invalid input response to break -- i.e., we had a code regression -- previously we added a feature to create an error message and blank the results if the inputs were not valid -- the if-else condition for updating the graph was not updated correctly after incorporating dynamic threshold changes -- therefore, the results/graph were not blanked with invalid inputs, and dash raised a `SchemaLengthValidationError.`
+- Added Pennsylvania (after checking and reformatting the original CSV).
+- Added some (ugly) functionality to handle non-responses for "Age Group" column -- we will want to handle this more gracefully in the future.
+- Added some more tests, particularly deterministic tests for `measles_single_population.py`.
+- Small adjustments from Remy and Lauren:
+  - Flag negative numbers (for initial number infected and school enrollment) and vaccination rates higher than 100% as invalid inputs, and generate corresponding error messages.
+
+### Making outbreak threshold a user input -- 03/18/2025 Remy
+- The threshold of 20 used in the summary statistics, "Chance of exceeding 20 new infections" and "Likely outbreak size" has been replaced with a default value of 10, and the user can now choose which value to use (between 3 and 25)
+- The file `measles_single_population.py` was updated so the threshold value is now passed as an input. The current input is a list, but statistics are only calculated for the first value of that list
+- The app is updated to include the slider and to have that value create a callback. The label of that slider needs to be updated, probably along with the names of the summary statistics above the graph (we tried with Lauren, but everybody was too tired)
+- In the summary statistics titles the values of 20 are dynamically changed too in "Chance of exceeding 20 new infections" and "if exceeds 20 new infections" under "Likely outbreak size"
 
 ### Improving dashboard results generation time -- 03/13/2025 LP
 - **Problem:** Dashboard simulation was a little bit slow...

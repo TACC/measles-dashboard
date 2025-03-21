@@ -124,16 +124,20 @@ def check_inputs_validity(params_dict: dict) -> str:
         -- sometimes it's in percent form (so like an int, like 95)
         and sometimes it's in decimal form
     """
-
-    warning_str = "Invalid inputs: The number of initially infected students " \
-                  "cannot exceed the number of unvaccinated students. Please adjust."
-
     # Assuming single population -- again, single population / multiple population stuff
     #   is confusing here -- and the hardcoding could accidentally lead to mistakes in future
 
-    if params_dict["I0"][0] > int((1 - params_dict["vax_prop"][0]) * params_dict["population"][0]):
+    if not 0 <= params_dict["vax_prop"][0] < 1:
+        warning_str = "Invalid inputs: vaccination rate must be between 0-100%."
         return False, warning_str
-
+    elif params_dict["I0"][0] < 0 or params_dict["population"][0] < 0:
+        warning_str = "Invalid inputs: school enrollment and students initially " \
+                      "infected must be positive whole numbers. Please adjust."
+        return False, warning_str
+    elif params_dict["I0"][0] > int((1 - params_dict["vax_prop"][0]) * params_dict["population"][0]):
+        warning_str = "Invalid inputs: The number of initially infected students " \
+                      "cannot exceed the number of unvaccinated students. Please adjust."
+        return False, warning_str
     else:
         return True, ""
 
