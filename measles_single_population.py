@@ -182,6 +182,8 @@ class MetapopSEIR:
         # Stochastic simulations
         self.is_stochastic = params['is_stochastic']
         if self.is_stochastic:
+            self.RNG = np.random.Generator(np.random.MT19937(seed=params["simulation_seed"]))
+        else:
             self.RNG = None
 
         # Number of contacts
@@ -524,7 +526,6 @@ class Experiment(ABC):
         self.num_reps = num_reps
 
         self.model = MetapopSEIR(self.params)
-        self.model.RNG = np.random.Generator(np.random.MT19937(seed=params["simulation_seed"]))
 
         self.run()
 
