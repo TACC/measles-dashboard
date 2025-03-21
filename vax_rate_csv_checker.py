@@ -104,3 +104,19 @@ def check_vaccination_rate_CSV(filename: str):
         return "This CSV appears valid and correctly formatted."
     else:
         return "This CSV has validity or formatting issues -- please amend."
+
+
+def add_facility_address_to_school_district_or_name(df):
+
+    # Identify duplicates
+    duplicates = df[df.duplicated(subset=["School District or Name",
+                                          "Age Group",
+                                          "County"], keep=False)]
+
+    # Append last two words from "Facility Address" to "School District or Name"
+    df.loc[duplicates.index, "School District or Name"] = (
+        df.loc[duplicates.index, "School District or Name"] + " " +
+        df.loc[duplicates.index, "Facility Address"].apply(lambda x: " ".join(x.split()[-2:]))
+    )
+
+    return df

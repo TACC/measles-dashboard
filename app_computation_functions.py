@@ -21,9 +21,9 @@ def get_dashboard_spaghetti(df_plot: pd.DataFrame,
     # To fix... don't show ticks if plot is empty
 
     if df_plot.empty:
-        is_nonempty_df = True
-    else:
         is_nonempty_df = False
+    else:
+        is_nonempty_df = True
 
     fig = px.line(
         df_plot,

@@ -6,7 +6,7 @@ from app_styles import BASE_FONT_STYLE, \
     SELECTOR_DISPLAY_STYLE, DROPDOWN_BASE_CONFIG, SELECTOR_TOOLTIP_STYLE, \
     NO_WRAP_FULL_WIDTH
 
-states_list = ["North Carolina", "Texas"]
+states_list = ("New York", "North Carolina", "Pennsylvania", "Texas")
 
 # Ew I don't like this... but time-sensitive deadline means we
 #   gotta change this later...

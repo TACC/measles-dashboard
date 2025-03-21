@@ -40,14 +40,16 @@ msp.DEFAULT_MSP_PARAMS["simulation_seed"] = DASHBOARD_CONFIG["simulation_seed"]
 #   We can also cache the dataframe subsets...
 # TODO -- maybe... put state-to-CSV mapping in JSON file?
 
-TX_df = pd.read_csv('TX_MMR_vax_rate.csv')
 NC_df = pd.read_csv('NC_MMR_vax_rate.csv')
-
-states = ("Texas", "North Carolina")
+NY_df = pd.read_csv("NY_MMR_vax_rate.csv")
+PA_df = pd.read_csv("PA_MMR_vax_rate.csv")
+TX_df = pd.read_csv('TX_MMR_vax_rate.csv')
 
 state_to_df_map = {
-    "Texas": TX_df,
-    "North Carolina": NC_df
+    "New York": NY_df,
+    "North Carolina": NC_df,
+    "Pennsylvania": PA_df,
+    "Texas": TX_df
 }
 
 
@@ -185,7 +187,7 @@ def update_graph(params_dict: dict,
         # Note -- returning None instead of empty dict is a big mistake --
         #   doesn't work and also messes up the graphs for correct inputs!
         #   Be very careful with the syntax here.
-        return EMPTY_SPAGHETTI_PLOT_INFECTED_MA, "", ""
+        return EMPTY_SPAGHETTI_PLOT_INFECTED_MA, "", "", "", ""
 
 
 @callback(
@@ -211,7 +213,7 @@ def update_county_selector(state):
 def update_school_selector(state, county):
     df = get_county_subset_df(state, county)
     new_school_options = sorted(
-        f"{name} ({age_group})"
+        f"{name} ({age_group})" if pd.notna(age_group) and age_group != "" else f"{name}"
         for name, age_group in zip(df["School District or Name"], df["Age Group"])
     )
     default_school_displayed = new_school_options[0]
@@ -233,12 +235,20 @@ def get_school_vax_rate(state_str,
 
         county_subset_df = get_county_subset_df(state_str, county_str)
 
-        school, age_group = school_with_age_str.split(' (')
-        age_group = age_group.rstrip(")")
+        # Handle cases where age_group is present or ""
+        if ' (' in school_with_age_str:
+            school, age_group = school_with_age_str.split(' (')
+            age_group = age_group.rstrip(")")
+        else:
+            school = school_with_age_str
+            age_group = ""
 
+        # Filter DataFrame based on the presence or absence of age_group
         df_school = county_subset_df.loc[
             (county_subset_df['School District or Name'] == school) &
-            (county_subset_df['Age Group'] == age_group)]
+            ((county_subset_df['Age Group'] == age_group) | (
+                        pd.isna(county_subset_df['Age Group']) & (age_group == "")))
+            ]
 
         school_vax_rate_pct = df_school['MMR Vaccination Rate'].values[0]
 

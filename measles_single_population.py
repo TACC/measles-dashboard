@@ -16,17 +16,9 @@ import seaborn as sns
 import time
 import copy
 
-import plotly.express as px
-from enum import Enum
-
-from enum import Enum
 from typing import TypedDict, Type
-
 from numpy.lib.stride_tricks import sliding_window_view
-
 from abc import ABC, abstractmethod
-
-from multiprocessing import Pool, cpu_count
 
 # %% Print options
 ##################
@@ -42,6 +34,7 @@ np.set_printoptions(linewidth=185)
 
 
 # %% Measles Parameters
+#######################
 class MeaslesParameters(TypedDict):
     R0: float
     incubation_period: float
@@ -380,6 +373,9 @@ class MetapopSEIR:
         plt.show()
 
 
+# %% Statistic Collectors
+#########################
+
 class AcrossRepStat:
 
     def __init__(self):
@@ -515,6 +511,9 @@ class AcrossRepPoint(AcrossRepStat):
 
         return exceedance_prob_str, all_cases_conditional_quantiles_str
 
+# %% Experiment Classes
+#######################
+
 
 class Experiment(ABC):
 
@@ -572,9 +571,8 @@ def run_deterministic_model(params):
     model_deterministic.plot_results()
 
 
-# %% Main
-##########
-# Example usage
+# %% Example usage
+##################
 
 if __name__ == "__main__":
 
