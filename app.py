@@ -85,7 +85,7 @@ def create_params_from_selectors(params_dict,
                                  infectious_period,
                                  outbreak_threshold):
     school_size = school_size if school_size is not None else SELECTOR_DEFAULTS['school_size']
-    vax_rate_percent = vax_rate_percent if vax_rate_percent is not None else SELECTOR_DEFAULTS['vax_rate_percent']
+    vax_rate_percent = vax_rate_percent if vax_rate_percent is not None else SELECTOR_DEFAULTS['vax_rate']
     I0 = I0 if I0 is not None else SELECTOR_DEFAULTS['I0']
     R0 = R0 if R0 is not None else SELECTOR_DEFAULTS['R0']
     latent_period = latent_period if latent_period is not None else SELECTOR_DEFAULTS['latent_period']
@@ -127,7 +127,7 @@ def check_inputs_validity(params_dict: dict) -> str:
     # Assuming single population -- again, single population / multiple population stuff
     #   is confusing here -- and the hardcoding could accidentally lead to mistakes in future
 
-    if not 0 <= params_dict["vax_prop"][0] < 1:
+    if not 0 <= params_dict["vax_prop"][0] <= 1:
         warning_str = "Invalid inputs: vaccination rate must be between 0-100%."
         return False, warning_str
     elif params_dict["I0"][0] < 0 or params_dict["population"][0] < 0:
