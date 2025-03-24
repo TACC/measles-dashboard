@@ -6,12 +6,12 @@ import plotly.express as px
 from app_styles import SPAGHETTI_PLOT_AXIS_CONFIG
 
 
-def get_spaghetti_plot_infected_ma(df_plot: pd.DataFrame,
-                                   spaghetti_color_map: dict):
-    """
-    TODO: can be refactored to plot other dataframes too,
-    not just infected moving average.
+# Probably need a better name for these functions...
 
+
+def get_dashboard_spaghetti(df_plot: pd.DataFrame,
+                            spaghetti_color_map: dict):
+    """
     Returns plotly.graph_objects.Figure
     """
 
@@ -20,17 +20,17 @@ def get_spaghetti_plot_infected_ma(df_plot: pd.DataFrame,
     #   "range"-related parameters :(
     # To fix... don't show ticks if plot is empty
 
-    is_nonempty_df = not df_plot.empty
+    if df_plot.empty:
+        is_nonempty_df = False
+    else:
+        is_nonempty_df = True
 
     fig = px.line(
         df_plot,
         x='day',
-        y='number_infected_7_day_ma',
+        y='result',
         color='simulation_idx',
-        color_discrete_map=spaghetti_color_map,
-        labels={'simulation_idx': '', 'number_infected': 'Number of students infected', 'day': 'Day DD',
-                "number_infected_7_day_ma": "NN infected (7-day average)"},
-    )
+        color_discrete_map=spaghetti_color_map)
 
     fig.update_traces(hovertemplate="Day %{x}<br>%{y:.1f} Infected<extra></extra>")
     fig.update_traces(line=dict(width=2))  # Reduce line thickness
@@ -53,25 +53,23 @@ def get_spaghetti_plot_infected_ma(df_plot: pd.DataFrame,
     return fig
 
 
-def create_data_spaghetti_plot_infected_ma(sim: msp.StochasticSimulations,
-                                           nb_curves_displayed: int,
-                                           curve_selection_seed: int):
+def get_dashboard_results_fig(df_spaghetti: pd.DataFrame,
+                              index_sim_closest_median: int,
+                              nb_curves_displayed: int,
+                              curve_selection_seed: int):
 
-    df_spaghetti_infected_ma = sim.df_spaghetti_infected_ma
-    index_sim_closest_median = sim.index_sim_closest_median
+    # df_spaghetti must have columns "day", "result", "simulation_idx"
 
     light_grey = 'rgb(220, 220, 220)'
 
     color_map = {
         x: light_grey
-        for x in df_spaghetti_infected_ma['simulation_idx'].unique()
+        for x in df_spaghetti['simulation_idx']
     }
     color_map[index_sim_closest_median] = 'rgb(0, 153, 204)'  # blue
 
-    possible_idx = [
-        x for x in df_spaghetti_infected_ma['simulation_idx'].unique()
-        if x != index_sim_closest_median
-    ]
+    possible_idx = df_spaghetti['simulation_idx']
+    possible_idx = possible_idx[possible_idx != index_sim_closest_median]
 
     sample_idx = np.random.Generator(
         np.random.MT19937(curve_selection_seed)).choice(possible_idx,
@@ -79,14 +77,14 @@ def create_data_spaghetti_plot_infected_ma(sim: msp.StochasticSimulations,
                                                         replace=False)
 
     sim_plot_df = pd.concat([
-        df_spaghetti_infected_ma.loc[df_spaghetti_infected_ma['simulation_idx'].isin(sample_idx)],
-        df_spaghetti_infected_ma.loc[df_spaghetti_infected_ma['simulation_idx'] == index_sim_closest_median]
+        df_spaghetti.loc[df_spaghetti['simulation_idx'].isin(sample_idx)],
+        df_spaghetti.loc[df_spaghetti['simulation_idx'] == index_sim_closest_median]
     ])
 
-    return sim_plot_df, color_map
+    return get_dashboard_spaghetti(sim_plot_df, color_map)
 
 
 # Lauren wanted the default plot to have the same axes as the generated plot
 #   from simulations
-EMPTY_SPAGHETTI_PLOT_INFECTED_MA = get_spaghetti_plot_infected_ma(
-    pd.DataFrame(columns=['day', 'number_infected_7_day_ma', 'simulation_idx']), {})
+EMPTY_SPAGHETTI_PLOT_INFECTED_MA = get_dashboard_spaghetti(
+    pd.DataFrame(columns=['day', 'result', 'simulation_idx']), {})

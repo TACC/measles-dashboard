@@ -6,12 +6,6 @@
 >(^_^)> ~~~~
 """
 
-# TODO: we should probably make the dictionary of params be a
-#   dataclass with a decent name like MSP_params or something -- because
-#   we keep passing it as an argument and ASSUME certain things about the field names
-#   and data types -- so we should make these assumptions explicit, and the
-#   dataclass does that for us
-
 # TODO: streamline the single population / multiple population stuff?
 #   Some confusing stuff... e.g. remembering that some parameters are actually
 #   a LIST (but of 1 element, for 1 subpopulation)
@@ -29,37 +23,37 @@ from app_static_graphics import navbar, bottom_info_section, \
     bottom_credits, school_outbreak_projections_header
 from app_dynamic_graphics import results_header, spaghetti_plot_section, \
     dashboard_input_panel
-from app_computation_functions import create_data_spaghetti_plot_infected_ma, \
-    get_spaghetti_plot_infected_ma, EMPTY_SPAGHETTI_PLOT_INFECTED_MA
+from app_computation_functions import get_dashboard_results_fig, \
+    get_dashboard_spaghetti, EMPTY_SPAGHETTI_PLOT_INFECTED_MA
 from app_selectors import SELECTOR_DEFAULTS
 
 DASHBOARD_CONFIG = {
     'num_simulations': 200,
-    'outbreak_size_uncertainty_displayed': msp.OUTBREAK_SIZE_UNCERTAINTY_OPTIONS.NINETY_FIVE,
     'simulation_seed': 147125098488,
     'spaghetti_curve_selection_seed': 12345,
 }
 
-msp.MSP_PARAMS["simulation_seed"] = DASHBOARD_CONFIG["simulation_seed"]
+msp.DEFAULT_MSP_PARAMS["simulation_seed"] = DASHBOARD_CONFIG["simulation_seed"]
 
 # TODO -- again, this can be streamlined... but here is
 #   the initial stab at generalizing the code to multiple states...
 #   We can also cache the dataframe subsets...
 # TODO -- maybe... put state-to-CSV mapping in JSON file?
 
-TX_df = pd.read_csv('TX_MMR_vax_rate.csv')
 NC_df = pd.read_csv('NC_MMR_vax_rate.csv')
-
-states = ("Texas", "North Carolina")
+NY_df = pd.read_csv("NY_MMR_vax_rate.csv")
+PA_df = pd.read_csv("PA_MMR_vax_rate.csv")
+TX_df = pd.read_csv('TX_MMR_vax_rate.csv')
 
 state_to_df_map = {
-    "Texas": TX_df,
-    "North Carolina": NC_df
+    "New York": NY_df,
+    "North Carolina": NC_df,
+    "Pennsylvania": PA_df,
+    "Texas": TX_df
 }
 
 
 def get_county_subset_df(state_str, county_str) -> pd.DataFrame:
-
     state_subset_df = state_to_df_map[state_str]
     county_subset_df = state_subset_df[state_subset_df["County"] == county_str]
 
@@ -81,7 +75,7 @@ def get_county_subset_df(state_str, county_str) -> pd.DataFrame:
      Input('latent_period_selector', 'value'),
      Input('infectious_period_selector', 'value'),
      Input('threshold_selector', 'value')]
-    )
+)
 def create_params_from_selectors(params_dict,
                                  school_size,
                                  vax_rate_percent,
@@ -91,7 +85,7 @@ def create_params_from_selectors(params_dict,
                                  infectious_period,
                                  outbreak_threshold):
     school_size = school_size if school_size is not None else SELECTOR_DEFAULTS['school_size']
-    vax_rate_percent = vax_rate_percent if vax_rate_percent is not None else SELECTOR_DEFAULTS['vax_rate_percent']
+    vax_rate_percent = vax_rate_percent if vax_rate_percent is not None else SELECTOR_DEFAULTS['vax_rate']
     I0 = I0 if I0 is not None else SELECTOR_DEFAULTS['I0']
     R0 = R0 if R0 is not None else SELECTOR_DEFAULTS['R0']
     latent_period = latent_period if latent_period is not None else SELECTOR_DEFAULTS['latent_period']
@@ -130,16 +124,20 @@ def check_inputs_validity(params_dict: dict) -> str:
         -- sometimes it's in percent form (so like an int, like 95)
         and sometimes it's in decimal form
     """
-
-    warning_str = "Invalid inputs: The number of initially infected students " \
-                  "cannot exceed the number of unvaccinated students. Please adjust."
-
     # Assuming single population -- again, single population / multiple population stuff
     #   is confusing here -- and the hardcoding could accidentally lead to mistakes in future
 
-    if params_dict["I0"][0] > int((1 - params_dict["vax_prop"][0]) * params_dict["population"][0]):
+    if not 0 <= params_dict["vax_prop"][0] <= 1:
+        warning_str = "Invalid inputs: vaccination rate must be between 0-100%."
         return False, warning_str
-
+    elif params_dict["I0"][0] < 0 or params_dict["population"][0] < 0:
+        warning_str = "Invalid inputs: school enrollment and students initially " \
+                      "infected must be positive whole numbers. Please adjust."
+        return False, warning_str
+    elif params_dict["I0"][0] > int((1 - params_dict["vax_prop"][0]) * params_dict["population"][0]):
+        warning_str = "Invalid inputs: The number of initially infected students " \
+                      "cannot exceed the number of unvaccinated students. Please adjust."
+        return False, warning_str
     else:
         return True, ""
 
@@ -155,43 +153,45 @@ def check_inputs_validity(params_dict: dict) -> str:
 )
 def update_graph(params_dict: dict,
                  inputs_are_valid: bool):
-    # Update parameters, run simulations
+
     n_sim = DASHBOARD_CONFIG["num_simulations"]
 
     if inputs_are_valid:
-        stochastic_sim = msp.StochasticSimulations(params_dict, n_sim)
-        stochastic_sim.run_stochastic_model(track_infected=True)
-        stochastic_sim.prep_across_rep_plot_data(include_infected_7day_ma=True)
-        stochastic_sim.calculate_threshold_plus_new_cases_statistics()
+
+        measles_results = msp.DashboardExperiment(params_dict, n_sim)
+
+        measles_results.ma7_num_infected_school_1.create_df_simple_spaghetti()
+        ix_median = measles_results.total_new_cases_school_1.get_index_sim_median()
 
         prob_threshold_plus_new_str, cases_expected_over_threshold_str = \
-            stochastic_sim.create_strs_threshold_plus_new_and_outbreak(DASHBOARD_CONFIG["outbreak_size_uncertainty_displayed"])
+            measles_results.total_new_cases_school_1.get_dashboard_results_strs(params_dict["I0"][0],
+                                                                                params_dict["threshold_values"][0],
+                                                                                2.5,
+                                                                                97.5)
 
-        (plot_df, plot_color_map) = \
-            create_data_spaghetti_plot_infected_ma(sim=stochastic_sim,
-                                                   nb_curves_displayed=20,
-                                                   curve_selection_seed=DASHBOARD_CONFIG[
-                                                       "spaghetti_curve_selection_seed"])
-
-        fig = get_spaghetti_plot_infected_ma(plot_df, plot_color_map)
+        fig = get_dashboard_results_fig(df_spaghetti=measles_results.ma7_num_infected_school_1.df_simple_spaghetti,
+                                        index_sim_closest_median=ix_median,
+                                        nb_curves_displayed=20,
+                                        curve_selection_seed=DASHBOARD_CONFIG[
+                                            "spaghetti_curve_selection_seed"])
 
         # ">" needs an escape in HTML!!!!
         if prob_threshold_plus_new_str == "> 99%":
             prob_threshold_plus_new_str = "\> 99%"
-            
+
         threshold_value = int(params_dict['threshold_values'][0])
         outbreak_title_str = 'Chance of exceeding {} new infections'.format(threshold_value)
         cases_condition_str = '*if exceeds {} new infections*'.format(threshold_value)
 
         return fig, prob_threshold_plus_new_str, cases_expected_over_threshold_str, \
-            outbreak_title_str, cases_condition_str
+               outbreak_title_str, cases_condition_str
 
     else:
 
         # Note -- returning None instead of empty dict is a big mistake --
         #   doesn't work and also messes up the graphs for correct inputs!
         #   Be very careful with the syntax here.
-        return EMPTY_SPAGHETTI_PLOT_INFECTED_MA, "", ""
+        return EMPTY_SPAGHETTI_PLOT_INFECTED_MA, "", "", "", ""
 
 
 @callback(
@@ -201,12 +201,10 @@ def update_graph(params_dict: dict,
     prevent_initial_call=True
 )
 def update_county_selector(state):
-
     new_county_options = sorted(state_to_df_map[state]["County"].unique())
     default_county_displayed = new_county_options[0]
 
     return new_county_options, default_county_displayed
-
 
 
 @callback(
@@ -217,10 +215,9 @@ def update_county_selector(state):
     prevent_initial_call=True
 )
 def update_school_selector(state, county):
-
     df = get_county_subset_df(state, county)
     new_school_options = sorted(
-        f"{name} ({age_group})"
+        f"{name} ({age_group})" if pd.notna(age_group) and age_group != "" else f"{name}"
         for name, age_group in zip(df["School District or Name"], df["Age Group"])
     )
     default_school_displayed = new_school_options[0]
@@ -238,17 +235,24 @@ def update_school_selector(state, county):
 def get_school_vax_rate(state_str,
                         county_str,
                         school_with_age_str) -> float:
-
     if school_with_age_str:
 
         county_subset_df = get_county_subset_df(state_str, county_str)
 
-        school, age_group = school_with_age_str.split(' (')
-        age_group = age_group.rstrip(")")
+        # Handle cases where age_group is present or ""
+        if ' (' in school_with_age_str:
+            school, age_group = school_with_age_str.split(' (')
+            age_group = age_group.rstrip(")")
+        else:
+            school = school_with_age_str
+            age_group = ""
 
+        # Filter DataFrame based on the presence or absence of age_group
         df_school = county_subset_df.loc[
             (county_subset_df['School District or Name'] == school) &
-            (county_subset_df['Age Group'] == age_group)]
+            ((county_subset_df['Age Group'] == age_group) | (
+                        pd.isna(county_subset_df['Age Group']) & (age_group == "")))
+            ]
 
         school_vax_rate_pct = df_school['MMR Vaccination Rate'].values[0]
 
@@ -265,7 +269,7 @@ version = result.stdout.decode("utf-8").strip() if result.stdout else "Unknown"
 
 app = Dash(
     prevent_initial_callbacks='initial_duplicate')
-server = app.server     # Do we need this?
+server = app.server  # Do we need this?
 app.title = f"epiENGAGE Measles Outbreak Simulator v-{version}"
 
 # Add inline script to initialize Google Analytics
@@ -277,7 +281,7 @@ app.scripts.append_script({'external_url': '/assets/gtag.js'})
 app.layout = dbc.Container(
     [
         dcc.Store(id="inputs_are_valid", data=True),
-        dcc.Store(id="dashboard_params", data=copy.deepcopy(msp.MSP_PARAMS)),
+        dcc.Store(id="dashboard_params", data=copy.deepcopy(msp.DEFAULT_MSP_PARAMS)),
 
         dbc.Row([navbar], className="my-2"),
         html.Br(),
@@ -310,7 +314,6 @@ app.layout = dbc.Container(
 
         bottom_credits()
     ], fluid=True, style={"min-height": "100vh", "display": "flex", "flex-direction": "column"})
-
 
 if __name__ == '__main__':
     app.run(debug=False, host='0.0.0.0')
