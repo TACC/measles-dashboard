@@ -58,8 +58,6 @@ vaccination_rate_selector = dcc.Input(
     type='number',
     placeholder='Vaccination rate (%)',
     value=SELECTOR_DEFAULTS["vax_rate"],
-    min=0,
-    max=100,
     style={**SELECTOR_DISPLAY_STYLE, **BASE_FONT_STYLE,
            'width': '7ch'}
 )
