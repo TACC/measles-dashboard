@@ -127,7 +127,7 @@ def check_inputs_validity(params_dict: dict) -> str:
     # Assuming single population -- again, single population / multiple population stuff
     #   is confusing here -- and the hardcoding could accidentally lead to mistakes in future
 
-    if not 0 <= params_dict["vax_prop"][0] < 1:
+    if not 0 <= params_dict["vax_prop"][0] <= 1:
         warning_str = "Invalid inputs: vaccination rate must be between 0-100%."
         return False, warning_str
     elif params_dict["I0"][0] < 0 or params_dict["population"][0] < 0:
