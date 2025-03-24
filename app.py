@@ -85,7 +85,7 @@ def create_params_from_selectors(params_dict,
                                  infectious_period,
                                  outbreak_threshold):
     school_size = school_size if school_size is not None else SELECTOR_DEFAULTS['school_size']
-    vax_rate_percent = vax_rate_percent if vax_rate_percent is not None else SELECTOR_DEFAULTS['vax_rate_percent']
+    vax_rate_percent = vax_rate_percent if vax_rate_percent is not None else SELECTOR_DEFAULTS['vax_rate']
     I0 = I0 if I0 is not None else SELECTOR_DEFAULTS['I0']
     R0 = R0 if R0 is not None else SELECTOR_DEFAULTS['R0']
     latent_period = latent_period if latent_period is not None else SELECTOR_DEFAULTS['latent_period']
