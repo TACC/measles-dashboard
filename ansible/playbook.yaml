@@ -43,7 +43,7 @@
     ansible.builtin.git:
       repo: 'https://github.com/TACC/measles-dashboard.git'
       dest: /home/exouser/measles-dashboard
-      version: threshold_update
+      version: development
       force: true
 
   - name: Stop existing containers
