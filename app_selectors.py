@@ -7,6 +7,7 @@ from app_styles import BASE_FONT_STYLE, \
     NO_WRAP_FULL_WIDTH
 
 # IMPORTANT NOTE: if we change the "min" to 0 or 1 for `I0_selector` and `school_size_selector`,
+#   (or similarly change corresponding "min"/"max" for `vax_rate_selector`)
 #   then negative values make the box RED -- but the warning doesn't trigger!
 #   It's interesting... the warning only triggers when inputs are received --
 #   setting the minimum doesn't allow input reception -- soooo we do NOT set the minimum
