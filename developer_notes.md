@@ -6,6 +6,12 @@ TODO: we really really need tests! For both `app.py` (callbacks) and also for `m
 
 TODO: we need a script to assess validity and format of new states' datasets!
 
+
+### Measles efficiency computation and generating lookup table for CDC -- 03/31/2025 RP + LP
+- `measles_efficiency.py` has non-OOP efficient form of computing new cases -- does not save sample paths or any other history -- also does early termination if `E + I == 0` or `S == 0`. There is some adaptive stepsize functionality but not sure if this is actually a good thing to add. There is a small difference between using adaptive step size and not using it, and between using 4 steps per day versus, say, 10. This discretization error seems inevitable.
+- Some additional small efficiency improvements (on both functional efficiency code and the OOP code): replaced RNG with more updated and faster RNG, return 0 instead of generating random variable if Poisson rate is 0. 
+- Note: dataset of raw data has 20,000 replications for each configuration (see `measles_efficiency_run.py` for details on grid) and DOES use adaptive step size. 
+
 ## State Vaccination Data Status
 - `TX_MMR_vax_rate.csv` 
 - `NC_MMR_vax_rate.csv`

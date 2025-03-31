@@ -3,6 +3,8 @@ import pandas as pd
 import numpy as np
 import plotly.express as px
 
+from randomgen import PCG64
+
 from app_styles import SPAGHETTI_PLOT_AXIS_CONFIG
 
 
@@ -71,10 +73,9 @@ def get_dashboard_results_fig(df_spaghetti: pd.DataFrame,
     possible_idx = df_spaghetti['simulation_idx']
     possible_idx = possible_idx[possible_idx != index_sim_closest_median]
 
-    sample_idx = np.random.Generator(
-        np.random.MT19937(curve_selection_seed)).choice(possible_idx,
-                                                        nb_curves_displayed,
-                                                        replace=False)
+    sample_idx = np.random.Generator(PCG64(curve_selection_seed)).choice(possible_idx,
+                                                                         nb_curves_displayed,
+                                                                         replace=False)
 
     sim_plot_df = pd.concat([
         df_spaghetti.loc[df_spaghetti['simulation_idx'].isin(sample_idx)],

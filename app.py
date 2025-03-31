@@ -29,7 +29,7 @@ from app_selectors import SELECTOR_DEFAULTS
 
 DASHBOARD_CONFIG = {
     'num_simulations': 200,
-    'simulation_seed': 147125098488,
+    'simulation_seed': 6283104271, # 14712509848,
     'spaghetti_curve_selection_seed': 12345,
 }
 

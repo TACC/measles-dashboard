@@ -16,6 +16,8 @@ import seaborn as sns
 import time
 import copy
 
+from randomgen import PCG64
+
 from typing import TypedDict, Type
 from numpy.lib.stride_tricks import sliding_window_view
 from abc import ABC, abstractmethod
@@ -160,12 +162,12 @@ def calculate_np_moving_average(
 class MetapopSEIR:
 
     def __init__(self,
-                 params: dict):
+                 params: MeaslesParameters):
         """
         Initialize metapopulation SEPIR model
 
         Parameters:
-        params: dictionary with disease parameters and movement rates
+        params: MeaslesParameters instance with disease parameters and movement rates
         N: array of population sizes
         I0: array of initial infectious cases
         T: total simulation time
@@ -182,7 +184,7 @@ class MetapopSEIR:
         # Stochastic simulations
         self.is_stochastic = params['is_stochastic']
         if self.is_stochastic:
-            self.RNG = np.random.Generator(np.random.MT19937(seed=params["simulation_seed"]))
+            self.RNG = np.random.Generator(PCG64(params["simulation_seed"]))
         else:
             self.RNG = None
 
@@ -213,8 +215,8 @@ class MetapopSEIR:
         # Used to compute incidence
         # Looks like we are currently not using P so skipping that
         self.S_to_E = np.zeros((self.n_steps, self.n_pop))
-        self.E_to_I = np.zeros((self.n_steps, self.n_pop))
-        self.I_to_R = np.zeros((self.n_steps, self.n_pop))
+        # self.E_to_I = np.zeros((self.n_steps, self.n_pop))
+        # self.I_to_R = np.zeros((self.n_steps, self.n_pop))
 
         # Set initial conditions
         # 03052025 1:1 with Lauren -- Lauren does not want
@@ -252,16 +254,20 @@ class MetapopSEIR:
         Number of individuals leaving compartment.
 
         """
-        total_rate = rate * compartment_count
 
-        if self.is_stochastic:
-            delta = self.RNG.poisson(total_rate)
+        if compartment_count == 0:
+            return 0
         else:
-            delta = total_rate
+            total_rate = rate * compartment_count
 
-        delta = min(delta, compartment_count)
+            if self.is_stochastic:
+                delta = self.RNG.poisson(total_rate)
+            else:
+                delta = total_rate
 
-        return delta
+            delta = min(delta, compartment_count)
+
+            return delta
 
     def calculate_compartment_updates(self,
                                       ix_pop: int) -> dict:
@@ -295,10 +301,10 @@ class MetapopSEIR:
         dI = dE_out - dI_out
         dR = dI_out
 
-        updates_dict = {"dS": dS, "dE": dE, "dI": dI, "dR": dR,
-                        "dS_out": dS_out, "dE_out": dE_out, "dI_out": dI_out}
+        # updates_dict = {"dS": dS, "dE": dE, "dI": dI, "dR": dR,
+        #                "dS_out": dS_out, "dE_out": dE_out, "dI_out": dI_out}
 
-        return updates_dict
+        return dS, dE, dI, dR, dS_out
 
     def step(self):
         """Calculate one time step using Euler's method"""
@@ -307,23 +313,26 @@ class MetapopSEIR:
 
         # Loop through populations
         for ix_pop in range(self.n_pop):
-            updates = self.calculate_compartment_updates(ix_pop)
+
+            dS, dE, dI, dR, dS_out = self.calculate_compartment_updates(ix_pop)
             current_step = self.current_step
 
             # Creates view of same array in memory, NOT a copy
             S, E, I, R = self.S, self.E, self.I, self.R
-            S_to_E, E_to_I, I_to_R = self.S_to_E, self.E_to_I, self.I_to_R
+            S_to_E = self.S_to_E
+
+            # S_to_E, E_to_I, I_to_R = self.S_to_E, self.E_to_I, self.I_to_R
 
             # Update compartments using Euler's method
-            S[current_step + 1, ix_pop] = S[current_step, ix_pop] + updates["dS"]
-            E[current_step + 1, ix_pop] = E[current_step, ix_pop] + updates["dE"]
-            I[current_step + 1, ix_pop] = I[current_step, ix_pop] + updates["dI"]
-            R[current_step + 1, ix_pop] = R[current_step, ix_pop] + updates["dR"]
+            S[current_step + 1, ix_pop] = S[current_step, ix_pop] + dS
+            E[current_step + 1, ix_pop] = E[current_step, ix_pop] + dE
+            I[current_step + 1, ix_pop] = I[current_step, ix_pop] + dI
+            R[current_step + 1, ix_pop] = R[current_step, ix_pop] + dR
 
             # Also update transition variables history
-            S_to_E[current_step + 1, ix_pop] = updates["dS_out"]
-            E_to_I[current_step + 1, ix_pop] = updates["dE_out"]
-            I_to_R[current_step + 1, ix_pop] = updates["dI_out"]
+            S_to_E[current_step + 1, ix_pop] = dS_out
+            # E_to_I[current_step + 1, ix_pop] = updates["dE_out"]
+            # I_to_R[current_step + 1, ix_pop] = updates["dI_out"]
 
         self.current_step += 1
         return True
@@ -577,17 +586,37 @@ def run_deterministic_model(params):
 
 if __name__ == "__main__":
 
-    start = time.time()
+    base_seed = 216014948987466572985971385191991148824
+    base_seed_sequence = np.random.SeedSequence(base_seed).spawn(20)
 
-    demo = DashboardExperiment(DEFAULT_MSP_PARAMS, 200)
-    demo.ma7_num_infected_school_1.create_df_simple_spaghetti()
+    mean_array = []
+    lower_percentile_array = []
+    exceedance_prob_array = []
 
-    prob_threshold_plus_new_str, cases_expected_over_threshold_str = \
-        demo.total_new_cases_school_1.get_dashboard_results_strs(DEFAULT_MSP_PARAMS["I0"][0],
-                                                                 DEFAULT_MSP_PARAMS["threshold_values"][0],
-                                                                 2.5,
-                                                                 97.5)
+    for i in range(20):
 
-    print(time.time() - start)
+        DEFAULT_MSP_PARAMS["simulation_seed"] = base_seed_sequence[i]
 
-    print(prob_threshold_plus_new_str, cases_expected_over_threshold_str)
+        demo = DashboardExperiment(DEFAULT_MSP_PARAMS, 200)
+
+        mean = demo.total_new_cases_school_1.data.mean()
+
+        prob_threshold_plus_new_str, cases_expected_over_threshold_str = \
+            demo.total_new_cases_school_1.get_dashboard_results_strs(DEFAULT_MSP_PARAMS["I0"][0],
+                                                                     DEFAULT_MSP_PARAMS["threshold_values"][0],
+                                                                     2.5,
+                                                                     97.5)
+
+        print(i, mean, prob_threshold_plus_new_str, cases_expected_over_threshold_str)
+
+        mean_array.append(mean)
+        lower_percentile_array.append(demo.total_new_cases_school_1.get_quantiles_conditional_on_exceedance([2.5], 10)[0])
+        exceedance_prob_array.append(demo.total_new_cases_school_1.get_exceedance_probability(10))
+
+    print(mean_array)
+    print(lower_percentile_array)
+
+    print(np.var(mean_array))
+    print(np.var(lower_percentile_array))
+
+    print(np.var(exceedance_prob_array))
