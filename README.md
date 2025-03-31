@@ -1,5 +1,13 @@
 # measles-dashboard
 
+## About The Project
+
+This repo contains the code used to run the measles simulator hosted at [https://epiengage-measles.tacc.utexas.edu/](https://epiengage-measles.tacc.utexas.edu/).
+
+The simulator was developed by members of epiENGAGE and [TACC](https://tacc.utexas.edu/).
+
+## Getting started
+
 ### Running Containerized Dashboard
 
 Start the dashboard:
@@ -11,8 +19,6 @@ Navigate to `localhost:8050` in browser to view.
 Stop the dashboard:
 
 ```docker compose -f docker/docker-compose.yml down```
-<<<<<<< HEAD
-=======
 
 ### Model and app files
 
@@ -30,4 +36,3 @@ Distributed under the BSD 3-Clause license. See `LICENSE` for more information.
 ## Contact
 
 [utpandemics@austin.utexas.edu](utpandemics@austin.utexas.edu)
->>>>>>> origin/license
