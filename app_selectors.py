@@ -15,12 +15,6 @@ from app_styles import BASE_FONT_STYLE, \
 
 states_list = ("North Carolina", "Pennsylvania", "Texas")
 
-# Ew I don't like this... but time-sensitive deadline means we
-#   gotta change this later...
-# This is for Texas
-county_options_default_list = list(pd.read_csv("Texas_Counties.csv").columns)
-school_options_default_list = list(pd.read_csv("Texas_Travis_Schools.csv").columns)
-
 SELECTOR_DEFAULTS =\
     {"county_selector_default": "",
      "state_selector_default": "",
