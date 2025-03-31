@@ -3,7 +3,8 @@
 ## About The Project
 
 This repo contains the code used to run the measles simulator hosted at [https://epiengage-measles.tacc.utexas.edu/](https://epiengage-measles.tacc.utexas.edu/).
-The simulator was developed by members of epiENGAGE and TACC(https://tacc.utexas.edu/).
+
+The simulator was developed by members of epiENGAGE and [TACC](https://tacc.utexas.edu/).
 
 ## Getting started
 
@@ -21,7 +22,7 @@ Stop the dashboard:
 
 ### Model and app files
 
-The epidemiological model is implemented in the file `measles_single_population.py`, with model details provided in this pdf(https://epiengage-measles.tacc.utexas.edu/assets/epiENGAGE_Measles_Outbreak_Simulator%E2%80%93Model%20Details-2025.pdf), and at the bottom of the dashboard(https://epiengage-measles.tacc.utexas.edu/).
+The epidemiological model is implemented in the file `measles_single_population.py`, with model details provided in [this pdf](https://epiengage-measles.tacc.utexas.edu/assets/epiENGAGE_Measles_Outbreak_Simulator%E2%80%93Model%20Details-2025.pdf), and at the bottom of the [dashboard](https://epiengage-measles.tacc.utexas.edu/).
 
 The rest of the Python files contain the dash app code, with `app.py` being the main file.
 
