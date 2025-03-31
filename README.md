@@ -31,7 +31,7 @@ The various csv files `XY_MMR_vax_rate.csv` contain MMR vaccination rates at the
 
 ## License
 
-Distributed under the BSD 3-Clause license. See `LICENSE` for more information.
+Distributed under the BSD 3-Clause license. See `LICENSE` for more information. 
 
 ## Contact
 
