@@ -33,6 +33,8 @@ SELECTOR_DEFAULTS =\
      "latent_period": 10.5,
      "infectious_period": 5.0,
      "outbreak_threshold": 10,
+     "vaccine_efficacy_selector": 0.997,
+     "vaccinated_infectiousness_selector": 0.05,
      }
 
 school_size_selector = dcc.Input(
@@ -159,5 +161,35 @@ threshold_selector = dcc.Slider(
            10: {'label': '10', 'style': {**BASE_FONT_STYLE, 'fontWeight': 'bold'}},
            25: {'label': '25', 'style': {**BASE_FONT_STYLE}}
            },
+    tooltip={**SELECTOR_TOOLTIP_STYLE},
+)
+
+vaccine_efficacy_selector = dcc.Slider(
+    id='vaccine_efficacy_selector',
+    min=0.98,
+    max=1.0,
+    step=0.001,
+    value=SELECTOR_DEFAULTS["vaccine_efficacy_selector"],
+    included=False,
+    marks={
+        0.98: {'label': '0.98', 'style': {**BASE_FONT_STYLE}},
+        0.997: {'label': '0.997', 'style': {**BASE_FONT_STYLE, 'fontWeight': 'bold'}},
+        1: {'label': '1.0', 'style': {**BASE_FONT_STYLE}},
+        },
+    tooltip={**SELECTOR_TOOLTIP_STYLE},
+)
+
+vaccinated_infectiousness_selector = dcc.Slider(
+    id='vaccinated_infectiousness_selector',
+    min=0.0,
+    max=0.5,
+    step=0.01,
+    value=SELECTOR_DEFAULTS["vaccinated_infectiousness_selector"],
+    included=False,
+    marks={
+        0: {'label': '0.0', 'style': {**BASE_FONT_STYLE}},
+        0.05: {'label': '0.05', 'style': {**BASE_FONT_STYLE, 'fontWeight': 'bold'}},
+        0.5: {'label': '0.5', 'style': {**BASE_FONT_STYLE}},
+        },
     tooltip={**SELECTOR_TOOLTIP_STYLE},
 )

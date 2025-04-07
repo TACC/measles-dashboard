@@ -62,6 +62,10 @@ infectious_period_label = html.H4('Average Infectious Period (days)', style={**S
 
 threshold_selector_label = html.H4('Minimum Outbreak Size (new infections)', style={**SELECTOR_LABEL_STYLE})
 
+vaccine_efficacy_selector_label = html.H4('Vaccine Efficacy', style={**SELECTOR_LABEL_STYLE})
+
+vaccinated_infectiousness_selector_label = html.H4('Relative Infectiousness Vaccinated', style={**SELECTOR_LABEL_STYLE})
+
 
 def school_outbreak_projections_header():
 

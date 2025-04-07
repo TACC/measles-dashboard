@@ -74,7 +74,9 @@ def get_county_subset_df(state_str, county_str) -> pd.DataFrame:
      Input('R0_selector', 'value'),
      Input('latent_period_selector', 'value'),
      Input('infectious_period_selector', 'value'),
-     Input('threshold_selector', 'value')]
+     Input('threshold_selector', 'value'),
+     Input('vaccine_efficacy_selector', 'value'),
+     Input('vaccinated_infectiousness_selector', 'value')]
 )
 def create_params_from_selectors(params_dict,
                                  school_size,
@@ -83,7 +85,9 @@ def create_params_from_selectors(params_dict,
                                  R0,
                                  latent_period,
                                  infectious_period,
-                                 outbreak_threshold):
+                                 outbreak_threshold,
+                                 vaccine_efficacy,
+                                 vaccinated_infectiousness):
     school_size = school_size if school_size is not None else SELECTOR_DEFAULTS['school_size']
     vax_rate_percent = vax_rate_percent if vax_rate_percent is not None else SELECTOR_DEFAULTS['vax_rate']
     I0 = I0 if I0 is not None else SELECTOR_DEFAULTS['I0']
@@ -93,6 +97,10 @@ def create_params_from_selectors(params_dict,
         'infectious_period']
     outbreak_threshold = outbreak_threshold if outbreak_threshold is not None else SELECTOR_DEFAULTS[
         'outbreak_threshold']
+    vaccine_efficacy = vaccine_efficacy if vaccine_efficacy is not None else SELECTOR_DEFAULTS[
+        'vaccine_efficacy_selector']
+    vaccinated_infectiousness = vaccinated_infectiousness if vaccinated_infectiousness is not None else SELECTOR_DEFAULTS[
+        'vaccinated_infectiousness_selector']
 
     params_dict['population'] = [int(school_size)]
     params_dict['vax_prop'] = [0.01 * float(vax_rate_percent)]
@@ -101,6 +109,8 @@ def create_params_from_selectors(params_dict,
     params_dict['incubation_period'] = float(latent_period)
     params_dict['infectious_period'] = float(infectious_period)
     params_dict['threshold_values'] = [int(outbreak_threshold)]
+    params_dict['vaccine_efficacy'] = float(vaccine_efficacy)
+    params_dict['relative_infectiousness_vaccinated'] = float(vaccinated_infectiousness)
 
     # Bug I got stuck on for awhile -- dcc.State can certainly handle dictionaries
     # HOWEVER -- callbacks always expect the return type to be a list or tuple
@@ -146,6 +156,7 @@ def check_inputs_validity(params_dict: dict) -> str:
     [Output('spaghetti_plot', 'figure'),
      Output('prob_threshold_plus_new_str', 'children'),
      Output('cases_expected_over_threshold_str', 'children'),
+     Output('cases_expected_over_threshold_vaccinated_str', 'children'),
      Output('outbreak_title', 'children'),
      Output('cases_condition', 'children')],
     [Input('dashboard_params', 'data'),
@@ -160,16 +171,39 @@ def update_graph(params_dict: dict,
 
         measles_results = msp.DashboardExperiment(params_dict, n_sim)
 
-        measles_results.ma7_num_infected_school_1.create_df_simple_spaghetti()
-        ix_median = measles_results.total_new_cases_school_1.get_index_sim_median()
+        measles_results.ma7_num_infected.create_df_simple_spaghetti()
+        ix_median = measles_results.total_new_cases.get_index_sim_median()
 
         prob_threshold_plus_new_str, cases_expected_over_threshold_str = \
-            measles_results.total_new_cases_school_1.get_dashboard_results_strs(params_dict["I0"][0],
-                                                                                params_dict["threshold_values"][0],
-                                                                                2.5,
-                                                                                97.5)
+            measles_results.total_new_cases.get_dashboard_results_strs(params_dict["I0"][0],
+                                                                       params_dict["threshold_values"][0],
+                                                                       2.5,
+                                                                       97.5)
+        
+        if 'Fewer than ' in cases_expected_over_threshold_str:
+            cases_expected_over_threshold_unvaccinated_str = cases_expected_over_threshold_str
+            cases_expected_over_threshold_breakthrough_str = ""
+        else:
+            sim_idx_above_threshold = measles_results.total_new_cases.get_idx_simulations_on_exceedance(params_dict["threshold_values"][0])
+            
+            cases_expected_over_threshold_unvaccinated_str = \
+                measles_results.total_new_unvaccinated_cases.get_dashboard_quantiles_specific_idx(params_dict["I0"][0],
+                                                                                                  sim_idx_above_threshold,
+                                                                                                  2.5,
+                                                                                                  97.5)
+            cases_expected_over_threshold_breakthrough_str = \
+                measles_results.total_new_breakthrough_cases.get_dashboard_quantiles_specific_idx(0,
+                                                                                                  sim_idx_above_threshold,
+                                                                                                  2.5,
+                                                                                                  97.5)
+            cases_expected_over_threshold_unvaccinated_str = \
+                'Unvaccinated cases: ' + cases_expected_over_threshold_unvaccinated_str.replace('cases', '')
+            cases_expected_over_threshold_breakthrough_str = \
+                'Vaccinated cases: ' + cases_expected_over_threshold_breakthrough_str.replace('cases', '')
+            # cases_expected_over_threshold_unvaccinated_str += ' (unvaccinated)'
+            # cases_expected_over_threshold_breakthrough_str += ' (vaccinated)'
 
-        fig = get_dashboard_results_fig(df_spaghetti=measles_results.ma7_num_infected_school_1.df_simple_spaghetti,
+        fig = get_dashboard_results_fig(df_spaghetti=measles_results.ma7_num_infected.df_simple_spaghetti,
                                         index_sim_closest_median=ix_median,
                                         nb_curves_displayed=20,
                                         curve_selection_seed=DASHBOARD_CONFIG[
@@ -183,7 +217,8 @@ def update_graph(params_dict: dict,
         outbreak_title_str = 'Chance of exceeding {} new infections'.format(threshold_value)
         cases_condition_str = '*if exceeds {} new infections*'.format(threshold_value)
 
-        return fig, prob_threshold_plus_new_str, cases_expected_over_threshold_str, \
+        return fig, prob_threshold_plus_new_str, cases_expected_over_threshold_unvaccinated_str, \
+               cases_expected_over_threshold_breakthrough_str, \
                outbreak_title_str, cases_condition_str
 
     else:
