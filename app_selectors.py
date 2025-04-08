@@ -166,13 +166,13 @@ threshold_selector = dcc.Slider(
 
 vaccine_efficacy_selector = dcc.Slider(
     id='vaccine_efficacy_selector',
-    min=0.98,
+    min=0.99,
     max=1.0,
     step=0.001,
     value=SELECTOR_DEFAULTS["vaccine_efficacy_selector"],
     included=False,
     marks={
-        0.98: {'label': '0.98', 'style': {**BASE_FONT_STYLE}},
+        0.99: {'label': '0.99', 'style': {**BASE_FONT_STYLE}},
         0.997: {'label': '0.997', 'style': {**BASE_FONT_STYLE, 'fontWeight': 'bold'}},
         1: {'label': '1.0', 'style': {**BASE_FONT_STYLE}},
         },
@@ -182,14 +182,14 @@ vaccine_efficacy_selector = dcc.Slider(
 vaccinated_infectiousness_selector = dcc.Slider(
     id='vaccinated_infectiousness_selector',
     min=0.0,
-    max=0.5,
+    max=0.25,
     step=0.01,
     value=SELECTOR_DEFAULTS["vaccinated_infectiousness_selector"],
     included=False,
     marks={
         0: {'label': '0.0', 'style': {**BASE_FONT_STYLE}},
         0.05: {'label': '0.05', 'style': {**BASE_FONT_STYLE, 'fontWeight': 'bold'}},
-        0.5: {'label': '0.5', 'style': {**BASE_FONT_STYLE}},
+        0.25: {'label': '0.25', 'style': {**BASE_FONT_STYLE}},
         },
     tooltip={**SELECTOR_TOOLTIP_STYLE},
 )

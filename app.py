@@ -197,9 +197,9 @@ def update_graph(params_dict: dict,
                                                                                                   2.5,
                                                                                                   97.5)
             cases_expected_over_threshold_unvaccinated_str = \
-                'Unvaccinated cases: ' + cases_expected_over_threshold_unvaccinated_str.replace('cases', '')
+                'Unvaccinated cases: ' + cases_expected_over_threshold_unvaccinated_str.replace('total cases', '')
             cases_expected_over_threshold_breakthrough_str = \
-                'Vaccinated cases: ' + cases_expected_over_threshold_breakthrough_str.replace('cases', '')
+                'Vaccinated cases: ' + cases_expected_over_threshold_breakthrough_str.replace('total cases', '')
             # cases_expected_over_threshold_unvaccinated_str += ' (unvaccinated)'
             # cases_expected_over_threshold_breakthrough_str += ' (vaccinated)'
 
@@ -226,7 +226,7 @@ def update_graph(params_dict: dict,
         # Note -- returning None instead of empty dict is a big mistake --
         #   doesn't work and also messes up the graphs for correct inputs!
         #   Be very careful with the syntax here.
-        return EMPTY_SPAGHETTI_PLOT_INFECTED_MA, "", "", "", ""
+        return EMPTY_SPAGHETTI_PLOT_INFECTED_MA, "", "", "", "", ""
 
 
 @callback(
