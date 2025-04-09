@@ -21,6 +21,21 @@ TODO: we need a script to assess validity and format of new states' datasets!
 - Note: 03/13/2025 changed TX and NC CSV columns to be more consistent -- and got rid of underscores. Using `vax_rate_csv_checker.py`, will enforce this for new vaccination data.
 - Note: 03/13/2025 changed TX and NC CSV "MMR Vaccination Rate" column to be expressed as float -- percentage instead of decimals, with 2 decimal points only, will enforce this for new vaccination data.
 
+### Vaccinated compartment - 04/04/2025 RP
+- Added a vaccinated compartment
+  - Updated the epidemiological model so vaccinated individuals can now be infected and in turn infect others
+  - This mostly required changes to the file `measles_single_population.py` at the beginning, and we now have a few more epi parameters, the two main ones being the relative susceptibility of vaccinated individuals and their relative infectiousness
+  - The main change on the high level results is that we now show the range of infections in both unvaccinated and vaccinated individuals
+  - The various app files have been updated so we can also choose vaccine efficacy and vaccinated individuals' relative infectiousness
+  - Setting `vaccine_efficacy` equal to 1.0 should be equivalent to running the model without vaccines
+
+
+## Vax rate checked - 04/04/2025 RP
+- Small modifications to the vaccinated rate input file checker `vax_rate_csv_checker.py`
+  - Added a main section so the file can be run by putting the new file name
+  - Function check_no_duplicates() now prints rows causing issues
+
+
 ### Spring cleaning, bug fixing, Pennsylvania, minor adjustments -- 03/21/2025 LP
 - Dramatic refactoring for `measles_single_population.py`:
   - The class for handling stochastic simulations was getting very cluttered and entangled -- created `AcrossRepStat` class to help with this.

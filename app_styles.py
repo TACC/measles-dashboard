@@ -16,7 +16,7 @@ BASE_FONT_FAMILY_STR = '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-se
 
 BASE_FONT_STYLE = {
     "fontFamily": "Sans-serif",
-    "font-size": "16pt",
+    "font-size": "15pt",
 }
 
 SELECTOR_DISPLAY_STYLE = {
