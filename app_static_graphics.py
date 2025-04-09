@@ -174,7 +174,7 @@ def bottom_info_section():
                    style={"color": "#1b96bf", "textDecoration": "none"}),
             html.Ul("", style={"margin-bottom": "1em"}),
             html.A("For questions, please contact ", style={"fontSize": "18px", "font-style": "italic"}),
-            html.A("utpandemics@austin.utexas.edu", href="mailto:utpandemics@austin.utexas.edu", target="_blank",
+            html.A("epiengage@austin.utexas.edu", href="mailto:epiengage@austin.utexas.edu", target="_blank",
                    style={"color": "#1b96bf", "textDecoration": "none", "font-style": "italic"}),
             html.A("."),
             html.Ul("", style={"margin-bottom": "1em"}),
