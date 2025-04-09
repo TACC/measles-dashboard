@@ -48,19 +48,23 @@ footer = dbc.Container(
 # Labels
 ########
 
-vaccination_rate_label = html.H4('Vaccination Rate (%)', style={**SELECTOR_LABEL_STYLE})
+vaccination_rate_label = html.H4('Vaccination rate (%)', style={**SELECTOR_LABEL_STYLE})
 
-school_size_label = html.H4('School Enrollment', style={**SELECTOR_LABEL_STYLE})
+school_size_label = html.H4('School enrollment', style={**SELECTOR_LABEL_STYLE})
 
-I0_label = html.H4('Students Initially Infected', style={**SELECTOR_LABEL_STYLE})
+I0_label = html.H4('Students initially infected', style={**SELECTOR_LABEL_STYLE})
 
-R0_label = html.H4(['Basic Reproduction Number (R0)'], style={**SELECTOR_LABEL_STYLE})
+R0_label = html.H4(['Basic reproduction number (R0)'], style={**SELECTOR_LABEL_STYLE})
 
-latent_period_label = html.H4('Average Latent Period (days)', style={**SELECTOR_LABEL_STYLE})
+latent_period_label = html.H4('Average latent period (days)', style={**SELECTOR_LABEL_STYLE})
 
-infectious_period_label = html.H4('Average Infectious Period (days)', style={**SELECTOR_LABEL_STYLE})
+infectious_period_label = html.H4('Average infectious period (days)', style={**SELECTOR_LABEL_STYLE})
 
-threshold_selector_label = html.H4('Minimum Outbreak Size (new infections)', style={**SELECTOR_LABEL_STYLE})
+threshold_selector_label = html.H4('Minimum outbreak size (new infections)', style={**SELECTOR_LABEL_STYLE})
+
+vaccine_efficacy_selector_label = html.H4('Vaccine efficacy - susceptibility (%)', style={**SELECTOR_LABEL_STYLE})
+
+vaccinated_infectiousness_selector_label = html.H4('Vaccine efficacy - infectiousness (%)', style={**SELECTOR_LABEL_STYLE})
 
 
 def school_outbreak_projections_header():
@@ -75,8 +79,7 @@ def school_outbreak_projections_header():
     # Define the list of texts
     texts = [
         "School Outbreak Projections",
-        "Projections assume no interventions and no breakthrough infections "
-        "among vaccinated students, and they do not account for infections "
+        "Projections assume no interventions and do not account for infections "
         "among non-students in the surrounding community.",
         "Active measles control measures could lead to substantially smaller "
         "and shorter outbreaks than these projections suggest."
@@ -99,7 +102,7 @@ def bottom_info_section():
             html.Ul("", style={"margin-bottom": "1em"}),
             html.A("MODEL: ", style={"fontWeight": "bold", "fontSize": "18px"}),
             html.A(
-                "This dashboard uses a simple stochastic compartmental susceptible-exposed-infectious-removed (SEIR) model. The model includes only enrolled students, assumes vaccinated individuals cannot become infected, and does not consider intervention measures. Public health interventions–such as exclusion from school, active case finding, quarantine, isolation, and vaccination–would likely result in shorter and smaller outbreaks compared to these projections. "),
+                "This dashboard uses a simple stochastic compartmental susceptible-exposed-infectious-removed-vaccinated (SEIRV) model. It assumes that vaccination reduces both susceptibility to infection and infectiousness when infected. The model includes only enrolled students and does not consider intervention measures. Public health interventions–such as exclusion from school, active case finding, quarantine, isolation, and vaccination campaigns–would likely result in shorter and smaller outbreaks compared to these projections. "),
             html.Ul("", style={"margin-bottom": "0.5em"}),
             html.A("The default parameters are based on estimates that are widely used by public health agencies: "),
             html.A(["(1) a basic reproduction number (",
@@ -110,11 +113,17 @@ def bottom_info_section():
             html.A("CDC’s Measles Clinical Diagnosis Fact Sheet",
                    href="https://www.cdc.gov/measles/hcp/communication-resources/clinical-diagnosis-fact-sheet.html",
                    target="_blank", style={"color": "#1b96bf", "textDecoration": "none"}),
-            html.A("], and (3) an average infectious period of 5 days, derived from a total infectious period of approximately 8 days ["),
+            html.A("], (3) an average infectious period of 5 days, derived from a total infectious period of approximately 8 days ["),
             html.A("CDC’s Measles Clinical Diagnosis Fact Sheet",
                    href="https://www.cdc.gov/measles/hcp/communication-resources/clinical-diagnosis-fact-sheet.html",
                    target="_blank", style={"color": "#1b96bf", "textDecoration": "none"}),
-            html.A("],  assuming students remain home after symptom onset. Parameter ranges are based on ["),
+            html.A("],  assuming students remain home after symptom onset, (4) a vaccine efficacy of 99.7% in preventing infection ["),
+            html.A("van Boven et al. 2010", href="https://royalsocietypublishing.org/doi/abs/10.1098/rsif.2010.0086",
+                   target="_blank", style={"color": "#1b96bf", "textDecoration": "none"}),
+            html.A("], and (5) a 95% reduction in infectiousness among vaccinated individuals ["),
+            html.A("Tranter et al. 2024", href="https://wwwnc.cdc.gov/eid/article/30/9/24-0150_article",
+                    target="_blank", style={"color": "#1b96bf", "textDecoration": "none"}),
+            html.A("]. Parameter ranges are based on ["),
             html.A("ECDC’s Factsheet about measles", href="https://www.ecdc.europa.eu/en/measles/facts",
                    target="_blank", style={"color": "#1b96bf", "textDecoration": "none"}),
             html.A("] and ["),
@@ -134,7 +143,7 @@ def bottom_info_section():
                 html.Li([html.I("Chance of Exceeding 10 Infections"), html.A([
                     " – The proportion of simulations (out of 200) in which at least 10 additional students become infected (excluding the initial cases). The threshold of 10 infections was chosen to distinguish introductions that lead to sustained transmission from those that quickly fade out."])]),
                 html.Li([html.I("Likely Outbreak Size"),
-                         " – Among simulations that surpass the 10-infection threshold, the total number of infected students is calculated (including the initially infected students). The reported range corresponds to the middle 95% of these values (i.e., the 2.5th to 97.5th percentile).",
+                         " – Among simulations that surpass the 10-infection threshold, the total number of infected students is calculated for both vaccinated and unvaccinated (including the initially infected unvaccinated students). The reported ranges correspond to the middle 95% of these values (i.e., the 2.5th to 97.5th percentile).",
                          html.Br(style={"margin": "0", "padding": "0"})]),
             ], style={"margin-bottom": "1em"}),
             html.A("PROJECTIONS: ", style={"fontWeight": "bold", "fontSize": "18px"}),
@@ -165,7 +174,7 @@ def bottom_info_section():
                    style={"color": "#1b96bf", "textDecoration": "none"}),
             html.Ul("", style={"margin-bottom": "1em"}),
             html.A("For questions, please contact ", style={"fontSize": "18px", "font-style": "italic"}),
-            html.A("utpandemics@austin.utexas.edu", href="mailto:utpandemics@austin.utexas.edu", target="_blank",
+            html.A("epiengage@austin.utexas.edu", href="mailto:epiengage@austin.utexas.edu", target="_blank",
                    style={"color": "#1b96bf", "textDecoration": "none", "font-style": "italic"}),
             html.A("."),
             html.Ul("", style={"margin-bottom": "1em"}),
