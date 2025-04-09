@@ -109,8 +109,8 @@ def create_params_from_selectors(params_dict,
     params_dict['incubation_period'] = float(latent_period)
     params_dict['infectious_period'] = float(infectious_period)
     params_dict['threshold_values'] = [int(outbreak_threshold)]
-    params_dict['vaccine_efficacy'] = float(vaccine_efficacy)
-    params_dict['relative_infectiousness_vaccinated'] = float(vaccinated_infectiousness)
+    params_dict['vaccine_efficacy'] = float(0.01*vaccine_efficacy)
+    params_dict['relative_infectiousness_vaccinated'] = float(1 - 0.01*vaccinated_infectiousness)
 
     # Bug I got stuck on for awhile -- dcc.State can certainly handle dictionaries
     # HOWEVER -- callbacks always expect the return type to be a list or tuple

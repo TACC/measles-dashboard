@@ -62,9 +62,9 @@ infectious_period_label = html.H4('Average infectious period (days)', style={**S
 
 threshold_selector_label = html.H4('Minimum outbreak size (new infections)', style={**SELECTOR_LABEL_STYLE})
 
-vaccine_efficacy_selector_label = html.H4('Vaccine efficacy', style={**SELECTOR_LABEL_STYLE})
+vaccine_efficacy_selector_label = html.H4('Vaccine efficacy - susceptibility (%)', style={**SELECTOR_LABEL_STYLE})
 
-vaccinated_infectiousness_selector_label = html.H4('Relative infectiousness (vaccinated cases)', style={**SELECTOR_LABEL_STYLE})
+vaccinated_infectiousness_selector_label = html.H4('Vaccine efficacy - infectiousness (%)', style={**SELECTOR_LABEL_STYLE})
 
 
 def school_outbreak_projections_header():
@@ -102,7 +102,7 @@ def bottom_info_section():
             html.Ul("", style={"margin-bottom": "1em"}),
             html.A("MODEL: ", style={"fontWeight": "bold", "fontSize": "18px"}),
             html.A(
-                "This dashboard uses a simple stochastic compartmental susceptible-exposed-infectious-removed (SEIR) model. Vaccinated and unvaccinated individuals are split in two different groups, with vaccinated individuals less likely to get infected and less infectious when infected. The model includes only enrolled students and does not consider intervention measures. Public health interventions–such as exclusion from school, active case finding, quarantine, isolation, and vaccination campaigns–would likely result in shorter and smaller outbreaks compared to these projections. "),
+                "This dashboard uses a simple stochastic compartmental susceptible-exposed-infectious-removed-vaccinated (SEIRV) model. It assumes that vaccination reduces both susceptibility to infection and infectiousness when infected. The model includes only enrolled students and does not consider intervention measures. Public health interventions–such as exclusion from school, active case finding, quarantine, isolation, and vaccination campaigns–would likely result in shorter and smaller outbreaks compared to these projections. "),
             html.Ul("", style={"margin-bottom": "0.5em"}),
             html.A("The default parameters are based on estimates that are widely used by public health agencies: "),
             html.A(["(1) a basic reproduction number (",
@@ -117,10 +117,10 @@ def bottom_info_section():
             html.A("CDC’s Measles Clinical Diagnosis Fact Sheet",
                    href="https://www.cdc.gov/measles/hcp/communication-resources/clinical-diagnosis-fact-sheet.html",
                    target="_blank", style={"color": "#1b96bf", "textDecoration": "none"}),
-            html.A("],  assuming students remain home after symptom onset, (4) a vaccine efficacy of 99.7% ["),
+            html.A("],  assuming students remain home after symptom onset, (4) a vaccine efficacy of 99.7% in preventing infection ["),
             html.A("van Boven et al. 2010", href="https://royalsocietypublishing.org/doi/abs/10.1098/rsif.2010.0086",
                    target="_blank", style={"color": "#1b96bf", "textDecoration": "none"}),
-            html.A("], and (5) an assumed relative infectiousness of vaccinated cases of 0.05 ["),
+            html.A("], and (5) a 95% reduction in infectiousness among vaccinated individuals ["),
             html.A("Tranter et al. 2024", href="https://wwwnc.cdc.gov/eid/article/30/9/24-0150_article",
                     target="_blank", style={"color": "#1b96bf", "textDecoration": "none"}),
             html.A("]. Parameter ranges are based on ["),
