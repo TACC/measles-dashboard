@@ -41,6 +41,10 @@ class MeaslesParameters(TypedDict):
     R0: float
     incubation_period: float
     infectious_period: float
+    incubation_period_vaccinated: float
+    infectious_period_vaccinated: float
+    relative_infectiousness_vaccinated: float
+    vaccine_efficacy: float
     school_contacts: float
     other_contacts: float
     population: list[int]
@@ -63,7 +67,11 @@ DEFAULT_MSP_PARAMS: MeaslesParameters = \
     {
         'R0': 15.0,  # transmission rate
         'incubation_period': 10.5,
-        'infectious_period': 5,
+        'infectious_period': 5,    
+        'incubation_period_vaccinated': 10.5,
+        'infectious_period_vaccinated': 5,
+        'relative_infectiousness_vaccinated': 0.05, # 0 means no infection from vaccinated
+        'vaccine_efficacy': 0.997, # 1.0 means perfect protection
         'school_contacts': 5.63424,
         'other_contacts': 2.2823,
         'population': [500],
@@ -199,6 +207,12 @@ class MetapopSEIR:
         self.beta = beta  # transmission rate
         self.sigma = 1.0 / params["incubation_period"]  # rate of progression from E to I
         self.gamma = 1.0 / params["infectious_period"]  # recovery rate
+        self.sigma_vax = 1.0 / params["incubation_period_vaccinated"]  # rate of progression from E to I for vaccinated
+        self.gamma_vax = 1.0 / params["infectious_period_vaccinated"]  # recovery rate for vaccinated
+
+        self.beta_vax = params['relative_infectiousness_vaccinated'] * params['R0'] / \
+            (params["infectious_period_vaccinated"] * self.total_contacts)
+        self.vaccine_efficacy = params['vaccine_efficacy']
 
         # Time array
         self.t = np.linspace(0, params['sim_duration_days'], self.n_steps)
@@ -211,24 +225,34 @@ class MetapopSEIR:
         self.I = np.zeros((self.n_steps, self.n_pop))
         self.R = np.zeros((self.n_steps, self.n_pop))
 
-        # Add storage of transition variables
-        # Used to compute incidence
-        # Looks like we are currently not using P so skipping that
-        self.S_to_E = np.zeros((self.n_steps, self.n_pop))
-        # self.E_to_I = np.zeros((self.n_steps, self.n_pop))
-        # self.I_to_R = np.zeros((self.n_steps, self.n_pop))
+        self.S_V = np.zeros((self.n_steps, self.n_pop)) # vaccinated
+        self.E_V = np.zeros((self.n_steps, self.n_pop)) # vaccinated breakthrough infections
+        self.I_V = np.zeros((self.n_steps, self.n_pop)) # vaccinated breakthrough infections
+        self.R_V = np.zeros((self.n_steps, self.n_pop)) # vaccinated breakthrough infections
 
-        # Set initial conditions
-        # 03052025 1:1 with Lauren -- Lauren does not want
-        #   us to change the user input in the backend -- she wants
-        #   to have guard rails on the user inputs
+        # Add storage of transition variables
+
+        self.S_to_E = np.zeros((self.n_steps, self.n_pop))
+        self.E_to_I = np.zeros((self.n_steps, self.n_pop))
+        self.I_to_R = np.zeros((self.n_steps, self.n_pop))
+
+        self.S_V_to_E_V = np.zeros((self.n_steps, self.n_pop))
+        self.E_V_to_I_V = np.zeros((self.n_steps, self.n_pop))
+        self.I_V_to_R_V = np.zeros((self.n_steps, self.n_pop))
 
         params = self.params
         N = self.N
 
         self.I[0] = np.array(params['I0'])
-        self.R[0] = np.minimum((N * np.array(params['vax_prop'])).astype(int), N - self.I[0])
-        self.S[0] = N - self.I[0] - self.R[0]
+        self.S_V[0] = [
+            int(self.N[i_pop] * params['vax_prop'][i_pop])
+            for i_pop in range(self.n_pop)
+        ]
+        self.S_V[0] = [
+            min(self.S_V[0, i_pop], self.N[i_pop] - self.I[0, i_pop])
+            for i_pop in range(self.n_pop)
+        ]
+        self.S[0] = self.N - self.I[0] - self.S_V[0]
 
         # Current step tracker
         self.current_step = 0
@@ -255,19 +279,18 @@ class MetapopSEIR:
 
         """
 
-        if compartment_count == 0:
-            return 0
-        else:
-            total_rate = rate * compartment_count
+        total_rate = rate * compartment_count
 
+        if total_rate > 0:
             if self.is_stochastic:
                 delta = self.RNG.poisson(total_rate)
             else:
                 delta = total_rate
-
             delta = min(delta, compartment_count)
+        else:
+            delta = 0
 
-            return delta
+        return delta
 
     def calculate_compartment_updates(self,
                                       ix_pop: int) -> dict:
@@ -289,22 +312,35 @@ class MetapopSEIR:
         t = self.current_step
         dt = self.dt
 
-        force_of_infection = self.beta * self.total_contacts * dt * \
-                             self.I[t, ix_pop] / self.N[ix_pop]
+        force_of_infection = self.total_contacts * dt * \
+            (self.beta * self.I[t, ix_pop] + self.beta_vax * self.I_V[t, ix_pop]) / self.N[ix_pop]
+        force_of_infection_vaccinated =  \
+            force_of_infection * (1 - self.vaccine_efficacy)
 
         dS_out = self.get_compartment_transition(force_of_infection, self.S[t, ix_pop])
         dE_out = self.get_compartment_transition(self.sigma * dt, self.E[t, ix_pop])
         dI_out = self.get_compartment_transition(self.gamma * dt, self.I[t, ix_pop])
+        dS_V_out = self.get_compartment_transition(force_of_infection_vaccinated, self.S_V[t, ix_pop])
+        dE_V_out = self.get_compartment_transition(self.sigma_vax * dt, self.E_V[t, ix_pop])
+        dI_V_out = self.get_compartment_transition(self.gamma_vax * dt, self.I_V[t, ix_pop])
 
         dS = -dS_out
         dE = dS_out - dE_out
         dI = dE_out - dI_out
         dR = dI_out
+        dS_V = -dS_V_out
+        dE_V = dS_V_out - dE_V_out
+        dI_V = dE_V_out - dI_V_out
+        dR_V = dI_V_out
 
-        # updates_dict = {"dS": dS, "dE": dE, "dI": dI, "dR": dR,
-        #                "dS_out": dS_out, "dE_out": dE_out, "dI_out": dI_out}
+        updates_dict = {
+            "dS": dS, "dE": dE, "dI": dI, "dR": dR,
+            "dS_V": dS_V, "dE_V": dE_V, "dI_V": dI_V, "dR_V": dR_V,
+            "dS_out": dS_out, "dE_out": dE_out, "dI_out": dI_out,
+            "dS_V_out": dS_V_out, "dE_V_out": dE_V_out, "dI_V_out": dI_V_out,
+            }
 
-        return dS, dE, dI, dR, dS_out
+        return updates_dict
 
     def step(self):
         """Calculate one time step using Euler's method"""
@@ -314,25 +350,33 @@ class MetapopSEIR:
         # Loop through populations
         for ix_pop in range(self.n_pop):
 
-            dS, dE, dI, dR, dS_out = self.calculate_compartment_updates(ix_pop)
+            updates = self.calculate_compartment_updates(ix_pop)
             current_step = self.current_step
 
             # Creates view of same array in memory, NOT a copy
-            S, E, I, R = self.S, self.E, self.I, self.R
-            S_to_E = self.S_to_E
+            S, E, I, R, S_V, E_V, I_V, R_V = self.S, self.E, self.I, self.R, \
+                self.S_V, self.E_V, self.I_V, self.R_V
 
-            # S_to_E, E_to_I, I_to_R = self.S_to_E, self.E_to_I, self.I_to_R
+            S_to_E, E_to_I, I_to_R, V_to_E_V, E_V_to_I_V, I_V_to_R_V = \
+                self.S_to_E, self.E_to_I, self.I_to_R, self.S_V_to_E_V, self.E_V_to_I_V, self.I_V_to_R_V
 
             # Update compartments using Euler's method
-            S[current_step + 1, ix_pop] = S[current_step, ix_pop] + dS
-            E[current_step + 1, ix_pop] = E[current_step, ix_pop] + dE
-            I[current_step + 1, ix_pop] = I[current_step, ix_pop] + dI
-            R[current_step + 1, ix_pop] = R[current_step, ix_pop] + dR
+            S[current_step + 1, ix_pop] = S[current_step, ix_pop] + updates["dS"]
+            E[current_step + 1, ix_pop] = E[current_step, ix_pop] + updates["dE"]
+            I[current_step + 1, ix_pop] = I[current_step, ix_pop] + updates["dI"]
+            R[current_step + 1, ix_pop] = R[current_step, ix_pop] + updates["dR"]
+            S_V[current_step + 1, ix_pop] = S_V[self.current_step, ix_pop] + updates["dS_V"]
+            E_V[current_step + 1, ix_pop] = E_V[current_step, ix_pop] + updates["dE_V"]
+            I_V[current_step + 1, ix_pop] = I_V[current_step, ix_pop] + updates["dI_V"]
+            R_V[current_step + 1, ix_pop] = R_V[current_step, ix_pop] + updates["dR_V"]
 
             # Also update transition variables history
-            S_to_E[current_step + 1, ix_pop] = dS_out
-            # E_to_I[current_step + 1, ix_pop] = updates["dE_out"]
-            # I_to_R[current_step + 1, ix_pop] = updates["dI_out"]
+            S_to_E[current_step + 1, ix_pop] = updates["dS_out"]
+            E_to_I[current_step + 1, ix_pop] = updates["dE_out"]
+            I_to_R[current_step + 1, ix_pop] = updates["dI_out"]
+            V_to_E_V[current_step + 1, ix_pop] = updates["dS_V_out"]
+            E_V_to_I_V[current_step + 1, ix_pop] = updates["dE_V_out"]
+            I_V_to_R_V[current_step + 1, ix_pop] = updates["dI_V_out"]
 
         self.current_step += 1
         return True
@@ -348,17 +392,31 @@ class MetapopSEIR:
         self.E = np.zeros((self.n_steps, self.n_pop))
         self.I = np.zeros((self.n_steps, self.n_pop))
         self.R = np.zeros((self.n_steps, self.n_pop))
+        self.S_V = np.zeros((self.n_steps, self.n_pop))
+        self.E_V = np.zeros((self.n_steps, self.n_pop))
+        self.I_V = np.zeros((self.n_steps, self.n_pop))
+        self.R_V = np.zeros((self.n_steps, self.n_pop))
 
         self.S_to_E = np.zeros((self.n_steps, self.n_pop))
         self.E_to_I = np.zeros((self.n_steps, self.n_pop))
         self.I_to_R = np.zeros((self.n_steps, self.n_pop))
+        self.S_V_to_E_V = np.zeros((self.n_steps, self.n_pop))
+        self.E_V_to_I_V = np.zeros((self.n_steps, self.n_pop))
+        self.I_V_to_R_V = np.zeros((self.n_steps, self.n_pop))
 
         params = self.params
         N = self.N
 
         self.I[0] = np.array(params['I0'])
-        self.R[0] = np.minimum((N * np.array(params['vax_prop'])).astype(int), N - self.I[0])
-        self.S[0] = N - self.I[0] - self.R[0]
+        self.S_V[0] = [
+            int(self.N[i_pop] * params['vax_prop'][i_pop])
+            for i_pop in range(self.n_pop)
+        ]
+        self.S_V[0] = [
+            min(self.S_V[0, i_pop], self.N[i_pop] - self.I[0, i_pop])
+            for i_pop in range(self.n_pop)
+        ]
+        self.S[0] = self.N - self.I[0] - self.S_V[0]
 
         self.current_step = 0
 
@@ -370,10 +428,15 @@ class MetapopSEIR:
 
         for pop in range(self.n_pop):
             ax = axes[pop]
-            ax.plot(self.t, self.S[:, pop], label='Susceptible')
-            ax.plot(self.t, self.E[:, pop], label='Exposed')
-            ax.plot(self.t, self.I[:, pop], label='Infectious')
-            ax.plot(self.t, self.R[:, pop], label='Recovered')
+            vaccinated_linestyle = 'dashed'
+            ax.plot(self.t, self.S[:, pop], label='Susceptible', color='blue')
+            ax.plot(self.t, self.E[:, pop], label='Exposed', color='orange')
+            ax.plot(self.t, self.I[:, pop], label='Infectious', color='red')
+            ax.plot(self.t, self.R[:, pop], label='Recovered', color='green')
+            ax.plot(self.t, self.S_V[:, pop], label='Vaccinated', color='blue', linestyle=vaccinated_linestyle)
+            ax.plot(self.t, self.E_V[:, pop], label='Vaccinated Exposed', color='orange', linestyle=vaccinated_linestyle)
+            ax.plot(self.t, self.I_V[:, pop], label='Vaccinated Infectious', color='red', linestyle=vaccinated_linestyle)
+            ax.plot(self.t, self.R_V[:, pop], label='Vaccinated Recovered', color='green', linestyle=vaccinated_linestyle)
             ax.set_xlabel('Time (days)')
             ax.set_ylabel('Number of individuals')
             ax.set_title(f'Population {pop + 1} SEPIR Dynamics')
@@ -462,6 +525,16 @@ class AcrossRepPoint(AcrossRepStat):
                                                 threshold: int):
         data_subset = self.data[self.data >= threshold]
         return [np.percentile(data_subset, q) for q in quantiles_list]
+    
+    def get_quantiles_conditional_chosen_simulation_idx(self,
+                                                        quantiles_list: list[float],
+                                                        simulation_idx_list: list[int]):
+        data_subset = self.data[simulation_idx_list]
+        return [np.percentile(data_subset, q) for q in quantiles_list]
+    
+    def get_idx_simulations_on_exceedance(self,
+                                          threshold: int):
+        return list(np.where(self.data >= threshold)[0])
 
     def get_index_sim_median(self):
         data = self.data
@@ -521,6 +594,26 @@ class AcrossRepPoint(AcrossRepStat):
             all_cases_conditional_quantiles_str = str(int(lb_total)) + ' - ' + str(int(ub_total)) + " total cases"
 
         return exceedance_prob_str, all_cases_conditional_quantiles_str
+    
+    def get_dashboard_quantiles_specific_idx(self,
+                                             init_infected: int,
+                                             simulation_idx_list: list,
+                                             lb_quantile: float = 2.5,
+                                             ub_quantile: float = 97.5):
+        """
+        Returns string similar to the 2nd output of function get_dashboard_results_strs,
+        but quantiles are calculated using the indices passed as input
+        rather than using a chosen threshold.
+        
+        """
+        lb_new, ub_new = self.get_quantiles_conditional_chosen_simulation_idx([lb_quantile,
+                                                                               ub_quantile], simulation_idx_list)
+        
+        lb_total, ub_total = init_infected + lb_new, init_infected + ub_new
+        
+        all_cases_conditional_quantiles_str = str(int(lb_total)) + ' - ' + str(int(ub_total)) + " total cases"
+        
+        return all_cases_conditional_quantiles_str
 
 # %% Experiment Classes
 #######################
@@ -548,16 +641,20 @@ class DashboardExperiment(Experiment):
     def __init__(self,
                  params: MeaslesParameters,
                  num_reps: int):
-        self.ma7_num_infected_school_1 = AcrossRepSamplePath(num_reps=num_reps,
+        self.ma7_num_infected = AcrossRepSamplePath(num_reps=num_reps,
                                                              num_days=params['sim_duration_days'])
-        self.total_new_cases_school_1 = AcrossRepPoint(num_reps=num_reps)
+        self.total_new_cases = AcrossRepPoint(num_reps=num_reps)
+        self.total_new_unvaccinated_cases = AcrossRepPoint(num_reps=num_reps)
+        self.total_new_breakthrough_cases = AcrossRepPoint(num_reps=num_reps)
 
         super().__init__(params, num_reps)
 
     def run(self):
 
-        ma7_num_infected = self.ma7_num_infected_school_1.data
-        total_new_cases = self.total_new_cases_school_1.data
+        ma7_num_infected = self.ma7_num_infected.data
+        total_new_cases = self.total_new_cases.data
+        total_new_unvaccinated_cases = self.total_new_unvaccinated_cases.data
+        total_new_breakthrough_cases = self.total_new_breakthrough_cases.data
 
         model = self.model
 
@@ -566,9 +663,17 @@ class DashboardExperiment(Experiment):
 
             ma7_num_infected[rep] = \
                 calculate_np_moving_average(
-                    np.add(model.I[::model.steps_per_day, 0], model.E[::model.steps_per_day, 0]), 7)
-
-            total_new_cases[rep] = np.sum(model.S_to_E[:, 0])
+                    sum([
+                        model.I[::model.steps_per_day, 0],
+                        model.E[::model.steps_per_day, 0],
+                        model.I_V[::model.steps_per_day, 0],
+                        model.E_V[::model.steps_per_day, 0]
+                        ]), 7)
+            
+            total_new_unvaccinated_cases[rep] = np.sum(model.S_to_E[:, 0])
+            total_new_breakthrough_cases[rep] = np.sum(model.V_to_E_V[:, 0])
+            total_new_cases[rep] = total_new_unvaccinated_cases[rep] +\
+                total_new_breakthrough_cases[rep]
 
             model.clear()
 
@@ -584,39 +689,35 @@ def run_deterministic_model(params):
 # %% Example usage
 ##################
 
+# %% Example usage
+##################
+
 if __name__ == "__main__":
 
-    base_seed = 216014948987466572985971385191991148824
-    base_seed_sequence = np.random.SeedSequence(base_seed).spawn(20)
+    start = time.time()
 
-    mean_array = []
-    lower_percentile_array = []
-    exceedance_prob_array = []
+    demo = DashboardExperiment(DEFAULT_MSP_PARAMS, 200)
+    demo.ma7_num_infected.create_df_simple_spaghetti()
 
-    for i in range(20):
+    prob_threshold_plus_new_str, cases_expected_over_threshold_str = \
+        demo.total_new_cases.get_dashboard_results_strs(DEFAULT_MSP_PARAMS["I0"][0],
+                                                        DEFAULT_MSP_PARAMS["threshold_values"][0],
+                                                        2.5,
+                                                        97.5)
+    prob_threshold_plus_unvaccinated_new_str, cases_expected_over_threshold_unvaccinated_str = \
+        demo.total_new_unvaccinated_cases.get_dashboard_results_strs(DEFAULT_MSP_PARAMS["I0"][0],
+                                                        DEFAULT_MSP_PARAMS["threshold_values"][0],
+                                                        2.5,
+                                                        97.5)
+    prob_threshold_plus_breakthrough_new_str, cases_expected_over_threshold_breakthrough_str = \
+        demo.total_new_breakthrough_cases.get_dashboard_results_strs(DEFAULT_MSP_PARAMS["I0"][0],
+                                                        DEFAULT_MSP_PARAMS["threshold_values"][0],
+                                                        2.5,
+                                                        97.5)
 
-        DEFAULT_MSP_PARAMS["simulation_seed"] = base_seed_sequence[i]
+    print(time.time() - start)
 
-        demo = DashboardExperiment(DEFAULT_MSP_PARAMS, 200)
+    print('\nTotal cases:', prob_threshold_plus_new_str, cases_expected_over_threshold_str)
+    print('\nUnvaccinated cases:', prob_threshold_plus_unvaccinated_new_str, cases_expected_over_threshold_unvaccinated_str)
+    print('\nVaccinated cases:', prob_threshold_plus_breakthrough_new_str, cases_expected_over_threshold_breakthrough_str)
 
-        mean = demo.total_new_cases_school_1.data.mean()
-
-        prob_threshold_plus_new_str, cases_expected_over_threshold_str = \
-            demo.total_new_cases_school_1.get_dashboard_results_strs(DEFAULT_MSP_PARAMS["I0"][0],
-                                                                     DEFAULT_MSP_PARAMS["threshold_values"][0],
-                                                                     2.5,
-                                                                     97.5)
-
-        print(i, mean, prob_threshold_plus_new_str, cases_expected_over_threshold_str)
-
-        mean_array.append(mean)
-        lower_percentile_array.append(demo.total_new_cases_school_1.get_quantiles_conditional_on_exceedance([2.5], 10)[0])
-        exceedance_prob_array.append(demo.total_new_cases_school_1.get_exceedance_probability(10))
-
-    print(mean_array)
-    print(lower_percentile_array)
-
-    print(np.var(mean_array))
-    print(np.var(lower_percentile_array))
-
-    print(np.var(exceedance_prob_array))
