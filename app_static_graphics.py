@@ -136,19 +136,19 @@ def bottom_info_section():
                  html.I([html.A(["R"])]), html.Sub("0"), " values depending on classroom structures, daily activities, and other contextual factors."]),
             html.Ul("", style={"margin-bottom": "1em"}),
             html.A("KEY OUTBREAK STATISTICS: ", style={"fontWeight": "bold", "fontSize": "18px"}),
-            html.A(["These values are derived from 200 stochastic simulations. The default outbreak threshold of", html.I("10 additional infections"), html.A(" can be adjusted under ")]),
+            html.A(["These values are derived from 1000 stochastic simulations. The default outbreak threshold of", html.I("10 additional infections"), html.A(" can be adjusted under ")]),
             html.I("Change Parameters"),
             html.A("."),
             html.Ul([
                 html.Li([html.I("Chance of Exceeding 10 Infections"), html.A([
-                    " – The proportion of simulations (out of 200) in which at least 10 additional students become infected (excluding the initial cases). The threshold of 10 infections was chosen to distinguish introductions that lead to sustained transmission from those that quickly fade out."])]),
+                    " – The proportion of simulations (out of 1000) in which at least 10 additional students become infected (excluding the initial cases). The threshold of 10 infections was chosen to distinguish introductions that lead to sustained transmission from those that quickly fade out."])]),
                 html.Li([html.I("Likely Outbreak Size"),
                          " – Among simulations that surpass the 10-infection threshold, the total number of infected students is calculated for both vaccinated and unvaccinated (including the initially infected unvaccinated students). The reported ranges correspond to the middle 95% of these values (i.e., the 2.5th to 97.5th percentile).",
                          html.Br(style={"margin": "0", "padding": "0"})]),
             ], style={"margin-bottom": "1em"}),
             html.A("PROJECTIONS: ", style={"fontWeight": "bold", "fontSize": "18px"}),
             html.A(
-                "The 20 curves in the graph correspond to 20 independent simulations selected at random from 200 stochastic simulations. The y-axis values are seven-day moving averages of the total number of people currently infected (both exposed and infectious cases). The highlighted curve corresponds to the simulation that produced a total outbreak size closest to the median across the 200 simulations. Variations between simulation curves are expected, as the model accounts for inherent randomness and uncertainty present under real-world conditions."),
+                "The 20 curves in the graph correspond to 20 independent stochastic simulations. The y-axis values are seven-day moving averages of the total number of people currently infected (both exposed and infectious cases). The highlighted curve corresponds to the simulation that produced a total outbreak size closest to the median across the 200 simulations. Variations between simulation curves are expected, as the model accounts for inherent randomness and uncertainty present under real-world conditions."),
             html.Ul("", style={"margin-bottom": "1em"}),
             html.A("VACCINE RATES: ", style={"fontWeight": "bold", "fontSize": "18px"}),
             html.A(

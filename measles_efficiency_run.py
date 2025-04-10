@@ -6,6 +6,8 @@ import pandas as pd
 import math
 import glob
 
+from randomgen import PCG64
+
 
 # Thanks Remy! This is a good trick...
 def get_tx_vax_levels(TX_FILENAME):
@@ -49,8 +51,10 @@ for vax_prop in np.append(np.asarray(tx_vax_to_add), vax_rates_grid):
 
         measles_efficiency.DEFAULT_MSP_EFFICIENCY_PARAMS["simulation_seed"] = base_seed_sequence[rank]
 
+        transition_sampler = measles_efficiency.build_transition_sampler(np.random.Generator(PCG64(seed = measles_efficiency.DEFAULT_MSP_EFFICIENCY_PARAMS["simulation_seed"])))
+
         np.savetxt(f"2500reps_worker{rank}_vax{np.round(vax_prop, 1):.1f}_pop{population}.csv",
-                   measles_efficiency.compute_new_infections(measles_efficiency.DEFAULT_MSP_EFFICIENCY_PARAMS, NUM_REPS, True),
+                   measles_efficiency.compute_new_infections(measles_efficiency.DEFAULT_MSP_EFFICIENCY_PARAMS, transition_sampler, NUM_REPS, True),
                    delimiter=",")
 
 

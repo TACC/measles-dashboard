@@ -14,7 +14,7 @@
 ###########################
 import numpy as np
 from randomgen import PCG64
-from typing import TypedDict
+from typing import TypedDict, Callable
 
 
 # %% Measles Parameters
@@ -27,6 +27,10 @@ class MeaslesEfficiencyParameters(TypedDict):
     incubation_period: float
     infectious_period: float
     school_contacts: float
+    incubation_period_vaccinated: float
+    infectious_period_vaccinated: float
+    relative_infectiousness_vaccinated: float
+    vaccine_efficacy: float
     other_contacts: float
     population: int
     I0: int
@@ -37,25 +41,24 @@ class MeaslesEfficiencyParameters(TypedDict):
     simulation_seed: int
 
 
-# Set parameters
-# Natural history parameters
-# https://www.cdc.gov/measles/hcp/communication-resources/clinical-diagnosis-fact-sheet.html
-# Incubation: 11.5 days, so first symptoms 11.5 days since t0
-# Rash starts: 3 days after first symptoms, so 14.5 since t0
-# Infectious: 4 days before rash (so 10.5 days since t0), 4 days after (18.5 days since t0)
 DEFAULT_MSP_EFFICIENCY_PARAMS: MeaslesEfficiencyParameters = \
     {
         'R0': 15.0,  # transmission rate
         'incubation_period': 10.5,
         'infectious_period': 5,
+        'incubation_period_vaccinated': 10.5,
+        'infectious_period_vaccinated': 5,
+        'relative_infectiousness_vaccinated': 0.05, # 0 means no infection from vaccinated
+        'vaccine_efficacy': 0.997, # 1.0 means perfect protection
         'school_contacts': 5.63424,
         'other_contacts': 2.2823,
         'population': 500,
         'I0': 1,
-        'vax_prop': 0.85,  # number between 0 and 1
-        'threshold_values': 10,  # outbreak threshold, only first value used for now
+        'vax_prop': 0.85,
+        'threshold_values': 10,
         'sim_duration_days': 250,
         'time_step_days': 0.25,
+        'is_stochastic': True,  # False for deterministic
         "simulation_seed": 147125098488
     }
 
@@ -63,49 +66,84 @@ DEFAULT_MSP_EFFICIENCY_PARAMS: MeaslesEfficiencyParameters = \
 # %% Model
 ##########
 
-def get_transition(rate: float,
-                   compartment_count: int,
-                   RNG: np.random.Generator) -> float:
-    total_rate = rate * compartment_count
-    return min(RNG.poisson(total_rate), compartment_count)
+def build_transition_sampler(RNG: np.random.Generator):
+
+    def transition_sampler(rate: float,
+                       compartment_count: int) -> float:
+        total_rate = rate * compartment_count
+        if total_rate == 0:
+            return 0
+        else:
+            return min(RNG.poisson(total_rate), compartment_count)
+
+    return transition_sampler
 
 
 def compute_new_infections(params: MeaslesEfficiencyParameters,
+                           transition_sampler: Callable,
                            num_reps: int,
                            use_adaptive_step_size: bool = False):
 
-    # Unpack everything from dictionary
+    # Hacked this to account for lists (ouch owie) in
+    #   MeaslesParameters -- will try to find a way to get a more
+    #   elegant workaround later...
+    if isinstance(params["population"], list):
+        N = params["population"][0]
+    else:
+        N = params["population"]
+    if isinstance(params["I0"], list):
+        I_unvax_init = params["I0"][0]
+    else:
+        I_unvax_init = params["I0"]
+    if isinstance(params["vax_prop"], list):
+        vax_prop = params["vax_prop"][0]
+    else:
+        vax_prop = params["vax_prop"]
+
+    # Unpack from dictionary
     dt_init = params['time_step_days']
     total_num_steps = 1 + int(params['sim_duration_days'] / dt_init)
-    N = params['population']
     total_contacts = params['school_contacts'] + params['other_contacts']
-    beta = params['R0'] / (params["infectious_period"] * total_contacts)
 
-    # This is a faster and more modern RNG
-    RNG = np.random.Generator(PCG64(params["simulation_seed"]))
+    R0 = params["R0"]
+    infectious_period = params["infectious_period"]
+    incubation_period = params["incubation_period"]
+    infectious_period_vaccinated = params["infectious_period_vaccinated"]
+    incubation_period_vaccinated = params["incubation_period_vaccinated"]
+    relative_infectiousness_vaccinated = \
+        params["relative_infectiousness_vaccinated"]
+    vaccine_efficacy = params["vaccine_efficacy"]
 
-    # Pre-compute "base rate" for transitions
-    #   (these will get multiplied by dt and force_of_infection_coefficient
-    #   will also get multiplied by I, which is time-dependent)
-    force_of_infection_coefficient = beta * total_contacts / N
-    E_out_rate_coefficient = (1.0 / params["incubation_period"])
-    I_out_rate_coefficient = (1.0 / params["infectious_period"])
+    beta = R0 / (infectious_period * total_contacts)
+    beta_vax = relative_infectiousness_vaccinated * R0 / \
+               (infectious_period_vaccinated * total_contacts)
 
-    # Initial values
-    I_init = int(params["I0"])
-    R_init = int(min(N * params['vax_prop'], N - I_init))
-    S_init = int(N - I_init - R_init)
+    E_unvax_out_rate_coefficient = (1.0 / incubation_period)
+    I_unvax_out_rate_coefficient = (1.0 / infectious_period)
 
-    total_S_to_E_array = np.zeros(num_reps)
+    E_vax_out_rate_coefficient = (1.0 / incubation_period_vaccinated)
+    I_vax_out_rate_coefficient = (1.0 / infectious_period_vaccinated)
+
+    total_contacts_to_N_ratio = total_contacts / N
+
+    # Other initial values -- I_unvax_init is above
+    S_vax_init = int(N * vax_prop)
+    S_vax_init = min(S_vax_init, N - I_unvax_init)
+    S_unvax_init = int(N - I_unvax_init - S_vax_init)
+
+    total_S_unvax_to_E_unvax_array = np.zeros(num_reps)
+    total_S_vax_to_E_vax_array = np.zeros(num_reps)
 
     for rep in range(num_reps):
 
-        I = I_init
-        R = R_init
-        S = S_init
-        E = 0
+        I_unvax = I_unvax_init
+        S_vax = S_vax_init
+        S_unvax = S_unvax_init
 
-        total_S_to_E = 0
+        I_vax = E_vax = R_vax = E_unvax = R_unvax = 0
+
+        total_S_unvax_to_E_unvax = 0
+        total_S_vax_to_E_vax = 0
 
         step_counter = 0
 
@@ -124,39 +162,64 @@ def compute_new_infections(params: MeaslesEfficiencyParameters,
                     dt = dt_init
                     step_counter += 1
 
+            force_of_infection_unvax = total_contacts_to_N_ratio * \
+                                       (beta * I_unvax + beta_vax * I_vax)
+            force_of_infection_vax = force_of_infection_unvax * \
+                                     (1 - vaccine_efficacy)
+
             # If the Poisson rate would be 0 anyway, avoid
             #   computing the random variable to save time! Good trick
             #   from Remy
-            if I == 0:
-                dS_out = 0
-            else:
-                dS_out = get_transition(force_of_infection_coefficient * I * dt, S, RNG)
 
-            if E == 0:
-                dE_out = 0
-            else:
-                dE_out = get_transition(E_out_rate_coefficient * dt, E, RNG)
+            # UNVACCINATED
+            ##############
+            dS_unvax_out = transition_sampler(force_of_infection_unvax * dt, S_unvax)
+            dE_unvax_out = transition_sampler(E_unvax_out_rate_coefficient * dt, E_unvax)
+            dI_unvax_out = transition_sampler(I_unvax_out_rate_coefficient * dt, I_unvax)
 
-            if I == 0:
-                dI_out = 0
-            else:
-                dI_out = get_transition(I_out_rate_coefficient * dt, I, RNG)
+            # VACCINATED
+            ############
+            dS_vax_out = transition_sampler(force_of_infection_vax * dt, S_vax)
+            dE_vax_out = transition_sampler(E_vax_out_rate_coefficient * dt, E_vax)
+            dI_vax_out = transition_sampler(I_vax_out_rate_coefficient * dt, I_vax)
 
-            dS = -dS_out
-            dE = dS_out - dE_out
-            dI = dE_out - dI_out
-            dR = dI_out
+            # UNVACCINATED
+            ##############
+            dS_unvax = -dS_unvax_out
+            dE_unvax = dS_unvax_out - dE_unvax_out
+            dI_unvax = dE_unvax_out - dI_unvax_out
+            dR_unvax = dI_unvax_out
 
-            S += dS
-            E += dE
-            I += dI
-            R += dR
+            # VACCINATED
+            ############
+            dS_vax = -dS_vax_out
+            dE_vax = dS_vax_out - dE_vax_out
+            dI_vax = dE_vax_out - dI_vax_out
+            dR_vax = dI_vax_out
 
-            total_S_to_E += dS_out
+            # UNVACCINATED
+            ##############
+            S_unvax += dS_unvax
+            E_unvax += dE_unvax
+            I_unvax += dI_unvax
+            R_unvax += dR_unvax
 
-            if S == 0 or E + I == 0:
+            # VACCINATED
+            ############
+            S_vax += dS_vax
+            E_vax += dE_vax
+            I_vax += dI_vax
+            R_vax += dR_vax
+
+            total_S_vax_to_E_vax += dS_vax_out
+            total_S_unvax_to_E_unvax += dS_unvax_out
+
+            step_counter += 1
+
+            if S_unvax + S_vax == 0 or E_unvax + E_vax + I_unvax + I_vax == 0:
                 break
 
-        total_S_to_E_array[rep] = total_S_to_E
+        total_S_unvax_to_E_unvax_array[rep] = total_S_unvax_to_E_unvax
+        total_S_vax_to_E_vax_array[rep] = total_S_vax_to_E_vax
 
-    return total_S_to_E_array
+    return total_S_unvax_to_E_unvax_array, total_S_vax_to_E_vax_array
