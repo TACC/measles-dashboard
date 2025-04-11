@@ -210,29 +210,13 @@ def update_graph(params_dict: dict,
         prob_threshold_plus_new_str = \
             dashboard_exceedance_prob_str(len(total_cases_above_threshold_array) / DASHBOARD_CONFIG["num_simulations_results"])
 
-        if len(total_cases_above_threshold_array) > 0:
-            total_cases_cond_mean = total_cases_above_threshold_array.mean()
-            lb_val, ub_val = np.percentile(total_cases_above_threshold_array, [2.5, 97.5])
-        else:
-            # Potentially not the best way to handle this, but
-            # `dashboard_new_cases_cond_mean_str` will do necessary formatting
-            #   when `total_cases_cond_mean` is -1
-            total_cases_cond_mean = lb_val = ub_val = -1
-
-        cases_expected_over_threshold_str = dashboard_new_cases_cond_mean_str(
-            I_unvax_init,
-            threshold_val,
-            total_cases_cond_mean,
-            lb_val,
-            ub_val)
-
-        if 'Fewer than ' in cases_expected_over_threshold_str:
-            cases_expected_over_threshold_unvaccinated_str = cases_expected_over_threshold_str
+        if len(total_cases_above_threshold_array) == 0:
+            cases_expected_over_threshold_unvaccinated_str = "Fewer than {} new infections".format(
+                int(threshold_val))
             cases_expected_over_threshold_breakthrough_str = ""
         else:
             unvax_cases_lb, unvax_cases_ub = np.percentile(unvax_cases_array[total_cases_array >= threshold_val], [2.5, 97.5])
             vax_cases_lb, vax_cases_ub = np.percentile(vax_cases_array[total_cases_array >= threshold_val], [2.5, 97.5])
-            
             cases_expected_over_threshold_unvaccinated_str = \
                 'Unvaccinated cases: ' + dashboard_percentiles_str(I_unvax_init, unvax_cases_lb, unvax_cases_ub)
             cases_expected_over_threshold_breakthrough_str = \
