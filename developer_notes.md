@@ -34,6 +34,13 @@ TODO: we need a script to assess validity and format of new states' datasets!
 - TODO: make the graphing function (main function that creates output on dashboard) less grotesque :)
 
 
+### New vaccination data - 04/10/2025 RP
+- Put all state vaccination data in a new subfolder called state_data
+- Small updates to `vax_rate_csv_checker.py`
+- Updated wording in notes about vaccination data to be more succinct
+- Adding data for Connecticut, Maryland, New Mexico, and New Yo
+
+
 ### Vaccinated compartment - 04/04/2025 RP
 - Added a vaccinated compartment
   - Updated the epidemiological model so vaccinated individuals can now be infected and in turn infect others

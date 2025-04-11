@@ -38,6 +38,7 @@ DASHBOARD_CONFIG = {
     'simulation_seed': 147125098488,
     'spaghetti_curve_selection_seed': 12345,
 }
+STATE_DATA_SUBFOLDER = 'state_data/'
 
 msp.DEFAULT_MSP_PARAMS["simulation_seed"] = DASHBOARD_CONFIG["simulation_seed"]
 
@@ -46,18 +47,21 @@ msp.DEFAULT_MSP_PARAMS["simulation_seed"] = DASHBOARD_CONFIG["simulation_seed"]
 #   We can also cache the dataframe subsets...
 # TODO -- maybe... put state-to-CSV mapping in JSON file?
 
-NC_df = pd.read_csv('NC_MMR_vax_rate.csv')
-NY_df = pd.read_csv("NY_MMR_vax_rate.csv")
-PA_df = pd.read_csv("PA_MMR_vax_rate.csv")
-TX_df = pd.read_csv('TX_MMR_vax_rate.csv')
-
-state_to_df_map = {
-    "New York": NY_df,
-    "North Carolina": NC_df,
-    "Pennsylvania": PA_df,
-    "Texas": TX_df
+state_name_to_two_letter_code = {
+    "Connecticut": "CT",
+    "Maryland": "MD",
+    "New Mexico": "NM",
+    "New York": "NY",
+    "North Carolina": "NC",
+    "Pennsylvania": "PA",
+    "Texas": "TX",
 }
 
+
+state_to_df_map = {
+    state_name: pd.read_csv(STATE_DATA_SUBFOLDER + state_code + '_MMR_vax_rate.csv')
+    for state_name, state_code in state_name_to_two_letter_code.items()
+}
 
 def get_county_subset_df(state_str, county_str) -> pd.DataFrame:
     state_subset_df = state_to_df_map[state_str]
