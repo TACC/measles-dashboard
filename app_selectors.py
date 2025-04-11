@@ -12,7 +12,10 @@ from app_styles import BASE_FONT_STYLE, \
 #   setting the minimum doesn't allow input reception -- soooo we do NOT set the minimum
 #   in the selectors, and we trigger the (external) error message instead!
 
-states_list = ("North Carolina", "Pennsylvania", "Texas")
+states_list = (
+    "Connecticut", "Maryland", "New Mexico", "New York",
+    "North Carolina", "Pennsylvania", "Texas"
+    )
 
 # Ew I don't like this... but time-sensitive deadline means we
 #   gotta change this later...

@@ -21,6 +21,12 @@ TODO: we need a script to assess validity and format of new states' datasets!
 - Note: 03/13/2025 changed TX and NC CSV columns to be more consistent -- and got rid of underscores. Using `vax_rate_csv_checker.py`, will enforce this for new vaccination data.
 - Note: 03/13/2025 changed TX and NC CSV "MMR Vaccination Rate" column to be expressed as float -- percentage instead of decimals, with 2 decimal points only, will enforce this for new vaccination data.
 
+### New vaccination data - 04/10/2025 RP
+- Put all state vaccination data in a new subfolder called state_data
+- Small updates to `vax_rate_csv_checker.py`
+- Updated wording in notes about vaccination data to be more succinct
+- Adding data for Connecticut, Maryland, New Mexico, and New York
+
 ### Vaccinated compartment - 04/04/2025 RP
 - Added a vaccinated compartment
   - Updated the epidemiological model so vaccinated individuals can now be infected and in turn infect others
