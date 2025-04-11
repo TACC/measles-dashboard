@@ -27,8 +27,8 @@ from app_static_graphics import navbar, bottom_info_section, \
 from app_dynamic_graphics import results_header, spaghetti_plot_section, \
     dashboard_input_panel
 from app_computation_functions import dashboard_results_fig, \
-    dashboard_spaghetti, EMPTY_SPAGHETTI_PLOT_INFECTED_MA, \
-    dashboard_new_cases_cond_mean_str, dashboard_exceedance_prob_str,\
+    EMPTY_SPAGHETTI_PLOT_INFECTED_MA, \
+    dashboard_exceedance_prob_str,\
     dashboard_percentiles_str
 from app_selectors import SELECTOR_DEFAULTS
 
