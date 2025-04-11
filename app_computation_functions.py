@@ -42,29 +42,6 @@ def dashboard_percentiles_str(
     return all_cases_cond_percentiles_str
 
 
-def dashboard_new_cases_cond_mean_str(init_infected: int,
-                                      threshold: int,
-                                      new_cases_cond_mean: int,
-                                      lb_percentile_val: int,
-                                      ub_percentile_val: int):
-    """
-    Returns string to populate the written text portion of the dashboard
-    corresponding to  likely (expected) outbreak size if there are X+ new infections
-    -- where "new infections/cases" refers to TOTAL unvaccinated and vaccinated infections
-    """
-
-    if new_cases_cond_mean == -1:
-        all_cases_cond_percentiles_str = "Fewer than {} new infections".format(int(threshold))
-
-    else:
-
-        lb_total, ub_total = init_infected + lb_percentile_val, init_infected + ub_percentile_val
-
-        all_cases_cond_percentiles_str = str(int(lb_total)) + ' - ' + str(int(ub_total))
-
-    return all_cases_cond_percentiles_str
-
-
 def dashboard_spaghetti(df_plot: pd.DataFrame,
                         spaghetti_color_map: dict):
     """
