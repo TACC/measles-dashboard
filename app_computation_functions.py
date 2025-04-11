@@ -88,7 +88,7 @@ def dashboard_spaghetti(df_plot: pd.DataFrame,
         color='simulation_idx',
         color_discrete_map=spaghetti_color_map)
 
-    fig.update_traces(hovertemplate="Day %{x}<br>%{y:.1f} Infected<extra></extra>")
+    fig.update_traces(hovertemplate="Day %{x}<br>%{y:.1f} infected<extra></extra>")
     fig.update_traces(line=dict(width=2))  # Reduce line thickness
 
     fig.update_layout(showlegend=False,
