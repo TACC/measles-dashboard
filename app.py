@@ -226,13 +226,13 @@ def update_graph(params_dict: dict,
             lb_val,
             ub_val)
 
-        unvax_cases_lb, unvax_cases_ub = np.percentile(unvax_cases_array[total_cases_array >= threshold_val], [2.5, 97.5])
-        vax_cases_lb, vax_cases_ub = np.percentile(vax_cases_array[total_cases_array >= threshold_val], [2.5, 97.5])
-
         if 'Fewer than ' in cases_expected_over_threshold_str:
             cases_expected_over_threshold_unvaccinated_str = cases_expected_over_threshold_str
             cases_expected_over_threshold_breakthrough_str = ""
         else:
+            unvax_cases_lb, unvax_cases_ub = np.percentile(unvax_cases_array[total_cases_array >= threshold_val], [2.5, 97.5])
+            vax_cases_lb, vax_cases_ub = np.percentile(vax_cases_array[total_cases_array >= threshold_val], [2.5, 97.5])
+            
             cases_expected_over_threshold_unvaccinated_str = \
                 'Unvaccinated cases: ' + dashboard_percentiles_str(I_unvax_init, unvax_cases_lb, unvax_cases_ub)
             cases_expected_over_threshold_breakthrough_str = \

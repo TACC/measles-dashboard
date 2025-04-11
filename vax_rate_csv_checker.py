@@ -47,6 +47,16 @@ def check_columns_list(df):
         print("\n\nError: CSV columns do not match COLUMNS_LIST. "
               "Make sure all columns in COLUMNS_LIST exist in the CSV"
               " and spelling and formatting are correct.")
+        
+        print('\nColumns in csv file:')
+        print(df.columns)
+        print('\nColumns expected:')
+        print(COLUMNS_LIST)
+        print('\nColumns missing:')
+        print([x for x in COLUMNS_LIST if x not in df.columns])
+        print('\nUnnecessary columns:')
+        print([x for x in df.columns if x not in COLUMNS_LIST])
+        
         return False
 
     else:
@@ -163,7 +173,8 @@ if __name__ == "__main__":
         'NY_MMR_vax_rate.csv',
         'CT_MMR_vax_rate.csv',
         'MD_MMR_vax_rate.csv',
-        'NM_MMR_vax_rate.csv'
+        'NM_MMR_vax_rate.csv',
+        'WA_Rate_trial.csv'
         ]
     
     data_folder_path = os.sep.join([os.getcwd(), data_subfolder, ''])
