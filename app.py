@@ -192,9 +192,7 @@ def update_graph(params_dict: dict,
         cases_condition_str = '*if exceeds {} new infections*'.format(threshold_val)
 
         measles_graph_results = msp.DashboardExperiment(params_dict, n_sim_graph)
-
         measles_graph_results.ma7_num_infected.create_df_simple_spaghetti()
-        ix_median = measles_graph_results.total_new_cases.get_index_sim_median()
 
         transition_sampler = measles_efficiency.build_transition_sampler(
             np.random.Generator(PCG64(seed=DASHBOARD_CONFIG["simulation_seed"])))
@@ -221,6 +219,8 @@ def update_graph(params_dict: dict,
                 'Unvaccinated cases: ' + dashboard_percentiles_str(I_unvax_init, unvax_cases_lb, unvax_cases_ub)
             cases_expected_over_threshold_breakthrough_str = \
                 'Vaccinated cases: ' + dashboard_percentiles_str(0, vax_cases_lb, vax_cases_ub)
+
+        ix_median = np.argmin(np.abs(measles_graph_results.total_new_cases.data - np.median(unvax_cases_array + vax_cases_array)))
 
         fig = dashboard_results_fig(df_spaghetti=measles_graph_results.ma7_num_infected.df_simple_spaghetti,
                                     index_sim_closest_median=ix_median,
