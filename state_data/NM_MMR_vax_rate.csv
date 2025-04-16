@@ -1,0 +1,808 @@
+﻿Facility Number,School Type,School District or Name,Facility Address,County,MMR Vaccination Rate,Age Group
+,BIE-Operated School,Jemez Day School,,Sandoval,66.67,Kindergarten
+,BIE-Operated School,Mariano Lake Community School,,Sandoval,100.00,Kindergarten
+,BIE-Operated School,Ojo Encino Day School,,Sandoval,86.67,Kindergarten
+,BIE-Operated School,T'siya Day School,,Sandoval,92.31,Kindergarten
+,Local Charter School,Alice King Community School,,Bernalillo,94.29,Kindergarten
+,Local Charter School,CHRISTINE DUNCANS HERITAGE ACADEMY ,,Bernalillo,98.00,Kindergarten
+,Local Charter School,Cien Aguas International School,,Bernalillo,100.00,Kindergarten
+,Local Charter School,Corrales International School,,Bernalillo,100.00,Kindergarten
+,Local Charter School,Desert Willow Family Magnet School,,Bernalillo,87.10,Kindergarten
+,Local Charter School,El Camino Real Academy,,Bernalillo,85.71,Kindergarten
+,Local Charter School,HORIZON ACEDEMY WEST ,,Bernalillo,98.92,Kindergarten
+,Local Charter School,Montessori of the Rio Grande Charter School,,Bernalillo,89.47,Kindergarten
+,Local Charter School,Mountain Mahogany Community School,,Bernalillo,73.68,Kindergarten
+,Local Charter School,New Mexico International School,,Bernalillo,94.64,Kindergarten
+,Local Charter School,RIO GRANDE ACADEMY OF FINE ARTS ,,Bernalillo,95.45,Kindergarten
+,Local Charter School,San Diego Riverside Charter School,,Sandoval,33.33,Kindergarten
+,Local Charter School,SANDOVAL ACADEMY OF BILINGUAL EDUCATION ,,Sandoval,92.59,Kindergarten
+,Private,Albuquerque Christian School ,,Bernalillo,63.64,Kindergarten
+,Private,Calvary Christian Academy,,Bernalillo,36.36,Kindergarten
+,Private,Christ Lutheran School,,Bernalillo,100.00,Kindergarten
+,Private,Christian Heritage Academy,,Bernalillo,100.00,Kindergarten
+,Private,Congregation Albert Early Childhood Center,,Bernalillo,100.00,Kindergarten
+,Private,Crestview SDA Academy,,Bernalillo,66.67,Kindergarten
+,Private,Cross of Hope Lutheran Elementary School,,Bernalillo,100.00,Kindergarten
+,Private,Eastern Hills Christian Academy,,Bernalillo,84.62,Kindergarten
+,Private,Evangel Christian Academy,,Bernalillo,50.00,Kindergarten
+,Private,Holy Child Catholic School,,Bernalillo,88.89,Kindergarten
+,Private,Holy Ghost Catholic School,,Bernalillo,100.00,Kindergarten
+,Private,Hope Christian Elementary School,,Bernalillo,95.28,Kindergarten
+,Private,Immanuel Lutheran School,,Bernalillo,100.00,Kindergarten
+,Private,Legacy Academy,,Bernalillo,84.00,Kindergarten
+,Private,Manzano Day School,,Bernalillo,100.00,Kindergarten
+,Private,Mountain View Private School,,Bernalillo,90.00,Kindergarten
+,Private,Oak Grove Classical Academy,,Bernalillo,71.43,Kindergarten
+,Private,Our Lady of the Assumption Catholic School,,Bernalillo,50.00,Kindergarten
+,Private,Our Montessori School,,Bernalillo,100.00,Kindergarten
+,Private,Paradise Christian School,,Bernalillo,40.00,Kindergarten
+,Private,Salam Academy,,Bernalillo,87.50,Kindergarten
+,Private,San Felipe de Neri School,,Bernalillo,81.25,Kindergarten
+,Private,Shepherd Lutheran School,,Bernalillo,50.00,Kindergarten
+,Private,St Marys Schools ,,Bernalillo,93.75,Kindergarten
+,Private,St. Charles Borromeo,,Bernalillo,83.33,Kindergarten
+,Private,St. Mary's Catholic School,,Bernalillo,93.55,Kindergarten
+,Private,St. Therese Catholic School,,Bernalillo,100.00,Kindergarten
+,Private,Sunset Mesa School,,Bernalillo,60.00,Kindergarten
+,Private,Western Heights Learning Center,,Bernalillo,70.59,Kindergarten
+,Private,COTTONWOOD SCHOOL,,Sandoval,92.86,Kindergarten
+,Private,Gospel Light Baptist Academy,,Sandoval,57.89,Kindergarten
+,Private,Sandia View Christian School,,Sandoval,71.43,Kindergarten
+,Private,St Thomas Aquinas School,,Sandoval,100.00,Kindergarten
+,Private,The Cottonwood School,,Sandoval,92.31,Kindergarten
+,Private,Canon Christian Academy,,Valencia,100.00,Kindergarten
+,Regular Public School,A Montoya Elementary School,,Bernalillo,90.91,Kindergarten
+,Regular Public School,Adobe Acres Elementary School,,Bernalillo,100.00,Kindergarten
+,Regular Public School,Alameda Elementary School,,Bernalillo,100.00,Kindergarten
+,Regular Public School,Alamosa Elementary School ,,Bernalillo,96.77,Kindergarten
+,Regular Public School,Alvarado Elementary,,Bernalillo,96.30,Kindergarten
+,Regular Public School,Apache Elementary ,,Bernalillo,87.50,Kindergarten
+,Regular Public School,Armijo Elementary School,,Bernalillo,91.67,Kindergarten
+,Regular Public School,Arroyo Del Oso Elementary School,,Bernalillo,95.65,Kindergarten
+,Regular Public School,Atrisco Elementary School,,Bernalillo,89.29,Kindergarten
+,Regular Public School,Aztec - Stephen Moody Complex,,Bernalillo,100.00,Kindergarten
+,Regular Public School,Bandelier Elementary School,,Bernalillo,90.00,Kindergarten
+,Regular Public School,Barcelona,,Bernalillo,100.00,Kindergarten
+,Regular Public School,Bel Air,,Bernalillo,90.48,Kindergarten
+,Regular Public School,Bellehaven Elementary School,,Bernalillo,96.77,Kindergarten
+,Regular Public School,Carlos Rey Elementary,,Bernalillo,89.47,Kindergarten
+,Regular Public School,Chamiza Elementary,,Bernalillo,100.00,Kindergarten
+,Regular Public School,Chaparral Elementary,,Bernalillo,90.41,Kindergarten
+,Regular Public School,Chelwood Elementary,,Bernalillo,94.00,Kindergarten
+,Regular Public School,Cochiti Elementary School,,Bernalillo,96.88,Kindergarten
+,Regular Public School,Collet Park Elementary School,,Bernalillo,97.01,Kindergarten
+,Regular Public School,Comanche Elementary School,,Bernalillo,96.36,Kindergarten
+,Regular Public School,Coronado Dual Language Magnet Elementary ,,Bernalillo,98.31,Kindergarten
+,Regular Public School,Coyote Willow Magnet School,,Bernalillo,90.00,Kindergarten
+,Regular Public School,Dennis Chavez Elementary School,,Bernalillo,96.67,Kindergarten
+,Regular Public School,Dolores Gonzales Elementary ,,Bernalillo,100.00,Kindergarten
+,Regular Public School,Double Eagle Elementary School,,Bernalillo,97.44,Kindergarten
+,Regular Public School,Douglas MacArthur Elementary School,,Bernalillo,90.00,Kindergarten
+,Regular Public School,Duranes Elementary School,,Bernalillo,93.75,Kindergarten
+,Regular Public School,East San Jose Elementary School,,Bernalillo,91.84,Kindergarten
+,Regular Public School,EG Ross Elementary School,,Bernalillo,100.00,Kindergarten
+,Regular Public School,Emerson Elementary,,Bernalillo,82.00,Kindergarten
+,Regular Public School,Eugene Field Elementary School,,Bernalillo,90.48,Kindergarten
+,Regular Public School,George I Sanchez Collaborative Community School,,Bernalillo,95.56,Kindergarten
+,Regular Public School,Georgia O'Keeffe ES,,Bernalillo,97.37,Kindergarten
+,Regular Public School,Governor Bent Elementary,,Bernalillo,91.53,Kindergarten
+,Regular Public School,Griegos Elementary School,,Bernalillo,100.00,Kindergarten
+,Regular Public School,Hawthorne Elementary School,,Bernalillo,97.92,Kindergarten
+,Regular Public School,Helen Cordero Primary School,,Bernalillo,99.03,Kindergarten
+,Regular Public School,Hodgin Elementary School,,Bernalillo,82.81,Kindergarten
+,Regular Public School,Hubert Humphrey Elementary School,,Bernalillo,94.92,Kindergarten
+,Regular Public School,Inez Elementary School,,Bernalillo,93.18,Kindergarten
+,Regular Public School,Janet Kahn School of Integrated Arts,,Bernalillo,92.86,Kindergarten
+,Regular Public School,John Baker Elementary School,,Bernalillo,91.67,Kindergarten
+,Regular Public School,Kirtland Elementary School,,Bernalillo,100.00,Kindergarten
+,Regular Public School,Kit Carson Elementary School,,Bernalillo,98.08,Kindergarten
+,Regular Public School,La Mesa Elementary School,,Bernalillo,92.00,Kindergarten
+,Regular Public School,Lavaland Elementary,,Bernalillo,96.43,Kindergarten
+,Regular Public School,Lew Wallace Elementary,,Bernalillo,90.91,Kindergarten
+,Regular Public School,Longfellow Elementary,,Bernalillo,96.30,Kindergarten
+,Regular Public School,Los Padillas Elementary School,,Bernalillo,92.59,Kindergarten
+,Regular Public School,Los Ranchos Elementary,,Bernalillo,96.00,Kindergarten
+,Regular Public School,Lowell Elementary,,Bernalillo,85.19,Kindergarten
+,Regular Public School,Manzano Mesa ES,,Bernalillo,89.55,Kindergarten
+,Regular Public School,Marie Hughes Elementary,,Bernalillo,94.74,Kindergarten
+,Regular Public School,Mark Twain Elementary,,Bernalillo,97.44,Kindergarten
+,Regular Public School,Mary Ann Binford Elementary School,,Bernalillo,98.65,Kindergarten
+,Regular Public School,Matheson Park Elementary School,,Bernalillo,100.00,Kindergarten
+,Regular Public School,McCollum Elementary School,,Bernalillo,97.50,Kindergarten
+,Regular Public School,Mission Avenue Elementary,,Bernalillo,100.00,Kindergarten
+,Regular Public School,Mitchell Elementary School,,Bernalillo,89.13,Kindergarten
+,Regular Public School,Monte Vista Elementary School,,Bernalillo,98.15,Kindergarten
+,Regular Public School,Montezuma Elementary,,Bernalillo,81.63,Kindergarten
+,Regular Public School,Mountain View,,Bernalillo,100.00,Kindergarten
+,Regular Public School,Navajo Elementary School,,Bernalillo,82.69,Kindergarten
+,Regular Public School,New Mexico School for the Blind and Visually Impaired,,Bernalillo,93.75,Kindergarten
+,Regular Public School,North Star Elementary,,Bernalillo,96.59,Kindergarten
+,Regular Public School,Onate Elementary,,Bernalillo,100.00,Kindergarten
+,Regular Public School,Osuna Elementary School,,Bernalillo,100.00,Kindergarten
+,Regular Public School,Painted Sky Elementary School,,Bernalillo,91.78,Kindergarten
+,Regular Public School,Pajarito Elementary,,Bernalillo,100.00,Kindergarten
+,Regular Public School,Petroglyph Elementary School,,Bernalillo,89.23,Kindergarten
+,Regular Public School,Reginald Chavez Elementary,,Bernalillo,82.35,Kindergarten
+,Regular Public School,Route 66 Elementary,,Bernalillo,86.27,Kindergarten
+,Regular Public School,Rudolfo Anaya Elementary School ,,Bernalillo,95.18,Kindergarten
+,Regular Public School,San Antonito STEM Magnet Elementary,,Bernalillo,92.68,Kindergarten
+,Regular Public School,Sandia Base Elementary,,Bernalillo,95.83,Kindergarten
+,Regular Public School,Seven Bar Elementary,,Bernalillo,96.30,Kindergarten
+,Regular Public School,Sierra Vista E.S. ,,Bernalillo,95.83,Kindergarten
+,Regular Public School,Sombra Del Monte Elementary,,Bernalillo,85.71,Kindergarten
+,Regular Public School,Stephen Moody Complex-Aztec,,Bernalillo,100.00,Kindergarten
+,Regular Public School,Sunset View,,Bernalillo,96.30,Kindergarten
+,Regular Public School,Susie Rayos Marmon Elementary ,,Bernalillo,90.91,Kindergarten
+,Regular Public School,SY Jackson Elementary,,Bernalillo,94.12,Kindergarten
+,Regular Public School,Tierra Antigua Elementary School,,Bernalillo,98.13,Kindergarten
+,Regular Public School,Tomasita Elementary School,,Bernalillo,89.19,Kindergarten
+,Regular Public School,Tres Volcanes Community Collaborative,,Bernalillo,96.15,Kindergarten
+,Regular Public School,Valle Vista Elementary School,,Bernalillo,97.73,Kindergarten
+,Regular Public School,Ventana Ranch Elementary,,Bernalillo,98.82,Kindergarten
+,Regular Public School,Wherry Elementary School,,Bernalillo,97.14,Kindergarten
+,Regular Public School,Whittier Elementary,,Bernalillo,100.00,Kindergarten
+,Regular Public School,Zia Elementary School,,Bernalillo,93.55,Kindergarten
+,Regular Public School,Zuni Elementary,,Bernalillo,96.97,Kindergarten
+,Regular Public School,Algodones Elementary,,Sandoval,91.18,Kindergarten
+,Regular Public School,Cielo Azul Elementary School,,Sandoval,98.85,Kindergarten
+,Regular Public School,Cochiti Elementary & Middle School,,Sandoval,100.00,Kindergarten
+,Regular Public School,Colinas Del Norte Elementary ,,Sandoval,97.67,Kindergarten
+,Regular Public School,Corrales K6,,Sandoval,98.00,Kindergarten
+,Regular Public School,Cuba Elementary & Middle School,,Sandoval,84.85,Kindergarten
+,Regular Public School,Enchanted Hills Elementary School,,Sandoval,100.00,Kindergarten
+,Regular Public School,Ernest Stapleton Elementary School,,Sandoval,96.94,Kindergarten
+,Regular Public School,Jemez Valley Public Schools,,Sandoval,91.30,Kindergarten
+,Regular Public School,Joe Harris Elementary School,,Sandoval,96.55,Kindergarten
+,Regular Public School,Maggie Cordova Elementary School,,Sandoval,100.00,Kindergarten
+,Regular Public School,Martin Luther King Elementary Jr. Elementary School ,,Sandoval,97.59,Kindergarten
+,Regular Public School,Placitas Elementary,,Sandoval,100.00,Kindergarten
+,Regular Public School,Puesta del Sol,,Sandoval,100.00,Kindergarten
+,Regular Public School,Rio Rancho Elementary,,Sandoval,100.00,Kindergarten
+,Regular Public School,Sandia Vista Elementary School,,Sandoval,100.00,Kindergarten
+,Regular Public School,Santo Domingo Elementary School,,Sandoval,97.50,Kindergarten
+,Regular Public School,Vista Grande Elementary School,,Sandoval,98.95,Kindergarten
+,Regular Public School,W.D.  Carroll Elemantary,,Sandoval,96.04,Kindergarten
+,Regular Public School,Estancia Municipal School District,,Torrance,97.78,Kindergarten
+,Regular Public School,Moriarty Elementary School,,Torrance,87.69,Kindergarten
+,Regular Public School,Mountainair Elementary & Middle ,,Torrance,84.62,Kindergarten
+,Regular Public School,Ann Parish Elementary,,Valencia,97.96,Kindergarten
+,Regular Public School,Bosque Farms Elementary,,Valencia,100.00,Kindergarten
+,Regular Public School,Dennis Chavez Elementary School,,Valencia,95.74,Kindergarten
+,Regular Public School,Desert View Elementary,,Valencia,98.15,Kindergarten
+,Regular Public School,Family School Digital Academy,,Valencia,100.00,Kindergarten
+,Regular Public School,Gil Sanchez Elementary School,,Valencia,95.00,Kindergarten
+,Regular Public School,Katherine Gallegos Elementary,,Valencia,95.95,Kindergarten
+,Regular Public School,La Merced Elementary School,,Valencia,93.88,Kindergarten
+,Regular Public School,Los Lunas Elementary,,Valencia,100.00,Kindergarten
+,Regular Public School,Peralta Elementary,,Valencia,100.00,Kindergarten
+,Regular Public School,Raymond Gabaldon Elementary,,Valencia,97.83,Kindergarten
+,Regular Public School,Rio Grande Elementary School,,Valencia,97.53,Kindergarten
+,Regular Public School,Sundance Elementary,,Valencia,100.00,Kindergarten
+,Regular Public School,Tome Elementary,,Valencia,95.24,Kindergarten
+,Regular Public School,Valencia Elementary,,Valencia,92.59,Kindergarten
+,State Chater School,Albuquerque Bilingual Academy ,,Bernalillo,100.00,Kindergarten
+,State Chater School,ALBUQUERQUE COLLEGIATE ,,Bernalillo,90.91,Kindergarten
+,State Chater School,Albuquerque School of Excellence ,,Bernalillo,94.74,Kindergarten
+,State Chater School,Albuquerque Sign Language Academy,,Bernalillo,93.33,Kindergarten
+,State Chater School,ALTURA PREPARATORY SCHOOL ,,Bernalillo,97.92,Kindergarten
+,State Chater School,CORAL COMMUNITY CHARTER SCHOOL ,,Bernalillo,94.74,Kindergarten
+,State Chater School,Explore Academy Albuquerque ,,Bernalillo,100.00,Kindergarten
+,State Chater School,Mission Achievement and Success Charter School 1.0,,Bernalillo,95.95,Kindergarten
+,State Chater School,Mission Achievement and Success Charter School 2.0,,Bernalillo,88.04,Kindergarten
+,State Chater School,North Valley Academy,,Bernalillo,95.00,Kindergarten
+,State Chater School,The International School at Mesa Del Sol,,Bernalillo,100.00,Kindergarten
+,State Chater School,The Montessori Elementary & Middle School,,Bernalillo,91.49,Kindergarten
+,State Chater School,William and Josephine Dorn Charter School,,Bernalillo,75.00,Kindergarten
+,State Chater School,Explore Academy Rio Rancho,,Sandoval,98.08,Kindergarten
+,State Chater School,School of Dreams Academy,,Valencia,86.49,Kindergarten
+,BIE-Operated School,Ohkay Owingeh Community School,,Rio Arriba,100.00,Kindergarten
+,BIE-Operated School,SAN ILDEFONSO DAY SCHOOL,,Santa Fe,100.00,Kindergarten
+,Local Charter School,McCurdy Charter School,,Santa Fe,100.00,Kindergarten
+,Local Charter School,Turquoise Trail Charter School,,Santa Fe,89.06,Kindergarten
+,Local Charter School,Taos Integrated School of the Arts,,Taos,79.17,Kindergarten
+,Private,Canyoncito Montessori School,,Los Alamos,66.67,Kindergarten
+,Private,ST FRANCIS SCHOOL,,Rio Arriba,57.14,Kindergarten
+,Private,ANNUNCIATION CATHOLIC SCHOOL,,Santa Fe,55.26,Kindergarten
+,Private,DESERT MONTESSORI SCHOOL,,Santa Fe,100.00,Kindergarten
+,Private,Holy Cross Catholic School,,Santa Fe,83.33,Kindergarten
+,Private,Little Earth School,,Santa Fe,100.00,Kindergarten
+,Private,New Mexico School for the Deaf,,Santa Fe,100.00,Kindergarten
+,Private,Rio Grande School ,,Santa Fe,68.42,Kindergarten
+,Private,Santa Fe School for the Arts and Sciences,,Santa Fe,90.00,Kindergarten
+,Private,Santa Fe School for the Deaf,,Santa Fe,100.00,Kindergarten
+,Private,Santo Nino Regional Catholic School ,,Santa Fe,73.33,Kindergarten
+,Regular Public School,Cimarron Municipal Schools,,Colfax,100.00,Kindergarten
+,Regular Public School,Eagle Nest Elementary/Middle School ,,Colfax,100.00,Kindergarten
+,Regular Public School,Maxwell Municipal Schools,,Colfax,100.00,Kindergarten
+,Regular Public School,Springer Elementary School,,Colfax,88.89,Kindergarten
+,Regular Public School,Rita M. Marquez Elementary,,Guadalupe,85.71,Kindergarten
+,Regular Public School,Santa Rosa Elementary School,,Guadalupe,96.55,Kindergarten
+,Regular Public School,Mosquero Municipal Schools,,Harding,66.67,Kindergarten
+,Regular Public School,RV Traylor Elementary,,Hidalgo,100.00,Kindergarten
+,Regular Public School,Aspen Elementary ,,Los Alamos,100.00,Kindergarten
+,Regular Public School,Barranca Mesa Elementary School,,Los Alamos,95.74,Kindergarten
+,Regular Public School,Chamisa Elementary School,,Los Alamos,96.97,Kindergarten
+,Regular Public School,Mountain Elementary School,,Los Alamos,100.00,Kindergarten
+,Regular Public School,Pinon Elementary,,Los Alamos,100.00,Kindergarten
+,Regular Public School,Mora Independent Schools,,Mora,96.97,Kindergarten
+,Regular Public School,Abiquiu Elementary,,Rio Arriba,100.00,Kindergarten
+,Regular Public School,Alcalde Elementary,,Rio Arriba,100.00,Kindergarten
+,Regular Public School,Chama Elementary School,,Rio Arriba,66.67,Kindergarten
+,Regular Public School,Chimayo Elementary,,Rio Arriba,92.31,Kindergarten
+,Regular Public School,Dixon Elementary,,Rio Arriba,75.00,Kindergarten
+,Regular Public School,Dulce Elementary School,,Rio Arriba,100.00,Kindergarten
+,Regular Public School,El Rito Elementary ,,Rio Arriba,91.67,Kindergarten
+,Regular Public School,ETS Elementary,,Rio Arriba,94.74,Kindergarten
+,Regular Public School,Gallina Elementary School,,Rio Arriba,100.00,Kindergarten
+,Regular Public School,Hernandez Elementary School,,Rio Arriba,92.31,Kindergarten
+,Regular Public School,Los Ninos Kindergarten Center,,Rio Arriba,86.67,Kindergarten
+,Regular Public School,Lybrook K-8,,Rio Arriba,71.43,Kindergarten
+,Regular Public School,San Juan Elementary,,Rio Arriba,90.48,Kindergarten
+,Regular Public School,Tierra Amarilla Elementary Schools,,Rio Arriba,77.78,Kindergarten
+,Regular Public School,Velarde Elementary,,Rio Arriba,100.00,Kindergarten
+,Regular Public School,Los Ninos Elementary,,San Miguel,97.56,Kindergarten
+,Regular Public School,Luis E Armijo Elementary,,San Miguel,77.78,Kindergarten
+,Regular Public School,Mike Mateo Sena Elementary School,,San Miguel,77.78,Kindergarten
+,Regular Public School,Pecos Independent School District,,San Miguel,86.36,Kindergarten
+,Regular Public School,Valley Elementary,,San Miguel,85.71,Kindergarten
+,Regular Public School,Acequia Madre Elementary ,,Santa Fe,93.94,Kindergarten
+,Regular Public School,Amy Biehl Community School,,Santa Fe,97.83,Kindergarten
+,Regular Public School,Aspen Community School,,Santa Fe,88.00,Kindergarten
+,Regular Public School,Atalaya Elementary,,Santa Fe,96.77,Kindergarten
+,Regular Public School,Carlos Gilbert Elementary School,,Santa Fe,98.04,Kindergarten
+,Regular Public School,Cesar Chavez Elementary,,Santa Fe,100.00,Kindergarten
+,Regular Public School,Chaparral Elementary,,Santa Fe,100.00,Kindergarten
+,Regular Public School,Desert Sage Academy,,Santa Fe,100.00,Kindergarten
+,Regular Public School,EJ Martinez Elementary,,Santa Fe,96.15,Kindergarten
+,Regular Public School,El Camino Real Academy,,Santa Fe,87.88,Kindergarten
+,Regular Public School,El Dorado Community School,,Santa Fe,96.30,Kindergarten
+,Regular Public School,Francis X Nava Elementary,,Santa Fe,81.82,Kindergarten
+,Regular Public School,Gonzales Community School,,Santa Fe,95.00,Kindergarten
+,Regular Public School,Kearny Elementary,,Santa Fe,95.45,Kindergarten
+,Regular Public School,Nina Otero Community School,,Santa Fe,96.43,Kindergarten
+,Regular Public School,Pablo Roybal elem,,Santa Fe,100.00,Kindergarten
+,Regular Public School,Pinon Elementary School,,Santa Fe,96.77,Kindergarten
+,Regular Public School,Pojoaque Valley Schools,,Santa Fe,100.00,Kindergarten
+,Regular Public School,Ramirez Thomas Elementary,,Santa Fe,100.00,Kindergarten
+,Regular Public School,Salazar Elementary School,,Santa Fe,93.94,Kindergarten
+,Regular Public School,South Mountain Elementary,,Santa Fe,100.00,Kindergarten
+,Regular Public School,Sweeney Elementary,,Santa Fe,97.30,Kindergarten
+,Regular Public School,Tesuque,,Santa Fe,100.00,Kindergarten
+,Regular Public School,Tony E Quintana (Sombrillo) Elementary,,Santa Fe,92.31,Kindergarten
+,Regular Public School,Wood Gormley,,Santa Fe,100.00,Kindergarten
+,Regular Public School,Alta Vista Elementary School,,Taos,87.50,Kindergarten
+,Regular Public School,Arroyos Del Norte Elementary ,,Taos,75.00,Kindergarten
+,Regular Public School,Enos Garcia Elementary,,Taos,88.89,Kindergarten
+,Regular Public School,Peñasco Independent School District ,,Taos,100.00,Kindergarten
+,Regular Public School,Ranchos Elementary School,,Taos,96.30,Kindergarten
+,Regular Public School,Alvis Elementary School,,Union,90.63,Kindergarten
+,Regular Public School,Des Moines Municipal School,,Union,83.33,Kindergarten
+,State Chater School,Rio Gallinas School for Ecology and the Arts ,,San Miguel,66.67,Kindergarten
+,State Chater School,Estancia Valley Classical Academy,,Santa Fe,79.63,Kindergarten
+,State Chater School,Anansi Charter School,,Taos,90.00,Kindergarten
+,State Chater School,Red River Valley Charter School,,Taos,64.29,Kindergarten
+,State Chater School,Roots and Wings Community School,,Taos,25.00,Kindergarten
+,State Chater School,Taos Charter School,,Taos,95.00,Kindergarten
+,State Chater School,Taos International School,,Taos,92.00,Kindergarten
+,State Chater School,Taos Municipal Charter School,,Taos,75.00,Kindergarten
+,Tribally-Operated School,Kha'p'o Community School,,Rio Arriba,100.00,Kindergarten
+,BIE-Operated School,Baca/Dlo'ay azhi Community School,,McKinley,86.67,Kindergarten
+,BIE-Operated School,Bread Springs Day School,,McKinley,100.00,Kindergarten
+,BIE-Operated School,ChiChilTah Jones Ranch Community School,,McKinley,100.00,Kindergarten
+,BIE-Operated School,Ch'ooshgai Community School,,McKinley,73.33,Kindergarten
+,BIE-Operated School,Crownpoint Community School,,McKinley,86.36,Kindergarten
+,BIE-Operated School,Mariano Lake Community School,,McKinley,100.00,Kindergarten
+,BIE-Operated School,LAKE VALLEY  NAVAJO SCHOOL,,San Juan,100.00,Kindergarten
+,BIE-Operated School,Sanostee Day School,,San Juan,100.00,Kindergarten
+,Local Charter School,MOSAIC  ACADEMY CHARTER SCHOOL,,San Juan,88.24,Kindergarten
+,Private,St. Teresa of Avila School,,Cibola,88.89,Kindergarten
+,Private,Rehoboth Christian School,,McKinley,86.36,Kindergarten
+,Private,St Anthony Indian School ,,McKinley,100.00,Kindergarten
+,Private,St. Bonaventure Indian Mission and School,,McKinley,87.50,Kindergarten
+,Private,Wildcat Christian Academy,,McKinley,66.67,Kindergarten
+,Private,ACTS CHRISTIAN ACADEMY,,San Juan,16.67,Kindergarten
+,Private,Grace Baptist Academy,,San Juan,93.33,Kindergarten
+,Private,SACRED HEART CATHOLIC SCHOOL,,San Juan,76.92,Kindergarten
+,Regular Public School,Bluewater Elementary School,,Cibola,83.33,Kindergarten
+,Regular Public School,Cubero Elementary School,,Cibola,88.00,Kindergarten
+,Regular Public School,Mesa View Elementary,,Cibola,86.96,Kindergarten
+,Regular Public School,Milan Elementary,,Cibola,100.00,Kindergarten
+,Regular Public School,Mt. Taylor Elementary School,,Cibola,88.10,Kindergarten
+,Regular Public School,San Rafael Elementary,,Cibola,100.00,Kindergarten
+,Regular Public School,Seboyeta Elementary,,Cibola,80.00,Kindergarten
+,Regular Public School,Catherine A. Miller Elementary ,,McKinley,71.43,Kindergarten
+,Regular Public School,Chee Dodge Elementary,,McKinley,84.85,Kindergarten
+,Regular Public School,Crownpoint Elementary,,McKinley,72.00,Kindergarten
+,Regular Public School,David Skeet Elementary,,McKinley,92.00,Kindergarten
+,Regular Public School,Del Norte Elementary,,McKinley,91.07,Kindergarten
+,Regular Public School,Indian Hills Elementary School,,McKinley,93.02,Kindergarten
+,Regular Public School,Jefferson Elementary School,,McKinley,87.76,Kindergarten
+,Regular Public School,Lincoln Elementary,,McKinley,84.38,Kindergarten
+,Regular Public School,Navajo Elementary School,,McKinley,82.69,Kindergarten
+,Regular Public School,Ramah Elementary,,McKinley,96.00,Kindergarten
+,Regular Public School,Red Rock Elementary,,McKinley,85.00,Kindergarten
+,Regular Public School,Stagecoach Elementary,,McKinley,85.11,Kindergarten
+,Regular Public School,Thoreau Elementary,,McKinley,80.70,Kindergarten
+,Regular Public School,Tobe Turpen Elementary School,,McKinley,82.61,Kindergarten
+,Regular Public School,Tohatchi Elementary,,McKinley,86.67,Kindergarten
+,Regular Public School,Twin Lakes Elementary,,McKinley,87.50,Kindergarten
+,Regular Public School,Zuni Public School District,,McKinley,100.00,Kindergarten
+,Regular Public School,Animas Elementary ,,San Juan,100.00,Kindergarten
+,Regular Public School,Apache Elementary,,San Juan,98.36,Kindergarten
+,Regular Public School,Bloomfield Early Childhood Center,,San Juan,94.49,Kindergarten
+,Regular Public School,Bluffview Elementary ,,San Juan,100.00,Kindergarten
+,Regular Public School,Country Club Elementary,,San Juan,93.42,Kindergarten
+,Regular Public School,Esperanza Elementary School,,San Juan,100.00,Kindergarten
+,Regular Public School,Eva B Stokely Elementary,,San Juan,100.00,Kindergarten
+,Regular Public School,JUDY NELSON ELEMENTARY,,San Juan,100.00,Kindergarten
+,Regular Public School,Kirtland Elementary,,San Juan,100.00,Kindergarten
+,Regular Public School,Ladera Del Norte Elementary,,San Juan,97.14,Kindergarten
+,Regular Public School,Lydia Rippey Elementary School,,San Juan,98.75,Kindergarten
+,Regular Public School,McCormick Elementary,,San Juan,100.00,Kindergarten
+,Regular Public School,McCoy Elementary ,,San Juan,97.26,Kindergarten
+,Regular Public School,Mckinley Elementary,,San Juan,96.83,Kindergarten
+,Regular Public School,Mesa Elementary,,San Juan,100.00,Kindergarten
+,Regular Public School,Mesa Verde Elementary School,,San Juan,98.53,Kindergarten
+,Regular Public School,Naschitti Elementary School,,San Juan,100.00,Kindergarten
+,Regular Public School,Newcomb Elementary School,,San Juan,85.19,Kindergarten
+,Regular Public School,Nizhoni Elementary,,San Juan,100.00,Kindergarten
+,Regular Public School,Northeast Elementary,,San Juan,100.00,Kindergarten
+,Regular Public School,Ojo Amarillo Elementary School,,San Juan,100.00,Kindergarten
+,Tribally-Operated School,Haak'u Community Academy ,,Cibola,93.75,Kindergarten
+,Tribally-Operated School,Hanaadli Community School,,San Juan,100.00,Kindergarten
+,Tribally-Operated School,"Shiprock Associated Schools, Inc.",,San Juan,100.00,Kindergarten
+,Local Charter School,Sidney Gutierrez Middle School ,,Chaves,85.00,Kindergarten
+,Local Charter School,Jefferson Montessori Academy ,,Eddy,100.00,Kindergarten
+,Private,ALL SAINTS CATHOLIC SCHOOL,,Chaves,66.67,Kindergarten
+,Private,Gateway Christian School,,Chaves,88.89,Kindergarten
+,Private,Clovis Christian Schools,,Curry,85.19,Kindergarten
+,Private,Junction Christian Academy,,Lea,61.90,Kindergarten
+,Private,St. Helena Catholic School,,Lea,100.00,Kindergarten
+,Regular Public School,Berrendo Elementary,,Chaves,100.00,Kindergarten
+,Regular Public School,Del Norte Elementary,,Chaves,100.00,Kindergarten
+,Regular Public School,Dexter Elementary School,,Chaves,100.00,Kindergarten
+,Regular Public School,East Grand Plains Elementary school,,Chaves,100.00,Kindergarten
+,Regular Public School,El Capitan Elementary,,Chaves,98.08,Kindergarten
+,Regular Public School,Hagerman Municipal Schools,,Chaves,100.00,Kindergarten
+,Regular Public School,Lake Arthur,,Chaves,100.00,Kindergarten
+,Regular Public School,Missouri Ave,,Chaves,97.78,Kindergarten
+,Regular Public School,Monterrey Elementary School,,Chaves,100.00,Kindergarten
+,Regular Public School,Nancy Lopez Elementary ,,Chaves,100.00,Kindergarten
+,Regular Public School,Pecos Elementary,,Chaves,100.00,Kindergarten
+,Regular Public School,Penasco Elementary,,Chaves,50.00,Kindergarten
+,Regular Public School,Sunset Elementary School,,Chaves,94.74,Kindergarten
+,Regular Public School,Washington Ave Elementary,,Chaves,100.00,Kindergarten
+,Regular Public School,Arts Academy at Bella Vista,,Curry,100.00,Kindergarten
+,Regular Public School,Barry Elementary ,,Curry,98.18,Kindergarten
+,Regular Public School,Cameo,,Curry,96.67,Kindergarten
+,Regular Public School,Grady Municipal Schools,,Curry,100.00,Kindergarten
+,Regular Public School,Highland Elementary,,Curry,95.74,Kindergarten
+,Regular Public School,iAcademy,,Curry,100.00,Kindergarten
+,Regular Public School,James Bickley Elementary,,Curry,91.11,Kindergarten
+,Regular Public School,La Casita Elementary,,Curry,93.75,Kindergarten
+,Regular Public School,Lockwood ,,Curry,100.00,Kindergarten
+,Regular Public School,Melrose Municipal Schools,,Curry,88.24,Kindergarten
+,Regular Public School,Mesa Elementary School,,Curry,98.65,Kindergarten
+,Regular Public School,Parkview,,Curry,98.15,Kindergarten
+,Regular Public School,Sandia Elementary ,,Curry,96.15,Kindergarten
+,Regular Public School,Texico Municipal Schools,,Curry,96.88,Kindergarten
+,Regular Public School,Zia Elementary,,Curry,96.72,Kindergarten
+,Regular Public School,Fort Sumner Municipal School,,De Baca,94.12,Kindergarten
+,Regular Public School,Desert Willow Elementary,,Eddy,94.89,Kindergarten
+,Regular Public School,Early Childhood Education Center,,Eddy,94.34,Kindergarten
+,Regular Public School,Grand Heights Early Childhood Center,,Eddy,96.64,Kindergarten
+,Regular Public School,Loving Elementary,,Eddy,89.80,Kindergarten
+,Regular Public School,Monterrey Elementary,,Eddy,93.55,Kindergarten
+,Regular Public School,Ocotillo Elementary,,Eddy,95.92,Kindergarten
+,Regular Public School,Booker T. Washington,,Lea,100.00,Kindergarten
+,Regular Public School,Broadmoor Elementary,,Lea,98.00,Kindergarten
+,Regular Public School,College Lane Elementary,,Lea,97.47,Kindergarten
+,Regular Public School,Coronado Elementary,,Lea,96.67,Kindergarten
+,Regular Public School,Edison Elementary,,Lea,100.00,Kindergarten
+,Regular Public School,Jefferson Elementary,,Lea,100.00,Kindergarten
+,Regular Public School,Llano Elementary,,Lea,100.00,Kindergarten
+,Regular Public School,Mettie Jordan Elementary,,Lea,97.87,Kindergarten
+,Regular Public School,Mills Elementary ,,Lea,96.67,Kindergarten
+,Regular Public School,Murray Elementary,,Lea,98.31,Kindergarten
+,Regular Public School,Sanger Elementary,,Lea,100.00,Kindergarten
+,Regular Public School,Southern Heights Elementary,,Lea,96.67,Kindergarten
+,Regular Public School,Stone Elementary ,,Lea,98.33,Kindergarten
+,Regular Public School,Tatum Municipal Schools,,Lea,86.67,Kindergarten
+,Regular Public School,Taylor Elementary School,,Lea,100.00,Kindergarten
+,Regular Public School,Will Rogers Elementary,,Lea,100.00,Kindergarten
+,Regular Public School,Capitan Elementary ,,Lincoln,89.47,Kindergarten
+,Regular Public School,Capitan Municipal Schools,,Lincoln,88.89,Kindergarten
+,Regular Public School,Carrizozo Public Schools,,Lincoln,100.00,Kindergarten
+,Regular Public School,Corona Public Schools,,Lincoln,100.00,Kindergarten
+,Regular Public School,Hondo Valley Public Schools,,Lincoln,100.00,Kindergarten
+,Regular Public School,Sierra Vista Primary ,,Lincoln,95.73,Kindergarten
+,Regular Public School,House Municipal Schools,,Quay,100.00,Kindergarten
+,Regular Public School,Logan School,,Quay,92.86,Kindergarten
+,Regular Public School,San Jon Municipal Schools,,Quay,100.00,Kindergarten
+,Regular Public School,Tucumcari Elementary School,,Quay,100.00,Kindergarten
+,Regular Public School,Brown Early Childhood Center,,Roosevelt,97.71,Kindergarten
+,Regular Public School,Dora Consolidated Schools,,Roosevelt,93.75,Kindergarten
+,Regular Public School,Elida Municipal Schools,,Roosevelt,66.67,Kindergarten
+,Regular Public School,Floyd Municipal Schools,,Roosevelt,100.00,Kindergarten
+,BIE-Operated School,Alamo Navajo Community School Board,,Socorro,94.12,Kindergarten
+,Local Charter School,Cottonwood Valley Charter School,,Socorro,100.00,Kindergarten
+,Private,College Heights Kindergarten ,,Dona Ana,79.31,Kindergarten
+,Private,Las Cruces Academy,,Dona Ana,50.00,Kindergarten
+,Private,Las Cruces Catholic School,,Dona Ana,82.61,Kindergarten
+,Private,Mesilla Valley Christian School,,Dona Ana,84.21,Kindergarten
+,Private,Mission Lutheran School,,Dona Ana,100.00,Kindergarten
+,Regular Public School,Quemado Independent School District,,Catron,54.55,Kindergarten
+,Regular Public School,RESERVE ELEMENTARY,,Catron,50.00,Kindergarten
+,Regular Public School,Alameda Elementary Community School,,Dona Ana,95.83,Kindergarten
+,Regular Public School,Anthony Elementary,,Dona Ana,100.00,Kindergarten
+,Regular Public School,Berino Elementary,,Dona Ana,100.00,Kindergarten
+,Regular Public School,Booker T. Washington Elementary,,Dona Ana,93.75,Kindergarten
+,Regular Public School,Central Elementary,,Dona Ana,100.00,Kindergarten
+,Regular Public School,Cesar Chavez Elementary,,Dona Ana,99.04,Kindergarten
+,Regular Public School,Chaparral Elementary,,Dona Ana,94.74,Kindergarten
+,Regular Public School,Columbia Elementary,,Dona Ana,96.43,Kindergarten
+,Regular Public School,Conlee Elementary,,Dona Ana,100.00,Kindergarten
+,Regular Public School,Desert Hills Elementary School,,Dona Ana,97.14,Kindergarten
+,Regular Public School,Desert Trail Elementary,,Dona Ana,98.41,Kindergarten
+,Regular Public School,Desert View Elementary,,Dona Ana,100.00,Kindergarten
+,Regular Public School,Dona Ana Elementary,,Dona Ana,100.00,Kindergarten
+,Regular Public School,East Picacho Elementary,,Dona Ana,93.94,Kindergarten
+,Regular Public School,Fairacres Elementary school,,Dona Ana,97.30,Kindergarten
+,Regular Public School,Gadsden Elementary,,Dona Ana,100.00,Kindergarten
+,Regular Public School,Garfield Elementary School,,Dona Ana,100.00,Kindergarten
+,Regular Public School,Hatch Valley Elementary School,,Dona Ana,100.00,Kindergarten
+,Regular Public School,Hermosa Heights Elementary School,,Dona Ana,100.00,Kindergarten
+,Regular Public School,Highland Elementary,,Dona Ana,100.00,Kindergarten
+,Regular Public School,Hillrise Elementary school,,Dona Ana,95.45,Kindergarten
+,Regular Public School,Jornada Elementary,,Dona Ana,100.00,Kindergarten
+,Regular Public School,La Union Elementary,,Dona Ana,100.00,Kindergarten
+,Regular Public School,Loma Heights Elementary School,,Dona Ana,98.51,Kindergarten
+,Regular Public School,Loma Linda Elementary,,Dona Ana,96.08,Kindergarten
+,Regular Public School,MacArthur Elementary,,Dona Ana,97.67,Kindergarten
+,Regular Public School,Mesilla Elementary School,,Dona Ana,95.92,Kindergarten
+,Regular Public School,Mesilla Park Elem,,Dona Ana,100.00,Kindergarten
+,Regular Public School,Monte Vista Elementary School,,Dona Ana,97.14,Kindergarten
+,Regular Public School,North Valley Elementary,,Dona Ana,97.83,Kindergarten
+,Regular Public School,Riverside Elementary,,Dona Ana,100.00,Kindergarten
+,Regular Public School,Santa Teresa Elementary,,Dona Ana,100.00,Kindergarten
+,Regular Public School,Sonoma Elementary ,,Dona Ana,99.22,Kindergarten
+,Regular Public School,Sunrise Elementary,,Dona Ana,100.00,Kindergarten
+,Regular Public School,Tombaugh Elementary School,,Dona Ana,98.85,Kindergarten
+,Regular Public School,University Hills Elementary School,,Dona Ana,100.00,Kindergarten
+,Regular Public School,Vado Elementary,,Dona Ana,100.00,Kindergarten
+,Regular Public School,Valley View Elementary ,,Dona Ana,100.00,Kindergarten
+,Regular Public School,White Sands,,Dona Ana,100.00,Kindergarten
+,Regular Public School,Bayard Elementary ,,Grant,95.24,Kindergarten
+,Regular Public School,Central Elementary ,,Grant,100.00,Kindergarten
+,Regular Public School,Cliff Elementary/Middle School,,Grant,100.00,Kindergarten
+,Regular Public School,Hurley Elementary,,Grant,100.00,Kindergarten
+,Regular Public School,San Lorenzo Elementary,,Grant,100.00,Kindergarten
+,Regular Public School,Sixth Street Elementary ,,Grant,96.27,Kindergarten
+,Regular Public School,Bataan Elementary School,,Luna,100.00,Kindergarten
+,Regular Public School,Bell Elementary School,,Luna,100.00,Kindergarten
+,Regular Public School,Chaparral Elementary School,,Luna,100.00,Kindergarten
+,Regular Public School,Columbus Elementary School,,Luna,98.73,Kindergarten
+,Regular Public School,Memorial Elementary School,,Luna,100.00,Kindergarten
+,Regular Public School,Ruben S. Torres Elementary School,,Luna,100.00,Kindergarten
+,Regular Public School,Buena Vista Elementary,,Otero,100.00,Kindergarten
+,Regular Public School,Cloudcroft Elementary School,,Otero,96.43,Kindergarten
+,Regular Public School,Desert Star Elementary,,Otero,97.40,Kindergarten
+,Regular Public School,High Rolls/Mountain Park Elementary,,Otero,100.00,Kindergarten
+,Regular Public School,Holloman Elementary,,Otero,97.50,Kindergarten
+,Regular Public School,La Luz Elementary,,Otero,94.44,Kindergarten
+,Regular Public School,North Elementary,,Otero,100.00,Kindergarten
+,Regular Public School,Sierra Elementary,,Otero,98.21,Kindergarten
+,Regular Public School,Sunset Hills Elementary,,Otero,100.00,Kindergarten
+,Regular Public School,Tularosa Elementary,,Otero,100.00,Kindergarten
+,Regular Public School,Yucca Elementary,,Otero,94.44,Kindergarten
+,Regular Public School,Yucca Heights Elementary,,Otero,100.00,Kindergarten
+,Regular Public School,Arrey Elementary,,Sierra,90.00,Kindergarten
+,Regular Public School,Truth or Consequences Elementary School,,Sierra,97.22,Kindergarten
+,Regular Public School,La Promesa Elementary School,,Socorro,96.00,Kindergarten
+,Regular Public School,Magdalena Municipal Schools,,Socorro,56.25,Kindergarten
+,Regular Public School,Midway Elementary School,,Socorro,100.00,Kindergarten
+,Regular Public School,Parkview Elementary School,,Socorro,98.11,Kindergarten
+,Regular Public School,San Antonio Elementary School,,Socorro,100.00,Kindergarten
+,State Chater School,J. Paul Taylor Academy,,Dona Ana,85.00,Kindergarten
+,State Chater School,Raices del Saber,,Dona Ana,86.96,Kindergarten
+,Local Charter School,21ST CENTURY PUBLIC ACADEMY ,,Bernalillo,97.47,7th Grade
+,Regular Public School,Aztec - Stephen Moody Complex,,Bernalillo,100.00,7th Grade
+,Regular Public School,Highland Autism Complex,,Bernalillo,100.00,7th Grade
+,Regular Public School,New Futures High School,,Bernalillo,100.00,7th Grade
+,Regular Public School,Stephen Moody Complex-Aztec,,Bernalillo,100.00,7th Grade
+,Regular Public School,Vision Quest Alternative Middle ,,Bernalillo,100.00,7th Grade
+,Private,Christian Heritage Academy,,Bernalillo,100.00,7th Grade
+,Private,Eastern Hills Christian Academy,,Bernalillo,100.00,7th Grade
+,Private,Pathways Academy,,Bernalillo,66.67,7th Grade
+,Private,Crestview SDA Academy,,Bernalillo,100.00,7th Grade
+,Private,DLD Sycamore School,,Bernalillo,75.00,7th Grade
+,Private,Evangel Christian Academy,,Bernalillo,100.00,7th Grade
+,Private,Holy Child Catholic School,,Bernalillo,100.00,7th Grade
+,Private,Paradise Christian School,,Bernalillo,100.00,7th Grade
+,Private,Shepherd Lutheran School,,Bernalillo,71.43,7th Grade
+,Private,Christ Lutheran School,,Bernalillo,100.00,7th Grade
+,Private,Salam Academy,,Bernalillo,77.78,7th Grade
+,Local Charter School,THE GREAT ACADEMY ,,Bernalillo,88.89,7th Grade
+,Private,Menaul School,,Bernalillo,100.00,7th Grade
+,State Chater School,Albuquerque Sign Language Academy,,Bernalillo,100.00,7th Grade
+,Private,Holy Ghost Catholic School,,Bernalillo,100.00,7th Grade
+,Private,Immanuel Lutheran School,,Bernalillo,92.86,7th Grade
+,Local Charter School,NM Academy for Media Arts,,Bernalillo,100.00,7th Grade
+,State Chater School,North Valley Academy,,Bernalillo,100.00,7th Grade
+,Private,San Felipe de Neri School,,Bernalillo,85.71,7th Grade
+,Private,St. Charles Borromeo,,Bernalillo,78.57,7th Grade
+,Private,Calvary Christian Academy,,Bernalillo,68.75,7th Grade
+,Regular Public School,Coyote Willow Magnet School,,Bernalillo,100.00,7th Grade
+,Private,Our Lady of the Assumption Catholic School,,Bernalillo,75.00,7th Grade
+,Private,St. Therese Catholic School,,Bernalillo,93.75,7th Grade
+,Private,St Marys Schools ,,Bernalillo,65.00,7th Grade
+,Local Charter School,Desert Willow Family Magnet School,,Bernalillo,100.00,7th Grade
+,Local Charter School,New Mexico International School,,Bernalillo,100.00,7th Grade
+,State Chater School,Digital Arts & Technology Academy Charter,,Bernalillo,95.65,7th Grade
+,State Chater School,Robert F. Kennedy Charter,,Bernalillo,87.50,7th Grade
+,Local Charter School,Corrales International School,,Bernalillo,96.00,7th Grade
+,Private,Oak Grove Classical Academy,,Bernalillo,84.62,7th Grade
+,Private,St. Mary's Catholic School,,Bernalillo,100.00,7th Grade
+,Local Charter School,Mountain Mahogany Community School,,Bernalillo,100.00,7th Grade
+,Private,Legacy Academy,,Bernalillo,92.86,7th Grade
+,Local Charter School,Southwest Preparatory Learning Center,,Bernalillo,100.00,7th Grade
+,Local Charter School,RIO GRANDE ACADEMY OF FINE ARTS ,,Bernalillo,97.14,7th Grade
+,State Chater School,The International School at Mesa Del Sol,,Bernalillo,89.19,7th Grade
+,Local Charter School,El Camino Real Academy,,Bernalillo,100.00,7th Grade
+,Private,ANNUNCIATION CATHOLIC SCHOOL,,Bernalillo,55.00,7th Grade
+,State Chater School,The Montessori Elementary & Middle School,,Bernalillo,97.56,7th Grade
+,Local Charter School,Alice King Community School,,Bernalillo,97.73,7th Grade
+,Private,Bosque School,,Bernalillo,89.13,7th Grade
+,State Chater School,Albuquerque Bilingual Academy ,,Bernalillo,100.00,7th Grade
+,Local Charter School,CHRISTINE DUNCANS HERITAGE ACADEMY ,,Bernalillo,97.62,7th Grade
+,Local Charter School,Cien Aguas International School,,Bernalillo,95.62,7th Grade
+,Local Charter School,TIERRA ADENTRO ,,Bernalillo,96.00,7th Grade
+,State Chater School,South Valley Preparatory,,Bernalillo,100.00,7th Grade
+,Private,Sandia Preparatory School,,Bernalillo,97.22,7th Grade
+,Local Charter School,Public Academy for Performing Arts,,Bernalillo,97.30,7th Grade
+,Regular Public School,Taft Middle School ,,Bernalillo,100.00,7th Grade
+,Regular Public School,Washington Middle School,,Bernalillo,92.31,7th Grade
+,Regular Public School,Susan M Gass,,Bernalillo,65.48,7th Grade
+,Local Charter School,SOLARE ,,Bernalillo,100.00,7th Grade
+,Regular Public School,Polk Middle School,,Bernalillo,97.73,7th Grade
+,State Chater School,South Valley Academy,,Bernalillo,98.89,7th Grade
+,State Chater School,Albuquerque School of Excellence ,,Bernalillo,95.60,7th Grade
+,Regular Public School,Edgewood Mid School,,Bernalillo,89.01,7th Grade
+,Regular Public School,Taylor Middle School,,Bernalillo,98.94,7th Grade
+,Regular Public School,Kennedy Middle School,,Bernalillo,96.97,7th Grade
+,Regular Public School,Harrison Middle School,,Bernalillo,99.02,7th Grade
+,Regular Public School,Grant Middle School,,Bernalillo,100.00,7th Grade
+,State Chater School,Mission Achievement and Success Charter School 1.0,,Bernalillo,100.00,7th Grade
+,Regular Public School,John Adams Middle School,,Bernalillo,99.12,7th Grade
+,Regular Public School,Van Buren Middle School,,Bernalillo,87.83,7th Grade
+,Regular Public School,Jackson Middle School,,Bernalillo,100.00,7th Grade
+,Regular Public School,Hoover Middle School,,Bernalillo,97.48,7th Grade
+,State Chater School,Mission Achievement and Success Charter School 2.0,,Bernalillo,99.17,7th Grade
+,Regular Public School,eCademy K-8 ,,Bernalillo,96.72,7th Grade
+,Regular Public School,Wilson Middle School,,Bernalillo,96.72,7th Grade
+,Regular Public School,Roosevelt Middle School,,Bernalillo,97.64,7th Grade
+,Private,Hope Christian Elementary School,,Bernalillo,93.75,7th Grade
+,Regular Public School,Hayes Middle School,,Bernalillo,97.69,7th Grade
+,Regular Public School,McKinley Middle School,,Bernalillo,97.78,7th Grade
+,Regular Public School,Ernie Pyle Middle School,,Bernalillo,98.56,7th Grade
+,Regular Public School,Jimmy Carter Middle School,,Bernalillo,97.84,7th Grade
+,State Chater School,Cottonwood Classical Preparatory School,,Bernalillo,100.00,7th Grade
+,Regular Public School,Tres Volcanes Community Collaborative,,Bernalillo,87.82,7th Grade
+,Private,Albuquerque Academy,,Bernalillo,99.40,7th Grade
+,Regular Public School,Lyndon B. Johnson,,Bernalillo,99.44,7th Grade
+,Regular Public School,Cleveland Middle School,,Bernalillo,99.45,7th Grade
+,State Chater School,Explore Academy Albuquerque ,,Bernalillo,97.84,7th Grade
+,Regular Public School,Madison Middle School,,Bernalillo,99.49,7th Grade
+,Regular Public School,Truman Middle School,,Bernalillo,86.07,7th Grade
+,Regular Public School,Jefferson Middle School,,Bernalillo,97.03,7th Grade
+,Regular Public School,George I Sanchez Collaborative Community School,,Bernalillo,100.00,7th Grade
+,Regular Public School,Desert Ridge Middle School,,Bernalillo,100.00,7th Grade
+,Regular Public School,James Monroe Middle School,,Bernalillo,99.60,7th Grade
+,Regular Public School,Eisenhower Middle School,,Bernalillo,92.31,7th Grade
+,Regular Public School,Garfield STEM Community School,,Bernalillo,99.67,7th Grade
+,Regular Public School,Tony Hillerman Middle School ,,Bernalillo,99.37,7th Grade
+,Private,Torreon Christian School,,Sandoval,100.00,7th Grade
+,Local Charter School,San Diego Riverside Charter School,,Sandoval,25.00,7th Grade
+,Private,Sandia View Christian School,,Sandoval,83.33,7th Grade
+,BIE-Operated School,Ojo Encino Day School,,Sandoval,100.00,7th Grade
+,Regular Public School,Cochiti Elementary & Middle School,,Sandoval,100.00,7th Grade
+,Private,Gospel Light Baptist Academy,,Sandoval,76.47,7th Grade
+,Regular Public School,Rio Rancho Cyber Academy,,Sandoval,100.00,7th Grade
+,Regular Public School,Santo Domingo Elementary School,,Sandoval,100.00,7th Grade
+,Local Charter School,SANDOVAL ACADEMY OF BILINGUAL EDUCATION ,,Sandoval,95.24,7th Grade
+,Regular Public School,Jemez Valley Public Schools,,Sandoval,95.65,7th Grade
+,Private,St Thomas Aquinas School,,Sandoval,91.18,7th Grade
+,Regular Public School,Cuba Elementary & Middle School,,Sandoval,100.00,7th Grade
+,State Chater School,The Ask Academy ,,Sandoval,97.32,7th Grade
+,Regular Public School,Spartan Learning Academy,,Sandoval,100.00,7th Grade
+,Regular Public School,Lincoln Middle School,,Sandoval,99.63,7th Grade
+,Regular Public School,Eagle Ridge Middle School,,Sandoval,99.64,7th Grade
+,Regular Public School,Mountain View Middle School,,Sandoval,98.70,7th Grade
+,Regular Public School,Rio Rancho Middle School ,,Sandoval,97.83,7th Grade
+,Regular Public School,Mountainair Elementary & Middle ,,Torrance,100.00,7th Grade
+,Regular Public School,Estancia Municipal School District,,Torrance,100.00,7th Grade
+,Regular Public School,Moriarty Middle School,,Torrance,100.00,7th Grade
+,Regular Public School,Family School Digital Academy,,Valencia,100.00,7th Grade
+,Private,Canon Christian Academy,,Valencia,88.89,7th Grade
+,Regular Public School,Family School,,Valencia,100.00,7th Grade
+,State Chater School,School of Dreams Academy,,Valencia,96.88,7th Grade
+,State Chater School,The Ask Academy ,,Valencia,95.61,7th Grade
+,Regular Public School,Valencia Middle School,,Valencia,99.57,7th Grade
+,Regular Public School,Belen Middle School,,Valencia,99.63,7th Grade
+,Regular Public School,Los Lunas Middle School,,Valencia,98.37,7th Grade
+,Regular Public School,Maxwell Municipal Schools,,Colfax,100.00,7th Grade
+,Regular Public School,Springer Sr./Jr. High School,,Colfax,90.91,7th Grade
+,Regular Public School,Cimarron Municipal Schools,,Colfax,100.00,7th Grade
+,Regular Public School,Eagle Nest Elementary/Middle School ,,Colfax,78.57,7th Grade
+,Regular Public School,Anton Chico Middle School,,Guadalupe,100.00,7th Grade
+,Regular Public School,Santa Rosa Middle School,,Guadalupe,100.00,7th Grade
+,Regular Public School,Mosquero Municipal Schools,,Harding,75.00,7th Grade
+,Regular Public School,Los Alamos Middle School,,Los Alamos,99.30,7th Grade
+,Regular Public School,Wagon Mound Public Schools,,Mora,100.00,7th Grade
+,Regular Public School,Mora Independent Schools,,Mora,96.97,7th Grade
+,Regular Public School,Lybrook K-8,,Rio Arriba,100.00,7th Grade
+,Private,ST FRANCIS SCHOOL,,Rio Arriba,58.33,7th Grade
+,Regular Public School,Coronado Middle School,,Rio Arriba,100.00,7th Grade
+,Regular Public School,Mesa Vista Middle school,,Rio Arriba,100.00,7th Grade
+,Regular Public School,Escalante Mid-High  School,,Rio Arriba,84.85,7th Grade
+,Regular Public School,Dulce Middle School,,Rio Arriba,100.00,7th Grade
+,Regular Public School,Carlos F. Vigil Middle School,,Rio Arriba,99.48,7th Grade
+,State Chater School,Rio Gallinas School for Ecology and the Arts ,,San Miguel,66.67,7th Grade
+,Regular Public School,Valley Middle School,,San Miguel,90.00,7th Grade
+,Regular Public School,Pecos Independent School District,,San Miguel,95.65,7th Grade
+,Regular Public School,West Las Vegas Middle School ,,San Miguel,97.47,7th Grade
+,Regular Public School,Memorial Middle School,,San Miguel,95.70,7th Grade
+,Private,New Mexico School for the Deaf,,Santa Fe,100.00,7th Grade
+,Regular Public School,Desert Sage Academy,,Santa Fe,100.00,7th Grade
+,Private,Santa Fe School for the Deaf,,Santa Fe,81.82,7th Grade
+,Private,Santa Fe Girls' School,,Santa Fe,88.24,7th Grade
+,Private,Santa Fe School for the Arts and Sciences,,Santa Fe,91.67,7th Grade
+,Regular Public School,Aspen Community School,,Santa Fe,97.22,7th Grade
+,Regular Public School,Gonzales Community School,,Santa Fe,100.00,7th Grade
+,State Chater School,Tierra Encantada Charter School ,,Santa Fe,100.00,7th Grade
+,State Chater School,Estancia Valley Classical Academy,,Santa Fe,86.67,7th Grade
+,Local Charter School,McCurdy Charter School,,Santa Fe,100.00,7th Grade
+,Private,Santa Fe Preparatory School,,Santa Fe,92.98,7th Grade
+,Regular Public School,Mandela International Magnet School,,Santa Fe,89.83,7th Grade
+,Private,St. Michael's High School,,Santa Fe,91.53,7th Grade
+,Local Charter School,Turquoise Trail Charter School,,Santa Fe,91.53,7th Grade
+,Regular Public School,El Dorado Community School,,Santa Fe,95.38,7th Grade
+,Regular Public School,Nina Otero Community School,,Santa Fe,100.00,7th Grade
+,Local Charter School,Monte del Sol Charter School,,Santa Fe,83.10,7th Grade
+,Local Charter School,The Academy for Technology and the Classics,,Santa Fe,87.32,7th Grade
+,Regular Public School,El Camino Real Academy,,Santa Fe,97.65,7th Grade
+,Regular Public School,Edgewood Middle School,,Santa Fe,82.61,7th Grade
+,Regular Public School,Pablo Roybal elem,,Santa Fe,97.71,7th Grade
+,Regular Public School,Pojoaque Valley Schools,,Santa Fe,96.21,7th Grade
+,Regular Public School,Milagro Middle School,,Santa Fe,98.67,7th Grade
+,Regular Public School,Ortiz Middle School,,Santa Fe,99.34,7th Grade
+,State Chater School,Roots and Wings Community School,,Taos,50.00,7th Grade
+,State Chater School,Red River Valley Charter School,,Taos,90.91,7th Grade
+,Local Charter School,Taos Integrated School of the Arts,,Taos,100.00,7th Grade
+,State Chater School,Taos International School,,Taos,85.71,7th Grade
+,State Chater School,Anansi Charter School,,Taos,54.55,7th Grade
+,Regular Public School,Peñasco Independent School District ,,Taos,91.30,7th Grade
+,Regular Public School,Questa Jr. / Sr. High School,,Taos,92.31,7th Grade
+,Local Charter School,Taos Academy,,Taos,84.62,7th Grade
+,State Chater School,Taos Charter School,,Taos,84.62,7th Grade
+,State Chater School,Taos Municipal Charter School,,Taos,81.48,7th Grade
+,Regular Public School,Taos Middle School ,,Taos,87.72,7th Grade
+,Regular Public School,Des Moines Municipal School,,Union,100.00,7th Grade
+,Regular Public School,Clayton Junior High School,,Union,96.97,7th Grade
+,Private,St. Teresa of Avila School,,Cibola,77.78,7th Grade
+,Tribally-Operated School,Haak'u Community Academy ,,Cibola,100.00,7th Grade
+,Regular Public School,Laguna Acoma Jr. High School,,Cibola,100.00,7th Grade
+,BIE-Operated School,Laguna Middle School,,Cibola,100.00,7th Grade
+,Regular Public School,Los Alamitos Middle School,,Cibola,99.12,7th Grade
+,Private,Wildcat Christian Academy,,McKinley,50.00,7th Grade
+,BIE-Operated School,ChiChilTah Jones Ranch Community School,,McKinley,100.00,7th Grade
+,Private,St Anthony Indian School ,,McKinley,100.00,7th Grade
+,Local Charter School,"Dził Ditł'ooí School of Empowerment, Action, and Perseverance",,McKinley,80.00,7th Grade
+,Local Charter School,Six Directions Indigenous School ,,McKinley,100.00,7th Grade
+,Private,St. Bonaventure Indian Mission and School,,McKinley,100.00,7th Grade
+,Private,Zuni Christian Mission School,,McKinley,81.82,7th Grade
+,BIE-Operated School,Crownpoint Community School,,McKinley,84.62,7th Grade
+,BIE-Operated School,Ch'ooshgai Community School,,McKinley,100.00,7th Grade
+,Private,Rehoboth Christian School,,McKinley,94.29,7th Grade
+,Regular Public School,Ramah Middle School,,McKinley,97.37,7th Grade
+,Regular Public School,Navajo Middle School,,McKinley,100.00,7th Grade
+,Regular Public School,Tohatchi Middle School,,McKinley,85.94,7th Grade
+,Regular Public School,Crownpoint Elementary,,McKinley,94.67,7th Grade
+,Regular Public School,Crownpoint Middle,,McKinley,94.67,7th Grade
+,Regular Public School,Zuni Public School District,,McKinley,100.00,7th Grade
+,Regular Public School,Thoreau Middle,,McKinley,99.08,7th Grade
+,Regular Public School,Gallup Middle School,,McKinley,100.00,7th Grade
+,Regular Public School,Chief Manuelito Middle School,,McKinley,95.85,7th Grade
+,Regular Public School,John F. Kennedy Middle School,,McKinley,97.04,7th Grade
+,BIE-Operated School,LAKE VALLEY  NAVAJO SCHOOL,,San Juan,100.00,7th Grade
+,Private,ACTS CHRISTIAN ACADEMY,,San Juan,100.00,7th Grade
+,Private,Grace Baptist Academy,,San Juan,77.78,7th Grade
+,Local Charter School,MOSAIC  ACADEMY CHARTER SCHOOL,,San Juan,85.00,7th Grade
+,Tribally-Operated School,"Shiprock Associated Schools, Inc.",,San Juan,100.00,7th Grade
+,Regular Public School,Newcomb Middle School,,San Juan,95.92,7th Grade
+,Regular Public School,Tse  Bit Ai Middle School,,San Juan,95.68,7th Grade
+,Regular Public School,Mesa View Middle School ,,San Juan,100.00,7th Grade
+,Regular Public School,Mesa Alta Junior High School,,San Juan,98.83,7th Grade
+,Regular Public School,C.V. Koogler Middle School,,San Juan,98.85,7th Grade
+,Regular Public School,Kirtland Middle Schools,,San Juan,100.00,7th Grade
+,Regular Public School,Hermosa Middle School,,San Juan,98.13,7th Grade
+,Regular Public School,Heights,,San Juan,100.00,7th Grade
+,Regular Public School,Tibbetts Middle School,,San Juan,100.00,7th Grade
+,Regular Public School,Penasco Elementary,,Chaves,100.00,7th Grade
+,Private,ALL SAINTS CATHOLIC SCHOOL,,Chaves,100.00,7th Grade
+,Regular Public School,Lake Arthur,,Chaves,100.00,7th Grade
+,Regular Public School,Hagerman Municipal Schools,,Chaves,100.00,7th Grade
+,Local Charter School,Sidney Gutierrez Middle School ,,Chaves,86.36,7th Grade
+,Private,Gateway Christian School,,Chaves,97.14,7th Grade
+,Regular Public School,Dexter Middle School,,Chaves,100.00,7th Grade
+,Regular Public School,Mesa Middle School,,Chaves,100.00,7th Grade
+,Regular Public School,Sierra Middle School,,Chaves,100.00,7th Grade
+,Regular Public School,Grady Municipal Schools,,Curry,100.00,7th Grade
+,Regular Public School,iAcademy,,Curry,100.00,7th Grade
+,Private,Clovis Christian Schools,,Curry,89.47,7th Grade
+,Regular Public School,Melrose Municipal Schools,,Curry,100.00,7th Grade
+,Regular Public School,Texico Municipal Schools,,Curry,100.00,7th Grade
+,Regular Public School,Yucca Middle School ,,Curry,96.41,7th Grade
+,Regular Public School,WD Gattis Middle School,,Curry,100.00,7th Grade
+,Regular Public School,Fort Sumner Municipal School,,De Baca,96.65,7th Grade
+,Regular Public School,Carlsbad Enrichment Center,,Eddy,100.00,7th Grade
+,Local Charter School,Jefferson Montessori Academy ,,Eddy,100.00,7th Grade
+,Regular Public School,LOVING MIDDLE SCHOOL,,Eddy,95.56,7th Grade
+,Regular Public School,Alta Vista,,Eddy,98.81,7th Grade
+,Regular Public School,Artesia Intermediate School,,Eddy,99.63,7th Grade
+,Regular Public School,Carlsbad Intermediate Schools-PR Leyva,,Eddy,98.94,7th Grade
+,Regular Public School,Tatum Municipal Schools,,Lea,100.00,7th Grade
+,Regular Public School,Jal Junior High chool,,Lea,97.87,7th Grade
+,Regular Public School,Caton Middle School,,Lea,94.83,7th Grade
+,Regular Public School,Heizer Middle School,,Lea,100.00,7th Grade
+,Regular Public School,TAYLOR MIDDLE SCHOOL,,Lea,99.22,7th Grade
+,Regular Public School,Houston Middle School,,Lea,99.22,7th Grade
+,Regular Public School,Highland Middle School,,Lea,99.30,7th Grade
+,Regular Public School,Corona Public Schools,,Lincoln,80.00,7th Grade
+,Regular Public School,Carrizozo Public Schools,,Lincoln,83.33,7th Grade
+,Regular Public School,Hondo Valley Public Schools,,Lincoln,100.00,7th Grade
+,Regular Public School,Capitan Municipal Schools,,Lincoln,97.14,7th Grade
+,Regular Public School,RUIDOSO MIDDLE SCHOOL,,Lincoln,100.00,7th Grade
+,Regular Public School,House Municipal Schools,,Quay,100.00,7th Grade
+,Regular Public School,San Jon Municipal Schools,,Quay,100.00,7th Grade
+,Regular Public School,Logan School,,Quay,100.00,7th Grade
+,Regular Public School,Tucumcari Middle School,,Quay,95.95,7th Grade
+,Regular Public School,Elida Municipal Schools,,Roosevelt,100.00,7th Grade
+,Regular Public School,Dora Consolidated Schools,,Roosevelt,100.00,7th Grade
+,Regular Public School,Floyd Municipal Schools,,Roosevelt,85.00,7th Grade
+,Regular Public School,Portales Junior High School,,Roosevelt,100.00,7th Grade
+,Regular Public School,Quemado Independent School District,,Catron,91.67,7th Grade
+,Private,Las Cruces Academy,,Dona Ana,88.89,7th Grade
+,State Chater School,J. Paul Taylor Academy,,Dona Ana,100.00,7th Grade
+,Regular Public School,White Sands,,Dona Ana,100.00,7th Grade
+,State Chater School,La Academia de Dolores Huerta,,Dona Ana,96.30,7th Grade
+,Private,Las Cruces Catholic School,,Dona Ana,96.67,7th Grade
+,Regular Public School,Mesilla Valley Leadership Academy ,,Dona Ana,97.37,7th Grade
+,Local Charter School,EXPLORE ACADEMY,,Dona Ana,95.00,7th Grade
+,Regular Public School,Hatch Valley Middle School,,Dona Ana,100.00,7th Grade
+,Regular Public School,Lynn Community Middle School,,Dona Ana,99.34,7th Grade
+,Regular Public School,Vista Middle School,,Dona Ana,98.89,7th Grade
+,Regular Public School,Zia Middle ,,Dona Ana,99.56,7th Grade
+,Regular Public School,Mesa Middle School,,Dona Ana,99.58,7th Grade
+,Regular Public School,Picacho Middle School,,Dona Ana,100.00,7th Grade
+,Regular Public School,Sierra Middle School,,Dona Ana,100.00,7th Grade
+,Regular Public School,Chaparral Middle School,,Dona Ana,100.00,7th Grade
+,Regular Public School,Camino Real Middle School ,,Dona Ana,100.00,7th Grade
+,Regular Public School,Santa Teresa Middle School,,Dona Ana,99.67,7th Grade
+,Regular Public School,Gadsden Middle School,,Dona Ana,100.00,7th Grade
+,Regular Public School,Cliff Elementary/Middle School,,Grant,94.74,7th Grade
+,State Chater School,Aldo Leopold Charter School,,Grant,83.33,7th Grade
+,Regular Public School,Snell Middle School,,Grant,100.00,7th Grade
+,Regular Public School,La Plata Middle School,,Grant,96.40,7th Grade
+,Regular Public School,Dugan-Tarango Middle School,,Hidalgo,100.00,7th Grade
+,Regular Public School,Red Mountain Middle School,,Luna,99.74,7th Grade
+,Regular Public School,Cloudcroft Middle School,,Otero,94.44,7th Grade
+,Regular Public School,Tularosa Middle School,,Otero,98.18,7th Grade
+,Regular Public School,Holloman Middle School,,Otero,98.25,7th Grade
+,Regular Public School,Mountain View Middle School,,Otero,97.42,7th Grade
+,Regular Public School,Chaparral Middle School,,Otero,100.00,7th Grade
+,Regular Public School,Truth or Consequences Middle School,,Sierra,100.00,7th Grade
+,Local Charter School,Cottonwood Valley Charter School,,Socorro,89.47,7th Grade
+,Regular Public School,Magdalena Municipal Schools,,Socorro,83.33,7th Grade
+,BIE-Operated School,Alamo Navajo Community School Board,,Socorro,100.00,7th Grade
+,Regular Public School,Sarracino Middle School,,Socorro,100.00,7th Grade

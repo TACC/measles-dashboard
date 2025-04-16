@@ -6,6 +6,7 @@ TODO: we really really need tests! For both `app.py` (callbacks) and also for `m
 
 TODO: we need a script to assess validity and format of new states' datasets!
 
+
 ## State Vaccination Data Status
 - `TX_MMR_vax_rate.csv` 
 - `NC_MMR_vax_rate.csv`
@@ -21,6 +22,25 @@ TODO: we need a script to assess validity and format of new states' datasets!
 - Note: 03/13/2025 changed TX and NC CSV columns to be more consistent -- and got rid of underscores. Using `vax_rate_csv_checker.py`, will enforce this for new vaccination data.
 - Note: 03/13/2025 changed TX and NC CSV "MMR Vaccination Rate" column to be expressed as float -- percentage instead of decimals, with 2 decimal points only, will enforce this for new vaccination data.
 
+
+### Need for speed - 04/10/2025 LP
+- Fixed merge conflicts -- manually checked results versus online dashboard to confirm no issues.
+- Coded new vaccination stuff into `measles_efficiency.py` model.
+- Separated dashboard simulation output into graph and numerical results -- for the latter, we use `measles_efficiency.py` to quickly crunch new cases. Previous experiments (demo'ed to Lauren and Remy 3/31/2025) on the measles model with no vaccination showed more than 92% speed up! Manually checked results versus online dashboard to confirm correctness of this approach!
+    - Note: when checking for correctness, used same random number generator, and also removed the early stopping condition. This controlled random number generation and made the new `measles_efficiency` function comparable to the online dashboard. Results are indeed correct.
+- Increased number of simulations for numerical results from 200 to 1000, and changed corresponding text.
+- Replaced old `MT19337` random number generator with new and faster one `PCG64` from `randomgen` -- also added `randomgen` to requirements. Note this will mean the new dashboard will not agree with the previous dashboard perfectly (due to random numbers) -- but correctness has been checked with the same RNGs.
+- Misc refactoring (more cleaning is overdue however) -- a decent amount of refactoring was needed to sub in the `measles_efficiency` function. Renamed variables to avoid confusion. 
+- TODO: make the graphing function (main function that creates output on dashboard) less grotesque :)
+
+
+### New vaccination data - 04/10/2025 RP
+- Put all state vaccination data in a new subfolder called state_data
+- Small updates to `vax_rate_csv_checker.py`
+- Updated wording in notes about vaccination data to be more succinct
+- Adding data for Connecticut, Maryland, New Mexico, and New Yo
+
+
 ### Vaccinated compartment - 04/04/2025 RP
 - Added a vaccinated compartment
   - Updated the epidemiological model so vaccinated individuals can now be infected and in turn infect others
@@ -34,6 +54,13 @@ TODO: we need a script to assess validity and format of new states' datasets!
 - Small modifications to the vaccinated rate input file checker `vax_rate_csv_checker.py`
   - Added a main section so the file can be run by putting the new file name
   - Function check_no_duplicates() now prints rows causing issues
+
+
+### Measles efficiency computation and generating lookup table for CDC -- 03/31/2025 RP + LP
+- `measles_efficiency.py` has non-OOP efficient form of computing new cases -- does not save sample paths or any other history -- also does early termination if `E + I == 0` or `S == 0`. There is some adaptive stepsize functionality but not sure if this is actually a good thing to add. There is a small difference between using adaptive step size and not using it, and between using 4 steps per day versus, say, 10. This discretization error seems inevitable.
+- Some additional small efficiency improvements (on both functional efficiency code and the OOP code): replaced RNG with more updated and faster RNG, return 0 instead of generating random variable if Poisson rate is 0. 
+- Note: dataset of raw data has 20,000 replications for each configuration (see `measles_efficiency_run.py` for details on grid) and DOES use adaptive step size. 
+- Note: if users have `cython` installed, they can compile `measles_efficiency.py` by running `python setup_measles_efficiency build_ext --inplace` and then run `measles_efficiency_run.py` as normal.
 
 
 ### Spring cleaning, bug fixing, Pennsylvania, minor adjustments -- 03/21/2025 LP
