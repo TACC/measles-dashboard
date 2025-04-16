@@ -17,21 +17,28 @@ import numpy as np
 import copy
 import dash_bootstrap_components as dbc
 import measles_single_population as msp
+import measles_efficiency
 import subprocess
+
+from randomgen import PCG64
 
 from app_static_graphics import navbar, bottom_info_section, \
     bottom_credits, school_outbreak_projections_header
 from app_dynamic_graphics import results_header, spaghetti_plot_section, \
     dashboard_input_panel
-from app_computation_functions import get_dashboard_results_fig, \
-    get_dashboard_spaghetti, EMPTY_SPAGHETTI_PLOT_INFECTED_MA
+from app_computation_functions import dashboard_results_fig, \
+    EMPTY_SPAGHETTI_PLOT_INFECTED_MA, \
+    dashboard_exceedance_prob_str,\
+    dashboard_percentiles_str
 from app_selectors import SELECTOR_DEFAULTS
 
 DASHBOARD_CONFIG = {
-    'num_simulations': 200,
+    'num_simulations_graph': 20,
+    'num_simulations_results': 1000,
     'simulation_seed': 147125098488,
     'spaghetti_curve_selection_seed': 12345,
 }
+STATE_DATA_SUBFOLDER = 'state_data/'
 
 msp.DEFAULT_MSP_PARAMS["simulation_seed"] = DASHBOARD_CONFIG["simulation_seed"]
 
@@ -40,18 +47,21 @@ msp.DEFAULT_MSP_PARAMS["simulation_seed"] = DASHBOARD_CONFIG["simulation_seed"]
 #   We can also cache the dataframe subsets...
 # TODO -- maybe... put state-to-CSV mapping in JSON file?
 
-NC_df = pd.read_csv('NC_MMR_vax_rate.csv')
-NY_df = pd.read_csv("NY_MMR_vax_rate.csv")
-PA_df = pd.read_csv("PA_MMR_vax_rate.csv")
-TX_df = pd.read_csv('TX_MMR_vax_rate.csv')
-
-state_to_df_map = {
-    "New York": NY_df,
-    "North Carolina": NC_df,
-    "Pennsylvania": PA_df,
-    "Texas": TX_df
+state_name_to_two_letter_code = {
+    "Connecticut": "CT",
+    "Maryland": "MD",
+    "New Mexico": "NM",
+    "New York": "NY",
+    "North Carolina": "NC",
+    "Pennsylvania": "PA",
+    "Texas": "TX",
 }
 
+
+state_to_df_map = {
+    state_name: pd.read_csv(STATE_DATA_SUBFOLDER + state_code + '_MMR_vax_rate.csv')
+    for state_name, state_code in state_name_to_two_letter_code.items()
+}
 
 def get_county_subset_df(state_str, county_str) -> pd.DataFrame:
     state_subset_df = state_to_df_map[state_str]
@@ -99,8 +109,9 @@ def create_params_from_selectors(params_dict,
         'outbreak_threshold']
     vaccine_efficacy = vaccine_efficacy if vaccine_efficacy is not None else SELECTOR_DEFAULTS[
         'vaccine_efficacy_selector']
-    vaccinated_infectiousness = vaccinated_infectiousness if vaccinated_infectiousness is not None else SELECTOR_DEFAULTS[
-        'vaccinated_infectiousness_selector']
+    vaccinated_infectiousness = vaccinated_infectiousness if vaccinated_infectiousness is not None else \
+        SELECTOR_DEFAULTS[
+            'vaccinated_infectiousness_selector']
 
     params_dict['population'] = [int(school_size)]
     params_dict['vax_prop'] = [0.01 * float(vax_rate_percent)]
@@ -109,8 +120,8 @@ def create_params_from_selectors(params_dict,
     params_dict['incubation_period'] = float(latent_period)
     params_dict['infectious_period'] = float(infectious_period)
     params_dict['threshold_values'] = [int(outbreak_threshold)]
-    params_dict['vaccine_efficacy'] = float(0.01*vaccine_efficacy)
-    params_dict['relative_infectiousness_vaccinated'] = float(1 - 0.01*vaccinated_infectiousness)
+    params_dict['vaccine_efficacy'] = float(0.01 * vaccine_efficacy)
+    params_dict['relative_infectiousness_vaccinated'] = float(1 - 0.01 * vaccinated_infectiousness)
 
     # Bug I got stuck on for awhile -- dcc.State can certainly handle dictionaries
     # HOWEVER -- callbacks always expect the return type to be a list or tuple
@@ -165,57 +176,57 @@ def check_inputs_validity(params_dict: dict) -> str:
 def update_graph(params_dict: dict,
                  inputs_are_valid: bool):
 
-    n_sim = DASHBOARD_CONFIG["num_simulations"]
+    """
+    TODO: I am sorry Remy, I have made this function grotesque
+    -- will split this up into functions later!
+    """
+
+    n_sim_graph = DASHBOARD_CONFIG["num_simulations_graph"]
 
     if inputs_are_valid:
 
-        measles_results = msp.DashboardExperiment(params_dict, n_sim)
+        I_unvax_init = params_dict["I0"][0]
 
-        measles_results.ma7_num_infected.create_df_simple_spaghetti()
-        ix_median = measles_results.total_new_cases.get_index_sim_median()
+        threshold_val = int(params_dict['threshold_values'][0])
+        outbreak_title_str = 'Chance of exceeding {} new infections'.format(threshold_val)
+        cases_condition_str = '*if exceeds {} new infections*'.format(threshold_val)
 
-        prob_threshold_plus_new_str, cases_expected_over_threshold_str = \
-            measles_results.total_new_cases.get_dashboard_results_strs(params_dict["I0"][0],
-                                                                       params_dict["threshold_values"][0],
-                                                                       2.5,
-                                                                       97.5)
-        
-        if 'Fewer than ' in cases_expected_over_threshold_str:
-            cases_expected_over_threshold_unvaccinated_str = cases_expected_over_threshold_str
+        measles_graph_results = msp.DashboardExperiment(params_dict, n_sim_graph)
+        measles_graph_results.ma7_num_infected.create_df_simple_spaghetti()
+
+        transition_sampler = measles_efficiency.build_transition_sampler(
+            np.random.Generator(PCG64(seed=DASHBOARD_CONFIG["simulation_seed"])))
+
+        unvax_cases_array, vax_cases_array = \
+            measles_efficiency.compute_new_infections(params_dict,
+                                                      transition_sampler,
+                                                      DASHBOARD_CONFIG["num_simulations_results"])
+
+        total_cases_array = unvax_cases_array + vax_cases_array
+        total_cases_above_threshold_array = total_cases_array[total_cases_array >= threshold_val]
+
+        prob_threshold_plus_new_str = \
+            dashboard_exceedance_prob_str(len(total_cases_above_threshold_array) / DASHBOARD_CONFIG["num_simulations_results"])
+
+        if len(total_cases_above_threshold_array) == 0:
+            cases_expected_over_threshold_unvaccinated_str = "Fewer than {} new infections".format(
+                int(threshold_val))
             cases_expected_over_threshold_breakthrough_str = ""
         else:
-            sim_idx_above_threshold = measles_results.total_new_cases.get_idx_simulations_on_exceedance(params_dict["threshold_values"][0])
-            
+            unvax_cases_lb, unvax_cases_ub = np.percentile(unvax_cases_array[total_cases_array >= threshold_val], [2.5, 97.5])
+            vax_cases_lb, vax_cases_ub = np.percentile(vax_cases_array[total_cases_array >= threshold_val], [2.5, 97.5])
             cases_expected_over_threshold_unvaccinated_str = \
-                measles_results.total_new_unvaccinated_cases.get_dashboard_quantiles_specific_idx(params_dict["I0"][0],
-                                                                                                  sim_idx_above_threshold,
-                                                                                                  2.5,
-                                                                                                  97.5)
+                'Unvaccinated cases: ' + dashboard_percentiles_str(I_unvax_init, unvax_cases_lb, unvax_cases_ub)
             cases_expected_over_threshold_breakthrough_str = \
-                measles_results.total_new_breakthrough_cases.get_dashboard_quantiles_specific_idx(0,
-                                                                                                  sim_idx_above_threshold,
-                                                                                                  2.5,
-                                                                                                  97.5)
-            cases_expected_over_threshold_unvaccinated_str = \
-                'Unvaccinated cases: ' + cases_expected_over_threshold_unvaccinated_str.replace('total cases', '')
-            cases_expected_over_threshold_breakthrough_str = \
-                'Vaccinated cases: ' + cases_expected_over_threshold_breakthrough_str.replace('total cases', '')
-            # cases_expected_over_threshold_unvaccinated_str += ' (unvaccinated)'
-            # cases_expected_over_threshold_breakthrough_str += ' (vaccinated)'
+                'Vaccinated cases: ' + dashboard_percentiles_str(0, vax_cases_lb, vax_cases_ub)
 
-        fig = get_dashboard_results_fig(df_spaghetti=measles_results.ma7_num_infected.df_simple_spaghetti,
-                                        index_sim_closest_median=ix_median,
-                                        nb_curves_displayed=20,
-                                        curve_selection_seed=DASHBOARD_CONFIG[
+        ix_median = np.argmin(np.abs(measles_graph_results.total_new_cases.data - np.median(unvax_cases_array + vax_cases_array)))
+
+        fig = dashboard_results_fig(df_spaghetti=measles_graph_results.ma7_num_infected.df_simple_spaghetti,
+                                    index_sim_closest_median=ix_median,
+                                    nb_curves_displayed=20,
+                                    curve_selection_seed=DASHBOARD_CONFIG[
                                             "spaghetti_curve_selection_seed"])
-
-        # ">" needs an escape in HTML!!!!
-        if prob_threshold_plus_new_str == "> 99%":
-            prob_threshold_plus_new_str = "\> 99%"
-
-        threshold_value = int(params_dict['threshold_values'][0])
-        outbreak_title_str = 'Chance of exceeding {} new infections'.format(threshold_value)
-        cases_condition_str = '*if exceeds {} new infections*'.format(threshold_value)
 
         return fig, prob_threshold_plus_new_str, cases_expected_over_threshold_unvaccinated_str, \
                cases_expected_over_threshold_breakthrough_str, \
@@ -286,7 +297,7 @@ def get_school_vax_rate(state_str,
         df_school = county_subset_df.loc[
             (county_subset_df['School District or Name'] == school) &
             ((county_subset_df['Age Group'] == age_group) | (
-                        pd.isna(county_subset_df['Age Group']) & (age_group == "")))
+                    pd.isna(county_subset_df['Age Group']) & (age_group == "")))
             ]
 
         school_vax_rate_pct = df_school['MMR Vaccination Rate'].values[0]

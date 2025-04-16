@@ -3,6 +3,7 @@ import numpy as np
 import copy
 
 import measles_single_population as msp
+import measles_efficiency
 
 import pytest
 
@@ -99,7 +100,6 @@ def test_population_is_constant():
     model = msp.MetapopSEIR(msp.DEFAULT_MSP_PARAMS)
 
     for i in range(10):
-
         model.simulate()
 
         sum_of_compartments = model.S + model.E + model.I + model.R
@@ -108,5 +108,35 @@ def test_population_is_constant():
 
         model.clear()
 
+
+def test_measles_efficiency():
+    original_experiment = msp.DashboardExperiment(msp.DEFAULT_MSP_PARAMS, 200)
+
+    original_data = original_experiment.total_new_cases_school_1.data
+
+    new_data = measles_efficiency.compute_new_infections(measles_efficiency.DEFAULT_MSP_EFFICIENCY_PARAMS,
+                                                         200,
+                                                         False)
+
+    assert (original_data == new_data).all().all()
+
+
+def test_measles_efficiency_adaptive_stepsize_error():
+    data = measles_efficiency.compute_new_infections(measles_efficiency.DEFAULT_MSP_EFFICIENCY_PARAMS, 2000, False)
+
+    adaptive_step_size_data = measles_efficiency.compute_new_infections(
+        measles_efficiency.DEFAULT_MSP_EFFICIENCY_PARAMS, 2000, True)
+
+    assert np.abs(data.mean() - adaptive_step_size_data.mean()) / data.mean() <= 0.02
+
+    assert np.abs(np.median(data) - np.median(adaptive_step_size_data)) / np.median(data) <= 0.02
+
+    assert np.abs(np.quantile(data, 0.4) - np.quantile(adaptive_step_size_data, 0.4)) / np.quantile(data, 0.4) <= 0.02
+
+    assert np.abs(np.quantile(data, 0.6) - np.quantile(adaptive_step_size_data, 0.6)) / np.quantile(data, 0.6) <= 0.02
+
+    assert np.abs(np.quantile(data, 0.75) - np.quantile(adaptive_step_size_data, 0.75)) / np.quantile(data, 0.75) <= 0.02
+
+    assert np.abs(np.max(data) - np.max(adaptive_step_size_data)) / np.max(data) <= 0.02
 
 # Increasing incubation period delays peak infections?

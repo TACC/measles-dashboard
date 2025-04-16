@@ -1,0 +1,806 @@
+Facility Number,School Type,School District or Name,Facility Address,County,MMR Vaccination Rate,Age Group
+,Public,Mead Elementary School,75 Ford Street,New Haven,98.8,Kindergarten
+,Public,Ashford School,440 Westford Rd.,Windham,100,Kindergarten
+,Public,Pine Grove School,151 Scoville Rd.,Hartford,100,Kindergarten
+,Public,Reggio Magnet School,59 waterville road,Hartford,98.4,Kindergarten
+,Public,Roaring Brook School,30 Old Wheeler Lane,Hartford,99,Kindergarten
+,Public,Laurel Ledge Elementary,30 Highland Ave,New Haven,90,Kindergarten
+,Public,Emma Hart Willard School,1088 Norton Road,Hartford,100,Kindergarten
+,Public,Bethany Community School,44 Peck Road,New Haven,92.9,Kindergarten
+,Public,Anna H Rockwell Elem,400 Whittlesey Drive,Fairfield,99.1,Kindergarten
+,Public,Frank A Berry Elementary,200 Whittelsey Drive,Fairfield,98.2,Kindergarten
+,Public,Bethlehem Elementary School,92 East Street,Litchfield,97.6,Kindergarten
+,Public,Laurel Literacy Academy,1 Filley Street,Hartford,100,Kindergarten
+,Public,Museum Academy,11 Turkey Hill Rd,Hartford,100,Kindergarten
+,Public,The CREC Ana Grace Academy of the Arts Elementary Magnet School,129 Griffin Rd N.,Hartford,100,Kindergarten
+,Public,Bolton Center school,108 Notch Road,Tolland,100,Kindergarten
+,Public,John B. Sliney Elementary,23 Eades Street,New Haven,97.8,Kindergarten
+,Public,Mary R. Tisko School,118 Damascus Rd.,New Haven,98.5,Kindergarten
+,Public,Mary T Murphy,14 Brushy Plain RD,New Haven,98.4,Kindergarten
+,Public,Achievement first bridgeport elementary,655 Stillman st,New Haven,92,Kindergarten
+,Non-public,adam J Lewis Academy,500 state street,Fairfield,94.1,Kindergarten
+,Public,Barnum School,495 Waterview Ave,Fairfield,97.3,Kindergarten
+,Public,Beardsley,500 Huntington Rd,Fairfield,100,Kindergarten
+,Public,Black Rock (Bridgeport),545 Brewster Street,Fairfield,97.8,Kindergarten
+,Public,Blackham Elementary School,425 Thorme street,Fairfield,98.8,Kindergarten
+,Public,Bryant Elementary,230 Poplar St,Fairfield,97.7,Kindergarten
+,Public,Capital Preparatory Harbor School,461 Mill Hill Avenue,Fairfield,83,Kindergarten
+,Public,Cesar A Batalla,606 HOward Ave,Fairfield,95.8,Kindergarten
+,Public,Classical Studies Magnet Academy Annex,659 Beechwood Avenue,Fairfield,100,Kindergarten
+,Public,Columbus School,275 George Street,Fairfield,92.1,Kindergarten
+,Public,Geraldine Claytor Magnet Academy,140 Ocean Terrace,Fairfield,81.8,Kindergarten
+,Public,Geraldine Johnson School,475 Lexington Avenue,Fairfield,100,Kindergarten
+,Public,Hall School,290 Clermont ave,Fairfield,97.2,Kindergarten
+,Public,Hallen,68 Omega Avenue,Fairfield,97.6,Kindergarten
+,Public,High Horizons Magnet School,700 Palisade Avenue,Fairfield,100,Kindergarten
+,Public,inter-district Discovery Magnet School,1450 Park Ave,Fairfield,84.4,Kindergarten
+,Public,James J. Curiale,300 Larual Ave.,Fairfield,100,Kindergarten
+,Public,Jettie Tisdale,250 Hollister Ave,Fairfield,74,Kindergarten
+,Public,John Winthrop,85 Eckart Street,Fairfield,100,Kindergarten
+,Public,Madison Elementary School,376 Wayne Street,Fairfield,92.1,Kindergarten
+,Public,Multicultural Magnet School,700 Palisade Avenue,Fairfield,97.1,Kindergarten
+,Public,New Beginnings Family Academy,184 Garden St,Fairfield,100,Kindergarten
+,Public,Park City Magnet,1526 Chopsey Hill Rd,Fairfield,98.2,Kindergarten
+,Public,PL Dunbar,445 Union Avenue,Fairfield,100,Kindergarten
+,Public,Read,130 Ezra Street,Fairfield,99,Kindergarten
+,Public,Roosevelt,680 Park ave,Fairfield,97.6,Kindergarten
+,Public,Six to six magnet school,601 Pearl Harbor St,Fairfield,100,Kindergarten
+,Non-public,St. Raphael Academy,324 Frank Street,Fairfield,92.1,Kindergarten
+,Public,Waltersville,150 Hallett Street,Fairfield,100,Kindergarten
+,Public,Wilbur Cross School,1775 Reservoir Ave,Fairfield,93.9,Kindergarten
+,Public,Edison Elementary,115 Boston Terrace,Fairfield,97.2,Kindergarten
+,Public,Ellen P Hubbell,90 West Washington Street,Hartford,100,Kindergarten
+,Public,Greene-Hills School,718 Pine Street,Hartford,100,Kindergarten
+,Public,Ivy Drive Elementary School,160 Ivy Drive,Hartford,100,Kindergarten
+,Public,Mountain View School,71 Vera Rd.,Hartford,95.8,Kindergarten
+,Public,South Side School,21 Tuttle Rd,Hartford,100,Kindergarten
+,Public,Stafford Elementary School,212 Louisiana Avenue,Hartford,100,Kindergarten
+,Public,West Bristol School,500 Clark Ave,Hartford,100,Kindergarten
+,Public,Broad Brook Elementary,14 Rye St,Hartford,97.8,Kindergarten
+,Public,Candlewood Lake Elementary,100 Candlewood Lake Road,Fairfield,98.8,Kindergarten
+,Public,Brooklyn Elementary School,119 Gorman Road,Windham,97.3,Kindergarten
+,Public,Lake Garda,61 Monce Rd,Hartford,98.8,Kindergarten
+,Public,North Canaan Elementary School,90 Pease Street,Litchfield,97.1,Kindergarten
+,Public,Canterbury Elementary School,67 Kitt Road,Windham,100,Kindergarten
+,Public,Cherry Brook Primary School,4 Barbourtown Rd,Hartford,94.1,Kindergarten
+,Public,Essex Elementary School,108 Main Street,Middlesex,97.2,Kindergarten
+,Public,Chapman Elementary,38 Country Club Road,New Haven,98,Kindergarten
+,Public,Doolittle School,735 Cornwall Avenue,New Haven,100,Kindergarten
+,Public,Highland Elementary School (Cheshire),490 Highland Avenue,New Haven,96.9,Kindergarten
+,Public,Norton School,414 North Brooksvale Rd,New Haven,100,Kindergarten
+,Non-public,St. Bridget School,171 Main St.,New Haven,94.1,Kindergarten
+,Public,Joel Elementary School,137 Glenwood Road,Middlesex,97.7,Kindergarten
+,Public,Colchester Elementary School,315 Halls Hill Rd,New London,99.3,Kindergarten
+,Public,Horace Porter School,3 Schoolhouse Rd,Tolland,97.1,Kindergarten
+,Public,Coventry Grammar School,3453 Main Street,Tolland,98.2,Kindergarten
+,Public,Edna C Stevens School,25 Court Street,Middlesex,95.2,Kindergarten
+,Public,Ellsworth Avenue School,53 Ellsworth Ave,Fairfield,86.3,Kindergarten
+,Public,Great Plain Elementary School,10 Stadley Rough Road,Fairfield,100,Kindergarten
+,Public,Hayestown Avenue School,42 Tamarack Avenue,Fairfield,99.1,Kindergarten
+,Public,King Street Primary,151 South King Street,Fairfield,98.9,Kindergarten
+,Public,Mill Ridge Primary,49A High Ridge Rd.,Fairfield,100,Kindergarten
+,Public,Morris St School,28 Morris St School,Fairfield,100,Kindergarten
+,Public,Park Avenue School,82 Park Avenue,Fairfield,96.7,Kindergarten
+,Public,Pembroke Elementary School,34 1/2 Pembroke Road,Fairfield,98.6,Kindergarten
+,Public,Shelter Rock Elementary,2 Crows Nest Lane,Fairfield,98.7,Kindergarten
+,Public,South Street,129 South Street,Fairfield,96.5,Kindergarten
+,Public,Stadley Rough Elementary,25 Karen Rd,Fairfield,98.8,Kindergarten
+,Public,Hindley Elementary School,10 Nearwater Lane,Fairfield,100,Kindergarten
+,Public,Holmes Elementary School (Darien),18 Hoyt Street,Fairfield,98.6,Kindergarten
+,Public,Ox Ridge Elementary School,395 Mansfield Avenue,Fairfield,100,Kindergarten
+,Public,Royle Elementary School,133 Mansfield Avenue,Fairfield,100,Kindergarten
+,Public,Tokeneke,7 Old Farm Road,Fairfield,98.6,Kindergarten
+,Public,Killingly Central School,60 Soap street,Windham,98.7,Kindergarten
+,Public,Deep River Elementary School,12 River Street,Middlesex,93.8,Kindergarten
+,Public,Bradley Elementary School,155 David Humphrey Rd,New Haven,100,Kindergarten
+,Public,Irving Elementary School,9 Garden Place,New Haven,100,Kindergarten
+,Public,Frederick Brewster Elementary School,126 Tuttle Road,Middlesex,100,Kindergarten
+,Public,R. D. HUBBARD,139 Grove St,Hartford,95,Kindergarten
+,Public,Carl Allgrove,33 Turkey Hills Road,Hartford,98.3,Kindergarten
+,Public,Memorial Elementary School,20 Smith Street,Middlesex,99.2,Kindergarten
+,Public,Anna Norris Elementary School,40 Remington Road,Hartford,100,Kindergarten
+,Public,Dr. Franklin Mayberry Elementary School,101 Great Hill Rd,Hartford,98.3,Kindergarten
+,Public,Dr. John Langford Elementary School,61 Alps Dr,Hartford,98.1,Kindergarten
+,Public,Governor William Pitkin School,330 Hills street,Hartford,98,Kindergarten
+,Public,Joseph O. Goodwin Elementary School,1235 Forbes Street,Hartford,97.8,Kindergarten
+,Public,Riverside Magnet School,29 Willowbrook Road,Hartford,100,Kindergarten
+,Public,Robert J. O'Brien Stem Academy,56 Farm Drive,Hartford,96.9,Kindergarten
+,Public,Silver Lane Elementary School,15 Mercer Avenue,Hartford,100,Kindergarten
+,Public,Thomas S. O'Connell Elementary School East,305 May Road,Hartford,98.8,Kindergarten
+,Public,Deer Run Elementary School,311 Foxon Road,New Haven,100,Kindergarten
+,Public,Grove J. Tuttle Elementary School,108 Prospect road,New Haven,100,Kindergarten
+,Public,Momauguin,99 Cosey Beach Rd.,New Haven,100,Kindergarten
+,Public,Flanders School,167 Boston Post Road,New London,100,Kindergarten
+,Public,Samuel Staples Elementary School,515 Morehouse Road,Fairfield,100,Kindergarten
+,Public,Center School (Ellington),49 Main St.,Tolland,96.7,Kindergarten
+,Public,Crystal Lake School,59 South Rd.,Tolland,100,Kindergarten
+,Public,Windermere School,2 Abbott Road,Tolland,100,Kindergarten
+,Public,enfield street school,1318 enfield street,Hartford,100,Kindergarten
+,Public,Hazardville Memorial Elementary,68 North Maple Street,Hartford,100,Kindergarten
+,Public,Henry Barnard,27 Shaker Road,Hartford,99.2,Kindergarten
+,Public,Burr Elementary,1960 Burr Street,Fairfield,98.2,Kindergarten
+,Public,Holland Hill,105 Meadowcroft Road,Fairfield,98.2,Kindergarten
+,Public,Jennings Elementary School,31 Palm Drive,Fairfield,100,Kindergarten
+,Public,McKinley Elementary,60 Thompson st,Hartford,96.3,Kindergarten
+,Public,Mill Hill School,635 Mill Hill Terrace,Fairfield,100,Kindergarten
+,Public,North Stratfield Elementary School,190 Putting Green Road,Fairfield,98.3,Kindergarten
+,Public,Osborn Hill Elementary School,760 Stillson Rd,Fairfield,100,Kindergarten
+,Public,Riverfield,1625 Mill Plain Road,Fairfield,95.5,Kindergarten
+,Public,Roger Sherman Elementary,250 Fern Street,Fairfield,100,Kindergarten
+,Public,Stratfield,1407 Melville Ave,Fairfield,97.9,Kindergarten
+,Public,Timothy Dwight Elementary School,1600 Redding Road,Fairfield,97.1,Kindergarten
+,Public,East Farms Elementary,25 Wolf Pit Road,Hartford,100,Kindergarten
+,Public,Noah Wallace School,2 School Street,Hartford,98.5,Kindergarten
+,Public,Gales Ferry School,1858 Rt 12,New London,95.7,Kindergarten
+,Public,Buttonball Lane Elementary School.,376 Buttonball Lane,Hartford,100,Kindergarten
+,Public,Glastonbury East Hartford Magnet School,95 Oak Street,Hartford,98.5,Kindergarten
+,Public,Hebron Avenue Elementary School,1363 Hebron Avenue,Hartford,98.4,Kindergarten
+,Public,Naubuc School,84 Griswold St,Hartford,95.5,Kindergarten
+,Public,Kelly Lane Primary School,60 Kelly Lane,Hartford,99.2,Kindergarten
+,Public,Cos Cob Elementary,300 E Putnam Ave,Fairfield,100,Kindergarten
+,Public,Glenville School,33 Riversville Rd,Fairfield,100,Kindergarten
+,Non-public,Greenwich Academy,200 North Maple Ave,Fairfield,100,Kindergarten
+,Non-public,Greenwich Country Day School,401 Old Church Road,Fairfield,100,Kindergarten
+,Public,Hamilton Avenue,184 Hamilton Avenue,Fairfield,100,Kindergarten
+,Public,Julian curtiss school,180 east elm street,Fairfield,100,Kindergarten
+,Public,New Lebanon,25 Mead Ave,Fairfield,97.9,Kindergarten
+,Public,North Street School,381 North Street,Fairfield,100,Kindergarten
+,Public,Parkway,141 lower Cross Rd,Fairfield,100,Kindergarten
+,Public,Riverside school,90 Hendrie Ave,Fairfield,98.9,Kindergarten
+,Public,Catherine Kolnaski,500 Paquonnock Rd,New London,100,Kindergarten
+,Public,charles barnum discovery magnet school,68 briar hill rd,New London,100,Kindergarten
+,Public,Thames River Magnet School,250 Brandegee Avenue,New London,100,Kindergarten
+,Public,AW Cox Elementary School,143 Three Mile Course,New Haven,93.1,Kindergarten
+,Public,Calvin Leete Elementary School,280 S Union Street,New Haven,100,Kindergarten
+,Public,Guilford Lakes Elementary School,40 Maupas Road,New Haven,98.4,Kindergarten
+,Public,Melissa Jones Elementary,181 Ledge Hill Road,New Haven,100,Kindergarten
+,Public,ACES Wintergreen Interdistrict Magnet School,671 Wintergreen Ave,New Haven,100,Kindergarten
+,Public,Bear Path Elementary,10 Kirk Road,New Haven,100,Kindergarten
+,Public,Church Street,95 Church St,New Haven,100,Kindergarten
+,Public,Ridge Hill School,120 Carew Road,New Haven,97.7,Kindergarten
+,Non-public,Saint Rita School,1601 Whitney Ave,New Haven,100,Kindergarten
+,Public,Shepherd Glen Elementry,1 Skiff St. Ext.,New Haven,98.4,Kindergarten
+,Public,Spring Glen Elementary School,1908 Whitney Ave,New Haven,100,Kindergarten
+,Public,West Woods,350 West Todd St,New Haven,100,Kindergarten
+,Public,Achievement First,305 Greenfield Street,Hartford,88.1,Kindergarten
+,Public,Betances Learning Lab,42 Charter Oak Avenue,Hartford,98.3,Kindergarten
+,Public,Breakthrough Magnet North Elementary School,25 Ridgefield Street,Hartford,100,Kindergarten
+,Public,Burns Latino Studies Academy,195 Putnam Street,Hartford,100,Kindergarten
+,Public,Capital Prep Magnet School,1304 Main Street,Hartford,92.3,Kindergarten
+,Public,Dr. Micheal D. Fox Elementary School,470 Maple Ave,Hartford,97.4,Kindergarten
+,Public,Dwight Bellizzi Dual Language Academy,215 South Street,Hartford,98.3,Kindergarten
+,Public,E.B. Kennelly,180 White Street,Hartford,100,Kindergarten
+,Public,Environmental Sciences @ Mary Hooker,440 Broadview Terrace,Hartford,100,Kindergarten
+,Public,Expeditionary Learning Academy at Moylan,101 Catherine Street,Hartford,98.7,Kindergarten
+,Public,Global Communications Academy,85 Edwards St,Hartford,93.5,Kindergarten
+,Non-public,Jumoke Academy Charter School,250 Blue Hills Avenue,Hartford,75.9,Kindergarten
+,Non-public,Kinsella Magnet School of the Performing Arts,65 Van Block Ave.,Hartford,100,Kindergarten
+,Public,Montessori Magnet At Annie Fisher,280 Plainfield Street,Hartford,100,Kindergarten
+,Public,Montessori Magnet at Batchelder,757 New Britain Ave,Hartford,100,Kindergarten
+,Public,Noah Webster,5 cone st.,Hartford,97.2,Kindergarten
+,Public,Parkville Community School,47 New Park Avenue,Hartford,96.7,Kindergarten
+,Public,SAND,1750 Main Street,Hartford,100,Kindergarten
+,Public,Sarah J. Rawson Elementary School,260 HOLCOMB STREET,Hartford,86.8,Kindergarten
+,Public,STEM Magnet @Annie Fisher,280 Plainfield Street,Hartford,97.4,Kindergarten
+,Public,West Middle Community School,44 Niles Street,Hartford,98.2,Kindergarten
+,Public,Wish Elementary School,104 Vine Street,Hartford,100,Kindergarten
+,Public,CREC Montessori Magnet,1460 Broad Street,Hartford,93.2,Kindergarten
+,Public,Harwinton Consolidated School,115 LItchfield Street,Litchfield,92.3,Kindergarten
+,Public,Gilead Hill School,580 Gilead Street,Tolland,98.7,Kindergarten
+,Public,Burr Elementary School,792 Killingworth Road,Middlesex,100,Kindergarten
+,Public,Griswold Elementary School,303 Slater Ave,New London,99.1,Kindergarten
+,Public,Mary E. Griswold Elementary School,133 Heather Lane,Hartford,100,Kindergarten
+,Public,Killingworth Elementary School,340 CT-81,Middlesex,96.1,Kindergarten
+,Public,Salisbury Central School,45 Lincoln City Rd,Litchfield,97.6,Kindergarten
+,Public,Lebanon Elementary School,479 Exeter Rd.,New London,92.4,Kindergarten
+,Public,Gallup Hill School,169 Gallup Hill School,New London,83.5,Kindergarten
+,Public,Lisbon Central School,15 Newent Rd.,New London,100,Kindergarten
+,Public,Center School (Litchfield),125 West Street,Litchfield,98.3,Kindergarten
+,Public,Lyme Consolidated,478 Hamburg Rd,New London,100,Kindergarten
+,Public,Jeffrey School,331 Copse Rd,New Haven,99,Kindergarten
+,Public,Ryerson,982 Durham Road,New Haven,97.6,Kindergarten
+,Public,Bowers,141 Princeton Street,Hartford,85.5,Kindergarten
+,Public,Buckley Elementary,250 Vernon St,Hartford,96.4,Kindergarten
+,Public,Highland Park Elementary School,397 Porter Street,Hartford,95.8,Kindergarten
+,Public,Keeney Street School,179 Keeney St.,Hartford,100,Kindergarten
+,Public,Martin Elementary School,140 Dartmouth Rd,Hartford,96.9,Kindergarten
+,Public,Odyssey Community School,579 West Middle Turnpike,Hartford,100,Kindergarten
+,Non-public,Saint James School,73 Park Street,Hartford,100,Kindergarten
+,Public,Verplanck Elementary School,126 Olcott Street,Hartford,100,Kindergarten
+,Public,Waddell Elementary School,163 Broad Street,Hartford,100,Kindergarten
+,Public,Mansfield Elementary School,134 Warrenville Rd,Tolland,88.4,Kindergarten
+,Public,Elmer Thienes Mary Hall School,25 School Drive,Hartford,100,Kindergarten
+,Public,Benjamin Franklin Elementary School,426 West Main Street,New Haven,100,Kindergarten
+,Public,Casmir Pulaski Elementary School,100 Clearview Ave,New Haven,100,Kindergarten
+,Public,Hanover Elementary School,208 Main Street,New Haven,100,Kindergarten
+,Public,Israel Putnam Elementary,133 Parker Avenue,New Haven,100,Kindergarten
+,Public,John Barry Elementary School,124 Columbia Street,New Haven,98.6,Kindergarten
+,Public,Nathan Hale Elementary School,277 Atkins St Ext,New Haven,100,Kindergarten
+,Public,Roger Sherman,64 North Pearl Street,New Haven,100,Kindergarten
+,Public,Thomas Hooker Elementary School,70 Overlook Road,New Haven,100,Kindergarten
+,Public,Long Meadow Elementary School,65 North Benson Road,New Haven,97.4,Kindergarten
+,Public,Middlebury Elementary School,550 Whittemore rd,New Haven,100,Kindergarten
+,Public,Bielefield Elementary,70 Maynard St,Middlesex,100,Kindergarten
+,Public,FarmHill Elementary,390 Ridge Road,Middlesex,98.3,Kindergarten
+,Public,Lawrence Elementary,Kaplan Drive,Middlesex,100,Kindergarten
+,Public,Macdonough Elementary,66 Spring St,Middlesex,100,Kindergarten
+,Public,Snow Elementary School,299 Wadsworth Street,Middlesex,100,Kindergarten
+,Public,Spencer Elementary,"206 Westfield St Middletown,",Middlesex,100,Kindergarten
+,Public,Van Buren Moody Elementary,300 Country Club Road,Middlesex,100,Kindergarten
+,Public,Wesley Elementary School,10 Wesleyan Hills Road,Middlesex,97.9,Kindergarten
+,Public,Calf Pen Meadow School,395 Welchs Point Road,New Haven,100,Kindergarten
+,Public,John F. Kennedy Elementary School,404 West Street,New Haven,100,Kindergarten
+,Public,Live Oaks,575 Merwin Avenue,New Haven,100,Kindergarten
+,Public,Mathewson,466 W River Street,New Haven,100,Kindergarten
+,Public,Meadowside Elementary School,80 Seemans Lane,New Haven,100,Kindergarten
+,Public,Orange Avenue Elementary School,260 Orange Avenue,New Haven,100,Kindergarten
+,Public,Orchard Hills School,185 Marino Dr,New Haven,100,Kindergarten
+,Non-public,St. Marys School,72 Gulf Street,New Haven,100,Kindergarten
+,Public,Fawn Hollow Elementary School,345 Fan Hill Road,Fairfield,97.5,Kindergarten
+,Public,Monroe Elemenatary School,375 Monroe Tpke,Fairfield,96.2,Kindergarten
+,Public,Stepney Elementary School,180 Old Newtown Rd,Fairfield,100,Kindergarten
+,Public,East Haddam Elementary School,45 Joe williams rd,Middlesex,100,Kindergarten
+,Public,Moosup Elementary School,35 Church Street,Windham,84.1,Kindergarten
+,Public,Mystic River Magnet School,160 Fishtown Road,New London,100,Kindergarten
+,Public,Northeast Academy Arts Magnet school,115 Oslo St.,New London,100,Kindergarten
+,Public,Andrew Avenue Elementary School,140 Andrew Avenue,New Haven,100,Kindergarten
+,Public,Hop Brook Elementary School,75 Crown Street,New Haven,96.7,Kindergarten
+,Public,Maple Hill Elementary School,641 Maple Hill Road,New Haven,100,Kindergarten
+,Public,Salem Elementary School,124 Meadow Street,New Haven,100,Kindergarten
+,Public,Western Elementary School,100 Pine St,New Haven,100,Kindergarten
+,Public,Chamberlain Elementary School,120 Newington Ave.,Hartford,100,Kindergarten
+,Public,Diloreto Elementary And Middle School,732 Slater Road,Hartford,98.8,Kindergarten
+,Public,Gaffney,322 Slater Rd,Hartford,100,Kindergarten
+,Public,Holmes Elementary School (New Britain),2150 Stanley Street,Hartford,98.6,Kindergarten
+,Public,Jefferson Elementary School,140 Horseplain Rd,Hartford,98.5,Kindergarten
+,Public,Lincoln Elementary School,145 Steele Street,Hartford,98.2,Kindergarten
+,Public,Northend Elem School,160 Bassett St,Hartford,100,Kindergarten
+,Public,Smalley Elementary School,175 West Street,Hartford,100,Kindergarten
+,Public,Smith Elementary School,142 Rutherford Street,Hartford,100,Kindergarten
+,Public,Vance,183 Vance Street,Hartford,100,Kindergarten
+,Public,East School,54 Little Brook Road,Fairfield,100,Kindergarten
+,Public,South School,8 Farm Road,Fairfield,97.7,Kindergarten
+,Public,West School,769 Ponus Ridge rd,Fairfield,98.9,Kindergarten
+,Non-public,New Canaan Country School,635 Frogtown Rd,Fairfield,96,Kindergarten
+,Public,Consolidated School,24A Gillotti Rd,Fairfield,98.6,Kindergarten
+,Public,Bakerville School,51 Cedar Lane,Litchfield,90.9,Kindergarten
+,Public,Amistad Academy,130 Edgewood Ave,New Haven,85.9,Kindergarten
+,Public,Augusta Lewis Troup School,259 Edgewood Ave,New Haven,100,Kindergarten
+,Public,Barack H Obama Magnet University,69 Farnham Ave,New Haven,98.4,Kindergarten
+,Public,Barnard Environmental Science and Technology School,170 Derby Avenue,New Haven,97.9,Kindergarten
+,Public,Benjamin Jepson Magnet School,15 Lexington Ave,New Haven,97.2,Kindergarten
+,Public,Bishop Woods School,1481 Quinnipiac Ave,New Haven,100,Kindergarten
+,Public,Booker T. Washington Academy,804 State Street,New Haven,100,Kindergarten
+,Public,"Celentano Biotech, Health&Medical Magnet",400 Canner st,New Haven,100,Kindergarten
+,Public,Clinton Avenue School,293 Clinton Avenue,New Haven,98.2,Kindergarten
+,Public,Conte West Hills,511 Chapel St,New Haven,100,Kindergarten
+,Public,Davis,35 Davis Street,New Haven,100,Kindergarten
+,Public,East Rock Community Magnet School,133 Nash St,New Haven,98,Kindergarten
+,Public,Edgewood,737 Edgewood Ave,New Haven,100,Kindergarten
+,Public,Elm City College Prep,407 James St.,New Haven,98.4,Kindergarten
+,Public,F.A.M.E,255 Blatchley AVE,New Haven,97.7,Kindergarten
+,Public,Fair Haven,164 Grand Avenue,New Haven,98.7,Kindergarten
+,Public,Highville Charter School,1 Science Park,New Haven,97.6,Kindergarten
+,Public,Hill Central School,140 Dewitt Street,New Haven,100,Kindergarten
+,Public,John C Daniels,569 Congress Ave,New Haven,100,Kindergarten
+,Public,John S. Martinez,100 James Street,New Haven,100,Kindergarten
+,Public,King Robinson,150 Fournier Street,New Haven,94.4,Kindergarten
+,Non-public,L. W. Beecher Museum Magnet School,100 Jewel st,New Haven,100,Kindergarten
+,Public,Mauro Sheridan Magnet School,191 Fountain St,New Haven,100,Kindergarten
+,Public,Nathan Hale School,480 Townsend Ave,New Haven,100,Kindergarten
+,Public,Ross Woodward,185 Barnes Ave,New Haven,98.1,Kindergarten
+,Non-public,The Foote School,50 Loomis Place,New Haven,100,Kindergarten
+,Public,Truman,114 truman st,Fairfield,100,Kindergarten
+,Public,Worthington Hooker,691 Whitney Ave,New Haven,100,Kindergarten
+,Public,CB Jennings Elementary School,50 Mercer Street,New London,87.3,Kindergarten
+,Public,Nathan Hale Arts Magnet School,37 Beech Dr.,New London,100,Kindergarten
+,Public,Regional Multicultural Magnet School,1 Bulkely Place,New London,100,Kindergarten
+,Public,Winthrop Elementary School,74 Grove Street,New London,98.6,Kindergarten
+,Public,Hill and Plain,60 Old Town Park Rd,Litchfield,100,Kindergarten
+,Public,Northville Elementary  School,22 Hipp Road,Fairfield,99.2,Kindergarten
+,Public,Anna Reynolds Elementary School,85 Reservoir Road,Hartford,100,Kindergarten
+,Public,Elizabeth Green Elementary,30 Thomas Street,Hartford,97.9,Kindergarten
+,Non-public,Emmanuel Christian Academy,569 Maple Hill Ave.,Hartford,78,Kindergarten
+,Public,John Paterson,120 Church Street,Hartford,100,Kindergarten
+,Public,Ruth Chaffee Elementary School,160 Superior Avenue,Hartford,98.2,Kindergarten
+,Public,Hawley,29 Church Hill Rd,Fairfield,98.4,Kindergarten
+,Public,Head O'Meadow,94 Boggs Hill Rd,Fairfield,98.4,Kindergarten
+,Public,Middle Gate Elementary School,7 Cold Spring Rd,Fairfield,98.9,Kindergarten
+,Public,Lillie B Haynes Elementary,29 Society Road,New London,100,Kindergarten
+,Public,Niantic Center School,7 W. Main St.,New London,100,Kindergarten
+,Public,Jerome Harrison Elementary,335 Foxon Road,New Haven,98.3,Kindergarten
+,Public,Mary R Fisher Elementary School,785 Riverside Drive,Windham,94.5,Kindergarten
+,Public,Clintonville Elementary School,456 Clintonville Road,New Haven,97.7,Kindergarten
+,Public,Green Acres Elementary School,146 Upper State Street,New Haven,98.4,Kindergarten
+,Public,Montowese Elementary,145 Fitch Street,New Haven,100,Kindergarten
+,Public,Ridge Road Elementary,1341 Ridge Road,New Haven,97.2,Kindergarten
+,Public,North Stonington Elementary School,311 Norwich Westerly Road,New London,100,Kindergarten
+,Public,Charles H. Barrows STEM Academy,141 Tuckie Road,Windham,98.4,Kindergarten
+,Public,North Windham Elementary School,112 Jordan Lane,Windham,100,Kindergarten
+,Non-public,All Saints Catholic School,139 West Rocks Road,Fairfield,100,Kindergarten
+,Public,brookside elementary school,382 highland avenue,Fairfield,100,Kindergarten
+,Public,Concord Magnet School,21 Hunter Lane,Fairfield,100,Kindergarten
+,Public,Cranbury Elementary,10 Knowalot Lane,Fairfield,97,Kindergarten
+,Public,Fox Run Elementary School,228 Fillow Street,Fairfield,95.8,Kindergarten
+,Public,Jefferson Marine Science Elementary,75 van Buren Ave,Fairfield,100,Kindergarten
+,Public,Marvin Elementary School,15 Calf Pasture Beach Road,Fairfield,100,Kindergarten
+,Public,Naramake Elementary School,16 King Street,Fairfield,96.4,Kindergarten
+,Public,Rowayton Elementary School,1 Roton Ave,Fairfield,98.6,Kindergarten
+,Public,Silvermine Dual Language School,157 Perry Ave,Fairfield,100,Kindergarten
+,Public,Tracey Magnet School,20 Camp Street,Fairfield,100,Kindergarten
+,Public,Wolfpit Integrated Arts School,1 Starlight Drive,Fairfield,94.6,Kindergarten
+,Public,Integrated Day Charter School,668 Thermos Ave,New London,84.8,Kindergarten
+,Public,John B Stanton Elementary,386 New London Turnpike,New London,95.6,Kindergarten
+,Public,Moriarty Magnet School,20 Lawler Lane,New London,90.6,Kindergarten
+,Public,SAMUEL HUNTINGTON,80 WEST TOWN STREET,New London,100,Kindergarten
+,Public,Uncas Elementary,280 Elizabeth Street,New London,97.1,Kindergarten
+,Public,Veterans Memorial Elementary,80 Crouch Avenue,New London,88.6,Kindergarten
+,Public,Dr. Charles E. Murphy Elementary,500 Chesterfield Road,New London,100,Kindergarten
+,Public,Oakdale Elementary School,30 Indiana Circle,New London,100,Kindergarten
+,Public,John Trumbull Primary,779 Buckingham Street,Litchfield,98.3,Kindergarten
+,Public,Old Greenwich School,285 Sound Beach Ave,Fairfield,100,Kindergarten
+,Public,Mile Creek School,205 Mile Creek Road,New London,98.1,Kindergarten
+,Public,K.E GOODWIN,80 Old Boston Post Rd,New London,98.3,Kindergarten
+,Public,Mary L. Tracy,650 Schoolhouse Lane,New Haven,94.6,Kindergarten
+,Public,Quaker Farms School,30 Great Oak Rd,New Haven,100,Kindergarten
+,Public,West Vine Street School,17 West Vine Street,New London,100,Kindergarten
+,Public,Shepard Hill Elementary,234 Shepard Hill Rd,Windham,96.4,Kindergarten
+,Public,Frank T. Wheeler School,15 Cleveland Memorial Drive,Hartford,100,Kindergarten
+,Public,Linden St. Scholl,69 Linden St.,Hartford,98.3,Kindergarten
+,Public,Toffolon,145 Northwest Dr,Hartford,100,Kindergarten
+,Public,Oshana Elementary School,70 Church Street,Hartford,97.1,Kindergarten
+,Public,South End Elementary School,10 Maxwell Noble Drive,Hartford,100,Kindergarten
+,Public,Willam Strong Elementary School,820 Marion Ave,Hartford,97.6,Kindergarten
+,Public,Plymouth Center Elementary,107 North St.,Litchfield,100,Kindergarten
+,Public,Pomfret Community School,20 Pomfret St,Windham,97.2,Kindergarten
+,Public,Valley view,81 High Street,Middlesex,97.7,Kindergarten
+,Public,Preston Veterans Memorial School,285 Shetucket Turnpike,New London,100,Kindergarten
+,Public,Prospect Elementary school,75 New Haven Rd,New Haven,98.8,Kindergarten
+,Public,Putnam Elementary School,33 Wicker Street,Windham,97.4,Kindergarten
+,Public,Quaker Hill Elementary,285 Bloomingdale Road,New London,100,Kindergarten
+,Public,Redding Elementary School,33 Lonetown Rd,Fairfield,98,Kindergarten
+,Public,Barlow Mountain Elementary School,115 Barlow Mountain Rd,Fairfield,98.2,Kindergarten
+,Public,Branchville Elementary School,40 Florida Hill Road,Fairfield,98.3,Kindergarten
+,Public,Farmingville Elementary,324 Farmingville Road,Fairfield,97.9,Kindergarten
+,Public,Ridgebury Elementary School,112 Bennetts Farm Rd,Fairfield,100,Kindergarten
+,Public,Scotland Elementary School,111 barlow mountain road,Fairfield,97.9,Kindergarten
+,Public,International School at Dundee,55 Florence Road,Fairfield,100,Kindergarten
+,Public,North Mianus Elementary School,309 Palmer Hill Road,Fairfield,100,Kindergarten
+,Public,Aerospace and Engineering Elementary School,7 Gardner Way,Hartford,100,Kindergarten
+,Public,Myrtle H Stevens School,322 Orchard Street,Hartford,97.5,Kindergarten
+,Public,West Hill Elementary School,95 Cronin Drive,Hartford,100,Kindergarten
+,Public,Salem School,200 Hartford Road,New London,93.9,Kindergarten
+,Public,SandyHook Elementary School,12 Dickenson Drive,Fairfield,96.6,Kindergarten
+,Public,Bungay School,35 Bungay Road,New Haven,100,Kindergarten
+,Public,Chatfield LoPresti,51 Skokorat Street,New Haven,100,Kindergarten
+,Public,Booth Hill School (Shelton),544 Booth Hill road,Fairfield,100,Kindergarten
+,Public,Elizabeth Shelton Elementary,138 Willoughby Road,Fairfield,98.9,Kindergarten
+,Public,Long Hill School,565 Long Hill Avenue,Fairfield,100,Kindergarten
+,Public,Mohegan Elementary School,47 Mohegan Road,Fairfield,98.6,Kindergarten
+,Public,Sunnyside School,418 River Rd,Fairfield,92.3,Kindergarten
+,Public,Central Elementary School,29 Massaco Street,Hartford,100,Kindergarten
+,Public,Squadron Line School,44 Squadron Line Road,Hartford,100,Kindergarten
+,Public,Somers Elementary School,4 Vision Blvd,Tolland,94.7,Kindergarten
+,Public,Hopewell Elementary,1068 Chestnut Hill Rd,Hartford,100,Kindergarten
+,Public,Nayaug Elementary School,222 Old Maids Lane,Hartford,100,Kindergarten
+,Public,CREC Academy of International Studies Elementary School,625 Chapel Rd,Hartford,98.5,Kindergarten
+,Public,Eli Terry Elementary,569 Griffin Rd,Hartford,100,Kindergarten
+,Public,Orchard Hill Elementary,380 Foster st,Hartford,100,Kindergarten
+,Public,Philip R. Smith Elementary School,949 Avery Street,Hartford,100,Kindergarten
+,Public,Pleasant Valley Elementary School,591 Ellingon Rd,Hartford,98.1,Kindergarten
+,Public,Gainfield Elementary School,307 Old Field Road,New Haven,100,Kindergarten
+,Public,Pomperaug Elementary School,607 Main Street South,New Haven,96.8,Kindergarten
+,Public,Derynoski Elementary School,240 Main Street,Hartford,100,Kindergarten
+,Public,Flanders Elementary,100 Victoria Dr,Hartford,100,Kindergarten
+,Public,Hatton Elementary School,50 Spring Lake Road,Hartford,95.2,Kindergarten
+,Public,Thalberg,145 Dunham Street,Hartford,98.3,Kindergarten
+,Public,Urbin T Kelley Elementary School,501 Ridgewood Road,Hartford,98.1,Kindergarten
+,Public,West Stafford School,153 West Stafford Rd,Tolland,97.8,Kindergarten
+,Non-public,Bi-Cultural Hebrew Academy,2186 High Ridge Road,Fairfield,100,Kindergarten
+,Public,Davenport Ridge Elementary,1300 Newfield Ave.,Fairfield,98.4,Kindergarten
+,Public,Hart Magnet Elementary,61 Adams Ave,Fairfield,99.1,Kindergarten
+,Public,Julia A Stark,398 Glenbrook Road,Fairfield,95,Kindergarten
+,Public,KT Murphy,19 Horton Street,Fairfield,98.8,Kindergarten
+,Non-public,Mater Salvatoris,926 Newfield Avenue,Fairfield,73.5,Kindergarten
+,Public,Newfield Elementary School,345 Pepper Ridge Rd,Fairfield,97.9,Kindergarten
+,Public,Northeast Elementary,82 Scofieldtown Rd,Fairfield,96.4,Kindergarten
+,Public,Rogers International School,202 Blachley Road,Fairfield,98.8,Kindergarten
+,Public,Roxbury School,751 West Hill Road,Fairfield,96.6,Kindergarten
+,Public,Springdale Elementary School,1127 Hope Street,Fairfield,100,Kindergarten
+,Non-public,Stamford Charter School For Excellence,1 Schuyler Avenue,Fairfield,62.5,Kindergarten
+,Public,Stillmeadow Elementary School,800 Stillwater Road,Fairfield,100,Kindergarten
+,Public,Strawberry Hill School,200 Strawberry Hill Ave,Fairfield,98.9,Kindergarten
+,Non-public,The Catholic Academy of Stamford,1186 Newfield Ave,Fairfield,91.2,Kindergarten
+,Public,Toquam Magnet Elementary School,123 Ridgewood Ave,Fairfield,98,Kindergarten
+,Public,Westover School,412 Stillwater Ave,Fairfield,97.9,Kindergarten
+,Public,Deans Mill School,35 Deans Mill Rd,New London,100,Kindergarten
+,Public,Chapel Street Elementary School,380 Chapel Street,Fairfield,94.6,Kindergarten
+,Public,Eli Whitney Elementary,1130 Huntington Rd,Fairfield,89.6,Kindergarten
+,Public,Franklin Elementary School,1895 Barnum Ave,Fairfield,100,Kindergarten
+,Public,Lordship Elementary,254 Crown St,Fairfield,100,Kindergarten
+,Public,Nichols Elementary,396 Nichols Ave,Fairfield,100,Kindergarten
+,Public,Second Hill Lane Elementary School,65 Second Hill Lane,Fairfield,90.2,Kindergarten
+,Public,Wilcoxson Elementary School,600 Wilcoxson Ave,Fairfield,100,Kindergarten
+,Public,Tariffville School,42 Winthrop St.,Hartford,100,Kindergarten
+,Public,Black Rock (Thomaston),57 Branch Rd,Litchfield,100,Kindergarten
+,Public,Birch Grove Primary School,247 Rhodes Road,Tolland,99.3,Kindergarten
+,Public,Torringford School,800 Charles Street,Litchfield,96.7,Kindergarten
+,Public,Vogel Wetmore,68 Church Street,Litchfield,99.3,Kindergarten
+,Public,Booth Hill School (Trumbull),545 Booth Hill Road,Fairfield,100,Kindergarten
+,Non-public,Christian Heritage School,575 White Plains Rd,Fairfield,97.5,Kindergarten
+,Public,Daniels Farm Elementary,710 Daniels Farm Rd,Fairfield,94.2,Kindergarten
+,Public,Frenchtown Elementary School,30,Fairfield,94.7,Kindergarten
+,Public,Jane Ryan Elementary School,190 Park Lane,Fairfield,100,Kindergarten
+,Public,Middlebrook Elementary,220 Middlebrooks Ave,Fairfield,98.4,Kindergarten
+,Public,Tashua Elementary,401 stonehouse rd,Fairfield,98.2,Kindergarten
+,Public,Mohegan,49 Golden Rd.,New London,98.2,Kindergarten
+,Public,Union Elementary,173 School St,Hartford,97.8,Kindergarten
+,Public,West District Elementary School,114 West District Road,Hartford,100,Kindergarten
+,Public,Center Road School,20 Center Road,Tolland,98.5,Kindergarten
+,Public,Lake Street School,201 Lake Street,Tolland,100,Kindergarten
+,Public,Maple Street School,20 Maple St.,Tolland,100,Kindergarten
+,Public,Northeast School,69 East St,Tolland,100,Kindergarten
+,Public,Skinner Road School,90 Skinner Road,Tolland,100,Kindergarten
+,Public,Cook Hill Elementary School,57 Hall Road,New Haven,98.8,Kindergarten
+,Public,Highland Elementary School (Wallingford),200 Highland Ave,New Haven,100,Kindergarten
+,Public,Moses Y. Beach Elementary School,340 N Main St,New Haven,98.8,Kindergarten
+,Public,Stevens Elementary School,18 Kondracki Lane,New Haven,100,Kindergarten
+,Public,B.W. Tinker Elementary School,809 Highland Avenue,New Haven,100,Kindergarten
+,Non-public,Brass City Charter School,289 Willow St,New Haven,91.4,Kindergarten
+,Public,Bucks Hill Elementary,300 Bucks Hill Road-,New Haven,87.5,Kindergarten
+,Public,Bunker Hill Elementary,170 Bunker Hill Avenue,New Haven,90.9,Kindergarten
+,Public,Carrington,24 Kenmore Ave,New Haven,100,Kindergarten
+,Public,Driggs Elementary School,77 Woodlawn Terr,New Haven,93.6,Kindergarten
+,Public,Duggan,38 West Porter Street,New Haven,98.4,Kindergarten
+,Public,GILMARTIN ELEMENTARY,94 SPRINGLAKE ROAD,New Haven,100,Kindergarten
+,Public,Hopeville,2 Cypress St,New Haven,98.9,Kindergarten
+,Public,HS Chase Elementary,40 Woodtick Road,New Haven,98.4,Kindergarten
+,Public,International dual language,116 Beecher ave,New Haven,97.5,Kindergarten
+,Public,Jonathan Reed Elementary School,33 Griggs Street,New Haven,91.8,Kindergarten
+,Public,Kingsbury Elementary School,220 Columbia Blvd,New Haven,88.3,Kindergarten
+,Public,M.M. Generali,3196 East Main St.,New Haven,100,Kindergarten
+,Public,Maloney Interdistrict Magnet School,233 South Elm Street,New Haven,77.5,Kindergarten
+,Public,Regan Elementary School,2780 North Main st,New Haven,100,Kindergarten
+,Public,Rotella,380 Pierpont Rd,New Haven,97.9,Kindergarten
+,Public,Sprague Elementary,1443 Thomaston Avenue,New Haven,77.6,Kindergarten
+,Public,Walsh Elementary School,55 Dikeman Street,New Haven,88.9,Kindergarten
+,Public,Washington Elementary School,685 Baldwin St,New Haven,100,Kindergarten
+,Public,Wendell Cross,1255 Hamilton Avenue,New Haven,100,Kindergarten
+,Public,Woodrow Wilson Elementary,235 Birch Street,New Haven,87.5,Kindergarten
+,Non-public,Yeshiva K'Tana,47 Buckingham St,New Haven,89,Kindergarten
+,Public,Great Neck Elementary,165 Great Neck Road,New London,100,Kindergarten
+,Public,Oswegatchie Elementary School,470 Boston Post Road,New London,98,Kindergarten
+,Public,Latimer Lane Elementary School,33 Moutain View Drive,Hartford,100,Kindergarten
+,Public,Aiken Elementary School,212 King Philip Drive,Hartford,100,Kindergarten
+,Public,Braeburn Elementary School,45 Braeburn Rd,Hartford,100,Kindergarten
+,Public,Bugbee Elementary,1943 Asylum Avenue,Hartford,100,Kindergarten
+,Public,Charter Oak International Academy,425 Oakwood Ave,Hartford,100,Kindergarten
+,Public,Duffy Elelmentary,95 Westminster Dr.,Hartford,100,Kindergarten
+,Public,Morley,77 Bretton Road,Hartford,100,Kindergarten
+,Public,Norfeldt Elementary,35 Barksdale Road,Hartford,96.8,Kindergarten
+,Public,Smith Stem School,64 Saint James Street,Hartford,97.7,Kindergarten
+,Public,University of Hartford Magnet School,196 Bloomfield AVe,Hartford,98.5,Kindergarten
+,Public,Webster Hill Elementary,125 Webster Hill Blvd,Hartford,96.4,Kindergarten
+,Public,Whiting Lane Elementary,47 Whiting Lane,Hartford,100,Kindergarten
+,Public,Wolcott Elementary School,71 Wolcott Rd,Hartford,100,Kindergarten
+,Public,Edith E. Mackrille,806 Jones Hill Rd,New Haven,100,Kindergarten
+,Public,Forest Elementary,95 Burwell Road,New Haven,98,Kindergarten
+,Public,Savin Rock Community School,50 Park Street,New Haven,99,Kindergarten
+,Public,Seth G. Haley Elementary School,146 South Street,New Haven,100,Kindergarten
+,Public,Washington School,255 Meloy Road,New Haven,100,Kindergarten
+,Public,Pagels Elementary,26 Benham hill road,New Haven,98.6,Kindergarten
+,Public,Tootin Hills,25 Nimrod Road,Hartford,100,Kindergarten
+,Public,A. Ward Spaulding Elementary,945 mountain road,Hartford,97.5,Kindergarten
+,Public,Daisy Ingraham School,105 Goodspeed Dr,Middlesex,97.4,Kindergarten
+,Public,Hurlbutt Elementary School,9 School Road,Fairfield,98.7,Kindergarten
+,Public,Coleytown Elementary School,65 Easton Rd,Fairfield,100,Kindergarten
+,Public,Greens Farms Elementary,17 Morningside Drive So,Fairfield,100,Kindergarten
+,Public,Kings Highway Elementary School,125 Post Road West,Fairfield,100,Kindergarten
+,Public,Saugatuck Elementary School,170 Riverside Avenue,Fairfield,100,Kindergarten
+,Public,AW Hanmer,50 Francis St,Hartford,100,Kindergarten
+,Public,Charles Wright Elementary School,186 Nott Street,Hartford,97.6,Kindergarten
+,Public,Emerson Williams Elementary School,461 Wells Road,Hartford,98.4,Kindergarten
+,Public,Highcrest School,95 Highcrest rd,Hartford,100,Kindergarten
+,Public,Samuel Webb Elementary School,51 Willow St.,Hartford,100,Kindergarten
+,Public,Natchaug Elementary School,123 Jackson Street,Windham,97.4,Kindergarten
+,Public,Center Elementary School,12 Old Farms Road,Tolland,100,Kindergarten
+,Public,MillerDriscoll,217 Wolfpit Road,Fairfield,97.6,Kindergarten
+,Public,Poquonock Elementary,1760 Poquonock Avenue,Hartford,100,Kindergarten
+,Public,Oliver Ellsworth Elementary,730 Kennedy Road,Hartford,100,Kindergarten
+,Public,Alcott Elementary Schiool,1490 Woodtick Rd.,New Haven,98.3,Kindergarten
+,Public,Frisbee Elementary School,24 Todd Rd,New Haven,100,Kindergarten
+,Public,Wakelee Elementary School,12 Hemple Drive,New Haven,100,Kindergarten
+,Public,Beecher Road School,40 Beecher Road,New Haven,99.2,Kindergarten
+,Public,Mitchell Elementary School,14 School Street,Litchfield,100,Kindergarten
+,Public,Woodstock Elementary School,24 Frog Pond Road,Windham,97.2,Kindergarten
+,Public,Ashford School,440 Westford Rd.,Windham,96.9,7th Grade
+,Public,Avon Middle School,375 West Avon Road,Hartford,98.4,7th Grade
+,Public,Sayles School,25 Scotland Rd.,New London,97.1,7th Grade
+,Public,Catherine McGee Middle School,899 Norton Rd,Hartford,95.7,7th Grade
+,Public,Amity Middle School Bethany,190 Luke Hill Road,New Haven,96.5,7th Grade
+,Public,Bethel Middle School,600 Whittlesey Dr.,Fairfield,96.9,7th Grade
+,Public,Academy of International studies,1551 Bue Hills Ave,Hartford,100,7th Grade
+,Public,Carmen Arace,390 Park Avenue,Hartford,98.9,7th Grade
+,Public,Greater Hartford Academy Of The Arts Middle School,129 Griffin Road North,Hartford,96.5,7th Grade
+,Public,Bolton Center school,108 Notch Road,Tolland,100,7th Grade
+,Public,Walsh Intermediate School,185 Damascus Rd.,New Haven,99,7th Grade
+,Public,Achievement First Middle School,529 Noble Avenue,Fairfield,90.4,7th Grade
+,Public,Barnum School,495 Waterview Ave,Fairfield,100,7th Grade
+,Public,Black Rock,545 Brewster Street,Fairfield,100,7th Grade
+,Public,Blackham Elementary School,425 Thorme street,Fairfield,98.7,7th Grade
+,Public,Capital  Preparatory Harbor School,777 Main Street,Fairfield,93.8,7th Grade
+,Public,Cesar A Batalla,606 HOward Ave,Fairfield,99.1,7th Grade
+,Public,Classical Studies Magnet Academy,240 Linwood ave,Fairfield,100,7th Grade
+,Public,Columbus School,275 George Street,Fairfield,100,7th Grade
+,Public,Geraldine Claytor Magnet Academy,140 Ocean Terrace,Fairfield,88.2,7th Grade
+,Public,Geraldine Johnson School,475 Lexington Avenue,Fairfield,98.8,7th Grade
+,Public,High Horizons Magnet School,700 Palisade Avenue,Fairfield,95.8,7th Grade
+,Public,inter-district Discovery Magnet School,1450 Park Ave,Fairfield,97.8,7th Grade
+,Public,James J. Curiale,300 Larual Ave.,Fairfield,95.1,7th Grade
+,Public,Jettie Tisdale,250 Hollister Ave,Fairfield,92.3,7th Grade
+,Public,John Winthrop,85 Eckart Street,Fairfield,97.2,7th Grade
+,Public,Multicultural Magnet School,700 Palisade Avenue,Fairfield,100,7th Grade
+,Public,Park City Magnet,1526 Chopsey Hill Rd,Fairfield,100,7th Grade
+,Public,PL Dunbar,445 Union Avenue,Fairfield,98,7th Grade
+,Public,Read,130 Ezra Street,Fairfield,100,7th Grade
+,Public,Roosevelt,680 Park ave,Fairfield,96.5,7th Grade
+,Public,Six to six magnet school,601 Pearl Harbor St,Fairfield,100,7th Grade
+,Non-public,St Augustine Academy,63 Pequonock St,Fairfield,100,7th Grade
+,Public,Waltersville,150 Hallett Street,Fairfield,100,7th Grade
+,Public,Wilbur Cross School,1775 Reservoir Ave,Fairfield,97.7,7th Grade
+,Public,Park City Prep Charter School,1550 State St,Fairfield,92.1,7th Grade
+,Public,Bristol Arts and Innovation Magnet School,70 Memorial Blvd,Hartford,100,7th Grade
+,Public,Chippens Hill Middle School,551 peacedale street,Hartford,99.5,7th Grade
+,Public,Greene-Hills School,718 Pine Street,Hartford,100,7th Grade
+,Public,Northeast Middle School,530 Stevens St.,Hartford,99.2,7th Grade
+,Public,West Bristol School,500 Clark Ave,Hartford,97.2,7th Grade
+,Public,Whisconier Middle School,17 W Whisconier Road,Fairfield,97,7th Grade
+,Public,Brooklyn Middle School,119 Gorman Road,Windham,98.8,7th Grade
+,Public,Har-Bur Middle School,26 Lyon Road,Hartford,97.1,7th Grade
+,Public,North Canaan Elementary School,90 Pease Street,Litchfield,100,7th Grade
+,Public,Doctor Helen Baldwin Middle School,45  Westminster Road,Windham,85.5,7th Grade
+,Public,Canton Middle School,76 Simonds Ave,Hartford,93.4,7th Grade
+,Public,Parish Hill Middle High School,304 Parish Hill Rd,Windham,100,7th Grade
+,Public,Dodd Middle School,100 Park Place,New Haven,97.4,7th Grade
+,Public,Eliot Middle School,69 Fairy Dell Road,Middlesex,97.1,7th Grade
+,Public,William J. Johnston Middle School,360 Norwich Ave,New London,96.9,7th Grade
+,Public,Horace Porter School,3 Schoolhouse Rd,Tolland,90.7,7th Grade
+,Public,Captain Nathan Hale Middle School,1776 Main Street,Tolland,95.9,7th Grade
+,Public,Cromwell Middle School,6 Mann Memorial Drive,Middlesex,90.4,7th Grade
+,Public,Broadview Middle School,72 Hospital Avenue,Fairfield,98.6,7th Grade
+,Public,Roger Park Middle School,21 Memorial Drive,Fairfield,98.9,7th Grade
+,Public,Westside Middle School,1 School Ridge Road,Fairfield,99.6,7th Grade
+,Public,Middlesex Middle School,204 Hollow Tree Ridge Road,Fairfield,98.4,7th Grade
+,Public,Killingly Intermediate School,1599 Upper Maple St,Windham,99.4,7th Grade
+,Public,John Winthrop Junior High School,One Winthrop Road,Middlesex,92.6,7th Grade
+,Public,Derby Middle School,73 Chatfield St,New Haven,98,7th Grade
+,Public,Strong Middle School,191 Main Street,Middlesex,97.2,7th Grade
+,Public,East Granby Middle School,95 South Main St,Hartford,100,7th Grade
+,Public,East Hampton Middle School,19 Childs Rd,Middlesex,94.7,7th Grade
+,Public,Academy of Computer Science and Engineering Middle School,337 East River Drive,Hartford,99,7th Grade
+,Non-public,Connecticut River Academy- Middle School,195 Riverside Dr.,Hartford,98.8,7th Grade
+,Public,East hartford Middle School,777 Burnside Ave.,Hartford,98.3,7th Grade
+,Public,Sunset Ridge Middle School,450 Forbes Street,Hartford,99.1,7th Grade
+,Public,East Haven Academy,67 Hudson Street,New Haven,100,7th Grade
+,Public,JOSEPH MELILLO MIDDLE SCHOOL,67 HUDSON STREET,New Haven,99.4,7th Grade
+,Public,East WIndsor Middle school,38 Main Street,Hartford,96.5,7th Grade
+,Public,Helen Keller Middle School,360 Sport Hill Road,Fairfield,94.5,7th Grade
+,Public,Ellington Middle School,46 Middle Butcher Road,Tolland,96.8,7th Grade
+,Public,John F. Kennedy Middle School,155 Raffia Road,Hartford,99.2,7th Grade
+,Public,Fairfield Woods Middle School,1115 Fairfield Woods Road,Fairfield,97.4,7th Grade
+,Public,Roger Ludlowe Middle School,689 Unquowa Road,Fairfield,95.2,7th Grade
+,Non-public,St. Thomas Aquinas Catholic School,1719 Post Road,Fairfield,95.1,7th Grade
+,Public,Tomlinson Middle School,200 Unquowa Rd.,Fairfield,97.2,7th Grade
+,Public,Irving A. Robbins Middle School,20 Wolf Pit Rd.,Hartford,97.9,7th Grade
+,Public,Ledyard Middle School,1860 Route 12,New London,98.8,7th Grade
+,Public,Smith Middle School,219 Addison Road,Hartford,98.6,7th Grade
+,Public,Granby Memorial Middle School,321 Salmon Brook St,Hartford,96.7,7th Grade
+,Non-public,Eagle Hill School,45 Glenville Road,Fairfield,96.4,7th Grade
+,Public,Eastern Middle School,51 Hendrie ave,Fairfield,96.7,7th Grade
+,Non-public,Greenwich Academy,200 North Maple Ave,Fairfield,100,7th Grade
+,Non-public,Greenwich Country Day School,401 Old Church Road,Fairfield,100,7th Grade
+,Non-public,Sacred Heart Greenwich,1177King Street,Fairfield,98.1,7th Grade
+,Public,Western Junior High School,1 Western Junior Highway,Fairfield,98.5,7th Grade
+,Public,Griswold Middle School,211 Slater Avenue,New London,97.4,7th Grade
+,Public,Groton Middle School,35 Groton Long Point Rd,New London,98.1,7th Grade
+,Public,Elizabeth Adams Middle School,233 Church Street,New Haven,98.3,7th Grade
+,Public,ACES Wintergreen Interdistrict Magnet School,671 Wintergreen Ave,New Haven,98.1,7th Grade
+,Public,Booker T Washington Academy,306 Circular Avenue,New Haven,97.7,7th Grade
+,Non-public,Hamden Hall Country Day School,1108 Whitney Ave,New Haven,100,7th Grade
+,Public,Hamden Middle School,2623 Dixwell Ave.,New Haven,99,7th Grade
+,Non-public,Saint Rita School,1601 Whitney Ave,New Haven,100,7th Grade
+,Public,Achievement First,305 Greenfield Street,Hartford,94.8,7th Grade
+,Public,Alfred E. Burr Middle School,400 Wethersfield Ave,Hartford,100,7th Grade
+,Public,Betances Stem Magnet School,400 Wethersfield Ave,Hartford,100,7th Grade
+,Public,BREAKTHROUGH MAGNET SCHOOL (SOUTH),290 BROOKFIELD STREET,Hartford,100,7th Grade
+,Public,Capital Prep Magnet School,1304 Main Street,Hartford,100,7th Grade
+,Public,Classical Magnet,85 Woodland Street,Hartford,97.8,7th Grade
+,Public,Dr. Martin Luther King Jr. Social Justice Middle School,25 Ridgefield Street,Hartford,94,7th Grade
+,Public,Dwight Bellizzi Dual Language Academy,215 South Street,Hartford,97.3,7th Grade
+,Public,E.B. Kennelly,180 White Street,Hartford,98.6,7th Grade
+,Public,Environmental Sciences @ Mary Hooker,440 Broadview Terrace,Hartford,100,7th Grade
+,Public,Global Communications Academy,85 Edwards St,Hartford,98.2,7th Grade
+,Public,Hartford Magnet Trinity College Academy,53 Vernon Street,Hartford,99.3,7th Grade
+,Non-public,Jumoke Academy Charter School,339 Blue Hills Ave,Hartford,78.1,7th Grade
+,Non-public,Kinsella Magnet School of the Performing Arts,65 Van Block Ave.,Hartford,100,7th Grade
+,Public,McDonough Middle School,111 Hillside Avenue,Hartford,94.3,7th Grade
+,Public,MILNER MIDDLE SCHOOL,150 TOWER AVE,Hartford,100,7th Grade
+,Public,Noah Webster,5 cone st.,Hartford,100,7th Grade
+,Public,Sport and Medical Sciences Academy,280 Huyshope Avenue,Hartford,98.4,7th Grade
+,Public,STEM Magnet @Annie Fisher,280 Plainfield Street,Hartford,100,7th Grade
+,Public,Regional School District 8 Middle School,25 RHAM Road,Tolland,95.4,7th Grade
+,Public,Haddam-Killingworth Middle School,451 Route 81,Middlesex,99.4,7th Grade
+,Public,Lebanon Middle School,891 Exeter Road,New London,96.9,7th Grade
+,Public,Lisbon Central School,15 Newent Rd.,New London,97.9,7th Grade
+,Public,Litchfield middle/high school,14 Plumb Hill Rd.,Litchfield,97.4,7th Grade
+,Public,Wamogo Regional School District 6,98 Wamogo Rd,Litchfield,93.3,7th Grade
+,Non-public,The Country School,341 Opening Hill Road,New Haven,93.5,7th Grade
+,Public,Walter C. Polson Middle School,302 Green Hill Rd,New Haven,97.7,7th Grade
+,Public,Illing Middle School,227 Middle Tpke E,Hartford,98.4,7th Grade
+,Public,Odyssey Community School,579 West Middle Turnpike,Hartford,97.2,7th Grade
+,Non-public,Saint James School,73 Park Street,Hartford,95.2,7th Grade
+,Public,Edison,1355 North Broad Street,New Haven,99.6,7th Grade
+,Public,Lincoln Middle School,164 Centennial Ave,New Haven,99.6,7th Grade
+,Public,Washington Middle School,1225 North Broad St,New Haven,98.9,7th Grade
+,Public,Memorial Middle School,1 Memorial Drive,New Haven,97.9,7th Grade
+,Public,Beman middle school,1 wilderman's way,Middlesex,97.8,7th Grade
+,Public,East Shore Middle School,240 Chapel Street,New Haven,98.3,7th Grade
+,Public,Harborside Middle School,175 High Street,New Haven,97.4,7th Grade
+,Non-public,St. Marys School,72 Gulf Street,New Haven,100,7th Grade
+,Public,West Shore Middle School,70 Kay Avenue,New Haven,97.9,7th Grade
+,Public,Jockey Hollow Middle School,365 Fan Hill Road,Fairfield,96.6,7th Grade
+,Public,Masuk High School/Jockey Hollow STEM,1014 Monroe Turnpike,Fairfield,96,7th Grade
+,Public,Nathan Hale Ray Middle School,73 Clark Gates Road,Middlesex,92.3,7th Grade
+,Public,Stonington Middle School,204 Mistuxet Ave,New London,96.6,7th Grade
+,Public,City Hill Middle School,441 City Hill Street,New Haven,99.1,7th Grade
+,Public,CREC Academy of Science and Innovation,600 Slater Road,Hartford,95.6,7th Grade
+,Public,Diloreto Elementary And Middle School,732 Slater Road,Hartford,100,7th Grade
+,Public,Pulaski Middle School,757 Farmington Ave.,Hartford,98.2,7th Grade
+,Public,Roosevelt Campus,40 Goodwin Street,Hartford,97.9,7th Grade
+,Public,Slade Middle School,183 Steele St,Hartford,100,7th Grade
+,Public,Saxe Middle School,468 South Ave,Fairfield,98,7th Grade
+,Non-public,New Canaan Country School,635 Frogtown Rd,Fairfield,100,7th Grade
+,Public,New Fairfield Middle School,56 Gilotti RD,Fairfield,98.1,7th Grade
+,Public,Amistad Academy,130 Edgewood Ave,New Haven,97.8,7th Grade
+,Public,Augusta Lewis Troup School,259 Edgewood Ave,New Haven,100,7th Grade
+,Public,Barnard Environmental Science and Technology School,170 Derby Avenue,New Haven,100,7th Grade
+,Public,Benjamin Jepson Magnet School,15 Lexington Ave,New Haven,100,7th Grade
+,Public,Betsy Ross Arts Magnet School,150 Kimberly Avenue,New Haven,98.9,7th Grade
+,Public,Bishop Woods School,1481 Quinnipiac Ave,New Haven,100,7th Grade
+,Public,Brennan-Rogers Magnet School,200 Wilmot Road,New Haven,100,7th Grade
+,Public,"Celentano Biotech, Health&Medical Magnet",400 Canner st,New Haven,97,7th Grade
+,Public,Clinton Avenue School,293 Clinton Avenue,New Haven,100,7th Grade
+,Public,Conte West Hills,511 Chapel St,New Haven,96.7,7th Grade
+,Public,Davis,35 Davis Street,New Haven,100,7th Grade
+,Public,East Rock Community Magnet School,133 Nash St,New Haven,97.8,7th Grade
+,Public,Edgewood,737 Edgewood Ave,New Haven,100,7th Grade
+,Public,Elm City College Prep,407 James St.,New Haven,100,7th Grade
+,Public,F.A.M.E,255 Blatchley AVE,New Haven,98.1,7th Grade
+,Public,Fair Haven,164 Grand Avenue,New Haven,97.7,7th Grade
+,Public,Highville Charter School,1 Science Park,New Haven,100,7th Grade
+,Public,Hill Central School,140 Dewitt Street,New Haven,100,7th Grade
+,Non-public,Hopkins School,986 Forest Rd,New Haven,100,7th Grade
+,Public,John C Daniels,569 Congress Ave,New Haven,100,7th Grade
+,Public,John S. Martinez,100 James Street,New Haven,100,7th Grade
+,Public,King Robinson,150 Fournier Street,New Haven,100,7th Grade
+,Non-public,L. W. Beecher Museum Magnet School,100 Jewel st,New Haven,97.8,7th Grade
+,Public,Mauro Sheridan Magnet School,191 Fountain St,New Haven,100,7th Grade
+,Public,Nathan Hale School,480 Townsend Ave,New Haven,100,7th Grade
+,Public,Ross Woodward,185 Barnes Ave,New Haven,100,7th Grade
+,Non-public,The Foote School,50 Loomis Place,New Haven,100,7th Grade
+,Public,Truman,114 truman st,Fairfield,100,7th Grade
+,Public,Worthington Hooker,691 Whitney Ave,New Haven,100,7th Grade
+,Public,Bennie Dover Jackson Middle School,36 Waller Street,New London,95.5,7th Grade
+,Public,Interdistrict School of for Arts and Communication,190 Governor Winthrop Blvd,New London,96.8,7th Grade
+,Public,New London High School Multi Magnet Campus,20 Chester Street,New London,100,7th Grade
+,Public,Schaghticoke Middle School,23 Hipp Road,Litchfield,98.9,7th Grade
+,Public,John Wallace Middle School,71 Halleran Drive,Hartford,99.4,7th Grade
+,Public,Martin Kellogg Middle School,155 Harding Ave,Hartford,96.7,7th Grade
+,Public,Newtown Middle School,11 Queen,Fairfield,99,7th Grade
+,Non-public,Saint Rose of Lima School,40 Church Hill Road,Fairfield,94.4,7th Grade
+,Public,East Lyme Middle School,31 Society RD.,New London,98.4,7th Grade
+,Public,North Branford Intermediate School,654 Foxon Rd.,New Haven,97,7th Grade
+,Public,Thompson Middle School,785 Riverside Drive,Windham,98.3,7th Grade
+,Public,North Haven Middle School,55 Bailey Road,New Haven,98.8,7th Grade
+,Public,Wheeler Middle School,297 Norwich- Westerly Road,New London,94.8,7th Grade
+,Public,Charles H. Barrows STEM Academy,141 Tuckie Road,Windham,96.9,7th Grade
+,Non-public,All Saints Catholic School,139 West Rocks Road,Fairfield,96.9,7th Grade
+,Public,Nathan Hale Middle School,176 Strawberry Hill Ave,Fairfield,97.6,7th Grade
+,Public,Ponus Ridge Steam Academy,21 Hunters Lane,Fairfield,97.2,7th Grade
+,Public,Roton Middle School,201 Highland Avenue,Fairfield,97,7th Grade
+,Public,West Rocks Middle School,81 West Rocks Rd.,Fairfield,99.5,7th Grade
+,Public,Integrated Day Charter School,668 Thermos Ave,New London,97.7,7th Grade
+,Public,Kelly STEAM Middle School,25 Mahan Dr.,New London,98.2,7th Grade
+,Public,Teacher's Global Magnet Middle School,15 Teacher's Dr.,New London,96.9,7th Grade
+,Public,Leonard J Tyl Middle School,166 Chesterfield Rd,New London,97.5,7th Grade
+,Public,SWIFT MIDDLE SCHOOL,250 COLONIAL ST,Litchfield,98.5,7th Grade
+,Public,Lyme Old Lyme Middle School,53 Lyme Street,New London,95.7,7th Grade
+,Public,Old Saybrook Middle School,60 Sheffield Street,Middlesex,98.8,7th Grade
+,Public,Amity Middle School Orange,100 Ohman Avenue,New Haven,99.5,7th Grade
+,Public,Oxford Middle School,40 Great Oak Road,New Haven,95.5,7th Grade
+,Public,Plainfield Central Middle School,75 Canterbury Road,Windham,91.7,7th Grade
+,Public,Middle School of Plainville,150 Northwest Drive,Hartford,97.4,7th Grade
+,Public,JFK Middle School,1071 S. Main Street,Hartford,96.4,7th Grade
+,Public,Pomfret Community School,20 Pomfret St,Windham,94.6,7th Grade
+,Non-public,Rectory School,528 Pomfret Street,Windham,93,7th Grade
+,Public,Portland Middle School,93 High St,Middlesex,97.2,7th Grade
+,Public,Preston Plains Middle School,1 Route 164,New London,97.5,7th Grade
+,Public,Long River Middle School,38 Columbia Ave,New Haven,94.2,7th Grade
+,Public,PUTNAM MIDDLE,35 WICKER STREET,Windham,100,7th Grade
+,Public,John Read Middle School,486 Redding Road,Fairfield,94.1,7th Grade
+,Public,East Ridge Middle School,10 East Ridge Road,Fairfield,96.3,7th Grade
+,Public,Scotts Ridge Middle School,750 North Salem Rd,Fairfield,97.8,7th Grade
+,Public,Albert D. Griswold Middle School,144 Bailey Rd,Hartford,98.6,7th Grade
+,Public,Salem School,200 Hartford Road,New London,97.5,7th Grade
+,Public,Seymour Middle School,211 Mountain Road,New Haven,93.8,7th Grade
+,Public,Shelton Intermediate School,675 Constitution Boulevard North,Fairfield,97.7,7th Grade
+,Public,The Sherman School,2 Route 37 East,Fairfield,93.8,7th Grade
+,Public,Henry James Memorial School,155 Firetown Road,Hartford,99.1,7th Grade
+,Public,Mabelle B. Avery Middle School,1 vision blvd,Tolland,98.2,7th Grade
+,Public,Timothy Edwards Middle School,100 Arnold Way,Hartford,97.4,7th Grade
+,Public,Rochambeau Middle School,100 Peter Rd,New Haven,95.2,7th Grade
+,Public,DePaolo Middle School,385 Pleasant Street,Hartford,97.9,7th Grade
+,Public,Stafford Middle School,21 Levinthal Run,Tolland,89,7th Grade
+,Public,Cloonan Middle School,11 W North St,Fairfield,68.9,7th Grade
+,Public,Dolan Middle School,51 Toms Road,Fairfield,96.3,7th Grade
+,Non-public,King,1450 Newfield Avenue,Fairfield,95.7,7th Grade
+,Public,Rippowam Middle School,381 High Ridge Rd,Fairfield,98.2,7th Grade
+,Public,Rogers International School,202 Blachley Road,Fairfield,93.5,7th Grade
+,Public,Scofield Magnet Middle School,641 Scofieldtown Road,Fairfield,95.7,7th Grade
+,Non-public,Stamford Charter School For Excellence,1 Schuyler Avenue,Fairfield,89.1,7th Grade
+,Public,Strawberry Hill School,200 Strawberry Hill Ave,Fairfield,98.9,7th Grade
+,Public,Turn of River School,117 Vine Road,Fairfield,97.7,7th Grade
+,Public,Sterling Community School,251 Sterling Road,Windham,100,7th Grade
+,Public,Mansfield Middle School,205 Spring Hill Rd.,Tolland,100,7th Grade
+,Public,Flood Middle School,490 Chapel St.,Fairfield,99.2,7th Grade
+,Public,Wooster Middle School,150 Lincoln Street,Fairfield,99.6,7th Grade
+,Public,Suffield Middle School,350 Mountain Road,Hartford,97.4,7th Grade
+,Public,Eli Terry Junior Middle School,21 N. Main Street,Litchfield,97.4,7th Grade
+,Public,Thomaston High School,185 Branch Road,Litchfield,96.7,7th Grade
+,Public,Tolland Middle School,1 Falcon Way,Tolland,96.9,7th Grade
+,Public,Torrington Middle School,200 Middle School Dr.,Litchfield,99.7,7th Grade
+,Non-public,Christian Heritage School,575 White Plains Rd,Fairfield,91.4,7th Grade
+,Public,Hillcrest Middle School,530 Daniels Farm Rd,Fairfield,97.5,7th Grade
+,Public,Madison Middle School,4630 Madison Avenue,Fairfield,97.8,7th Grade
+,Non-public,Saint Bernard School,1593 Norwich- New London Turnpike,New London,100,7th Grade
+,Public,Vernon Center Middle School,777 Hartford Turnpike,Tolland,98.6,7th Grade
+,Public,Dag Hammarskjold Middle School,106 Pond Hill Rd,New Haven,96.9,7th Grade
+,Public,James H. Moran Middle School,141 Hope Hill Road,New Haven,96.9,7th Grade
+,Public,Shepaug Valley School,159 South St,Litchfield,95.6,7th Grade
+,Non-public,Rumsey Hall School,201 Romford Road,Litchfield,100,7th Grade
+,Public,ACES at Chase,565 Chase Parkway,New Haven,99,7th Grade
+,Non-public,Brass City Charter School,289 Willow St,New Haven,100,7th Grade
+,Public,Carrington,24 Kenmore Ave,New Haven,96,7th Grade
+,Public,Duggan,38 West Porter Street,New Haven,100,7th Grade
+,Public,GILMARTIN ELEMENTARY,94 SPRINGLAKE ROAD,New Haven,100,7th Grade
+,Public,Jonathan Reed Elementary School,33 Griggs Street,New Haven,98.2,7th Grade
+,Public,Michael F. Wallace Middle School,3465 East Main Street,New Haven,98.4,7th Grade
+,Public,North End Middle School,534 Bucks Hill Road,New Haven,98.8,7th Grade
+,Public,Waterbury Arts Magnet School,16 Elm St,New Haven,98.2,7th Grade
+,Public,Wendell Cross,1255 Hamilton Avenue,New Haven,100,7th Grade
+,Public,Westside Middle School,483 Chase Parkway,New Haven,99.6,7th Grade
+,Non-public,Yeshiva K'Tana,47 Buckingham St,New Haven,94.8,7th Grade
+,Public,Clark Lane Middle School,105 Clark Lane,New London,99.4,7th Grade
+,Public,Bristow Middle School,34 Highland Street,Hartford,96.2,7th Grade
+,Public,King Philip Middle School,100 King Philip Dr,Hartford,98.8,7th Grade
+,Non-public,Kingswood Oxford School,170 Kingswood Road,Hartford,100,7th Grade
+,Non-public,Renbrook,2865 Albany Ave,Hartford,100,7th Grade
+,Public,Sedwick Middle School,128 Sedgwick Rd,Hartford,99.3,7th Grade
+,Public,Bailey,106 Morgan Lane,New Haven,99.5,7th Grade
+,Public,Engineering and Science University Magnet School,500 Boston Post Road,New Haven,97.8,7th Grade
+,Public,Westbrook Middle School,154 Mcveagh Road,Middlesex,94,7th Grade
+,Public,Weston Middle School,135 School Road,Fairfield,95.7,7th Grade
+,Public,Bedford Middle School,88 North Avenue,Fairfield,95.5,7th Grade
+,Public,Coleytown Middle School,255 North Avenue,Fairfield,96.9,7th Grade
+,Non-public,Greens Farms Academy,35 Beachside Ave,Fairfield,98.5,7th Grade
+,Non-public,Corpus Christi School,581 Silas Deane Highway,Hartford,97.3,7th Grade
+,Public,Silas Deane Middle School,551 Silas Deane Highway,Hartford,98.6,7th Grade
+,Public,Windham Middle School,123 Quarry Street,Windham,97.8,7th Grade
+,Public,Hall Memorial School,111River Road,Tolland,97.7,7th Grade
+,Public,Middlebrook,131 School Rd,Fairfield,96.9,7th Grade
+,Public,Sage Park Middle School,25 Sage Park Road,Hartford,99.2,7th Grade
+,Public,Regional School District 7,100 Battistoni  Drive,Litchfield,97.1,7th Grade
+,Public,The Gilbert School,200 Williams Ave,Litchfield,98.9,7th Grade
+,Public,Tyrrell Middle School,500 Todd Road,New Haven,99.4,7th Grade
+,Public,Woodbury Middle School,67 Washington Avenue,Litchfield,96.9,7th Grade
+,Public,Woodstock Middle School,147B Route 169,Windham,92.4,7th Grade

@@ -3,14 +3,47 @@ import pandas as pd
 import numpy as np
 import plotly.express as px
 
+from randomgen import PCG64
+
 from app_styles import SPAGHETTI_PLOT_AXIS_CONFIG
 
 
-# Probably need a better name for these functions...
+def dashboard_exceedance_prob_str(exceedance_prob: int):
+    """
+    Returns string to populate the written text portion of the dashboard
+    corresponding to probability of exceeding X new total infections,
+    where X is the chosen outbreak threshold_value
+    """
+
+    if exceedance_prob < 0.01:
+        exceedance_prob_str = "< 1%"
+    # VERY IMPORTANT: HTML NEEDS AN ESCAPE BEFORE >
+    # Otherwise literally the whole dashboard breaks, it's crazy
+    elif exceedance_prob > 0.99:
+        exceedance_prob_str = "\> 99%"
+    else:
+        exceedance_prob_str = '{:.0%}'.format(exceedance_prob)
+
+    return exceedance_prob_str
 
 
-def get_dashboard_spaghetti(df_plot: pd.DataFrame,
-                            spaghetti_color_map: dict):
+def dashboard_percentiles_str(
+        init_infected,
+        lb_new,
+        ub_new):
+    """
+    THIS INCLUDES INITIAL INFECTED!!!! :)
+    """
+
+    lb_total, ub_total = init_infected + lb_new, init_infected + ub_new
+
+    all_cases_cond_percentiles_str = str(int(lb_total)) + ' - ' + str(int(ub_total))
+
+    return all_cases_cond_percentiles_str
+
+
+def dashboard_spaghetti(df_plot: pd.DataFrame,
+                        spaghetti_color_map: dict):
     """
     Returns plotly.graph_objects.Figure
     """
@@ -32,7 +65,7 @@ def get_dashboard_spaghetti(df_plot: pd.DataFrame,
         color='simulation_idx',
         color_discrete_map=spaghetti_color_map)
 
-    fig.update_traces(hovertemplate="Day %{x}<br>%{y:.1f} Infected<extra></extra>")
+    fig.update_traces(hovertemplate="Day %{x}<br>%{y:.1f} infected<extra></extra>")
     fig.update_traces(line=dict(width=2))  # Reduce line thickness
 
     fig.update_layout(showlegend=False,
@@ -53,11 +86,10 @@ def get_dashboard_spaghetti(df_plot: pd.DataFrame,
     return fig
 
 
-def get_dashboard_results_fig(df_spaghetti: pd.DataFrame,
-                              index_sim_closest_median: int,
-                              nb_curves_displayed: int,
-                              curve_selection_seed: int):
-
+def dashboard_results_fig(df_spaghetti: pd.DataFrame,
+                          index_sim_closest_median: int,
+                          nb_curves_displayed: int,
+                          curve_selection_seed: int):
     # df_spaghetti must have columns "day", "result", "simulation_idx"
 
     light_grey = 'rgb(220, 220, 220)'
@@ -71,20 +103,19 @@ def get_dashboard_results_fig(df_spaghetti: pd.DataFrame,
     possible_idx = df_spaghetti['simulation_idx']
     possible_idx = possible_idx[possible_idx != index_sim_closest_median]
 
-    sample_idx = np.random.Generator(
-        np.random.MT19937(curve_selection_seed)).choice(possible_idx,
-                                                        nb_curves_displayed,
-                                                        replace=False)
+    sample_idx = np.random.Generator(PCG64(curve_selection_seed)).choice(possible_idx,
+                                                                         nb_curves_displayed,
+                                                                         replace=False)
 
     sim_plot_df = pd.concat([
         df_spaghetti.loc[df_spaghetti['simulation_idx'].isin(sample_idx)],
         df_spaghetti.loc[df_spaghetti['simulation_idx'] == index_sim_closest_median]
     ])
 
-    return get_dashboard_spaghetti(sim_plot_df, color_map)
+    return dashboard_spaghetti(sim_plot_df, color_map)
 
 
 # Lauren wanted the default plot to have the same axes as the generated plot
 #   from simulations
-EMPTY_SPAGHETTI_PLOT_INFECTED_MA = get_dashboard_spaghetti(
+EMPTY_SPAGHETTI_PLOT_INFECTED_MA = dashboard_spaghetti(
     pd.DataFrame(columns=['day', 'result', 'simulation_idx']), {})

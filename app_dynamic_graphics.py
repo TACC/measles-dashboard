@@ -32,11 +32,12 @@ def results_header():
                                                  children='Chance of exceeding 10 new infections',
                                                  style={**RESULTS_HEADER_STYLE, 'fontWeight': '500'}
                                                  ),
-                                    html.Br(),
-                                    html.Br(),
+                                    dcc.Markdown(id='blank_space_for_alignment_with_next_col',
+                                                 children="*if exceeds 10 new infections*",
+                                                 style={'font-size': '14pt', "visibility": "hidden", "margin": "none"}),
                                     dcc.Markdown(id='prob_threshold_plus_new_str',
                                                  style={**RESULTS_HEADER_STYLE, 'color': '#bf5700',
-                                                        "font-size": "22pt", "font-weight": "800"}
+                                                        "font-size": "22pt", "font-weight": "800", 'margin-top': '0.5em'}
                                                  ),
                                 ],
                                 style={

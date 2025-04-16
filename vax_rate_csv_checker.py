@@ -47,6 +47,16 @@ def check_columns_list(df):
         print("\n\nError: CSV columns do not match COLUMNS_LIST. "
               "Make sure all columns in COLUMNS_LIST exist in the CSV"
               " and spelling and formatting are correct.")
+        
+        print('\nColumns in csv file:')
+        print(df.columns)
+        print('\nColumns expected:')
+        print(COLUMNS_LIST)
+        print('\nColumns missing:')
+        print([x for x in COLUMNS_LIST if x not in df.columns])
+        print('\nUnnecessary columns:')
+        print([x for x in df.columns if x not in COLUMNS_LIST])
+        
         return False
 
     else:
@@ -60,14 +70,14 @@ def check_no_duplicates(df):
     groupby_cols = [
         "School District or Name", "Age Group", "County"
         ]
-    df_agg = df.groupby(groupby_cols).nunique()
+    df_agg = df.groupby(groupby_cols).nunique()        
     
     if len(df) != len(df_agg):
         print("\n\nError: Combinations created by values of School District or Name, "
               "Age Group, and County must be unique. There is at least one "
               "duplicate -- please revise.")
-        
-        df_issues = df_agg.loc[df_agg['MMR Vaccination Rate'] > 1]
+        df_agg['duplicate_row_max'] = df_agg.apply(lambda x: max(x), axis=1)
+        df_issues = df_agg.loc[df_agg['duplicate_row_max'] > 1]
         print('\nValues causing issues:')
         print(df_issues)
         print('\n\n')
@@ -135,9 +145,9 @@ def check_vaccination_rate_CSV(filename: str):
             vaccination_rates_are_floats &
             vaccination_rates_are_percentages &
             vaccination_rates_are_nonzero):
-        return "This CSV appears valid and correctly formatted."
+        print("This CSV appears valid and correctly formatted.")
     else:
-        return "This CSV has validity or formatting issues -- please amend."
+        print(" !!! This CSV has validity or formatting issues -- please amend. !!! ")
 
 
 def add_facility_address_to_school_district_or_name(df):
@@ -158,11 +168,20 @@ def add_facility_address_to_school_district_or_name(df):
 
 # %% Load data and run
 if __name__ == "__main__":
-    csv_filename = 'CT_MMR_Kindergarten_Rate.csv'
+    data_subfolder = 'state_data'
+    filelist = [
+        'NY_MMR_vax_rate.csv',
+        'CT_MMR_vax_rate.csv',
+        'MD_MMR_vax_rate.csv',
+        'NM_MMR_vax_rate.csv'
+        ]
     
-    if csv_filename in os.listdir():
-        check_vaccination_rate_CSV(csv_filename)
-    else:
-        print('File "' + csv_filename +'" not found.')
+    data_folder_path = os.sep.join([os.getcwd(), data_subfolder, ''])
+    for csv_filename in filelist:
+        if csv_filename in os.listdir(data_folder_path):
+            print('\n\n#############################\n\n  Filename:', csv_filename)
+            check_vaccination_rate_CSV(data_folder_path + csv_filename)
+        else:
+            print('File "' + csv_filename +'" not found.')
 
 
