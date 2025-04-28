@@ -14,8 +14,11 @@ from app_styles import BASE_FONT_STYLE, \
 #   in the selectors, and we trigger the (external) error message instead!
 
 states_list = (
-    "Connecticut", "Maryland", "New Mexico", "New York",
-    "North Carolina", "Pennsylvania", "Texas"
+    "Alabama", "Arizona", "California", "Colorado", "Connecticut",
+    "Iowa", "Massachusetts", "Maryland", "Michigan",
+    "Minnesota", "New Mexico", "New York",
+    "North Carolina", "Oregon", "Pennsylvania", "Texas",
+    "Washington"
     )
 
 SELECTOR_DEFAULTS =\
