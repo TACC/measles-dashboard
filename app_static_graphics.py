@@ -166,9 +166,9 @@ def bottom_info_section():
                                 style={"color": "#1b96bf", "textDecoration": "none"}),
                          html.A("). Precautions for student de-identification are applied and based on school enrollment. For schools with:"),
                          html.Ul([
-                             html.Li("20-49 enrollees, values of 95% or higher are listed as 95%, and values of 5% or less are listed as 5%"),
-                             html.Li("50-99 enrollees, values of 98% or higher are listed as 98%, and values of 2% or less are listed as 2%"),
-                             html.Li("100 or more enrollees, values of 99% or higher are listed as 99%, and values of 1% or less are listed as 1%")
+                             html.Li("20–49 enrollees: Values ≥95% reported as 95%; values ≤5% reported as 5%"),
+                             html.Li("50–99 enrollees: Values ≥98% reported as 98%; values ≤2% reported as 2%"),
+                             html.Li("100 or more enrollees: Values ≥99% reported as 99%; values ≤1% reported as 1%")
                             ], style={"margin-bottom": "0em"}),
                             ]),
                 html.Li([html.A("Colorado ("),
