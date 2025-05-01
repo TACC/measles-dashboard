@@ -166,14 +166,30 @@ def add_facility_address_to_school_district_or_name(df):
     return df
 
 
+def delete_columns_from_file_and_save(
+    filepath, columns_to_delete):
+    df = pd.read_csv(filepath)
+    
+    for col in columns_to_delete:
+        if col in df.columns:
+            del df[col]
+            
+    df.to_csv(filepath.replace('.csv', '_COLS_DELETED.csv'))
+
 # %% Load data and run
 if __name__ == "__main__":
     data_subfolder = 'state_data'
     filelist = [
-        'NY_MMR_vax_rate.csv',
-        'CT_MMR_vax_rate.csv',
-        'MD_MMR_vax_rate.csv',
-        'NM_MMR_vax_rate.csv'
+        'WA_MMR_vax_rate.csv',
+        'OR_MMR_vax_rate.csv',
+        'CO_MMR_vax_rate.csv',
+        'IA_MMR_vax_rate.csv',
+        'MI_MMR_vax_rate.csv',
+        'MA_MMR_vax_rate.csv',
+        'MN_MMR_vax_rate.csv',
+        'AZ_MMR_vax_rate.csv',
+        'CA_MMR_vax_rate.csv',
+        'AL_MMR_vax_rate.csv'
         ]
     
     data_folder_path = os.sep.join([os.getcwd(), data_subfolder, ''])

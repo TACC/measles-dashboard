@@ -55,6 +55,16 @@ state_name_to_two_letter_code = {
     "North Carolina": "NC",
     "Pennsylvania": "PA",
     "Texas": "TX",
+    "Alabama": "AL",
+    "Arizona": "AZ", 
+    "California": "CA", 
+    "Colorado": "CO",
+    "Iowa": "IA", 
+    "Massachusetts": "MA",  
+    "Michigan": "MI",
+    "Minnesota": "MN", 
+    "Oregon": "OR", 
+    "Washington": "WA",
 }
 
 
