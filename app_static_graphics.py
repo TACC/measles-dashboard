@@ -162,9 +162,15 @@ def bottom_info_section():
                          html.A(")")]),
                 html.Li([html.A("California ("),
                          html.A("CPDPH Immunization",
-                                href="https://www.cdph.ca.gov/Programs/CID/DCDC/Pages/Immunization/School/reporting-audit.aspx", target="_blank",
+                                href="https://nam12.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.cdph.ca.gov%2FPrograms%2FCID%2FDCDC%2FCDPH%2520Document%2520Library%2FImmunization%2F2023_24CAKindergartenGradeData_Letter.xlsx&data=05%7C02%7C%7Cd2dcc0072b3e43928b6d08dd8391abf2%7C31d7e2a5bdd8414e9e97bea998ebdfe1%7C0%7C0%7C638811383882331939%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=nF%2B05XKDV2XtOch2WZ%2BWWQkPEDD6pNZiTiTcVQyFa5I%3D&reserved=0", target="_blank",
                                 style={"color": "#1b96bf", "textDecoration": "none"}),
-                         html.A(")")]),
+                         html.A("). Precautions for student de-identification are applied and based on school enrollment. For schools with:"),
+                         html.Ul([
+                             html.Li("20–49 enrollees: Values ≥95% reported as 95%; values ≤5% reported as 5%"),
+                             html.Li("50–99 enrollees: Values ≥98% reported as 98%; values ≤2% reported as 2%"),
+                             html.Li("100 or more enrollees: Values ≥99% reported as 99%; values ≤1% reported as 1%")
+                            ], style={"margin-bottom": "0em"}),
+                            ]),
                 html.Li([html.A("Colorado ("),
                          html.A("CDPHE School and Child Care Immunization",
                                 href="https://data-cdphe.opendata.arcgis.com/search?q=school%20and%20child%20care%20immunization%20data%20reporting", target="_blank",
