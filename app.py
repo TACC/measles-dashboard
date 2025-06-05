@@ -73,11 +73,32 @@ state_name_to_two_letter_code = {
     "Maine": "ME",
 }
 
+df_sort_grades = pd.DataFrame({
+    "Grade": [
+        "Kindergarten", "1st Grade", "2nd Grade", "3rd Grade", "4th Grade",
+        "5th Grade", "6th Grade", "7th Grade", "8th Grade", "9th Grade",
+        "10th Grade", "11th Grade", "12th Grade"],
+    "grade_sort_order": list(range(13))
+})
+
 
 state_to_df_map = {
     state_name: pd.read_csv(STATE_DATA_SUBFOLDER + state_code + '_MMR_vax_rate.csv')
     for state_name, state_code in state_name_to_two_letter_code.items()
 }
+
+# Formatting of state dataframes
+for state_name, df in state_to_df_map.items():
+    df['County'] = df['County'].str.title()
+    df['School District or Name'] = df['School District or Name'].str.title()
+    df['School District or Name'] = df['School District or Name'].str\
+        .replace('\r', ' ', regex=True)\
+        .replace('\n', ' ', regex=True)
+    df['School District or Name'] = df['School District or Name'].str.\
+        replace('  ', ' ')
+    df['School District or Name'] = df['School District or Name'].str\
+        .replace('Isd', 'ISD')\
+        .replace('Csd', 'CSD')
 
 def get_county_subset_df(state_str, county_str) -> pd.DataFrame:
     state_subset_df = state_to_df_map[state_str]
@@ -278,10 +299,20 @@ def update_county_selector(state):
 )
 def update_school_selector(state, county):
     df = get_county_subset_df(state, county)
-    new_school_options = sorted(
+    df_sort = pd.merge(
+        df, df_sort_grades,
+        left_on='Age Group', right_on='Grade', how='left')
+    df_sort.sort_values(
+        by=['School District or Name', 'grade_sort_order'], 
+        ascending=[True, True], inplace=True)
+    new_school_options = [
         f"{name} ({age_group})" if pd.notna(age_group) and age_group != "" else f"{name}"
-        for name, age_group in zip(df["School District or Name"], df["Age Group"])
-    )
+        for name, age_group in zip(df_sort["School District or Name"], df_sort["Age Group"])
+    ]
+    # new_school_options = sorted(
+    #     f"{name} ({age_group})" if pd.notna(age_group) and age_group != "" else f"{name}"
+    #     for name, age_group in zip(df["School District or Name"], df["Age Group"])
+    # )
     default_school_displayed = new_school_options[0]
 
     return new_school_options, default_school_displayed
