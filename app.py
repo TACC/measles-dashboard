@@ -65,6 +65,12 @@ state_name_to_two_letter_code = {
     "Minnesota": "MN", 
     "Oregon": "OR", 
     "Washington": "WA",
+    "Idaho": "ID",
+    "Indiana": "IN",
+    "Kansas": "KS",
+    "Kentucky": "KY",
+    "Louisiana": "LA",
+    "Maine": "ME",
 }
 
 
