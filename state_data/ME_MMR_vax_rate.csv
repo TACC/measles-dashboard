@@ -1,0 +1,694 @@
+Facility Number,School Type,Facility Address,School District or Name,County,MMR Vaccination Rate,Age Group
+,,,Acadia Academy ,Androscoggin,100.00,Kindergarten
+,,,Central Maine Christian Academy,Androscoggin,100.00,Kindergarten
+,,,East Auburn,Androscoggin,100.00,Kindergarten
+,,,Elm Street School-Androscoggin County,Androscoggin,96.77,Kindergarten
+,,,Fairview Elementary School,Androscoggin,98.48,Kindergarten
+,,,Farwell Elementary School,Androscoggin,100.00,Kindergarten
+,,,Geiger Elementary,Androscoggin,95.59,Kindergarten
+,,,Lisbon Community School,Androscoggin,100.00,Kindergarten
+,,,McMahon Elementary ,Androscoggin,98.28,Kindergarten
+,,,Minot Consolidated School,Androscoggin,100.00,Kindergarten
+,,,Montello Elementary,Androscoggin,95.71,Kindergarten
+,,,MSAD 52 Leeds Central,Androscoggin,92.00,Kindergarten
+,,,Park Avenue Elementary,Androscoggin,100.00,Kindergarten
+,,,Poland Community School,Androscoggin,100.00,Kindergarten
+,,,Robert V. Connors Elementary School,Androscoggin,91.95,Kindergarten
+,,,"RSU5, Durham Community School",Androscoggin,100.00,Kindergarten
+,,,Saint Dominic Academy,Androscoggin,95.83,Kindergarten
+,,,Sherwood Heights Elementary School,Androscoggin,100.00,Kindergarten
+,,,Spruce Mountain Primary School,Androscoggin,99.05,Kindergarten
+,,,The Margaret Murphy Center-Charles St,Androscoggin,100.00,Kindergarten
+,,,The Margaret Murphy Center-Rodman Rd,Androscoggin,100.00,Kindergarten
+,,,Turner Primary school ,Androscoggin,100.00,Kindergarten
+,,,Walton School,Androscoggin,100.00,Kindergarten
+,,,Ashland District School,Aroostook,100.00,Kindergarten
+,,,Caribou Community School,Aroostook,100.00,Kindergarten
+,,,Connor Consolidated School,Aroostook,100.00,Kindergarten
+,,,Dawn F. Barnes Elementary School,Aroostook,100.00,Kindergarten
+,,,Easton School Department,Aroostook,100.00,Kindergarten
+,,,Fort Kent Elementary School,Aroostook,98.11,Kindergarten
+,,,Fort Street Elementary,Aroostook,100.00,Kindergarten
+,,,Greater Houlton Christian Academy,Aroostook,85.71,Kindergarten
+,,,Limestone Community School,Aroostook,90.48,Kindergarten
+,,,Madawaska Elementary School,Aroostook,100.00,Kindergarten
+,,,Mapleton Elementary School,Aroostook,100.00,Kindergarten
+,,,MSAD 20,Aroostook,100.00,Kindergarten
+,,,MSAD 24/RSU 88,Aroostook,100.00,Kindergarten
+,,,MSAD 45 WASHBURN ELEMENTARY AND HIGH SCHOOL,Aroostook,100.00,Kindergarten
+,,,MSAD 70,Aroostook,97.30,Kindergarten
+,,,MSAD#33,Aroostook,100.00,Kindergarten
+,,,RSU #50 - Southern Aroostook Community School,Aroostook,100.00,Kindergarten
+,,,RSU 29,Aroostook,97.50,Kindergarten
+,,,Woodland Consolidated School,Aroostook,100.00,Kindergarten
+,,,Amanda C Rowe Elementary,Cumberland,91.57,Kindergarten
+,,,Blue Point School,Cumberland,100.00,Kindergarten
+,,,Congin School,Cumberland,86.05,Kindergarten
+,,,Dora L. Small Elementary School,Cumberland,100.00,Kindergarten
+,,,Dr. Waldo T. Skillin Elementary School,Cumberland,89.83,Kindergarten
+,,,East End Community School,Cumberland,83.33,Kindergarten
+,,,Edna Libby Elementary School,Cumberland,98.59,Kindergarten
+,,,Eight Corners Primary School,Cumberland,98.44,Kindergarten
+,,,Falmouth Elementary School,Cumberland,98.26,Kindergarten
+,,,Fiddlehead School,Cumberland,100.00,Kindergarten
+,,,Frank I. Brown Elementary School,Cumberland,89.58,Kindergarten
+,,,Gerald E. Talbot School (Riverton),Cumberland,86.89,Kindergarten
+,,,Greater Portland Christian School,Cumberland,90.91,Kindergarten
+,,,Harpswell Community School,Cumberland,100.00,Kindergarten
+,,,Harrison Lyseth Elementary School,Cumberland,93.06,Kindergarten
+,,,Helena H. Dyer Elementary School,Cumberland,97.92,Kindergarten
+,,,James Otis Kaler Elementary,Cumberland,93.55,Kindergarten
+,,,Kate Furbish Elementary School,Cumberland,99.45,Kindergarten
+,,,L'Ecole Francaise du Maine,Cumberland,100.00,Kindergarten
+,,,Longfellow Elementary,Cumberland,100.00,Kindergarten
+,,,Mabel I Wilson,Cumberland,100.00,Kindergarten
+,,,Morse Street School,Cumberland,100.00,Kindergarten
+,,,MSAD 15,Cumberland,91.41,Kindergarten
+,,,Narragansett Elementary,Cumberland,100.00,Kindergarten
+,,,North Yarmouth Academy,Cumberland,100.00,Kindergarten
+,,,Ocean Avenue Elementary School,Cumberland,93.48,Kindergarten
+,,,Oxford Cumberland Canal School,Cumberland,93.62,Kindergarten
+,,,Pathways Merrymeeting Center,Cumberland,100.00,Kindergarten
+,,,Peaks Island Elementary School,Cumberland,100.00,Kindergarten
+,,,Pleasant Hill Primary school ,Cumberland,100.00,Kindergarten
+,,,Pond Cove Elementary School,Cumberland,98.11,Kindergarten
+,,,Pownal Elementary School,Cumberland,100.00,Kindergarten
+,,,Presumpscot Elementary School,Cumberland,97.14,Kindergarten
+,,,Raymond Elementary School,Cumberland,100.00,Kindergarten
+,,,Reiche,Cumberland,79.71,Kindergarten
+,,,Saccarappa School,Cumberland,92.50,Kindergarten
+,,,Sebago Elementary School,Cumberland,100.00,Kindergarten
+,,,Songo Locks,Cumberland,96.55,Kindergarten
+,,,St. Brigid School,Cumberland,94.74,Kindergarten
+,,,St. John's Catholic School,Cumberland,100.00,Kindergarten
+,,,Steep Falls Elementary,Cumberland,100.00,Kindergarten
+,,,Stevens Brook Elementary School,Cumberland,97.62,Kindergarten
+,,,The Glickman Lauder Center of Excellence MBH,Cumberland,100.00,Kindergarten
+,,,Village Elementary,Cumberland,98.48,Kindergarten
+,,,Waynflete,Cumberland,100.00,Kindergarten
+,,,William H Rowe School,Cumberland,100.00,Kindergarten
+,,,Winfield Children's House,Cumberland,100.00,Kindergarten
+,,,Cape Cod Hill School,Franklin,100.00,Kindergarten
+,,,Gerald D. Cushing School,Franklin,100.00,Kindergarten
+,,,Kingfield Elementary School,Franklin,100.00,Kindergarten
+,,,Phillips Elementary School,Franklin,95.45,Kindergarten
+,,,Rangeley Lakes Regional School,Franklin,70.59,Kindergarten
+,,,Stratton School,Franklin,100.00,Kindergarten
+,,,WG Mallett,Franklin,97.80,Kindergarten
+,,,Airline Community School,Hancock,100.00,Kindergarten
+,,,Beech Hill School,Hancock,100.00,Kindergarten
+,,,Blue Hill Consolidated School,Hancock,100.00,Kindergarten
+,,,Brooklin School,Hancock,100.00,Kindergarten
+,,,Brooksville Elementary ,Hancock,100.00,Kindergarten
+,,,Castine Adams School,Hancock,100.00,Kindergarten
+,,,Cave Hill School,Hancock,100.00,Kindergarten
+,,,Conners Emerson School,Hancock,100.00,Kindergarten
+,,,Cranberry Isles School,Hancock,100.00,Kindergarten
+,,,Dedham School,Hancock,100.00,Kindergarten
+,,,Deer Isle Stonington Elementary and High School,Hancock,95.83,Kindergarten
+,,,Ellsworth Elementary Middle School,Hancock,98.28,Kindergarten
+,,,Hancock Grammar School,Hancock,83.33,Kindergarten
+,,,Isle Au Haut,Hancock,100.00,Kindergarten
+,,,Lamoine Consolidated,Hancock,100.00,Kindergarten
+,,,Mount Desert Elementary,Hancock,92.31,Kindergarten
+,,,Mountain View School,Hancock,92.59,Kindergarten
+,,,Pemetic Elementary,Hancock,100.00,Kindergarten
+,,,Peninsula,Hancock,100.00,Kindergarten
+,,,Penobscot Community School,Hancock,85.71,Kindergarten
+,,,RSU 25,Hancock,100.00,Kindergarten
+,,,Sedgwick Elementary School,Hancock,100.00,Kindergarten
+,,,Surry Elementary School ,Hancock,100.00,Kindergarten
+,,,Swan's Island School,Hancock,100.00,Kindergarten
+,,,The Bay School,Hancock,100.00,Kindergarten
+,,,The Community School of Mount Desert Island,Hancock,90.00,Kindergarten
+,,,Tremont Consolidated School,Hancock,100.00,Kindergarten
+,,,Trenton Elementary School,Hancock,100.00,Kindergarten
+,,,Albion Elementary School,Kennebec,100.00,Kindergarten
+,,,Atwood primary,Kennebec,98.46,Kindergarten
+,,,Belgrade Central School,Kennebec,94.44,Kindergarten
+,,,Children's Center Special Purpose Private School,Kennebec,100.00,Kindergarten
+,,,China Primary School,Kennebec,100.00,Kindergarten
+,,,Clinton Elementary,Kennebec,94.29,Kindergarten
+,,,Farrington Elementary,Kennebec,100.00,Kindergarten
+,,,Fayette Central School,Kennebec,100.00,Kindergarten
+,,,George J. Mitchell,Kennebec,99.12,Kindergarten
+,,,Gilbert Elementary School,Kennebec,100.00,Kindergarten
+,,,Hall-Dale Elementary School ,Kennebec,97.56,Kindergarten
+,,,Helen Thompson School,Kennebec,100.00,Kindergarten
+,,,James H. Bean School,Kennebec,94.59,Kindergarten
+,,,Laura E Richards-NC,Kennebec,93.33,Kindergarten
+,,,Libby Tozier School,Kennebec,92.41,Kindergarten
+,,,Lillian P. Hussey Elementary School,Kennebec,93.10,Kindergarten
+,,,Manchester Elementary School ,Kennebec,100.00,Kindergarten
+,,,Monmouth Memorial,Kennebec,100.00,Kindergarten
+,,,Mount Merici,Kennebec,95.00,Kindergarten
+,,,Pineview Learning Center,Kennebec,100.00,Kindergarten
+,,,Pittston Randolph Consolidated School,Kennebec,100.00,Kindergarten
+,,,Readfield Elementary School,Kennebec,93.94,Kindergarten
+,,,RSU #38: Mount Vernon Elementary,Kennebec,100.00,Kindergarten
+,,,St. Michael School,Kennebec,100.00,Kindergarten
+,,,Wayne Elementary School,Kennebec,100.00,Kindergarten
+,,,Winslow Elementary School,Kennebec,97.33,Kindergarten
+,,,Winthrop Public Schools,Kennebec,100.00,Kindergarten
+,,,Woodfords Family Services ,Kennebec,100.00,Kindergarten
+,,,Appleton Village School,Knox,88.89,Kindergarten
+,,,Ash Point Community School,Knox,95.24,Kindergarten
+,,,Ashwood Waldorf School,Knox,75.00,Kindergarten
+,,,Camden Rockport Elementary School,Knox,100.00,Kindergarten
+,,,Cushing Community School,Knox,100.00,Kindergarten
+,,,Friendship Village School,Knox,100.00,Kindergarten
+,,,Hope Elementary ,Knox,85.71,Kindergarten
+,,,Prescott Memorial School,Knox,90.91,Kindergarten
+,,,South School,Knox,90.00,Kindergarten
+,,,St. George School,Knox,100.00,Kindergarten
+,,,The Riley School,Knox,100.00,Kindergarten
+,,,Thomaston grammar school,Knox,100.00,Kindergarten
+,,,Union Elementary School,Knox,93.33,Kindergarten
+,,,Vinalhaven School,Knox,100.00,Kindergarten
+,,,Warren Community School,Knox,97.44,Kindergarten
+,,,Boothbay Region Elementary and High School,Lincoln,100.00,Kindergarten
+,,,Bristol Consolidated School,Lincoln,94.74,Kindergarten
+,,,Dresden Elementary School,Lincoln,92.31,Kindergarten
+,,,Edgecomb Eddy School,Lincoln,91.67,Kindergarten
+,,,Great Salt Bay Community School,Lincoln,100.00,Kindergarten
+,,,Jefferson Village School,Lincoln,100.00,Kindergarten
+,,,Miller School,Lincoln,94.44,Kindergarten
+,,,Nobleboro Central School,Lincoln,94.74,Kindergarten
+,,,South Bristol School,Lincoln,100.00,Kindergarten
+,,,Southport Central School,Lincoln,100.00,Kindergarten
+,,,Whitefield Elementary,Lincoln,100.00,Kindergarten
+,,,Wiscasset Schools,Lincoln,100.00,Kindergarten
+,,,Agnes Gray,Oxford,100.00,Kindergarten
+,,,Andover Elementary,Oxford,100.00,Kindergarten
+,,,Crescent Park Elementary School ,Oxford,97.67,Kindergarten
+,,,Dirigo Elementary School,Oxford,100.00,Kindergarten
+,,,Guy E Rowe Elementary School,Oxford,98.11,Kindergarten
+,,,Hartford Sumner Elementary School,Oxford,97.37,Kindergarten
+,,,Hebron Station School,Oxford,100.00,Kindergarten
+,,,Meroby Elementary School,Oxford,97.67,Kindergarten
+,,,MSAD 72,Oxford,98.41,Kindergarten
+,,,Otisfield Community School,Oxford,100.00,Kindergarten
+,,,Oxford Elementary,Oxford,95.45,Kindergarten
+,,,Paris Elementary School,Oxford,100.00,Kindergarten
+,,,Rumford Elementary School,Oxford,100.00,Kindergarten
+,,,Sacopee Valley,Oxford,100.00,Kindergarten
+,,,Waterford Memorial School,Oxford,90.00,Kindergarten
+,,,Woodstock Elementary School ,Oxford,100.00,Kindergarten
+,,,All Saints - St. Mary's Campus,Penobscot,100.00,Kindergarten
+,,,Alton Elementary School,Penobscot,100.00,Kindergarten
+,,,Asa Adams Elementary,Penobscot,95.56,Kindergarten
+,,,Bangor Christian School,Penobscot,68.75,Kindergarten
+,,,Brewer Community School,Penobscot,100.00,Kindergarten
+,,,Carmel Elementary,Penobscot,100.00,Kindergarten
+,,,Center Drive School,Penobscot,100.00,Kindergarten
+,,,Central Community Elementary School,Penobscot,100.00,Kindergarten
+,,,Dr. Lewis S Libby School,Penobscot,100.00,Kindergarten
+,,,Earl C. McGraw,Penobscot,97.47,Kindergarten
+,,,East Millinocket School Department,Penobscot,100.00,Kindergarten
+,,,Eddington School,Penobscot,100.00,Kindergarten
+,,,Ella P. Burr Elementary School,Penobscot,98.48,Kindergarten
+,,,Glenburn School,Penobscot,100.00,Kindergarten
+,,,Granite Street School,Penobscot,100.00,Kindergarten
+,,,Helen S Dunn School,Penobscot,100.00,Kindergarten
+,,,Indian Island School,Penobscot,100.00,Kindergarten
+,,,Kidspeace New England (Millinocket Location),Penobscot,100.00,Kindergarten
+,,,KidsPeace Old Town,Penobscot,100.00,Kindergarten
+,,,Kingman Elementary School,Penobscot,100.00,Kindergarten
+,,,Lee Winn Elementary School MSAD #30,Penobscot,100.00,Kindergarten
+,,,MSAD 31 - PVHS - HMS - ESS,Penobscot,96.43,Kindergarten
+,,,Old Town Elementary School,Penobscot,98.28,Kindergarten
+,,,Patricia A Duran School,Penobscot,98.80,Kindergarten
+,,,Ridge View Community School,Penobscot,100.00,Kindergarten
+,,,RSU 19 Etna Dixmont School,Penobscot,96.77,Kindergarten
+,,,RSU 89,Penobscot,100.00,Kindergarten
+,,,Sebasticook Valley Elementary School,Penobscot,100.00,Kindergarten
+,,,Suzanne Smith Elementary School,Penobscot,97.06,Kindergarten
+,,,UCP of Maine School,Penobscot,100.00,Kindergarten
+,,,Veazie Community School,Penobscot,100.00,Kindergarten
+,,,Viola Rand Elementary School,Penobscot,100.00,Kindergarten
+,,,Greenville Consolidate School,Piscataquis,70.00,Kindergarten
+,,,Milo Elementary School,Piscataquis,93.18,Kindergarten
+,,,Piscataquis Community Elementary School,Piscataquis,100.00,Kindergarten
+,,,Sedomocha,Piscataquis,91.67,Kindergarten
+,,,Bowdoin Central School,Sagadahoc,100.00,Kindergarten
+,,,Bowdoinham Community School,Sagadahoc,96.30,Kindergarten
+,,,Dike Newell School,Sagadahoc,98.33,Kindergarten
+,,,Georgetown Central School,Sagadahoc,100.00,Kindergarten
+,,,Marcia Buker School,Sagadahoc,100.00,Kindergarten
+,,,Phippsburg Elementary School,Sagadahoc,100.00,Kindergarten
+,,,West Bath School,Sagadahoc,95.83,Kindergarten
+,,,Williams Cone School,Sagadahoc,100.00,Kindergarten
+,,,Woodside Elementary,Sagadahoc,98.04,Kindergarten
+,,,Woolwich Central School,Sagadahoc,100.00,Kindergarten
+,,,Canaan Elementary,Somerset,95.83,Kindergarten
+,,,Carrabec Community School,Somerset,100.00,Kindergarten
+,,,Fairfield Primary School,Somerset,94.94,Kindergarten
+,,,Garret Schenck School,Somerset,100.00,Kindergarten
+,,,Harmony Elementary School,Somerset,100.00,Kindergarten
+,,,Manson Park School,Somerset,100.00,Kindergarten
+,,,Mill Stream Elementary School,Somerset,100.00,Kindergarten
+,,,MSAD 13,Somerset,100.00,Kindergarten
+,,,MSAD59,Somerset,100.00,Kindergarten
+,,,North Elementary,Somerset,98.85,Kindergarten
+,,,Solon Elementary School ,Somerset,100.00,Kindergarten
+,,,Somerset Elementary School,Somerset,100.00,Kindergarten
+,,,East Belfast Elementary,Waldo,95.45,Kindergarten
+,,,Edna Drinkwater School,Waldo,100.00,Kindergarten
+,,,Gladys Weymouth Elementary School,Waldo,100.00,Kindergarten
+,,,Islesboro Central School,Waldo,66.67,Kindergarten
+,,,Leroy Smith School,Waldo,93.88,Kindergarten
+,,,Lincolnville Central School,Waldo,95.83,Kindergarten
+,,,Monroe Elementary School,Waldo,87.50,Kindergarten
+,,,Morse Memorial Elementary School,Waldo,100.00,Kindergarten
+,,,Mount View Elementary School,Waldo,100.00,Kindergarten
+,,,Searsport Elementary School,Waldo,96.30,Kindergarten
+,,,Troy Elementary,Waldo,85.71,Kindergarten
+,,,Walker Elementary School,Waldo,100.00,Kindergarten
+,,,AOS 77,Washington,82.76,Kindergarten
+,,,Bay Ridge Elementary School,Washington,100.00,Kindergarten
+,,,Beals Elementary School,Washington,100.00,Kindergarten
+,,,Calais School District,Washington,96.30,Kindergarten
+,,,Cherryfield Elementary School,Washington,100.00,Kindergarten
+,,,Daniel W. Merritt School,Washington,100.00,Kindergarten
+,,,East Grand School,Washington,100.00,Kindergarten
+,,,East Range II School,Washington,100.00,Kindergarten
+,,,Edmunds Consolidated School,Washington,100.00,Kindergarten
+,,,Ella Lewis School,Washington,100.00,Kindergarten
+,,,Elm Street School-Washington County,Washington,100.00,Kindergarten
+,,,Fort O'Brien Elementary School,Washington,100.00,Kindergarten
+,,,Harrington Elementary School,Washington,100.00,Kindergarten
+,,,Indian Township School,Washington,77.78,Kindergarten
+,,,Jonesboro Elementary School,Washington,100.00,Kindergarten
+,,,Jonesport Elementary School,Washington,100.00,Kindergarten
+,,,Lubec Elementary School,Washington,100.00,Kindergarten
+,,,Milbridge Elementary School,Washington,100.00,Kindergarten
+,,,Princeton Elementary School,Washington,91.67,Kindergarten
+,,,Rose M Gaffney,Washington,100.00,Kindergarten
+,,,Sipayik Elementary School,Washington,80.00,Kindergarten
+,,,Whiting Village School,Washington,100.00,Kindergarten
+,,,Woodland Elementary School,Washington,92.31,Kindergarten
+,,,Acton Elementary School,York,96.55,Kindergarten
+,,,Alfred Elementary School,York,100.00,Kindergarten
+,,,Berwick Academy,York,100.00,Kindergarten
+,,,Biddeford District Schools,York,95.26,Kindergarten
+,,,Buxton Center Elementary School,York,97.67,Kindergarten
+,,,Carl J Lamb,York,98.67,Kindergarten
+,,,Central Elementary School,York,100.00,Kindergarten
+,,,Dayton Consolidated School,York,100.00,Kindergarten
+,,,Eliot Elementary School,York,100.00,Kindergarten
+,,,Fraser Ford School ,York,100.00,Kindergarten
+,,,Gov. John Fairfield School,York,97.78,Kindergarten
+,,,Great Falls,York,100.00,Kindergarten
+,,,H B Emery Elementary School,York,100.00,Kindergarten
+,,,Hanson and Lebanon Elementary Schools,York,98.36,Kindergarten
+,,,Hollis Elementary,York,100.00,Kindergarten
+,,,Horace Mitchell Primary School,York,100.00,Kindergarten
+,,,Kennbunkport Consolidated School,York,100.00,Kindergarten
+,,,Kennebunk Elementary School,York,100.00,Kindergarten
+,,,Line Elementary,York,100.00,Kindergarten
+,,,Lyman Elementary School,York,94.74,Kindergarten
+,,,Margaret Chase Smith School,York,100.00,Kindergarten
+,,,Massabesic High School,York,100.00,Kindergarten
+,,,Mildred L Day School,York,100.00,Kindergarten
+,,,North Berwick Elementary School ,York,100.00,Kindergarten
+,,,RSU 23,York,97.78,Kindergarten
+,,,Saint James School,York,96.15,Kindergarten
+,,,Sanford Pride Elementary,York,98.63,Kindergarten
+,,,Shapleigh Memorial School,York,96.15,Kindergarten
+,,,The Margaret Murphy Center-Industrial Park Rd,York,100.00,Kindergarten
+,,,The Morrison Center-York,York,100.00,Kindergarten
+,,,Village Elementary School ,York,98.82,Kindergarten
+,,,Vivian E. Hussey School,York,100.00,Kindergarten
+,,,Waterboro Elementary School,York,100.00,Kindergarten
+,,,Wells Elementary School,York,100.00,Kindergarten
+,,,Young School,York,100.00,Kindergarten
+,,,Androscoggin Learning and Transition Center,Androscoggin,100.00,7th Grade
+,,,Auburn Middle School,Androscoggin,99.15,7th Grade
+,,,Bruce Whittier Middle School,Androscoggin,99.32,7th Grade
+,,,Central Maine Christian Academy,Androscoggin,100.00,7th Grade
+,,,Lewiston Middle School,Androscoggin,94.27,7th Grade
+,,,Oak Hill Middle School,Androscoggin,100.00,7th Grade
+,,,Philip W. Sugg Middle School,Androscoggin,100.00,7th Grade
+,,,Renaissance School,Androscoggin,100.00,7th Grade
+,,,"RSU5, Durham Community School",Androscoggin,97.37,7th Grade
+,,,Saint Dominic Academy,Androscoggin,100.00,7th Grade
+,,,The Margaret Murphy Center-Charles St,Androscoggin,50.00,7th Grade
+,,,The Margaret Murphy Center-Hotel Rd,Androscoggin,94.12,7th Grade
+,,,The Margaret Murphy Center-Main St,Androscoggin,100.00,7th Grade
+,,,Tripp Middle School,Androscoggin,98.88,7th Grade
+,,,Ashland District School,Aroostook,100.00,7th Grade
+,,,Caribou Community School,Aroostook,100.00,7th Grade
+,,,Central Aroostook Jr/Sr High School,Aroostook,100.00,7th Grade
+,,,Community High School,Aroostook,100.00,7th Grade
+,,,Dawn F. Barnes Elementary School,Aroostook,100.00,7th Grade
+,,,Easton School Department,Aroostook,100.00,7th Grade
+,,,Fort Street Elementary,Aroostook,100.00,7th Grade
+,,,Greater Houlton Christian Academy,Aroostook,100.00,7th Grade
+,,,Limestone Community School,Aroostook,100.00,7th Grade
+,,,Madawaska High School,Aroostook,100.00,7th Grade
+,,,MSAD 20,Aroostook,100.00,7th Grade
+,,,MSAD 24/RSU 88,Aroostook,100.00,7th Grade
+,,,MSAD 45 WASHBURN ELEMENTARY AND HIGH SCHOOL,Aroostook,100.00,7th Grade
+,,,MSAD 70,Aroostook,100.00,7th Grade
+,,,MSAD#33,Aroostook,100.00,7th Grade
+,,,Opportunity Training Center,Aroostook,100.00,7th Grade
+,,,Presque Isle Middle School,Aroostook,100.00,7th Grade
+,,,RSU #50 - Southern Aroostook Community School,Aroostook,100.00,7th Grade
+,,,RSU 29,Aroostook,100.00,7th Grade
+,,,Valley Rivers Middle School,Aroostook,100.00,7th Grade
+,,,Woodland Consolidated School,Aroostook,100.00,7th Grade
+,,,Aucocisco School,Cumberland,75.00,7th Grade
+,,,Bridge Crossing Academy,Cumberland,100.00,7th Grade
+,,,Brunswick Junior High School,Cumberland,99.48,7th Grade
+,,,Cape Elizabeth Middle School,Cumberland,100.00,7th Grade
+,,,Falmouth Middle School,Cumberland,99.28,7th Grade
+,,,Fiddlehead School,Cumberland,90.00,7th Grade
+,,,Freeport Middle School,Cumberland,100.00,7th Grade
+,,,Gorham Middle School,Cumberland,98.32,7th Grade
+,,,Greater Portland Christian School,Cumberland,83.33,7th Grade
+,,,Harrison Middle School,Cumberland,100.00,7th Grade
+,,,Jordan Small Middle School,Cumberland,100.00,7th Grade
+,,,King Middle School,Cumberland,92.26,7th Grade
+,,,Lake Region Middle School,Cumberland,100.00,7th Grade
+,,,Lincoln Middle School,Cumberland,93.28,7th Grade
+,,,Lyman Moore Middle School,Cumberland,94.52,7th Grade
+,,,Maine Coast Waldorf School,Cumberland,100.00,7th Grade
+,,,Maine Connections Academy,Cumberland,100.00,7th Grade
+,,,MSAD 15,Cumberland,100.00,7th Grade
+,,,North Yarmouth Academy,Cumberland,100.00,7th Grade
+,,,Pathways Merrymeeting Center,Cumberland,100.00,7th Grade
+,,,Scarborough Middle School,Cumberland,100.00,7th Grade
+,,,South Portland Middle School,Cumberland,97.25,7th Grade
+,,,St. Brigid School,Cumberland,100.00,7th Grade
+,,,St. John's Catholic School,Cumberland,75.00,7th Grade
+,,,The Glickman Lauder Center of Excellence MBH,Cumberland,100.00,7th Grade
+,,,Waynflete,Cumberland,97.96,7th Grade
+,,,Westbrook Middle School,Cumberland,96.39,7th Grade
+,,,Windham Middle School,Cumberland,100.00,7th Grade
+,,,Carrabassett Valley Academy,Franklin,100.00,7th Grade
+,,,Day Mountain Regional Middle School,Franklin,100.00,7th Grade
+,,,Mt. Blue Middle School,Franklin,98.85,7th Grade
+,,,Rangeley Lakes Regional School,Franklin,100.00,7th Grade
+,,,Spruce Mountain Middle School,Franklin,100.00,7th Grade
+,,,Stratton School,Franklin,100.00,7th Grade
+,,,Airline Community School,Hancock,100.00,7th Grade
+,,,Beech Hill School,Hancock,100.00,7th Grade
+,,,Blue Hill Consolidated School,Hancock,100.00,7th Grade
+,,,Brooklin School,Hancock,100.00,7th Grade
+,,,Brooksville Elementary ,Hancock,100.00,7th Grade
+,,,Castine Adams School,Hancock,100.00,7th Grade
+,,,Charles M. Sumner Learning Campus,Hancock,100.00,7th Grade
+,,,Conners Emerson School,Hancock,100.00,7th Grade
+,,,Dedham School,Hancock,100.00,7th Grade
+,,,Deer Isle Stonington Elementary and High School,Hancock,100.00,7th Grade
+,,,Ellsworth Elementary Middle School,Hancock,100.00,7th Grade
+,,,Hancock Grammar School,Hancock,96.15,7th Grade
+,,,Kidspeace New England (Graham Lake Campus),Hancock,100.00,7th Grade
+,,,Lamoine Consolidated,Hancock,100.00,7th Grade
+,,,Mount Desert Elementary,Hancock,100.00,7th Grade
+,,,Pemetic Elementary,Hancock,100.00,7th Grade
+,,,Penobscot Community School,Hancock,100.00,7th Grade
+,,,RSU 25,Hancock,98.63,7th Grade
+,,,Sedgwick Elementary School,Hancock,100.00,7th Grade
+,,,Surry Elementary School ,Hancock,100.00,7th Grade
+,,,Swan's Island School,Hancock,100.00,7th Grade
+,,,The Bay School,Hancock,72.73,7th Grade
+,,,The Community School of Mount Desert Island,Hancock,100.00,7th Grade
+,,,Tremont Consolidated School,Hancock,90.91,7th Grade
+,,,Trenton Elementary School,Hancock,100.00,7th Grade
+,,,China Middle School,Kennebec,98.08,7th Grade
+,,,Cony High school and Middle School,Kennebec,100.00,7th Grade
+,,,Gardiner Regional Middle School,Kennebec,99.41,7th Grade
+,,,Hall-Dale Middle/High School,Kennebec,100.00,7th Grade
+,,,Maine Virtual Academy,Kennebec,100.00,7th Grade
+,,,Maranacook Community Middle School ,Kennebec,100.00,7th Grade
+,,,Messalonskee Middle School,Kennebec,100.00,7th Grade
+,,,Monmouth Memorial,Kennebec,94.87,7th Grade
+,,,Mount Merici,Kennebec,100.00,7th Grade
+,,,St. Michael School,Kennebec,100.00,7th Grade
+,,,The Margaret Murphy Center-School St,Kennebec,100.00,7th Grade
+,,,Waterville Junior High,Kennebec,99.00,7th Grade
+,,,Winslow Jr. High School,Kennebec,100.00,7th Grade
+,,,Winthrop Public Schools,Kennebec,97.01,7th Grade
+,,,Appleton Village School,Knox,100.00,7th Grade
+,,,Ashwood Waldorf School,Knox,100.00,7th Grade
+,,,Camden Rockport Middle School,Knox,100.00,7th Grade
+,,,Hope Elementary ,Knox,91.67,7th Grade
+,,,Oceanside Middle School,Knox,99.12,7th Grade
+,,,St. George School,Knox,100.00,7th Grade
+,,,The Riley School,Knox,100.00,7th Grade
+,,,Vinalhaven School,Knox,100.00,7th Grade
+,,,Boothbay Region Elementary and High School,Lincoln,100.00,7th Grade
+,,,Bristol Consolidated School,Lincoln,100.00,7th Grade
+,,,Great Salt Bay Community School,Lincoln,96.43,7th Grade
+,,,Jefferson Village School,Lincoln,100.00,7th Grade
+,,,Medomak Middle School,Lincoln,100.00,7th Grade
+,,,Nobleboro Central School,Lincoln,94.44,7th Grade
+,,,South Bristol School,Lincoln,100.00,7th Grade
+,,,Whitefield Elementary,Lincoln,100.00,7th Grade
+,,,Wiscasset Schools,Lincoln,100.00,7th Grade
+,,,Buckfield Junior Senior High School,Oxford,97.56,7th Grade
+,,,Gould Academy,Oxford,100.00,7th Grade
+,,,Hebron Academy,Oxford,100.00,7th Grade
+,,,Mountain Valley Middle School,Oxford,100.00,7th Grade
+,,,MSAD 72,Oxford,100.00,7th Grade
+,,,Oxford Hills Middle School,Oxford,98.81,7th Grade
+,,,Sacopee Valley,Oxford,100.00,7th Grade
+,,,T.W. Kelley Dirigo Middle School,Oxford,100.00,7th Grade
+,,,Telstar Middle School ,Oxford,100.00,7th Grade
+,,,The Eddy Middle School,Oxford,100.00,7th Grade
+,,,All Saints - St. Mary's Campus,Penobscot,100.00,7th Grade
+,,,Bangor Christian School,Penobscot,90.00,7th Grade
+,,,Brewer Community School,Penobscot,100.00,7th Grade
+,,,Caravel Middle School,Penobscot,97.78,7th Grade
+,,,Center Drive School,Penobscot,100.00,7th Grade
+,,,Central Middle School,Penobscot,100.00,7th Grade
+,,,Dr. Lewis S Libby School,Penobscot,100.00,7th Grade
+,,,Eddington School,Penobscot,100.00,7th Grade
+,,,Glenburn School,Penobscot,100.00,7th Grade
+,,,Helen S Dunn School,Penobscot,100.00,7th Grade
+,,,Hermon Middle School,Penobscot,100.00,7th Grade
+,,,Holbrook Schools,Penobscot,100.00,7th Grade
+,,,Indian Island School,Penobscot,100.00,7th Grade
+,,,Kidspeace New England (Millinocket Location),Penobscot,100.00,7th Grade
+,,,Leonard Middle School,Penobscot,100.00,7th Grade
+,,,Mattanawcook Junior High School,Penobscot,98.46,7th Grade
+,,,MSAD 31 - PVHS - HMS - ESS,Penobscot,100.00,7th Grade
+,,,Mt. Jefferson Junior High School MSAD #30,Penobscot,100.00,7th Grade
+,,,Orono Middle School,Penobscot,100.00,7th Grade
+,,,Reeds Brook MS,Penobscot,99.04,7th Grade
+,,,Ridge View Community School,Penobscot,100.00,7th Grade
+,,,RSU 19 Etna Dixmont School,Penobscot,100.00,7th Grade
+,,,RSU 89,Penobscot,100.00,7th Grade
+,,,Stearns Junior Senior High School,Penobscot,100.00,7th Grade
+,,,Stillwater Academy,Penobscot,100.00,7th Grade
+,,,Veazie Community School,Penobscot,100.00,7th Grade
+,,,Greenville Consolidate School,Piscataquis,100.00,7th Grade
+,,,Penquis Valley Middle School,Piscataquis,97.92,7th Grade
+,,,Piscataquis Community Elementary School,Piscataquis,100.00,7th Grade
+,,,Sedomocha,Piscataquis,97.80,7th Grade
+,,,Bath Middle School,Sagadahoc,98.23,7th Grade
+,,,Mt. Ararat Middle School,Sagadahoc,99.45,7th Grade
+,,,Richmond Middle High School,Sagadahoc,97.14,7th Grade
+,,,Woolwich Central School,Sagadahoc,100.00,7th Grade
+,,,Carrabec Community School,Somerset,100.00,7th Grade
+,,,Harmony Elementary School,Somerset,100.00,7th Grade
+,,,Lawrence Junior High School,Somerset,98.92,7th Grade
+,,,MSAD 13,Somerset,88.89,7th Grade
+,,,MSAD59,Somerset,100.00,7th Grade
+,,,Skowhegan Area Middle School,Somerset,96.90,7th Grade
+,,,Warsaw Middle School,Somerset,97.44,7th Grade
+,,,Edna Drinkwater School,Waldo,100.00,7th Grade
+,,,Islesboro Central School,Waldo,100.00,7th Grade
+,,,Lincolnville Central School,Waldo,100.00,7th Grade
+,,,Mount View Middle School,Waldo,100.00,7th Grade
+,,,Samuel Wagner Middle School,Waldo,100.00,7th Grade
+,,,Searsport Elementary School,Waldo,100.00,7th Grade
+,,,Troy Howard Middle School ,Waldo,98.37,7th Grade
+,,,AOS 77,Washington,100.00,7th Grade
+,,,Bay Ridge Elementary School,Washington,100.00,7th Grade
+,,,Beals Elementary School,Washington,100.00,7th Grade
+,,,Calais School District,Washington,100.00,7th Grade
+,,,Cherryfield Elementary School,Washington,100.00,7th Grade
+,,,East Grand School,Washington,100.00,7th Grade
+,,,Edmunds Consolidated School,Washington,66.67,7th Grade
+,,,Elm Street School-Washington County,Washington,100.00,7th Grade
+,,,Fort O'Brien Elementary School,Washington,100.00,7th Grade
+,,,Indian Township School,Washington,100.00,7th Grade
+,,,Jonesboro Elementary School,Washington,100.00,7th Grade
+,,,Jonesport Elementary School,Washington,100.00,7th Grade
+,,,Lubec Elementary School,Washington,100.00,7th Grade
+,,,Narraguagus Jr Sr High School,Washington,100.00,7th Grade
+,,,Princeton Elementary School,Washington,100.00,7th Grade
+,,,Rose M Gaffney,Washington,100.00,7th Grade
+,,,Sipayik Elementary School,Washington,100.00,7th Grade
+,,,Woodland Jr/Sr High School,Washington,100.00,7th Grade
+,,,Acton Elementary School,York,100.00,7th Grade
+,,,Berwick Academy,York,100.00,7th Grade
+,,,Biddeford District Schools,York,97.50,7th Grade
+,,,Marshwood Middle School,York,99.39,7th Grade
+,,,Massabesic Middle School,York,99.49,7th Grade
+,,,Middle School of the Kennebunks,York,99.36,7th Grade
+,,,Noble Middle School,York,100.00,7th Grade
+,,,RSU 23,York,95.74,7th Grade
+,,,Saco Middle School,York,99.48,7th Grade
+,,,Saint James School,York,100.00,7th Grade
+,,,Sanford Middle School,York,99.59,7th Grade
+,,,Shapleigh School,York,100.00,7th Grade
+,,,The Margaret Murphy Center-Industrial Park Rd,York,85.71,7th Grade
+,,,The Morrison Center-York,York,100.00,7th Grade
+,,,Thornton Academy,York,100.00,7th Grade
+,,,Wells Junior High School,York,100.00,7th Grade
+,,,Androscoggin Learning and Transition Center,Androscoggin,100.00,12th Grade
+,,,Auburn School Deprtment,Androscoggin,98.28,12th Grade
+,,,Central Maine Christian Academy,Androscoggin,100.00,12th Grade
+,,,Leavitt Area High Shool,Androscoggin,98.48,12th Grade
+,,,Lewiston High School,Androscoggin,95.73,12th Grade
+,,,Lisbon High School ,Androscoggin,100.00,12th Grade
+,,,Next Step ,Androscoggin,95.24,12th Grade
+,,,Oak Hill High School,Androscoggin,98.98,12th Grade
+,,,Poland Regional High School,Androscoggin,100.00,12th Grade
+,,,Saint Dominic Academy,Androscoggin,100.00,12th Grade
+,,,The Margaret Murphy Center-Memorial Ave,Androscoggin,90.48,12th Grade
+,,,Ashland District School,Aroostook,100.00,12th Grade
+,,,Caribou High School,Aroostook,100.00,12th Grade
+,,,Carleton Project,Aroostook,100.00,12th Grade
+,,,Central Aroostook Jr/Sr High School,Aroostook,93.55,12th Grade
+,,,Community High School,Aroostook,100.00,12th Grade
+,,,Easton School Department,Aroostook,100.00,12th Grade
+,,,Fort Street Elementary,Aroostook,100.00,12th Grade
+,,,Greater Houlton Christian Academy,Aroostook,100.00,12th Grade
+,,,Madawaska High School,Aroostook,100.00,12th Grade
+,,,Maine School of Science and Mathematics,Aroostook,100.00,12th Grade
+,,,MSAD 20,Aroostook,100.00,12th Grade
+,,,MSAD 24/RSU 88,Aroostook,100.00,12th Grade
+,,,MSAD 45 WASHBURN ELEMENTARY AND HIGH SCHOOL,Aroostook,100.00,12th Grade
+,,,MSAD 70,Aroostook,100.00,12th Grade
+,,,MSAD#33,Aroostook,100.00,12th Grade
+,,,Opportunity Training Center,Aroostook,100.00,12th Grade
+,,,Presque Isle High School,Aroostook,98.97,12th Grade
+,,,RSU #50 - Southern Aroostook Community School,Aroostook,100.00,12th Grade
+,,,RSU 29,Aroostook,100.00,12th Grade
+,,,Aucocisco School,Cumberland,100.00,12th Grade
+,,,Baxter Academy,Cumberland,100.00,12th Grade
+,,,Bonny Eagle High School,Cumberland,97.68,12th Grade
+,,,Cape Elizabeth High School,Cumberland,99.32,12th Grade
+,,,Casco Bay High School,Cumberland,100.00,12th Grade
+,,,Cheverus High School,Cumberland,100.00,12th Grade
+,,,Deering High School,Cumberland,97.19,12th Grade
+,,,Falmouth High School,Cumberland,100.00,12th Grade
+,,,Freeport High School,Cumberland,97.63,12th Grade
+,,,Gorham High School,Cumberland,99.13,12th Grade
+,,,Greater Portland Christian School,Cumberland,87.50,12th Grade
+,,,Greely High School,Cumberland,99.34,12th Grade
+,,,Lake Region High School,Cumberland,100.00,12th Grade
+,,,Maine Coast Waldorf School,Cumberland,93.75,12th Grade
+,,,Maine Connections Academy,Cumberland,98.57,12th Grade
+,,,MSAD 15,Cumberland,100.00,12th Grade
+,,,North Yarmouth Academy,Cumberland,100.00,12th Grade
+,,,Pathways Merrymeeting Center,Cumberland,100.00,12th Grade
+,,,Portland High School,Cumberland,91.57,12th Grade
+,,,Scarborough High School,Cumberland,98.65,12th Grade
+,,,south portland high school,Cumberland,93.10,12th Grade
+,,,The Glickman Lauder Center of Excellence MBH,Cumberland,50.00,12th Grade
+,,,The Morrison Center-Cumberland,Cumberland,100.00,12th Grade
+,,,Waynflete,Cumberland,100.00,12th Grade
+,,,Westbrook HS,Cumberland,100.00,12th Grade
+,,,Windham High School,Cumberland,98.78,12th Grade
+,,,Yarmouth High School,Cumberland,98.44,12th Grade
+,,,Carrabassett Valley Academy,Franklin,100.00,12th Grade
+,,,Mount Abram Reginal High School,Franklin,100.00,12th Grade
+,,,Mt. Blue High School,Franklin,100.00,12th Grade
+,,,Rangeley Lakes Regional School,Franklin,92.31,12th Grade
+,,,RSU73 SMHS,Franklin,100.00,12th Grade
+,,,Blue Hill Harbot School,Hancock,100.00,12th Grade
+,,,Charles M. Sumner Learning Campus,Hancock,100.00,12th Grade
+,,,Deer Isle Stonington Elementary and High School,Hancock,100.00,12th Grade
+,,,Ellsworth High School,Hancock,100.00,12th Grade
+,,,George Stevens Academy,Hancock,100.00,12th Grade
+,,,Mount Desert Island High School,Hancock,98.32,12th Grade
+,,,RSU 25,Hancock,100.00,12th Grade
+,,,Cony High school and Middle School,Kennebec,100.00,12th Grade
+,,,Erskine Academy,Kennebec,100.00,12th Grade
+,,,Gardiner Area High School,Kennebec,100.00,12th Grade
+,,,Hall-Dale Middle/High School,Kennebec,100.00,12th Grade
+,,,Kents Hill School,Kennebec,100.00,12th Grade
+,,,Maine Arts Academy,Kennebec,98.25,12th Grade
+,,,Maine Virtual Academy,Kennebec,98.08,12th Grade
+,,,Maranacook Community High School ,Kennebec,100.00,12th Grade
+,,,Messalonskee High School,Kennebec,100.00,12th Grade
+,,,RSU2 Monmouth Academy,Kennebec,100.00,12th Grade
+,,,Waterville Senior High School,Kennebec,98.54,12th Grade
+,,,Winslow High School,Kennebec,100.00,12th Grade
+,,,Winthrop Public Schools,Kennebec,100.00,12th Grade
+,,,Camden Hills Regional High School,Knox,99.44,12th Grade
+,,,Oceanside High School,Knox,98.35,12th Grade
+,,,Vinalhaven School,Knox,91.67,12th Grade
+,,,Boothbay Region Elementary and High School,Lincoln,97.37,12th Grade
+,,,Lincoln Academy,Lincoln,99.28,12th Grade
+,,,Medomak Valley High School,Lincoln,100.00,12th Grade
+,,,Wiscasset Schools,Lincoln,100.00,12th Grade
+,,,Buckfield Junior Senior High School,Oxford,100.00,12th Grade
+,,,Dirigo High School,Oxford,98.25,12th Grade
+,,,Gould Academy,Oxford,100.00,12th Grade
+,,,Hebron Academy,Oxford,100.00,12th Grade
+,,,Mountain Valley High School,Oxford,100.00,12th Grade
+,,,Oxford Hills Comprehensive High School,Oxford,100.00,12th Grade
+,,,Sacopee Valley,Oxford,100.00,12th Grade
+,,,Telstar High School,Oxford,100.00,12th Grade
+,,,Western Maine Program for Children with Exceptionalities,Oxford,100.00,12th Grade
+,,,Bangor Christian School,Penobscot,95.24,12th Grade
+,,,Brewer High School,Penobscot,100.00,12th Grade
+,,,Central High School,Penobscot,100.00,12th Grade
+,,,Dexter Regional High School,Penobscot,98.41,12th Grade
+,,,East Millinocket School Department,Penobscot,100.00,12th Grade
+,,,Hampden Academy,Penobscot,98.82,12th Grade
+,,,Kidspeace New England (Millinocket Location),Penobscot,100.00,12th Grade
+,,,Lee Academy ,Penobscot,100.00,12th Grade
+,,,Mattanawcook Academy,Penobscot,100.00,12th Grade
+,,,MSAD 31 - PVHS - HMS - ESS,Penobscot,97.14,12th Grade
+,,,NFI North Stetson Ranch,Penobscot,100.00,12th Grade
+,,,Old Town High School,Penobscot,97.66,12th Grade
+,,,Orono High School,Penobscot,98.15,12th Grade
+,,,RSU 89,Penobscot,100.00,12th Grade
+,,,Stearns Junior Senior High School,Penobscot,100.00,12th Grade
+,,,Stillwater Academy,Penobscot,100.00,12th Grade
+,,,Foxcroft Academy,Piscataquis,100.00,12th Grade
+,,,Greenville Consolidate School,Piscataquis,100.00,12th Grade
+,,,Penquis Valley High School,Piscataquis,97.14,12th Grade
+,,,Piscataquis Community Elementary School,Piscataquis,100.00,12th Grade
+,,,Morse High School,Sagadahoc,100.00,12th Grade
+,,,Mt. Ararat High School,Sagadahoc,100.00,12th Grade
+,,,Richmond Middle High School,Sagadahoc,100.00,12th Grade
+,,,Carrabec High School,Somerset,100.00,12th Grade
+,,,Lawrence High School,Somerset,100.00,12th Grade
+,,,Maine Central Institute,Somerset,100.00,12th Grade
+,,,MSAD 13,Somerset,100.00,12th Grade
+,,,MSAD59,Somerset,100.00,12th Grade
+,,,Skowhegan Area High School,Somerset,99.35,12th Grade
+,,,Belfast Area High School,Waldo,100.00,12th Grade
+,,,Islesboro Central School,Waldo,100.00,12th Grade
+,,,Mount View High School,Waldo,100.00,12th Grade
+,,,Searsport Elementary School,Waldo,96.43,12th Grade
+,,,AOS 77,Washington,100.00,12th Grade
+,,,Calais School District,Washington,100.00,12th Grade
+,,,East Grand School,Washington,100.00,12th Grade
+,,,Jonesport Beals High School,Washington,100.00,12th Grade
+,,,Machias Memorial High School,Washington,100.00,12th Grade
+,,,Narraguagus Jr Sr High School,Washington,100.00,12th Grade
+,,,Washington Academy,Washington,94.29,12th Grade
+,,,Woodland Jr/Sr High School,Washington,100.00,12th Grade
+,,,Berwick Academy,York,97.65,12th Grade
+,,,Biddeford District Schools,York,91.94,12th Grade
+,,,Kennebunk High School,York,100.00,12th Grade
+,,,Marshwood High School,York,100.00,12th Grade
+,,,Massabesic High School,York,99.54,12th Grade
+,,,Noble High School,York,100.00,12th Grade
+,,,R. W. Traip Academy,York,98.44,12th Grade
+,,,RSU 23,York,97.96,12th Grade
+,,,Sanford High School,York,98.86,12th Grade
+,,,The Margaret Murphy Center-Industrial Park Rd,York,100.00,12th Grade
+,,,The New School,York,100.00,12th Grade
+,,,Thornton Academy,York,97.74,12th Grade
+,,,Wells High School,York,98.95,12th Grade
+,,,York High School,York,94.53,12th Grade
