@@ -189,7 +189,13 @@ if __name__ == "__main__":
         'MN_MMR_vax_rate.csv',
         'AZ_MMR_vax_rate.csv',
         'CA_MMR_vax_rate.csv',
-        'AL_MMR_vax_rate.csv'
+        'AL_MMR_vax_rate.csv',
+        'ID_MMR_vax_rate.csv',
+        'IN_MMR_vax_rate.csv',
+        'KS_MMR_vax_rate.csv',
+        'KY_MMR_vax_rate.csv',
+        'LA_MMR_vax_rate.csv',
+        'ME_MMR_vax_rate.csv',
         ]
     
     data_folder_path = os.sep.join([os.getcwd(), data_subfolder, ''])

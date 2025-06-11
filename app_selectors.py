@@ -13,9 +13,11 @@ from app_styles import BASE_FONT_STYLE, \
 #   setting the minimum doesn't allow input reception -- soooo we do NOT set the minimum
 #   in the selectors, and we trigger the (external) error message instead!
 
-states_list = (
+states_list = ( # needs to be in alphabetical order
     "Alabama", "Arizona", "California", "Colorado", "Connecticut",
-    "Iowa", "Massachusetts", "Maryland", "Michigan",
+    "Idaho", "Indiana", "Iowa", 
+    "Kansas", "Kentucky", "Louisiana", "Maine",
+    "Massachusetts", "Maryland", "Michigan",
     "Minnesota", "New Mexico", "New York",
     "North Carolina", "Oregon", "Pennsylvania", "Texas",
     "Washington"

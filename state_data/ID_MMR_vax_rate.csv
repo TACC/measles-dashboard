@@ -1,0 +1,751 @@
+Facility Number,School Type,School District or Name,County,Facility Address,MMR Vaccination Rate,Age Group
+,Private,A Childs Choice Montessori School,Ada,1657 S. Woodsage Ave.,58.82,Kindergarten
+,Public,A.B. MCDONALD ELEMENTARY SCHOOL,Latah,2323 East D Street,92.5,Kindergarten
+,Public,A.H. BUSH ELEMENTARY SCHOOL,Bonneville,380 West Anderson,97.56,Kindergarten
+,Public,A.J. WINTERS ELEMENTARY SCHOOL,Bear Lake,535 CLAY ST,95.92,Kindergarten
+,Public,A.W. JOHNSON ELEMENTARY SCHOOL,Bingham,735 North 600 East,74.47,Kindergarten
+,Public,ABERDEEN ELEMENTARY SCHOOL,Bingham,"382 W. Washington, PO Box 610",82.35,Kindergarten
+,Public,ACEQUIA ELEMENTARY SCHOOL,Minidoka,360 N 350 E,93.18,Kindergarten
+,Private,ACORN LEARNING CENTER,Twin Falls,493 Eastland Dr.,77.78,Kindergarten
+,Public,ADAMS ELEMENTARY SCHOOL - BOISE,Ada,1725 E. Warm Springs Ave.,86.96,Kindergarten
+,Public,ADAMS ELEMENTARY SCHOOL - REXBURG,Madison,110 N 2nd E,79.59,Kindergarten
+,Private,ALL SAINTS CATHOLIC SCHOOL,Nez Perce,3326 14th St.,95.65,Kindergarten
+,Public,ALTURAS ELEMENTARY SCHOOL,Blaine,1111 ALTURAS LANE,75.76,Kindergarten
+,Charter,ALTURAS INTERNATIONAL ACADEMY,Bonneville,151 N. Ridge Ave.,92.71,Kindergarten
+,Charter,AMERICAN HERITAGE CHARTER SCHOOL,Bonneville,1736 S 35TH W,82,Kindergarten
+,Public,AMITY ELEMENTARY SCHOOL,Ada,10000 W Amity Road,88.1,Kindergarten
+,Public,AMMON ELEMENTARY SCHOOL,Bonneville,2900 Central Ave,94.29,Kindergarten
+,Charter,ANSER CHARTER SCHOOL,Ada,202 E 42nd St,87.72,Kindergarten
+,Public,ARCO ELEMENTARY SCHOOL,Butte,250 South Water Street,70.83,Kindergarten
+,Public,ASHTON ELEMENTARY SCHOOL,Fremont,168 S 1st Street,83.33,Kindergarten
+,Public,ATHOL ELEMENTARY SCHOOL,Kootenai,6333 E. Menser Ave,91.3,Kindergarten
+,Public,ATLAS ELEMENTARY SCHOOL,Kootenai,3000 W. Honeysuckle Ave,71.88,Kindergarten
+,Public,BARBARA MORGAN STEM ACADEMY,Ada,1825 Chateau Drive,87.88,Kindergarten
+,Public,BARBARA R. MORGAN ELEMENTARY SCHOOL,Valley,125 N Samson Trail,93.1,Kindergarten
+,Public,BASIN ELEMENTARY SCHOOL,Boise,101 Elk Creek Road,62.5,Kindergarten
+,Private,BEACON CHRISTIAN SCHOOL,Nez Perce,615 Stewart Avenue,66.67,Kindergarten
+,Public,BELLEVUE ELEMENTARY SCHOOL,Blaine,305 N 5th St.,85.19,Kindergarten
+,Public,BETTY KIEFER ELEMENTARY SCHOOL,Kootenai,13898 schooner street,88,Kindergarten
+,Public,BICKEL ELEMENTARY SCHOOL,Twin Falls,607 2nd Ave E,91.18,Kindergarten
+,Public,BIRCH ELEMENTARY SCHOOL,Canyon,6900 Birch Lane,80,Kindergarten
+,Public,BLACK CANYON ELEMENTARY,Caribou,605 S. 4th W PO Box 347,84.62,Kindergarten
+,Charter,BLACKFOOT CHARTER COMMUNITY LEARNING CENTER,Bingham,92 North 415 West,86,Kindergarten
+,Public,BLISS SCHOOL,Gooding,PO Box 115,88.89,Kindergarten
+,Private,BOISE VALLEY ADVENTIST SCHOOL,Ada,925 N. Cloverdale Rd.,66.67,Kindergarten
+,Online,BONNEVILLE ONLINE ELEMENTARY SCHOOL,Online,2017 E 49th N,55.56,Kindergarten
+,Public,BORAH ELEMENTARY SCHOOL,Kootenai,632 E Borah Ave,71.43,Kindergarten
+,Public,BOVILL ELEMENTARY SCHOOL,Latah,410 3rd Avenue,63.64,Kindergarten
+,Public,BRIDGEWATER ELEMENTARY SCHOOL,Bonneville,1499 Indian Hollow Drive,87.72,Kindergarten
+,Public,BRYAN ELEMENTARY SCHOOL,Kootenai,802 Harrison Avenue,90.63,Kindergarten
+,Public,BURTON ELEMENTARY SCHOOL,Madison,2211 W 1000 S,86.49,Kindergarten
+,Public,BUTTE COUNTY SECONDARY SCHOOL,Butte,120 South Water Street,70.83,Kindergarten
+,Public,BUTTE VIEW ELEMENTARY,Gem,400 S. Pine St.,87.76,Kindergarten
+,Private,CALVARY CHRISTIAN ACADEMY,Gem,498 W. Idaho Blvd.,50,Kindergarten
+,Private,CALVARY CHRISTIAN SCHOOL - BOISE,Ada,111 Auto Drive,58.33,Kindergarten
+,Private,CALVARY CHRISTIAN SCHOOL - NAMPA,Canyon,1210 N. Middleton Rd.,7.14,Kindergarten
+,Public,Camas County School,Camas,610 Soldier Road,100,Kindergarten
+,Public,CAMBRIDGE ELEMENTARY SCHOOL,Washington,455 Hopper Ave.,45.45,Kindergarten
+,Public,CAMELOT ELEMENTARY SCHOOL,Nez Perce,1903 Grelle Ave,87.5,Kindergarten
+,Public,CANYON ELEMENTARY SCIENCE MAGNET SCHOOL,Kootenai,East 27491 School House Loop,68,Kindergarten
+,Private,CANYONSIDE CHRISTIAN SCHOOL,Jerome,820 East Nez Perce,87.5,Kindergarten
+,Public,CAREY PUBLIC SCHOOL,Blaine,22 PANTHER LANE,92.86,Kindergarten
+,Public,CASCADE DISTRICT SCHOOL,Valley,P. O. Box 291,63.16,Kindergarten
+,Public,CASTLEFORD SCHOOL,Twin Falls,500 Main Street,76.47,Kindergarten
+,Public,CAVENDISH-TEAKEAN ELEMENTARY SCHOOL,Nez Perce,455 Middle Road,66.67,Kindergarten
+,Public,CECIL D ANDRUS ELEMENTARY SCHOOL,Ada,6100 N. Meadow Park Way,87.5,Kindergarten
+,Private,CENTENNIAL BAPTIST SCHOOL,Canyon,3610 E. Ustick Rd,44,Kindergarten
+,Public,CENTENNIAL ELEMENTARY SCHOOL-LEWISTON,Nez Perce,815 Burrell Ave.,96.23,Kindergarten
+,Public,CENTENNIAL ELEMENTARY SCHOOL-NAMPA,Canyon,522 Mason Lane,75.47,Kindergarten
+,Public,CENTRAL CANYON ELEMENTARY SCHOOL,Canyon,16437 S. Florida Ave,85.85,Kindergarten
+,Public,CENTRAL ELEMENTARY SCHOOL-NAMPA,Canyon,1415 5th St. S.,78.95,Kindergarten
+,Public,CENTRAL ELEMENTARY SCHOOL-SUGAR CITY,Madison,102 N Park Ave  PO Box 239,81.4,Kindergarten
+,Private,CHALLENGER SCHOOL - BLOOM ST,Ada,5551 W. Bloom St.,77.78,Kindergarten
+,Private,CHALLENGER SCHOOL - EVEREST,Ada,2020 West Everest Lane,71.88,Kindergarten
+,Public,CHALLIS ELEMENTARY SCHOOL,Custer,1000 BLUFF AVE,90,Kindergarten
+,Public,CHAPARRAL ELEMENTARY SCHOOL,Ada,1155 Deer Creek,91.76,Kindergarten
+,Public,CHIEF JOSEPH ELEMENTARY SCHOOL,Ada,1100 East Chateau Dr,83.72,Kindergarten
+,Charter,CHIEF TAHGEE ELEMENTARY ACADEMY,Bannock,34 S Hiline ,80,Kindergarten
+,Private,CHRISTIAN CENTER SCHOOL,Kootenai,3639 W Prairie Ave,50,Kindergarten
+,Public,CHRISTINE DONNELL SCHOOL OF THE ARTS,Ada,7075 S. Five Mile,83.95,Kindergarten
+,Public,CHUBBUCK ELEMENTARY SCHOOL,Bannock,600 W Chastain Dr,95.59,Kindergarten
+,Private,CITYHOPE SCHOOLS,Ada,8650 W. Fairview Ave,42.86,Kindergarten
+,Private,CLASSICAL CHRISTIAN ACADEMY,Kootenai,6068 W. Hayden Ave.,33.33,Kindergarten
+,Public,CLAUDE A. WILCOX ELEMENTARY SCHOOL,Bannock,427 Lark Lane,85.88,Kindergarten
+,Public,CLEARWATER VALLEY ELEMENTARY SCHOOL,Idaho,306 East Pine Street,72.22,Kindergarten
+,Private,CLOVER TRINITY LUTHERAN,Twin Falls, 3552 N. 1825 E.,50,Kindergarten
+,Public,CLOVERDALE ELEMENTARY SCHOOL,Bonneville,3999 Greenwillow Lane,94.92,Kindergarten
+,Private,COLE VALLEY CHRISTIAN - ELEMENTARY,Ada,8775 Ustick Road,61.54,Kindergarten
+,Public,COLLISTER ELEMENTARY SCHOOL,Ada,300 W Fort St,100,Kindergarten
+,Private,COMMUNITY SCHOOL,Blaine,"One Community School Drive, PO Box 2118",78.57,Kindergarten
+,Charter,COMPASS CHARTER SCHOOL,Ada,4667 W. Aviator St.,73.4,Kindergarten
+,Charter,CONNOR ACADEMY,Bannock,1295 Alpine Ave,83.33,Kindergarten
+,Private,CORNERSTONE CHRISTIAN ACADEMY,Kootenai,810 N Chase Road,50,Kindergarten
+,Private,CORNERSTONE CHRISTIAN SCHOOL - LEWISTON,Nez Perce,1700 8th St.,69.23,Kindergarten
+,Public,Cottonwood Elementary,Jefferson,3955 E 200 N,90.1,Kindergarten
+,Public,COUNCIL ELEMENTARY SCHOOL,Adams,202 Michigan Ave.,50,Kindergarten
+,Public,CRIMSON POINT ELEMENTARY SCHOOL,Ada,1941 N. Shayla Ave,85.51,Kindergarten
+,Public,CULDESAC SCHOOL,Nez Perce,600 Culdesac Ave,91.67,Kindergarten
+,Public,CYNTHIA MANN ELEMENTARY,Ada,5401 w Castle,96.55,Kindergarten
+,Public,Dallas Harris Elementary,Ada,3302 S Barnside Way,90.63,Kindergarten
+,Public,DALTON GARDENS ELEMENTARY SCHOOL,Kootenai,6335 N Mt. Carroll Street,84.44,Kindergarten
+,Public,Dean Goodsell Elementary,Bingham,185 W Center St,91.12,Kindergarten
+,Public,DECLO ELEMENTARY SCHOOL,Cassia,120 E Main St,82.93,Kindergarten
+,Public,DESERT SAGE ELEMENTARY SCHOOL,Ada,9325 W Mossywood Dr.,83.78,Kindergarten
+,Public,DESERT SPRINGS ELEMENTARY SCHOOL,Canyon,18178 Santa Ana Ave,89,Kindergarten
+,Public,DIETRICH SCHOOL,Lincoln,406 N. Park,81.82,Kindergarten
+,Private,DISCOVERY CHRISTIAN DAY SCHOOL,Kootenai,108 E Indiana Ave,83.33,Kindergarten
+,Public,DISCOVERY ELEMENTARY SCHOOL - IDAHO FALLS,Bonneville,2935 N Golden Rod Dr,90.72,Kindergarten
+,Public,DISCOVERY ELEMENTARY SCHOOL - MERIDIAN,Ada,2100 E. Leighfield Dr.,79.17,Kindergarten
+,Public,DONALD D STALKER ELEMENTARY SCHOOL,Bingham,991 West Center,93.94,Kindergarten
+,Public,DONNELLY ELEMENTARY SCHOOL,Valley,327 E Roseberry,75,Kindergarten
+,Public,DORA ERICKSON ELEMENTARY SCHOOL,Bonneville,940 Garfield Street,92.45,Kindergarten
+,Public,DOWNEY ELEMENTARY SCHOOL,Bannock,88 S. 4th E.,81.25,Kindergarten
+,Public,DRIGGS ELEMENTARY SCHOOL,Teton,265 LeGrand Pierre ,56.06,Kindergarten
+,Public,DWORSHAK ELEMENTARY SCHOOL,Cassia,102 E 19th Street,89.47,Kindergarten
+,Private,EAGLE ADVENTIST CHRISTIAN SCHOOL,Ada,538 W. State St.,85.71,Kindergarten
+,Public,EAGLE ELEMENTARY SCHOOL OF THE ARTS,Ada,475 North Eagle Road,85.71,Kindergarten
+,Public,EAGLE HILLS ELEMENTARY SCHOOL,Ada,650 E. Ranch Drive,77.78,Kindergarten
+,Public,EAST CANYON ELEMENTARY SCHOOL,Canyon,18408 Northside Blvd,80.23,Kindergarten
+,Public,EAST ELEMENTARY SCHOOL,Elmore,775 N 10th E,86.76,Kindergarten
+,Public,EDAHOW ELEMENTARY SCHOOL,Bannock,2020 Pocatello Creek Road,88.89,Kindergarten
+,Public,EDGEMONT GARDENS ELEMENTARY SCHOOL,Bonneville,1240 Azalea Drive,94.59,Kindergarten
+,Public,ENDEAVOR ELEMENTARY SCHOOL,Canyon,2824 E Victory Rd,74.67,Kindergarten
+,Public,ERNEST HEMINGWAY STEAM SCHOOL,Blaine,111 8th St W,84.09,Kindergarten
+,Public,ETHEL BOYES ELEMENTARY SCHOOL,Bonneville,1875 BRENTWOOD DR,87.3,Kindergarten
+,Public,FAIRVIEW ELEMENTARY SCHOOL,Bonneville,979 E 97th North,91.89,Kindergarten
+,Charter,FALCON RIDGE PUBLIC CHARTER SCHOOL,Ada,278 S. Ten Mile Rd,75,Kindergarten
+,Public,FALLS VALLEY ELEMENTARY SCHOOL,Bonneville,2455 Virlow Drive,88.89,Kindergarten
+,Public,FARMIN-STIDWELL ELEMENTARY SCHOOL,Bonner,1626 Spruce St,73.44,Kindergarten
+,Public,FERNAN ELEMENTARY SCHOOL,Kootenai,520 North 21st Street,82.98,Kindergarten
+,Public,FILER ELEMENTARY SCHOOL,Twin Falls,700 Stevens Ave.,71.08,Kindergarten
+,Private,FOOTHILLS SCHOOL OF ARTS AND SCIENCES,Ada,601 S. 9th St,81.25,Kindergarten
+,Charter,Forge International School,Canyon,208 S. Hartley Lane,78.95,Kindergarten
+,Public,FORT HALL ELEMENTARY SCHOOL,Bannock,1415 B Avenue,100,Kindergarten
+,Public,FOXHOLLOW ELEMENTARY SCHOOL,Bonneville,2365 Genevieve,93.75,Kindergarten
+,Public,FRONTIER ELEMENTARY SCHOOL,Ada,11851 Musket Dr,97.3,Kindergarten
+,Public,FRUITLAND ELEMENTARY SCHOOL,Payette,1100 N Pennsylvania,88.79,Kindergarten
+,Charter,Future Public Charter School,Ada,511 E 43rd Street,81.82,Kindergarten
+,Public,GALILEO STEM ACADEMY,Ada,4735 W. Saguaro Drive,85.71,Kindergarten
+,Public,Garden Valley School,Boise,1053 Banks Lowman Rd,50,Kindergarten
+,Public,GARFIELD ELEMENTARY SCHOOL,Ada,1914 S. Broadway Ave,92.11,Kindergarten
+,Public,GARWOOD ELEMENTARY SCHOOL,Kootenai,"17506 Ramsey Rd., P.O. box 990",68.52,Kindergarten
+,Public,GATE CITY ELEMENTARY SCHOOL,Bannock,2288 Hiskey Dr.,84.21,Kindergarten
+,Charter,GEM PREP MERIDIAN,Ada,2750 E Gala St,77.36,Kindergarten
+,Charter,Gem Prep Meridian North,Ada,5390 N McDermott Road,76.92,Kindergarten
+,Charter,Gem Prep Meridian South,Ada,1925 E Lake Hazel,80.77,Kindergarten
+,Charter,GEM PREP NAMPA,Canyon,310 W. Iowa Ave.,83.93,Kindergarten
+,Online,Gem Prep Online,Online,2750 E Gala St,50,Kindergarten
+,Charter,GEM PREP POCATELLO SCHOOL,Bannock,4145 Yellowstone Ave,92.31,Kindergarten
+,Charter,Gem Prep Twin Falls,Twin Falls,151 federation rd,89.58,Kindergarten
+,Public,GENESEE SCHOOLS,Latah,330 W Ash Street,81.82,Kindergarten
+,Private,GENESIS PREPARATORY ACADEMY,Kootenai,1866 N Cecil Rd Bldg RLM2,45,Kindergarten
+,Public,GEORGETOWN ELEMENTARY SCHOOL,Bear Lake,142 Stringtown Rd.,100,Kindergarten
+,Public,GLENNS FERRY ELEMENTARY SCHOOL,Elmore,639 North Bannock,53.85,Kindergarten
+,Public,GOODING ELEMENTARY SCHOOL,Gooding,1045 7th Ave. W,77.14,Kindergarten
+,Public,GOODING MIDDLE SCHOOL,Gooding,1047 7th Ave. W,77.14,Kindergarten
+,Public,GRACE JORDAN ELEMENTARY SCHOOL,Ada,6411 Fairfield Ave,93.33,Kindergarten
+,Private,GRACE LUTHERAN SCHOOL,Bannock,1350 BALDY AVE,94.34,Kindergarten
+,Public,GRAND VIEW ELEMENTARY,Owyhee,205 1st street,88.24,Kindergarten
+,Public,GRANGEVILLE ELEMENTARY & MIDDLE SCHOOL,Idaho,400 South Idaho Avenue,70.37,Kindergarten
+,Public,GREENACRES ELEMENTARY SCHOOL,Bannock,1250 East Oak Street,86.36,Kindergarten
+,Public,GREENHURST ELEMENTARY SCHOOL,Canyon,1701 Discovery Place,90,Kindergarten
+,Private,GREENLEAF FRIENDS ACADEMY,Canyon,20565 Academy Rd.,54.55,Kindergarten
+,Public,GREENSFERRY ELEMENTARY SCHOOL,Kootenai,1520 N. Bunting Ln,72.06,Kindergarten
+,Public,GROVELAND ELEMENTARY SCHOOL,Bingham,375 W 170 N,81.48,Kindergarten
+,Public,HAGERMAN ELEMENTARY SCHOOL,Gooding,324 North 2nd Ave,80.95,Kindergarten
+,Public,HAILEY ELEMENTARY SCHOOL,Blaine,520 S. 1ST AVE,70.73,Kindergarten
+,Public,HAMER ELEMENTARY SCHOOL,Jefferson,2450 E. 2100 N.,100,Kindergarten
+,Public,HANSEN ELEMENTARY SCHOOL,Twin Falls,350 Walnut Ave.,92,Kindergarten
+,Public,HAROLD B. LEE ELEMENTARY SCHOOL,Franklin,4726 W Hwy 36,69.57,Kindergarten
+,Public,HARRISON ELEMENTARY SCHOOL - TWIN FALLS,Twin Falls,600 Harrison St,81.67,Kindergarten
+,Public,HARRISON ELEMENTARY SCHOOL- HARRISON,Kootenai,13030E O'Gara,42.86,Kindergarten
+,Public,HARWOOD ELEMENTARY SCHOOL,Jefferson,200 W 3 N,81.33,Kindergarten
+,Public,HAWTHORNE ELEMENTARY SCHOOL - BOISE,Ada,2401 W. Targee St. ,88,Kindergarten
+,Public,HAWTHORNE ELEMENTARY SCHOOL - IDAHO FALLS,Bonneville,1520 S. Blvd,88.24,Kindergarten
+,Charter,HAYDEN CANYON CHARTER,Kootenai,13590 N Government Way,52.7,Kindergarten
+,Public,HAYDEN MEADOWS ELEMENTARY SCHOOL,Kootenai,900 E. Hayden Ave,70.49,Kindergarten
+,Public,HENRY'S FORK ELEMENTARY SCHOOL,Fremont,425 N 3 W,83.75,Kindergarten
+,Charter,HERITAGE ACADEMY,Jerome,500 S Lincoln Ave,94.44,Kindergarten
+,Charter,HERITAGE COMMUNITY CHARTER SCHOOL,Canyon,1803 East Ustick Road,91.53,Kindergarten
+,Public,HEYBURN ELEMENTARY SCHOOL - MINIDOKA,Minidoka,1151 7th Street,86.02,Kindergarten
+,Public,HEYBURN ELEMENTARY SCHOOL - ST MARIES,Benewah,1405 Main St.,73.47,Kindergarten
+,Public,HIBBARD ELEMENTARY SCHOOL,Madison,2413 N 3000 W,66.67,Kindergarten
+,Public,HIDDEN SPRINGS ELEMENTARY SCHOOL,Ada,5480 W Hidden Springs Dr,68.18,Kindergarten
+,Public,HIGHLAND SCHOOLS,Lewis,PO Box 130; 112 Blvd St,85.71,Kindergarten
+,Public,HIGHLANDS ELEMENTARY SCHOOL,Ada,3434 N Bogus Basin Rd,91.3,Kindergarten
+,Public,HILLCREST ELEMENTARY SCHOOL - AMERICAN FALLS,Power,1045 Bennett Ave,92.22,Kindergarten
+,Public,HILLCREST ELEMENTARY SCHOOL - BOISE,Ada,2045  S Pond St.,87.18,Kindergarten
+,Public,HILLSDALE ELEMENTARY,Ada,5225 S. Stockenham Way,91.45,Kindergarten
+,Private,HILLSIDE ACADEMY,Ada,3900 HILL RD,100,Kindergarten
+,Public,HILLVIEW ELEMENTARY SCHOOL,Bonneville,3075 Teton,87.27,Kindergarten
+,Public,HOLLISTER ELEMENTARY SCHOOL,Twin Falls,2463 Contact Ave.,72.73,Kindergarten
+,Private,HOLY FAMILY CATHOLIC SCHOOL,Kootenai,3005 W. Kathleen,70.83,Kindergarten
+,Private,HOLY ROSARY BI-PARISH SCHOOL,Bonneville,161 9th St,100,Kindergarten
+,Private,HOLY SPIRIT CATHOLIC SCHOOL,Bannock,540 N 7th Ave,75,Kindergarten
+,Public,HOMEDALE ELEMENTARY SCHOOL,Owyhee,420 W Washington Ave,70.41,Kindergarten
+,Public,HOPE ELEMENTARY SCHOOL,Bonner,255 Hope School Road,66.67,Kindergarten
+,Private,HOPE LUTHERAN SCHOOL,Bonneville,2071 12th Street,55.56,Kindergarten
+,Public,HORIZON ELEMENTARY SCHOOL - BOISE,Ada,730 N. Mitchell St,87.23,Kindergarten
+,Public,HORIZON ELEMENTARY SCHOOL - JEROME,Jerome,934 10th Avenue East,89.55,Kindergarten
+,Public,HORSESHOE BEND ELEMENTARY,Boise,398 School Drive,41.67,Kindergarten
+,Private,HOUSE OF THE LORD CHRISTIAN ACADEMY,Bonner,754 Silver Birch Lane,27.27,Kindergarten
+,Public,HOWARD THIRKILL ELEMENTARY SCHOOL,Caribou,60 E 4th S,92.41,Kindergarten
+,Public,HUBBARD ELEMENTARY SCHOOL,Ada,311 Porter Rd,83.02,Kindergarten
+,Public,HUNTER ELEMENTARY SCHOOL,Ada,2051 West McMillan Rd,85.25,Kindergarten
+,Public,I.B. PERRINE ELEMENTARY SCHOOL,Twin Falls,452 Caswell Ave W,75,Kindergarten
+,Public,I.T. STODDARD ELEMENTARY SCHOOL,Bingham,460 York Dr.,86.27,Kindergarten
+,Charter,IDAHO ARTS CHARTER SCHOOL,Canyon,1220 5th Street North,85,Kindergarten
+,Public,IDAHO HILL ELEMENTARY SCHOOL,Bonner,402 E 3RD STREET S,80.95,Kindergarten
+,Charter,IDAHO SCIENCE & TECHNOLOGY CHARTER SCHOOL,Bingham,21 N 550 W,81.25,Kindergarten
+,Public,IDAHO VIRTUAL ACADEMY,Ada,"1965 S. Eagle Road, Suite 190",87.69,Kindergarten
+,Public,IHLA (Idaho Home Learning Academy),Online,195 S 300 E,27.99,Kindergarten
+,Private,IMMACULATE CONCEPTION ACADEMY,Kootenai,614 East 5th Ave.,17.65,Kindergarten
+,Private,IMMANUEL LUTHERAN SCHOOL,Twin Falls,2055 Filer Ave E,89.19,Kindergarten
+,Public,INDIAN CREEK ELEMENTARY,Ada,911 W 4th St,74.36,Kindergarten
+,Public,INDIAN HILLS ELEMENTARY SCHOOL,Bannock,666 Cheyenne Ave,93.22,Kindergarten
+,Public,INKOM ELEMENTARY SCHOOL,Bannock,300 Hostein Street,57.69,Kindergarten
+,Private,INNOVATE ACADEMY AND PREPARATORY SCHOOL,Ada,3467 W. Flint Drive,33.33,Kindergarten
+,Charter,INSPIRE CONNECTIONS ACADEMY,Ada,9550 Bethel Court,64.1,Kindergarten
+,Public,IONA ELEMENTARY SCHOOL,Bonneville,5338 Owens Ave,95.31,Kindergarten
+,Public,IOWA ELEMENTARY SCHOOL,Canyon,626 West Iowa Avenue,72.34,Kindergarten
+,Public,JEFFERSON ELEMENTARY SCHOOL - BOISE,Ada,200 S. Latah St,95.65,Kindergarten
+,Public,JEFFERSON ELEMENTARY SCHOOL - JEROME,Jerome,600 North Fillmore Street,86,Kindergarten
+,Public,JEFFERSON ELEMENTARY SCHOOL - POCATELLO,Bannock,1455 Gwen Dr,88.68,Kindergarten
+,Public,JEFFERSON ELEMENTARY SCHOOL - RIGBY,Jefferson,306 N 3700 E,80,Kindergarten
+,Public,JOHN BROWN ELEMENTARY SCHOOL,Kootenai,15574 Washington Ave.,80,Kindergarten
+,Public,JOHN V EVANS ELEMENTARY SCHOOL,Cassia,3000 Parke Ave,91.18,Kindergarten
+,Public,JOPLIN ELEMENTARY SCHOOL,Ada,12081 W. DeMeyer St.,86.67,Kindergarten
+,Public,JULIAETTA ELEMENTARY SCHOOL,Latah,305 4th Street,75,Kindergarten
+,Public,KAMIAH ELEMENTARY SCHOOL,Lewis,805 9th street,69.7,Kindergarten
+,Public,KENNEDY ELEMENTARY SCHOOL,Madison,60 South 5th West,88.51,Kindergarten
+,Public,KENNETH J. CARBERRY ELEMENTARY SCHOOL,Gem,1950 E. 12th Street,74.47,Kindergarten
+,Public,KIMBERLY ELEMENTARY SCHOOL,Twin Falls,141 Center St E,90.32,Kindergarten
+,Public,KOELSCH ELEMENTARY SCHOOL,Ada,2015 N Curtis Rd,79.17,Kindergarten
+,Charter,Kootenai Classical Academy,Kootenai,4318 N Fennecus,38.89,Kindergarten
+,Public,KOOTENAI ELEMENTARY SCHOOL,Bonner,301 Sprague Street,75.61,Kindergarten
+,Private,LAKE CITY JR ACADEMY,Kootenai,125 E Locust Ave,100,Kindergarten
+,Public,LAKE HAZEL ELEMENTARY SCHOOL,Ada,11711 W Lake Hazel Elementary,93.33,Kindergarten
+,Public,LAKE RIDGE ELEMENTARY SCHOOL,Canyon,615 Burke Lane,82.81,Kindergarten
+,Public,LAKESIDE ELEMENTARY SCHOOL,Benewah,1345 E St.,81.82,Kindergarten
+,Public,LAKEVUE ELEMENTARY SCHOOL,Canyon,12843 Cirrus Drive,83.9,Kindergarten
+,Private,LAKEWOOD MONTESSORI,Ada,133 e. Linden St.,100,Kindergarten
+,Public,LAPWAI ELEMENTARY SCHOOL,Nez Perce,170 Agency Road,65,Kindergarten
+,Public,LAVA ELEMENTARY SCHOOL,Bannock,249 West Fife,100,Kindergarten
+,Public,LEADORE SCHOOL,Lemhi,111 S. 3rd Street,42.86,Kindergarten
+,Charter,LEGACY CHARTER SCHOOL,Canyon,4015 S. Legacy Way,70.83,Kindergarten
+,Public,LENA WHITMORE ELEMENTARY SCHOOL,Latah,110 S. Blaine St,95.45,Kindergarten
+,Public,LEWIS AND CLARK ELEMENTARY SCHOOL - CALDWELL,Canyon,1102 Laster St.,87.88,Kindergarten
+,Public,LEWIS AND CLARK ELEMENTARY SCHOOL - POCATELLO,Bannock,800 Grace Dr,89.04,Kindergarten
+,Charter,LIBERTY CHARTER SCHOOL,Canyon,9955 KRIS JENSEN LN,70.83,Kindergarten
+,Public,LIBERTY ELEMENTARY SCHOOL,Ada,1740 E Bergeson,89.09,Kindergarten
+,Private,LIGHTHOUSE CHRISTIAN SCHOOL,Twin Falls,960 Eastland Drive,71.43,Kindergarten
+,Public,LINCOLN ELEMENTARY SCHOOL - CALDWELL,Canyon,1200 grant st,80,Kindergarten
+,Public,LINCOLN ELEMENTARY SCHOOL - REXBURG,Madison,358 E 2nd S,91.03,Kindergarten
+,Public,LINCOLN ELEMENTARY SCHOOL - TWIN FALLS,Twin Falls,238 Buhl St N,57.75,Kindergarten
+,Public,LINDEN PARK ELEMENTARY SCHOOL,Bonneville,1305 9th Street,82.43,Kindergarten
+,Public,LINDY ROSS ELEMENTARY SCHOOL,Clark,526 South Oakley,83.33,Kindergarten
+,Private,LITTLE PEOPLES ACADEMY,Bonneville,543 N Ridge Ave,95.83,Kindergarten
+,Private,LOGOS SCHOOL,Latah,110 Baker Street,44,Kindergarten
+,Public,LONGFELLOW ELEMENTARY SCHOOL - BOISE,Ada,1511 N 9th Street,97.14,Kindergarten
+,Public,LONGFELLOW ELEMENTARY SCHOOL - IDAHO FALLS,Bonneville,2500 S Higbee Ave,89.47,Kindergarten
+,Public,LOWELL ELEMENTARY SCHOOL,Ada,1507 N. 28th,92,Kindergarten
+,Public,MACKAY ELEMENTARY SCHOOL,Custer,400 E. Spruce Street,71.43,Kindergarten
+,Public,MALAD ELEMENTARY SCHOOL,Oneida,250 W 400 N,92.65,Kindergarten
+,Public,MAPLE GROVE ELEMENTARY SCHOOL,Ada,2800 S. Maple Grove Road,94.59,Kindergarten
+,Public,MARSING ELEMENTARY SCHOOL,Owyhee,207 8th Ave W,73.91,Kindergarten
+,Public,MARY MCPHERSON ELEMENTARY SCHOOL,Ada,1050 E Amity Rd,81.97,Kindergarten
+,Public,MAXINE JOHNSON ELEMENTARY SCHOOL,Canyon,607 E. McConnell St.,87.88,Kindergarten
+,Public,MCGHEE ELEMENTARY SCHOOL,Nez Perce,636 Warner Ave,92.68,Kindergarten
+,Public,MCMILLAN ELEMENTARY SCHOOL,Ada,10901 McMillan Road,85.71,Kindergarten
+,Public,MCSORLEY ELEMENTARY SCHOOL,Nez Perce,2020 15th Street,87.8,Kindergarten
+,Public,MEADOWS VALLEY SCHOOL,Adams,500 N. Miller Ave.,70,Kindergarten
+,Public,MELBA SCHOOL,Canyon,5870 Stokes Lane,68.89,Kindergarten
+,Public,MERIDIAN ELEMENTARY SCHOOL,Ada,1035 NW 1st ST,90.77,Kindergarten
+,Public,MIDDLETON HEIGHTS ELEMENTARY,Canyon,611 Cemetery Rd,78.79,Kindergarten
+,Public,MIDVALE SCHOOL,Washington,56 School Road,57.14,Kindergarten
+,Public,MIDWAY ELEMENTARY SCHOOL,Jefferson,623 N 3500 E,91.67,Kindergarten
+,Public,MILL CREEK ELEMENTARY SCHOOL,Canyon,500 N. Middleton RD ,59.57,Kindergarten
+,Public,MONROE ELEMENTARY SCHOOL,Ada,3615 W Cassia St.,92,Kindergarten
+,Private,MONTESSORI ACADEMY,Ada,1400 Park Ln,71.43,Kindergarten
+,Charter,MONTICELLO MONTESSORI PUBLIC CHARTER SCHOOL,Bonneville,4707 S Sweetwater Way,57.14,Kindergarten
+,Public,MORELAND ELEMENTARY SCHOOL,Bingham,185 N 785 W,83.65,Kindergarten
+,Public,MORLEY NELSON ELEMENTARY,Ada,7701 W. Northview St.,77.92,Kindergarten
+,Public,MORNINGSIDE ELEMENTARY SCHOOL,Twin Falls,701 Morningsdie Dr.,88.89,Kindergarten
+,Charter,MOSAICS PUBLIC SCHOOL,Canyon,3121 Lincoln Rd.,75,Kindergarten
+,Charter,MOSCOW CHARTER SCHOOL,Latah,1723 East F St.,77.27,Kindergarten
+,Public,MOUNT HALL ELEMENTARY SCHOOL,Boundary,1275 Hwy 1,80,Kindergarten
+,Private,Mountain Academy of Teton Science Schools,Teton,192 West Birch Street ,61.54,Kindergarten
+,Charter,Mountain Community School,Valley,500 Village Drive,45.45,Kindergarten
+,Public,MOUNTAIN VALLEY ELEMENTARY,Bonneville,2601 S Princess Drive,89.8,Kindergarten
+,Public,MOUNTAIN VIEW ELEMENTARY SCHOOL - BOISE,Ada,3500 N. Cabarton Ln.,97.62,Kindergarten
+,Public,MOUNTAIN VIEW ELEMENTARY SCHOOL - BURLEY,Cassia,333 W 27th Street,93.55,Kindergarten
+,Public,MOUNTAIN VIEW ELEMENTARY SCHOOL - MCCAMMON,Bannock,704 Center,72,Kindergarten
+,Public,MULLAN TRAIL ELEMENTARY SCHOOL,Kootenai,300 W. Cherry,78.57,Kindergarten
+,Public,MURTAUGH ELEMENTARY SCHOOL,Twin Falls,123 4th St,100,Kindergarten
+,Private,NAMPA CHRISTIAN SCHOOL,Canyon,505 W. Orchard Ave,64.62,Kindergarten
+,Public,NAPLES ELEMENTARY SCHOOL,Boundary,145 Schoolhouse Rd,44.44,Kindergarten
+,Public,NEW HORIZONS DUAL LANGUAGE MAGNET SCHOOL,Canyon,5226 Southside Blvd,93.68,Kindergarten
+,Public,NEW PLYMOUTH ELEMENTARY,Payette,704 S Plymouth Ave,83.93,Kindergarten
+,Public,NEZ PERCE ELEMENTARY SCHOOL,Lewis,614 2nd Ave.,66.67,Kindergarten
+,Private,NOAH'S ARK LEARNING CENTER,Kootenai,3115 N 15th St,61.11,Kindergarten
+,Public,NORTH ELEMENTARY SCHOOL,Elmore,290 E 12th N,84.13,Kindergarten
+,Public,North Gem School,Caribou,360 South Main St.,77.78,Kindergarten
+,Private,NORTH IDAHO CHRISTIAN SCHOOL,Kootenai,251 W. Miles,66.67,Kindergarten
+,Charter,NORTH IDAHO STEM CHARTER ACADEMY,Kootenai,15633 N Meyer Rd,76,Kindergarten
+,Charter,NORTH STAR PUBLIC CHARTER SCHOOL,Ada,839 N. Linder Rd.,73.81,Kindergarten
+,Charter,NORTH VALLEY ACADEMY CHARTER,Gooding,906 Main St,72.22,Kindergarten
+,Public,NORTHSIDE ELEMENTARY SCHOOL,Bonner,7881 Colburn Culver Rd,75,Kindergarten
+,Private,NORTHVIEW MONTESSORI SCHOOL,Ada,7670 Northview,71.43,Kindergarten
+,Public,NORTHWEST EXPEDITION ACADEMY,Kootenai,2008 W Prairie Ave,75.44,Kindergarten
+,Public,NOTUS ELEMENTARY SCHOOL,Canyon,25257 Notus Rd.,66.67,Kindergarten
+,Public,OAKLEY ELEMENTARY SCHOOL,Cassia,455 W Poplar,85,Kindergarten
+,Public,ORCHARDS ELEMENTARY SCHOOL,Nez Perce,3429 12th St.,90.7,Kindergarten
+,Public,OREGON TRAIL ELEMENTARY SCHOOL,Twin Falls,640 Park Ave,92.94,Kindergarten
+,Public,OROFINO ELEMENTARY SCHOOL,Clearwater,1000 Michigan Avenue,75.76,Kindergarten
+,Public,OWYHEE ELEMENTARY SCHOOL - BOISE,Ada,3434 W. Pasadena Dr,75,Kindergarten
+,Public,OWYHEE ELEMENTARY SCHOOL - NAMPA,Canyon,2300 W Iowa Avenue,75.38,Kindergarten
+,Charter,PALOUSE PRAIRIE SCHOOL,Latah,406 Powers Avenue,95.83,Kindergarten
+,Public,PARAMOUNT ELEMENTARY SCHOOL,Ada,550 W Producer Dr,74.67,Kindergarten
+,Public,PARIS ELEMENTARY SCHOOL,Bear Lake,39 Fielding Street,83.33,Kindergarten
+,Public,PARK RIDGE ELEMENTARY SCHOOL,Canyon,3313 E Parkridge Drive,84.78,Kindergarten
+,Private,PARKCENTER MONTESSORI,Ada,649 E. Parkcenter Blvd. ,85.71,Kindergarten
+,Public,PARKER EGIN ELEMENTARY SCHOOL,Fremont,221 N. Center St.,83.33,Kindergarten
+,Public,PAUL ELEMENTARY SCHOOL,Minidoka,201 North 1st West,97.1,Kindergarten
+,Public,PAYETTE PRIMARY SCHOOL,Payette,1320 3rd Ave. N,79.57,Kindergarten
+,Charter,PEACE VALLEY CHARTER SCHOOL,Ada,1845 S Federal Way,38.24,Kindergarten
+,Public,PECK ELEMENTARY SCHOOL,Nez Perce,Box 48 (212 Main St),71.43,Kindergarten
+,Public,PEPPER RIDGE ELEMENTARY SCHOOL,Ada,2252 S Sumpter Way,83.1,Kindergarten
+,Public,PEREGRINE ELEMENTARY SCHOOL,Ada,1860 W. Waltman,77.78,Kindergarten
+,Public,PIERCE PARK ELEMENTARY SCHOOL,Ada,5015 N Pierce Park Ln,85.19,Kindergarten
+,Public,PILLAR FALLS ELEMENTARY,Twin Falls,3105 Stadium Blvd,92.68,Kindergarten
+,Charter,Pinecrest Academy,Twin Falls,586 Orchard Drive,74.42,Kindergarten
+,Charter,Pinecrest Academy of Lewiston,Nez Perce,1212 9th Ave,84,Kindergarten
+,Public,PINEHURST ELEMENTARY SCHOOL,Shoshone,S. 201 3rd St,76.71,Kindergarten
+,Public,PIONEER ELEMENTARY SCHOOL,Franklin,515 S. 4th E.,89.94,Kindergarten
+,Private,Pioneer Montessori School,Blaine,211 Second Ave PO Box 1809,50,Kindergarten
+,Public,PIONEER PRIMARY SCHOOL,Washington,624 Pioneer Road,82.47,Kindergarten
+,Public,PIONEER SCHOOL OF THE ARTS,Ada,13255 W McMillan Rd,91.67,Kindergarten
+,Public,PLEASANT VIEW ELEMENTARY,Ada,4600 W Gondola Dr,85.22,Kindergarten
+,Charter,POCATELLO COMMUNITY CHARTER SCHOOL,Bannock,995 S Arthur Ave,100,Kindergarten
+,Private,Pocatello Valley Montessori School,Bannock,240 E. Maple St,92.31,Kindergarten
+,Public,PONDEROSA ELEMENTARY - POST FALLS,Kootenai,3483 E. Ponderosa,69.84,Kindergarten
+,Public,PONDEROSA ELEMENTARY SCHOOL - MERIDIAN,Ada,2950 N. Naomi Ave,91.84,Kindergarten
+,Public,POPPLEWELL ELEMENTARY SCHOOL,Twin Falls,200 6th Ave North,90,Kindergarten
+,Public,POTLATCH ELEMENTARY SCHOOL,Latah,510 Elm St ,93.1,Kindergarten
+,Public,PRAIRIE SCHOOL,Idaho,1916 East St,45.45,Kindergarten
+,Public,PRAIRIE VIEW ELEMENTARY SCHOOL,Kootenai,2478 E. Poleline Ave,71.43,Kindergarten
+,Public,PRIEST RIVER ELEMENTARY SCHOOL,Bonner,231 Harriet Street,84.38,Kindergarten
+,Charter,Project Impact STEM Academy,Ada,1422 Tech Lane,90,Kindergarten
+,Public,PROSPECT ELEMENTARY SCHOOL,Ada,4300 N Red Horse Way,85.71,Kindergarten
+,Public,PURPLE SAGE ELEMENTARY SCHOOL,Canyon,25709 El Paso Road,77.03,Kindergarten
+,Private,Quest Academy North Idaho,Kootenai,6068 W Hayden Ave,16.67,Kindergarten
+,Public,RAFT RIVER ELEMENTARY SCHOOL,Cassia,140 W Center,78.57,Kindergarten
+,Public,RAMSEY MAGNET ELEMENTARY SCHOOL OF SCIENCE,Kootenai,1351 W Kathleen Ave,77.55,Kindergarten
+,Public,REED ELEMENTARY SCHOOL,Ada,1670 N Linder Ave,87.96,Kindergarten
+,Charter,Richard McKenna Charter School- Elementary,Elmore,1305 East 8th North,79.17,Kindergarten
+,Public,RICHFIELD SCHOOL,Lincoln,555 N Tiger Drive,56.25,Kindergarten
+,Public,RIDGE CREST ELEMENTARY SCHOOL,Bingham,800 Airport Rd,86.44,Kindergarten
+,Public,RIGGINS ELEMENTARY SCHOOL,Idaho,871 Main St,44.44,Kindergarten
+,Public,RIMROCK ELEMENTARY SCHOOL,Bonneville,4855 Brennan Bend,89.23,Kindergarten
+,Public,RIRIE ELEMENTARY SCHOOL,Jefferson,260 1st west,85.71,Kindergarten
+,Private,RIVER OF LIFE CHRISTIAN SCHOOL,Payette,800 17th Ave N,62.5,Kindergarten
+,Public,RIVER VALLEY ELEMENTARY SCHOOL,Ada,2900 E River Valley Street,77.46,Kindergarten
+,Public,RIVERSIDE ELEMENTARY SCHOOL-BOISE,Ada,2100 East Victory ,93.75,Kindergarten
+,Private,RIVERSTONE INTERNATIONAL SCHOOL,Ada,5521 Warm Springs Ave,95.24,Kindergarten
+,Public,ROBERTS ELEMENTARY SCHOOL,Jefferson,682 N 2858 E,86.11,Kindergarten
+,Public,ROCK CREEK ELEMENTARY SCHOOL,Twin Falls,850 Federation Rd,87.61,Kindergarten
+,Public,ROCKLAND SCHOOL,Power,321 East Center,84.62,Kindergarten
+,Charter,ROLLING HILLS PUBLIC CHARTER SCHOOL,Ada,8900 N Horseshoe Bend Rd,66.67,Kindergarten
+,Public,RONALD REAGAN ELEMENTARY SCHOOL,Canyon,3400 Southside BLVD,75.31,Kindergarten
+,Public,ROOSEVELT ELEMENTARY SCHOOL - BOISE,Ada,908 E jefferson,92.11,Kindergarten
+,Public,ROOSEVELT ELEMENTARY SCHOOL - NAMPA,Canyon,1901 W Roosevelt,77.92,Kindergarten
+,Public,RULON M ELLIS ELEMENTARY SCHOOL,Bannock,5500 Whitaker Road,89.39,Kindergarten
+,Public,RUPERT ELEMENTARY SCHOOL,Minidoka,202 18th Street,91.58,Kindergarten
+,Public,SACAJAWEA ELEMENTARY SCHOOL,Canyon,1710 N. Illinois Ave.,70.15,Kindergarten
+,Private,SACRED HEART SCHOOL,Ada,3901 Cassia St,78.26,Kindergarten
+,Charter,SAGE INTERNATIONAL SCHOOL - K-12,Ada,1513 Tyrell Lane Ste. #110,81.01,Kindergarten
+,Public,SAGLE ELEMENTARY SCHOOL,Bonner,550 Sagle Rd,73.91,Kindergarten
+,Public,SALMON PIONEER PRIMARY SCHOOL,Lemhi,900 Sharkey Street,78.43,Kindergarten
+,Private,SANDPOINT CHRISTIAN SCHOOL,Bonner,477954 Highway 95 N,50,Kindergarten
+,Private,SANDPOINT WALDORF SCHOOL,Bonner,2007 Sandpoint West Drive,35.71,Kindergarten
+,Public,SAWTOOTH ELEMENTARY SCHOOL,Twin Falls,1771 Stadium Blvd,81.43,Kindergarten
+,Private,SELKIRK SCHOOL - NORTH IDAHO LEARNING CENTER,Bonner,11014 W. Pine St.,54.55,Kindergarten
+,Private,Selle Valley Carden School,Bonner,1185 Selle Road,12.5,Kindergarten
+,Public,SELTICE ELEMENTARY SCHOOL,Kootenai,1101 N. Chase Rd.,68.85,Kindergarten
+,Public,SEVEN OAKS ELEMENTARY SCHOOL,Ada,1441 N. Sevenoaks Way,67.07,Kindergarten
+,Public,SHADOW BUTTE ELEMENTARY SCHOOL,Gem,3900 W. Idaho Blvd,66.67,Kindergarten
+,Public,SHADOW HILLS ELEMENTARY SCHOOL,Ada,8301 W Sloan St,91.67,Kindergarten
+,Public,SHERMAN ELEMENTARY SCHOOL,Canyon,520 S Florence St,82.46,Kindergarten
+,Public,SHOSHONE ELEMENTARY SCHOOL,Lincoln,61 East Highway 24,90.63,Kindergarten
+,Public,SIENNA K8 MAGNET SCHOOL,Ada,2870 E. Rome Dr.,94.29,Kindergarten
+,Public,SILVER HILLS ELEMENTARY SCHOOL,Shoshone,1246 Silver Valley Rd.,76.92,Kindergarten
+,Public,SILVER SAGE ELEMENTARY SCHOOL,Ada,7700 W Snohomish,81.63,Kindergarten
+,Public,SILVER TRAIL ELEMENTARY SCHOOL,Ada,2950 W Mason Creek St,84.21,Kindergarten
+,Private,SILVER VALLEY CHRISTIAN ACADEMY,Shoshone,525 West Cameron Av,50,Kindergarten
+,Public,SKYWAY ELEMENTARY SCHOOL - CALDWELL,Canyon,19430 Ward Road,87.76,Kindergarten
+,Public,SKYWAY ELEMENTARY SCHOOL - CDA,Kootenai,6621 North Courcelles Parkway,75.32,Kindergarten
+,Public,SNAKE RIVER ELEMENTARY SCHOOL,Canyon,500 Stampede Drive,80,Kindergarten
+,Private,SNAKE RIVER MONTESSORI SCHOOL,Bonneville,2970 E 1st Street,89.47,Kindergarten
+,Online,Snake River Online K-8,Online,103 South 900 West,36.52,Kindergarten
+,Public,SORENSEN MAGNET ELEMENTARY SCHOOL,Kootenai,310 N 9th Street,82.61,Kindergarten
+,Public,SOUTH FORK ELEMENTARY SCHOOL - REXBURG,Madison,7163 S 2000 W,95.12,Kindergarten
+,Public,SOUTH FORK ELEMENTARY SCHOOL - RIGBY,Jefferson,327 N 4100 E,84.16,Kindergarten
+,Public,SOUTHSIDE ELEMENTARY SCHOOL,Bonner,"307 Southside School Rd, PO Box 159",58.33,Kindergarten
+,Public,SPALDING ELEMENTARY SCHOOL,Ada,12311 Braddock Dr,92.38,Kindergarten
+,Public,SPIRIT LAKE ELEMENTARY SCHOOL,Kootenai,15506 N. Washington,52.78,Kindergarten
+,Private,ST. DOMINIC SCHOOL,Kootenai,20274 WEST RIVERVIEW DRIVE,12.5,Kindergarten
+,Private,ST. EDWARD'S CATHOLIC SCHOOL,Twin Falls,139 6th Ave East,83.33,Kindergarten
+,Private,ST. IGNATIUS CATHOLIC SCHOOL,Ada,6180 N. Meridian Rd.,82.05,Kindergarten
+,Private,ST. JOSEPH'S SCHOOL,Ada,825 W. Fort St.,73.53,Kindergarten
+,Private,ST. MARK'S SCHOOL,Ada,7503 W. Northview St.,92.59,Kindergarten
+,Private,ST. MARY'S CATHOLIC SCHOOL,Latah,412 N Monroe,100,Kindergarten
+,Private,ST. MARY'S SCHOOL,Ada,2620 W. State St.,92.31,Kindergarten
+,Private,ST. NICHOLAS CATHOLIC SCHOOL,Minidoka,"806 F St., PO Box 26, Ada County",76.47,Kindergarten
+,Private,ST. PAUL'S CATHOLIC SCHOOL,Canyon,1515 8th St. S.,80,Kindergarten
+,Public,STAR ELEMENTARY SCHOOL,Ada,700 North Star Rd,75.49,Kindergarten
+,Public,STEPHENSEN ELEMENTARY SCHOOL,Elmore,200 Gunfighter Ave,98.65,Kindergarten
+,Public,STRICKER ELEMENTARY SCHOOL,Twin Falls,900 Polk Street West,85.71,Kindergarten
+,Online,Sugar-Salem Online,Online,10 North Cutler,43.24,Kindergarten
+,Public,SUMMERWIND ELEMENTARY SCHOOL,Ada,3675 N. Jullion Way,89.09,Kindergarten
+,Private,SUMMIT CHRISTIAN ACADEMY,Kootenai,5350 N. 4th Street,72.73,Kindergarten
+,Public,SUMMIT HILLS ELEMENTARY SCHOOL,Bonneville,2853 N. Lucina Ave,84.85,Kindergarten
+,Public,SUNNYSIDE ELEMENTARY SCHOOL,Bonneville,165 Cobblestone Ln,89.23,Kindergarten
+,Public,SWEET MONTOUR ELEMENTARY SCHOOL,Boise,6600 Sweet-Ola Hwy,45.45,Kindergarten
+,Public,SYRINGA ELEMENTARY SCHOOL,Bannock,388 E Griffith,86.36,Kindergarten
+,Charter,SYRINGA MOUNTAIN CHARTER SCHOOL,Blaine,4021 Glenbrook Dr,82.35,Kindergarten
+,Public,TAFT ELEMENTARY SCHOOL,Ada,3722 North Anderson,86.36,Kindergarten
+,Charter,TAYLOR'S CROSSING CHARTER SCHOOL,Bonneville,1445 N Wood River Dr.,80,Kindergarten
+,Public,TEMPLE VIEW ELEMENTARY SCHOOL,Bonneville,1500 Scorpius Drive,86.84,Kindergarten
+,Public,TENDOY ELEMENTARY SCHOOL - POCATELLO,Bannock,957 E. Alameda,93.33,Kindergarten
+,Public,TERRETON ELEMENTARY AND WEST JEFFERSON MIDDLE SCHOOL,Jefferson,1250 E 1500 N,68.75,Kindergarten
+,Public,TETON ELEMENTARY SCHOOL,Fremont,126 W Main,34.78,Kindergarten
+,Public,TETONIA ELEMENTARY SCHOOL,Teton,P.O. Box 129,82.35,Kindergarten
+,Private,THE AMBROSE SCHOOL,Ada,6100 N Locust Grove Rd,55.13,Kindergarten
+,Public,THERESA BUNKER ELEMENTARY SCHOOL,Bonneville,1385 East 16th Street,92.31,Kindergarten
+,Charter,THOMAS JEFFERSON CHARTER SCHOOL,Canyon,1209 Adam Smith Ave.,88.46,Kindergarten
+,Public,TIEBREAKER ELEMENTARY SCHOOL,Bonneville,3100 1st Street,93.75,Kindergarten
+,Public,TIMBERLINE K-12 SCHOOL,Clearwater,22869 Highway 11,72.73,Kindergarten
+,Public,TRAIL WIND ELEMENTARY SCHOOL,Ada,3701 E Lake Forest Dr.,95.16,Kindergarten
+,Charter,TREASURE VALLEY CLASSICAL ACADEMY,Payette,500 SW 3rd St.,81.48,Kindergarten
+,Public,TREATY ROCK ELEMENTARY,Kootenai,4916 E. Hope Ave,72.88,Kindergarten
+,Public,TROY ELEMENTARY SCHOOL,Latah,103 Trojan Drive,91.3,Kindergarten
+,Private,TWIN FALLS CHRISTIAN ACADEMY,Twin Falls,798 Eastland Dr. N.,66.67,Kindergarten
+,Public,TWIN FALLS VIRTUAL SCHOOLHOUSE,Twin Falls,616 Eastland Drive,66.67,Kindergarten
+,Public,TWIN LAKES ELEMENTARY SCHOOL,Kootenai,"5326 W. Rice Rd., P.O. Box 159",60.61,Kindergarten
+,Public,TYHEE ELEMENTARY SCHOOL POCATELLO MONTESSORI,Bannock,12473 W Tyhee Rd,84.81,Kindergarten
+,Public,UCON ELEMENTARY SCHOOL,Bonneville,10841 N. 41 E.,87.76,Kindergarten
+,Public,UPPER CARMEN PUBLIC CHARTER SCHOOL,Lemhi,14 Ethel's Way,93.33,Kindergarten
+,Public,UPRIVER ELEMENTARY JR HIGH SCHOOL,Benewah,75 Fern St.,78.57,Kindergarten
+,Public,USTICK ELEMENTARY SCHOOL,Ada,12435 Ustick Road,86.67,Kindergarten
+,Public,VALLEY SCHOOL,Jerome,882 Valley Road,93.55,Kindergarten
+,Public,VALLEY VIEW ELEMENTARY SCHOOL - BOISE,Ada,3555 N. Milwaukee St,80.43,Kindergarten
+,Public,VALLEY VIEW ELEMENTARY SCHOOL - BONNERS FERRY,Boundary,6750 Augusta St,64.29,Kindergarten
+,Public,VAN BUREN ELEMENTARY SCHOOL,Canyon,3115 Marble front rd,88.24,Kindergarten
+,Public,VICTOR ELEMENTARY SCHOOL,Teton,255 Elm Street,78.38,Kindergarten
+,Charter,VICTORY CHARTER SCHOOL,Canyon,9779 Kris Jensen Lane,66.67,Kindergarten
+,Public,Virtual Preparatory Academy D91 Elementary,Bonneville,690 John Adams Parkway,100,Kindergarten
+,Public,VISION CHARTER SCHOOL,Canyon,19291 Ward Rd.,79.59,Kindergarten
+,Public,WAPELLO ELEMENTARY SCHOOL,Bingham,195 E 350 North,60,Kindergarten
+,Public,WASHINGTON ELEMENTARY SCHOOL - BOISE,Ada,1607 N 15th St,89.19,Kindergarten
+,Public,WASHINGTON ELEMENTARY SCHOOL - CALDWELL,Canyon,2918 Washington Ave,88.06,Kindergarten
+,Public,WASHINGTON ELEMENTARY SCHOOL - POCATELLO,Bannock,226 S 10th Ave,87.18,Kindergarten
+,Public,WASHINGTON ELEMENTARY SCHOOL - SANDPOINT,Bonner,420 S Boyer Ave,67.5,Kindergarten
+,Private,WATERSPRINGS SCHOOL,Bonneville,4250 S. 25th E.,43.9,Kindergarten
+,Public,WEBSTER ELEMENTARY SCHOOL,Nez Perce,1409 8th Street,81.82,Kindergarten
+,Public,WENDELL ELEMENTARY SCHOOL,Gooding,232 N. Boise St,79.71,Kindergarten
+,Public,WEST CANYON ELEMENTARY SCHOOL,Canyon,19548 Ustick Road,89.29,Kindergarten
+,Public,WEST ELEMENTARY SCHOOL,Elmore,415 W. 2nd North,85.29,Kindergarten
+,Public,WEST PARK ELEMENTARY SCHOOL,Latah,510 Home St,90.91,Kindergarten
+,Public,WEST RIDGE ELEMENTARY SCHOOL,Kootenai,1758 N. Clarkfork Pkwy.,83.82,Kindergarten
+,Public,WESTSIDE ELEMENTARY SCHOOL,Bonneville,2680 Newman Dr,96.23,Kindergarten
+,Charter,WHITE PINE CHARTER SCHOOL,Bonneville,2959 E John Adams Pkwy,83.54,Kindergarten
+,Public,WHITE PINE ELEMENTARY SCHOOL - BOISE,Ada,401 E. Linden,97.87,Kindergarten
+,Public,WHITE PINE ELEMENTARY SCHOOL - BURLEY,Cassia,1900 Hiland,92.98,Kindergarten
+,Public,WHITMAN ELEMENTARY SCHOOL,Nez Perce,1840 9th Ave,82.5,Kindergarten
+,Public,WHITNEY ELEMENTARY SCHOOL,Ada,1609 S. Owyhee St,94.12,Kindergarten
+,Public,WHITTIER ELEMENTARY SCHOOL,Ada,301 North 29th St.,84.72,Kindergarten
+,Public,WILDER ELEMENTARY SCHOOL,Canyon,210 A. Ave E. ,85.71,Kindergarten
+,Public,WILLOW CREEK ELEMENTARY SCHOOL - MERIDIAN,Ada,6195 N. Long Lake Way,85.71,Kindergarten
+,Public,WILLOW CREEK ELEMENTARY SCHOOL - NAMPA,Canyon,198 North Elementary Lane,79.45,Kindergarten
+,Public,WILSON ELEMENTARY SCHOOL,Canyon,400 E. Linden,78.95,Kindergarten
+,Public,WINTON ELEMENTARY SCHOOL,Kootenai,920 W Lacrosse Ave,84.78,Kindergarten
+,Public,WOODLAND HILLS ELEMENTARY SCHOOL,Bonneville,4700 Sweet Water Way,88.64,Kindergarten
+,Charter,XAVIER CHARTER SCHOOL,Twin Falls,1218 N College Rd W,84.78,Kindergarten
+,Public,Aberdeen Middle School,Bingham,PO Box 610,95.65,7th Grade
+,Public,Alameda Middle School,Minidoka,845 McKinley Ave,98.91,7th Grade
+,PRIVATE,All Saints Catholic School,Minidoka,641 5th Ave,92.31,7th Grade
+,Charter,Alpine Academy Middle School,Ada,1195 Alpine Ave,95.83,7th Grade
+,Charter,Alturas Preparatory Academy,Ada,2280 e 17th st ,97.75,7th Grade
+,Public,American Falls Academy,Madison,598 Lincoln St.,85.71,7th Grade
+,Charter,American Heritage Charter School,Bannock,1736 S 35th W,80.7,7th Grade
+,Charter,Anser Charter School,Cassia,202 East 42nd Street,73.91,7th Grade
+,Public,Bear Lake Middle School,Nez Perce,633 Washington Street,98.9,7th Grade
+,Public,Beutler Middle School,Nez Perce,PO Box 140; 4726 W Hwy 36,87.3,7th Grade
+,Public,Black Canyon Jr Sr High School,Bannock,400 South Pine St Suite 2,100,7th Grade
+,Public,Black Canyon Middle School,Blaine,4949 1st St,96.78,7th Grade
+,Charter,Blackfoot Charter Community Learning Center,Blaine,1350 Parkway Dr,84.09,7th Grade
+,Private,Boise Valley Adventist School,Bonneville,925 N Cloverdale Rd,84.62,7th Grade
+,Public,Bonneville Online Elementary School,Bonneville,2017 E 49th N,82.5,7th Grade
+,Public,Bonneville Online High School 9-12 - Idaho Falls,Twin Falls,3385 North Iona Road,83.33,7th Grade
+,Public,Boundary County Middle School,Twin Falls,6577 Main St,72.9,7th Grade
+,Public,Buhl Middle School,Twin Falls,525 Sawtooth,86.32,7th Grade
+,Public,Burley Junior High School,Power,700 W 16th Street,95.78,7th Grade
+,Public,Butte County Middle/High School,Power,PO Box 655,87.88,7th Grade
+,Private,CALVARY CHRISTIAN ACADEMY SCHOOL,Power,498 W Idaho Blvd,37.5,7th Grade
+,Private,Calvary Christian School - Boise,Ada,111 Auto Drive,33.33,7th Grade
+,Public,Camas County Elementary-Jr High School,Bonneville,PO Box 370,71.43,7th Grade
+,Public,Cambridge Jr-Senior High,Bonneville,40 N 4th St,84.62,7th Grade
+,Public,Canfield Middle School,Ada,1800 Dalton Ave,88.31,7th Grade
+,Public,Carey Public School,Power,20 Panther Lane,85.71,7th Grade
+,Public,CASCADE SCHOOL,Bonneville,PO Box 291; 209 N School St,86.67,7th Grade
+,Public,Castleford School,Butte,500 Main St,86.67,7th Grade
+,Private,Centennial Baptist School,Butte,3610 E. Ustick Road,57.14,7th Grade
+,Public,Central Alternative High - Rexburg,Ada,379 South 2nd East,100,7th Grade
+,Private,Challenger School - Meridian,Ada,2020 West Everest Lane,90.91,7th Grade
+,Public,Challis Junior/Senior High School,Fremont,PO Box 304,90,7th Grade
+,Charter,Chief Tahgee Elementary Academy,Kootenai,P.O. Box 217,100,7th Grade
+,PRIVATE,Christian Center School,Kootenai,PO Box 2078,68.18,7th Grade
+,Public,Clark Fork Jr/Sr High School,Kootenai,PO Box 129,70.83,7th Grade
+,Private,Classical Christian Academy,Elmore,4810 N Ramsey Rd,72.73,7th Grade
+,Public,Clearwater Valley Jr/Sr High School,Gem,PO Box 130,77.42,7th Grade
+,Charter,Coeur d'Alene Charter Academy,Ada,4904 N Duncan Dr,89.84,7th Grade
+,Private,Cole Valley Christian - Secondary,Ada,200 E Carlton Ave,86.41,7th Grade
+,Charter,Compass Charter School,Valley,4667 W Aviator Street,80.16,7th Grade
+,Private,CORNERSTONE CHRISTIAN SCHOOL - LEWISTON,Bonneville,808  17th Ave,50,7th Grade
+,Public,Council Jr/Sr High School,Boise,PO Box 468,70.37,7th Grade
+,Public,Crossroads Middle School,Teton,650 N Nola Rd,100,7th Grade
+,Public,Culdesac School,Nez Perce,600 Culdesac Ave.,87.5,7th Grade
+,Public,Deary School,Nez Perce,PO Box 9; 502 1st Ave,89.47,7th Grade
+,Public,Declo Junior High School,Nez Perce,205 East Main,94.81,7th Grade
+,Public,Dietrich School,Bear Lake,406 N. Park,93.75,7th Grade
+,Public,Donald J Hobbs Middle School,Bear Lake,350 E Pine,96.59,7th Grade
+,Charter,Doral Academy,Blaine,2511 W Cherry Ln,66.67,7th Grade
+,Public,Eagle Middle School,Kootenai,1000 W. Floating Feather Rd,92.03,7th Grade
+,Public,Eagle Rock Middle School,Kootenai,2020 Pancheri Dr,92.35,7th Grade
+,Public,East Junior High School,Franklin,5600 Warm Springs Avenue East,95.93,7th Grade
+,Public,East Minico Middle School,Twin Falls,1805 H Street,98.16,7th Grade
+,Public,East Valley Middle School,Twin Falls,4085 E. Greenhurst Rd,94.07,7th Grade
+,Charter,Elevate Academy,Canyon,114 West Chicago Street,97.01,7th Grade
+,Charter,Elevate Academy East,Canyon,1873 N Walton Ave,85.07,7th Grade
+,Charter,Elevate Academy Nampa,Ada,11425 W Orchard Ave ,92.86,7th Grade
+,Charter,Elevate Academy North,Caribou,3716 E Killdeer Ave,92.16,7th Grade
+,Public,Emmett Junior High School,Gem,301 E. 4th Street,92.23,7th Grade
+,Public,Ernest Hemingway STEAM Elementary School,Gem,111 8th St W,85.11,7th Grade
+,Public,Fairmont Junior High School,Bingham,2121 N Cole Rd,93.93,7th Grade
+,Charter,Falcon Ridge Public Charter School,Bingham,PO Box 326; 278 South Ten Mile,96.88,7th Grade
+,Public,Farnsworth Middle School,Bingham,305 N 3700 E,91.75,7th Grade
+,Charter,FernWaters Public Charter School,Online,103 Van Dreff St,56.25,7th Grade
+,Public,Filer Middle School,Online,299 Highway 30,91.6,7th Grade
+,Public,Firth Middle School,Gooding,410 Roosevelt,81.25,7th Grade
+,PRIVATE,Foothills School of Arts and Sciences,Gooding,618 S. 8th Street,76.92,7th Grade
+,Charter,Forrest M Bird Charter School,Gooding,614 S Madison Ave,66.67,7th Grade
+,Public,Franklin Middle School,Gooding,2271 E. Terry,97.92,7th Grade
+,Public,FREMONT MIDDLE SCHOOL,Bingham,411 East Porter Street,96.75,7th Grade
+,Public,Fruitland Middle School,Ada,PO Box A; 800 S Pennsylvania,96.83,7th Grade
+,Public,Galileo STEM Academy,Ada,4735 W Saguaro Dr.,92,7th Grade
+,Public,Garden Valley Middle School,Ada,1053 Banks Lowman Hwy,46.15,7th Grade
+,Charter,Gem Prep - Nampa,Ada,310 W Iowa Ave,92.73,7th Grade
+,Charter,Gem Prep - Pocatello,Boundary,1451 Jessie Clark Lane,92.86,7th Grade
+,Charter,Gem Prep Meridian,Bonneville,2750 E Gala St,86.05,7th Grade
+,Charter,Gem Prep Meridian North,Online,5390 N McDermott Rd,75,7th Grade
+,Charter,Gem Prep Meridian South,Online,1925 E Lake Hazel,92.16,7th Grade
+,Charter,Gem Prep Twin Falls,Online,151 Federation,91.67,7th Grade
+,Charter,Gem Prep: Online,Online,2750 E Gala Street,85.37,7th Grade
+,Public,Genesee Schools,Online,PO Box 98; 330 W Ash St,88.89,7th Grade
+,Private,Genesis Preparatory Academy School,Ada,PO Box 1237,75.76,7th Grade
+,Public,Glenns Ferry Middle School,Boundary,639 N Bannock,92.59,7th Grade
+,Public,Gooding Middle School,Latah,1045 7th Ave West,93.68,7th Grade
+,Public,Grace Jr/Sr High School,Latah,PO Box 328; 117 W 4th S,66.67,7th Grade
+,PRIVATE,Grace Lutheran School,Bonneville,1350 Baldy Ave,90.63,7th Grade
+,Public,Grangeville Elementary & Middle School,Bonneville,400 South Idaho Avenue,77.27,7th Grade
+,PRIVATE,Greenleaf Friends Academy,Owyhee,PO Box 368,75,7th Grade
+,Public,Hagerman Jr/Sr High School,Kootenai,150 Lake Street West,83.33,7th Grade
+,Public,Hansen Jr/Sr High School,Kootenai,550 S Main St,91.67,7th Grade
+,Public,Hawthorne Middle School,Twin Falls,1025 W Eldredge,98.04,7th Grade
+,Charter,Hayden Canyon Charter School,Twin Falls,13590 N Government Way,86,7th Grade
+,Charter,Heritage Academy - Jerome,Cassia,500 S Lincoln Ave,100,7th Grade
+,Charter,Heritage Community Charter School,Cassia,1803 E Ustick Rd,89.09,7th Grade
+,Public,Heritage Middle School,Madison,4990 N Meridian Rd,90.8,7th Grade
+,Public,Highland Schools,Madison,112 Boulevard Avenue,90.91,7th Grade
+,Public,Hillside Junior High School,Butte,3536 Hill Road,92.22,7th Grade
+,PRIVATE,Holy Family Catholic School,Gem,3005 W. Kathleen Ave.,71.43,7th Grade
+,Public,Homedale Middle School,Gem,3437 Johnstone Road,92.86,7th Grade
+,Public,Horseshoe Bend Middle/Senior School,Valley,398 School Dr.,90.91,7th Grade
+,PRIVATE,House of the Lord Christian Academy,Valley,754 Silver Birch Lane,40,7th Grade
+,Charter,ICON - Idaho Connects Online School,Valley,4483 Dresden Place Suite 101,91.67,7th Grade
+,Charter,Idaho Arts Charter School,Valley,1220 5th St North,93.33,7th Grade
+,Public,Idaho City High School,Nez Perce,100 Centerville Road,81.82,7th Grade
+,Public,Idaho Fine Arts Academy,Nez Perce,3467 W Flint Dr.,93.1,7th Grade
+,Public,Idaho Home Learning Academy,Nez Perce,195 South 300 East,33.81,7th Grade
+,Public,Idaho School for the Deaf and Blind,Canyon,1450 Main Street,85.71,7th Grade
+,Charter,Idaho Science and Technology Charter School,Canyon,21 North 550 West,75.56,7th Grade
+,Charter,Idaho Virtual Academy,Shoshone,1965 S Eagle Rd Ste 190,84.78,7th Grade
+,Private,Immaculate Conception Academy,Shoshone,614 E 5th Ave,6.67,7th Grade
+,PRIVATE,Innovate Academy and Preparatory School,Shoshone,3467 W Flint Dr ,68.75,7th Grade
+,Charter,Inspire Connections Academy,Canyon,9550 W Bethel Court,75.42,7th Grade
+,Public,Irving Middle School,Canyon,911 North Grant,95.32,7th Grade
+,Charter,Isucceed Virtual High School,Canyon,"6148 N Discovery Way, Suite 120",73.53,7th Grade
+,Public,Jenifer Junior High School,Ada,1213 16th St,96.21,7th Grade
+,Public,Jerome Middle School,Ada,520 10th Ave W,95.6,7th Grade
+,PRIVATE,Juniper Hills - Lewiston,Ada,140 Southport,100,7th Grade
+,Public,Kamiah Middle School,Camas,800 12th St,80,7th Grade
+,Public,Kellogg Middle School,Camas,810 Bunker Ave.,94.2,7th Grade
+,Public,Kendrick Jr/Sr High School,Camas,2001 Hwy #3,95.24,7th Grade
+,Public,Kimberly Middle School,Washington,525 Center St. W.,96.61,7th Grade
+,Charter,Kootenai Classical Academy,Washington,4318 N Fennecus,41.51,7th Grade
+,Public,Kootenai Jr/Sr High School,Washington,13030 E. O'Gara Rd,78.57,7th Grade
+,Public,Kuna Middle School,Washington,1360 Boise St,92.27,7th Grade
+,PRIVATE,Lake City Academy,Nez Perce,125 E Locust Ave,77.78,7th Grade
+,Public,Lake Hazel Middle School,Kootenai,11625 La Grange,93.41,7th Grade
+,Public,Lakeland Junior High School,Jerome,PO Box 98; 15601 N Hwy 41,86.7,7th Grade
+,Public,Lakes Middle School,Jerome,930 N 15th Street,88.83,7th Grade
+,Public,Lakeside Middle School,Jerome,1255 E Street,80.95,7th Grade
+,Public,Lapwai Jr/Sr High School,Kootenai,PO Box 247  404 S Main,94.74,7th Grade
+,Public,Leadore School,Kootenai,PO Box 119; 111 S 3rd St,87.5,7th Grade
+,Charter,Legacy Charter School,Twin Falls,4015 S Legacy Way,84.09,7th Grade
+,Public,Les Bois Junior High School,Canyon,4150 E. Grand Forest Drive,94.05,7th Grade
+,Public,Lewis and Clark Middle School,Jerome,4141 East Pine Street,94.74,7th Grade
+,Charter,Liberty Charter School,Jerome,1063 E Lewis Lane,73.33,7th Grade
+,Private,Lighthouse Christian School,Jerome,960 Eastland Drive,86.96,7th Grade
+,PRIVATE,Logos School,Ada,110 Baker St,60,7th Grade
+,Public,Lonestar Middle School,Ada,11055 Lone Star Road,91.49,7th Grade
+,Public,Lowell Scott Middle School,Blaine,13600 W. McMillan Road,95.38,7th Grade
+,Public,LPO Homeschool Academy,Nez Perce,901 Triangle,28.57,7th Grade
+,Public,Mackay Junior/Senior High School,Blaine,PO Box 390; 390 E Spruce St,56.25,7th Grade
+,Public,Madison Junior High School,Blaine,134 Madison Ave,94.94,7th Grade
+,Public,Malad Middle School,Cassia,175 Jenkins Ave,94.2,7th Grade
+,Public,Marsh Valley Middle School,Cassia,12805 S Old HIghway 91,95.18,7th Grade
+,Public,Marsing Middle School,Twin Falls,PO Box 340; 205 8th Ave W,86.57,7th Grade
+,Public,McCain Middle School,Twin Falls,400 N Iowa Ave,96.39,7th Grade
+,Public,Meadows Valley School,Twin Falls,Drawer F,85.71,7th Grade
+,Public,Melba Middle School,Twin Falls,6870 Stokes Avenue,89.83,7th Grade
+,Public,Meridian Middle School,Nez Perce,1507 W 8th,94.23,7th Grade
+,Public,Middleton Middle School,Ada,511 W Main Street ,92.4,7th Grade
+,Public,Midvale School,Canyon,PO Box 130; 56 N School Rd,77.78,7th Grade
+,Public,Mini Cassia Online Learning Academy,Canyon,3650 Overland Ave ,100,7th Grade
+,Public,Minidoka Junior High,Canyon,310 N 10th Street,100,7th Grade
+,Charter,Monticello Montessori Public Charter School,Canyon,4707 S. Sweetwater Way,66.67,7th Grade
+,Charter,MOSAICS Public School,Blaine,3121 Lincoln Road,93.48,7th Grade
+,Charter,Moscow Charter School,Nez Perce,1723 East F Street,90.91,7th Grade
+,Public,Moscow Middle School,Nez Perce,1410 East D St,94.41,7th Grade
+,Charter,Mountain Community School,Ada,500 Village Drive,42.86,7th Grade
+,Public,Mountain Home Jr High School,Madison,1600 E 6th St,94.78,7th Grade
+,Public,Mountain View Middle School - Blackfoot,Canyon,645 Mitchell Rd.,95.44,7th Grade
+,Public,Murtaugh Middle High School,Canyon,PO Box 117,100,7th Grade
+,PRIVATE,Nampa Christian School,Madison,439 W Orchard Avenue,82.28,7th Grade
+,Public,Nampa Online Virtual Academy NOVA,Madison,1701 Discovery Place,90,7th Grade
+,Public,New Horizons Dual Language Magnet School,Bannock,5226 Southside Blvd.,100,7th Grade
+,Public,New Plymouth Middle School,Ada,4400 S.W. 2nd Ave,88.51,7th Grade
+,Public,Nezperce School,Ada,614 2nd Ave,100,7th Grade
+,Public,North Fremont Jr/Sr High School,Ada,3581 E 1300 N,95.65,7th Grade
+,Public,North Gem School,Ada,360 South Main,85.71,7th Grade
+,Private,North Idaho Christian School,Ada,251 W Miles Ave,78.57,7th Grade
+,Charter,North Idaho STEM Charter Academy,Custer,15633 N. Meyer Rd.,80,7th Grade
+,Public,North Junior High School,Custer,1105 N 13th St,94.4,7th Grade
+,Charter,North Star Public Charter School,Custer,839 N. Linder Road,87.39,7th Grade
+,Charter,North Valley Academy Charter,Custer,906 Main Street,85,7th Grade
+,Private,Northwest Childrens Education Center - Lewiston,Ada,602 13th Street,100,7th Grade
+,Public,Notus Jr  Sr High School,Ada,25257 Notus Road,84.38,7th Grade
+,Public,Oakley Jr/Sr High School,Gem,PO Box 135 455 W Main,100,7th Grade
+,Public,Orofino Junior Senior High School,Ada,300 Dunlap Rd,42.86,7th Grade
+,Charter,Palouse Prairie School,Bannock,406 Powers Avenue ,85.71,7th Grade
+,Public,Parma Middle School,Bannock,905 E McConnell,89.16,7th Grade
+,Public,Pathways Middle School,Bannock,1855 E Leighfeild Dr,88.89,7th Grade
+,Public,Payette Academy,Nez Perce,609 N 5th Street ,100,7th Grade
+,Public,Payette Lakes Middle School,Nez Perce,111 Samson Trail,89.91,7th Grade
+,Charter,Peace Valley Charter School,Elmore,1845 S Federal Way,43.75,7th Grade
+,Charter,Pinecrest Academy,Kootenai,209 5th Ave N,90,7th Grade
+,Charter,Pocatello Community Charter School,Kootenai,995 S Arthur St,97.22,7th Grade
+,Public,Post Falls Middle School,Kootenai,PO Box 40; 301 E 16th,89.2,7th Grade
+,Public,Potlatch Junior/Senior High,Ada,130 6th St; Hwy 6,97.14,7th Grade
+,Public,Prairie School - Cottonwood,Bannock,PO Box 540; 1906 E. Street,91.89,7th Grade
+,Public,Praxium Mastery Program,Bannock,3385 E Iona Rd,97.8,7th Grade
+,Public,Preston Jr High School,Ada,450 E Valley View Drive,91.91,7th Grade
+,Public,Priest River Lamanna JR/SR High,Clark,596 Hwy 57,85.29,7th Grade
+,Charter,Project Impact STEM Academy Public Charter School,Clark,2275 W Hubbard Rd,86.67,7th Grade
+,Public,Raft River Jr/Sr High School,Bonner,55 North 1st West / PO Box 68,90,7th Grade
+,Charter,Richard Mckenna Charter High,Kootenai,675 S Haskett St,69.57,7th Grade
+,Public,Richfield School,Kootenai,555 Tiger Drive,88.24,7th Grade
+,Public,Rigby Middle School,Kootenai,290 N 3800 E,97.18,7th Grade
+,Public,Rimrock Jr/Sr High School,Kootenai,39678 State Hwy 78,100,7th Grade
+,Public,Ririe Middle School,Bannock,PO Box 548; 13809 N 130 E,97.92,7th Grade
+,Charter,RISE Charter School,Bonner,203 Center Street West,85.19,7th Grade
+,Public,River City Middle School,Bannock,PO Box 40; 1505 N Fir St,88.18,7th Grade
+,Public,Riverglen Jr High School,Twin Falls,6801 N. Gary Lane,94.08,7th Grade
+,PRIVATE,Riverstone International School,Twin Falls,5521 E Warm Springs Ave,100,7th Grade
+,Public,Robert Stuart Middle School,Twin Falls,644 Caswell Avenue West,87.78,7th Grade
+,Public,Rockland School,Idaho,PO Box 119; 321 E. Center,76.92,7th Grade
+,Public,Rocky Mountain Middle School,Idaho,3443 N Ammon Rd,97.29,7th Grade
+,Charter,Rolling Hills Public Charter School,Idaho,8900 Horseshoe Bend Rd,76.92,7th Grade
+,Private,Sacred Heart School,Twin Falls,3901 Cassia St,95,7th Grade
+,Charter,Sage International School of Boise,Twin Falls,457 E Parkcenter Blvd,91.11,7th Grade
+,Charter,Sage International School of Middleton,Bear Lake,208 S Hartley Ln,86.27,7th Grade
+,Public,Sage Valley Middle School,Bonneville,18070 Santa Anna Ave,93.29,7th Grade
+,Private,Saint Peter and Paul School,Bonneville,330 South B St,75,7th Grade
+,Public,Salmon Jr Sr High,Kootenai,310 S Daisy St,100,7th Grade
+,Public,Salmon River Jr/Sr High School,Kootenai,711 Ace's Place,80,7th Grade
+,Public,Sand Creek Middle School,Ada,2955 Owen Street,95.73,7th Grade
+,PRIVATE,Sandpoint Christian School,Ada,477954 Highway 95,70,7th Grade
+,Public,Sandpoint Middle School,Ada,310 South Division St.,79.82,7th Grade
+,PRIVATE,Sandpoint Waldorf School,Ada,PO Box 95,50,7th Grade
+,Public,Sawtooth Middle School,Ada,3730 N Linder Rd,96.54,7th Grade
+,Public,Shoshone Middle - High School,Bonneville,61 E. Hwy 24,92.68,7th Grade
+,Public,Shoshone-Bannock Jr/Sr High School,Ada,PO Box 790,87.5,7th Grade
+,Public,Snake River Jr High School,Ada,918 West Hwy 39,96.32,7th Grade
+,Public,Snake River Online School,Ada,103 S 900 W,39.77,7th Grade
+,Public,South Fremont Jr High School,Ada,550 North 1st West,96.32,7th Grade
+,Public,South Hills Middle School,Bannock,1550 Harrison St S,93.75,7th Grade
+,Public,South Junior High School,Bannock,3101 Cassia St,91.8,7th Grade
+,Public,South Middle School,Kootenai,229 W. Greenhurst,91.37,7th Grade
+,Private,St Dominic School,Kootenai,20274 W Riverview Dr,33.33,7th Grade
+,Private,ST IGNATIUS CATHOLIC SCHOOL,Idaho,6180 N Meridian Rd,100,7th Grade
+,PRIVATE,St John Bosco Academy,Kootenai,PO Box 427,66.67,7th Grade
+,Private,St Marks School,Boundary,7503 Northview,94.59,7th Grade
+,Private,St Pauls Catholic School - Nampa,Boundary,1515 8th Street South,90,7th Grade
+,PRIVATE,St. Edward's Catholic School,Jefferson,139 6th Avenue East,92.86,7th Grade
+,PRIVATE,St. Joseph's School,Jefferson,825 West Fort St.,100,7th Grade
+,Public,St. Maries Middle School,Adams,1315 Jefferson Avenue,86.76,7th Grade
+,PRIVATE,St. Mary's Catholic School - Moscow,Adams,412 N Monroe St,100,7th Grade
+,PRIVATE,St. Mary's School - Boise,Adams,2620 West State,100,7th Grade
+,Public,Star Middle School,Ada,2211 N Pollard Ln,92.47,7th Grade
+,Public,Sugar-Salem Junior High School,Ada,205 East 3rd North,66.41,7th Grade
+,Public,Summitvue Middle School,Nez Perce,320 Smeed Pkwy,92.86,7th Grade
+,Private,Sun Valley Community School,Nez Perce,1 Community School Drive ,88.24,7th Grade
+,Public,Synergry Middle School,Nez Perce,441 E Porter St Kuna,97.06,7th Grade
+,Public,Syringa Middle School,Ada,1100 Willow,94.15,7th Grade
+,Charter,Syringa Mountain School,Ada,4021 Glenbrook Dr,90,7th Grade
+,Charter,Taylor's Crossing Charter School,Ada,1445 N Woodriver Dr,93.33,7th Grade
+,Public,Taylorview Middle School,Kootenai,350 Castle Rock Ln,95.31,7th Grade
+,Public,Terreton Elementary-West Jefferson Middle/High School,Kootenai,1252 E 1500 N,93.18,7th Grade
+,Public,Teton Middle School,Bingham,935 North 5th East,93.33,7th Grade
+,PRIVATE,The Ambrose School,Latah,6100 N Locust Grove Road,55,7th Grade
+,Private,The Sage School Inc,Cassia,PO Box 30,85.71,7th Grade
+,Charter,Thomas Jefferson Charter,Cassia,1209 Adam Smith Ave,86.67,7th Grade
+,Public,Tigert Middle School,Cassia,250 E. 2nd S.,86.36,7th Grade
+,Public,Timberlake Junior High School,Ada,PO Box 1080; 5830 W Blackwell Blvd,92.8,7th Grade
+,Public,Timberline K-12 School,Ada,22869 US Highway 11,45.45,7th Grade
+,Charter,Treasure Valley Classical Academy,Canyon,500 SW 3rd St,80.77,7th Grade
+,Public,Troy Jr/Sr High School,Lincoln,101 Trojan Drive,89.66,7th Grade
+,Public,Twin Falls Bridge Academy,Lincoln,616 Eastland Drive,100,7th Grade
+,PRIVATE,Twin Falls Christian Academy,Lincoln,798 Eastland Dr N,85.71,7th Grade
+,Public,TWIN FALLS VIRTUAL SCHOOLHOUSE,Ada,616 Eastland Drive,82.76,7th Grade
+,Public,Union High School,Kootenai,28 S Midland Blvd,100,7th Grade
+,Public,Valley School,Bonneville,882 Valley Road S,97.3,7th Grade
+,Public,Vallivue Middle School,Bonneville,16412 S 10th,94.63,7th Grade
+,Public,Vera C O'leary Middle School,Ada,2350 Elizabeth Blvd,94.12,7th Grade
+,Charter,Victory Charter School,Ada,9779 Kris Jensen Lane,76.92,7th Grade
+,Public,Victory Middle School,Bingham,920 w kodiak dr,93.56,7th Grade
+,Charter,Vision Charter School,Bingham,19291 Ward Rd.,92.19,7th Grade
+,Public,Wallace Jr Sr High School,Bingham,#1 Miner's Alley,86.84,7th Grade
+,Private,Watersprings School (Calvary Chapel School Idaho Falls),Valley,4250 S 25th E,84.21,7th Grade
+,Public,Weiser Middle School,Valley,320 East Galloway Avenue,90,7th Grade
+,Public,Wendell Middle School,Bonneville,800 East Main St,91.25,7th Grade
+,Public,West Junior High School,Bonneville,8371 W Saltcreek Ct,94.98,7th Grade
+,Public,West Minico Middle School,Ada,155 S. 600 W.,96.75,7th Grade
+,Charter,White Pine Charter School,Ada,2959 John Adams Pkwy,100,7th Grade
+,Public,Wilder Academy of Virtual Education,Ada,419 Huff Rd,76.92,7th Grade
+,Public,Wilder Middle School,Bannock,419 Huff Rd,100,7th Grade
+,Public,William Thomas Middle School,Bannock,355 Bannock,94.74,7th Grade
+,Public,Wood River Middle School,Teton,900 2nd Avenue N,87.04,7th Grade
+,Public,Woodland Middle School,Teton,2101 W Ste Michelle,89.15,7th Grade
+,Charter,Xavier Charter School,Cassia,1218 N. College Rd. W.,87.69,7th Grade
