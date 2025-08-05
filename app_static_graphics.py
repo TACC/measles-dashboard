@@ -9,23 +9,44 @@ from app_styles import SELECTOR_LABEL_STYLE, BASE_FONT_FAMILY_STR, SELECTOR_NOTE
 
 # Navbar component
 navbar = dbc.Navbar(
-    dbc.Container(
-        [
+    dbc.Container([
+
+        html.Div([
             html.Img(
-                src="/assets/epiengage_logo_orange.png",  # Place the image in the "assets" folder
+                src="/assets/epiengage_logo_orange.png",
                 height="50",
                 className="header-logo",
-                style={"marginRight": "10px"},
+                style={"marginRight": "15px"},
             ),
-            html.Div("epiENGAGE Measles Outbreak Simulator",
-                     style={"color": "white", "fontSize": "24px", "fontWeight": "bold", "textAlign": "right"}),
-        ],
-        fluid=True,
+            dcc.Link("Main", href="/",
+                     style={"color": "white", "fontSize": "18px", "fontWeight": "700", "marginLeft": "30px"}),
+
+
+            dcc.Link("Lookup Table", href="/lookup",
+                     style={"color": "white", "fontSize": "18px", "fontWeight": "700", "marginLeft": "35px"}),
+
+              dcc.Link("Sensitivity Analysis", href="/sensitivity",
+                     style={"color": "white", "fontSize": "18px", "fontWeight": "700", "marginLeft": "40px"}),
+       
+        ], style={"display": "flex", "alignItems": "center"}),
+
+
+
+        
+
+
+        # Title
+        html.Div("epiENGAGE Measles Outbreak Simulator",
+                 style={"color": "white", "fontSize": "24px", "fontWeight": "bold"}),
+    ],
+    fluid=True,
+    style={"display": "flex", "justifyContent": "space-between", "alignItems": "center"}
     ),
     color="#102c41",
     dark=True,
     fixed="top"
 )
+
 
 # Footer component
 footer = dbc.Container(

@@ -10,6 +10,10 @@
 #   Some confusing stuff... e.g. remembering that some parameters are actually
 #   a LIST (but of 1 element, for 1 subpopulation)
 
+
+from look_up_table import lookup_table_layout
+from sensitivity_analysis import sensitivity_analysis_layout
+from dash import Dash, html, dcc, callback, Output, Input, State, no_update
 from dash import Dash, html, dcc, callback, Output, Input, State  # Patch
 import plotly.express as px
 import pandas as pd
@@ -276,7 +280,6 @@ def update_graph(params_dict: dict,
         #   Be very careful with the syntax here.
         return EMPTY_SPAGHETTI_PLOT_INFECTED_MA, "", "", "", "", ""
 
-
 @callback(
     [Output("county_selector", "options"),
      Output("county_selector", "value")],
@@ -284,11 +287,12 @@ def update_graph(params_dict: dict,
     prevent_initial_call=True
 )
 def update_county_selector(state):
+    if not state:
+        return no_update, no_update
+    
     new_county_options = sorted(state_to_df_map[state]["County"].unique())
     default_county_displayed = new_county_options[0]
-
     return new_county_options, default_county_displayed
-
 
 @callback(
     [Output('school_selector', 'options'),
@@ -361,7 +365,10 @@ result = subprocess.run("git symbolic-ref -q --short HEAD || git describe --tags
 version = result.stdout.decode("utf-8").strip() if result.stdout else "Unknown"
 
 app = Dash(
-    prevent_initial_callbacks='initial_duplicate')
+    prevent_initial_callbacks='initial_duplicate',
+    suppress_callback_exceptions=True
+)
+
 server = app.server  # Do we need this?
 app.title = f"epiENGAGE Measles Outbreak Simulator v-{version}"
 
@@ -371,42 +378,51 @@ app.scripts.append_script({
 })
 app.scripts.append_script({'external_url': '/assets/gtag.js'})
 
+
 app.layout = dbc.Container(
     [
+        dcc.Location(id='url', refresh=False),
         dcc.Store(id="inputs_are_valid", data=True),
         dcc.Store(id="dashboard_params", data=copy.deepcopy(msp.DEFAULT_MSP_PARAMS)),
 
         dbc.Row([navbar], className="my-2"),
-        html.Br(),
-        html.Br(),
+ 
+        html.Div(style={"height": "40px"}),
+        html.Div(id="page-content"),
 
-        # Main Layout with Left and Right Sections
-        dbc.Row([
-            # Left section
+        html.Br(),
+        bottom_info_section(),
+        bottom_credits()
+    ], 
+    fluid=True, 
+    style={"min-height": "100vh", "display": "flex", "flex-direction": "column"}
+)
+
+
+
+@callback(
+    Output('page-content', 'children'),
+    Input('url', 'pathname')
+)
+# Navbar callback to switch between pages
+def display_page(pathname):
+    if pathname == '/lookup':
+        return lookup_table_layout()
+    elif pathname == '/sensitivity':
+        return sensitivity_analysis_layout()
+    else:
+        return dbc.Row([
             html.Br(),
-
             dashboard_input_panel(),
 
             dbc.Col([
                 html.Br(),
-
                 school_outbreak_projections_header(),
-
                 html.Br(),
-
                 results_header(),
-
                 html.Br(),
-
                 spaghetti_plot_section()], className="col-xl-9")
-        ]),
-
-        html.Br(),
-
-        bottom_info_section(),
-
-        bottom_credits()
-    ], fluid=True, style={"min-height": "100vh", "display": "flex", "flex-direction": "column"})
-
+        ])
 if __name__ == '__main__':
-    app.run(debug=False, host='0.0.0.0')
+    app.run(debug=True, host='0.0.0.0')
+
