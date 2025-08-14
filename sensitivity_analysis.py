@@ -34,7 +34,6 @@ def sensitivity_analysis_layout():
         dcc.Store(id="active-scenario-count", data=2),
         dcc.Store(id="max-scenarios-setting", data=5),
 
-
         dbc.Row([
             dbc.Col([
                 html.H1("Sensitivity Analysis", className="text-center mb-2"),
@@ -42,7 +41,6 @@ def sensitivity_analysis_layout():
             ], md=12),
         ], justify="center"),
         
-
         dbc.Row([
             dbc.Col([
                 html.Div([
@@ -69,326 +67,333 @@ def sensitivity_analysis_layout():
         ], className="mb-4"),
         
 
-        html.Div([
-            dbc.Row(id="scenarios-row", children=[
-                dbc.Col([
-                    dbc.Card([
-                        dbc.CardHeader("Scenario 1"),
-                        dbc.CardBody([
-                            html.Label("School Size:"),
-                            dbc.Input(id="scenario1_school_size", type="number", value=500, className="mb-2"),
-                            
-                            html.Label("Vaccination Rate (%):"),
-                            dbc.Input(id="scenario1_vax", type="number", value=85, className="mb-2"),
-                            
-                            html.Label("Initially Infected:"),
-                            dbc.Input(id="scenario1_infected", type="number", value=1, className="mb-2"),
+        html.Div(id="scenarios-container", children=[
+            html.Div([
+                dbc.Card([
+                    dbc.CardHeader("Scenario 1"),
+                    dbc.CardBody([
+                        html.Label("School Size:"),
+                        dbc.Input(id="scenario1_school_size", type="number", value=500, className="mb-2"),
+                        
+                        html.Label("Vaccination Rate (%):"),
+                        dbc.Input(id="scenario1_vax", type="number", value=85, className="mb-2"),
+                        
+                        html.Label("Initially Infected:"),
+                        dbc.Input(id="scenario1_infected", type="number", value=1, className="mb-2"),
 
-                            html.Label("Basic Reproduction Number (R0):"),
-                            dcc.Slider(id="scenario1_R0_slider", min=12, max=18, step=0.1, value=15.0,
-                                          marks={12: '12', 15: '15', 18: '18'},
-                                          tooltip={"placement": "bottom", "always_visible": True},
-                                          className="mb-3"),
+                        html.Label("Basic Reproduction Number (R0):"),
+                        dcc.Slider(id="scenario1_R0_slider", min=12, max=18, step=0.1, value=15.0,
+                                      marks={12: '12', 15: '15', 18: '18'},
+                                      tooltip={"placement": "bottom", "always_visible": True},
+                                      className="mb-3"),
 
-                            html.Label("Average Latent Period (days):"),
-                            dcc.Slider(id="scenario1_latent_slider", min=7, max=12, step=0.1, value=10.5,
-                                          marks={7: '7', 10.5: '10.5', 12: '12'},
-                                          tooltip={"placement": "bottom", "always_visible": True},
-                                          className="mb-3"),
+                        html.Label("Average Latent Period (days):"),
+                        dcc.Slider(id="scenario1_latent_slider", min=7, max=12, step=0.1, value=10.5,
+                                      marks={7: '7', 10.5: '10.5', 12: '12'},
+                                      tooltip={"placement": "bottom", "always_visible": True},
+                                      className="mb-3"),
 
-                            html.Label("Average Infectious Period (days):"),
-                            dcc.Slider(id="scenario1_infectious_slider", min=4, max=9, step=0.1, value=5.0,
-                                          marks={4: '4', 5: '5', 9: '9'},
-                                          tooltip={"placement": "bottom", "always_visible": True},
-                                          className="mb-3"),
+                        html.Label("Average Infectious Period (days):"),
+                        dcc.Slider(id="scenario1_infectious_slider", min=4, max=9, step=0.1, value=5.0,
+                                      marks={4: '4', 5: '5', 9: '9'},
+                                      tooltip={"placement": "bottom", "always_visible": True},
+                                      className="mb-3"),
 
-                            html.Label("Minimum Outbreak Size (New Infections):"),
-                            dcc.Slider(id="scenario1_threshold_slider", min=3, max=25, step=1, value=10,
-                                        marks={3: '3', 10: '10', 25: '25'},
-                                        tooltip={"placement": "bottom", "always_visible": True},
-                                        className="mb-3"),
+                        html.Label("Minimum Outbreak Size (New Infections):"),
+                        dcc.Slider(id="scenario1_threshold_slider", min=3, max=25, step=1, value=10,
+                                    marks={3: '3', 10: '10', 25: '25'},
+                                    tooltip={"placement": "bottom", "always_visible": True},
+                                    className="mb-3"),
 
-                            html.Label("Vaccine Efficacy - Susceptibility (%):"),
-                            dcc.Slider(id="scenario1_vaccine_susceptibility_slider", min=99, max=100, step=0.1, value=99.7,
-                                        marks={99: '99', 99.7: '99.7', 100: '100'},
-                                        tooltip={"placement": "bottom", "always_visible": True},
-                                        className="mb-3"),
+                        html.Label("Vaccine Efficacy - Susceptibility (%):"),
+                        dcc.Slider(id="scenario1_vaccine_susceptibility_slider", min=99, max=100, step=0.1, value=99.7,
+                                    marks={99: '99', 99.7: '99.7', 100: '100'},
+                                    tooltip={"placement": "bottom", "always_visible": True},
+                                    className="mb-3"),
 
-                            html.Label("Vaccine Efficacy - Infectiousness (%):"),
-                            dcc.Slider(id="scenario1_vaccine_infectiousness_slider", min=75, max=100, step=1, value=95,
-                                        marks={75: '75', 95: '95', 100: '100'},
-                                        tooltip={"placement": "bottom", "always_visible": True},
-                                        className="mb-3"),
+                        html.Label("Vaccine Efficacy - Infectiousness (%):"),
+                        dcc.Slider(id="scenario1_vaccine_infectiousness_slider", min=75, max=100, step=1, value=95,
+                                    marks={75: '75', 95: '95', 100: '100'},
+                                    tooltip={"placement": "bottom", "always_visible": True},
+                                    className="mb-3"),
 
-                            html.Hr(),
-                            html.H5("Results:"),
-                            html.H6("Chance of Exceeding 10 New Infections:"),
-                            html.Div(id="scenario1_prob_result", className="mb-2"),
-                            html.H6("Likely outbreak size if exceeds 10 new infections:"),
-                            html.Div(id="scenario1_unvax_result", className="mb-2"),
-                            html.Div(id="scenario1_vax_result", className="mb-2")
-                        ])
+                        html.Hr(),
+                        html.H5("Results:"),
+                        html.H6("Chance of Exceeding 10 New Infections:"),
+                        html.Div(id="scenario1_prob_result", className="mb-2"),
+                        html.H6("Likely outbreak size if exceeds 10 new infections:"),
+                        html.Div(id="scenario1_unvax_result", className="mb-2"),
+                        html.Div(id="scenario1_vax_result", className="mb-2")
                     ])
-                ], md=4),
-                
-                
-                dbc.Col([
-                    dbc.Card([
-                        dbc.CardHeader("Scenario 2"),
-                        dbc.CardBody([
-                            html.Label("School Size:"),
-                            dbc.Input(id="scenario2_school_size", type="number", value=500, className="mb-2"),
-                            
-                            html.Label("Vaccination Rate (%):"),
-                            dbc.Input(id="scenario2_vax", type="number", value=75, className="mb-2"),
-                            
-                            html.Label("Initially Infected:"),
-                            dbc.Input(id="scenario2_infected", type="number", value=1, className="mb-2"),
+                ])
+            ], className="scenario-card", style={"minWidth": "280px", "maxWidth": "380px", "flex": "1 1 auto"}),
+            
 
-                            html.Label("Basic Reproduction Number (R0):"),
-                            dcc.Slider(id="scenario2_R0_slider", min=12, max=18, step=0.1, value=15.0,
-                                          marks={12: '12', 15: '15', 18: '18'},
-                                          tooltip={"placement": "bottom", "always_visible": True},
-                                          className="mb-3"),
+            html.Div([
+                dbc.Card([
+                    dbc.CardHeader("Scenario 2"),
+                    dbc.CardBody([
+                        html.Label("School Size:"),
+                        dbc.Input(id="scenario2_school_size", type="number", value=500, className="mb-2"),
+                        
+                        html.Label("Vaccination Rate (%):"),
+                        dbc.Input(id="scenario2_vax", type="number", value=75, className="mb-2"),
+                        
+                        html.Label("Initially Infected:"),
+                        dbc.Input(id="scenario2_infected", type="number", value=1, className="mb-2"),
 
-                            html.Label("Average Latent Period (days):"),
-                            dcc.Slider(id="scenario2_latent_slider", min=7, max=12, step=0.1, value=10.5,
-                                          marks={7: '7', 10.5: '10.5', 12: '12'},
-                                          tooltip={"placement": "bottom", "always_visible": True},
-                                          className="mb-3"),
+                        html.Label("Basic Reproduction Number (R0):"),
+                        dcc.Slider(id="scenario2_R0_slider", min=12, max=18, step=0.1, value=15.0,
+                                      marks={12: '12', 15: '15', 18: '18'},
+                                      tooltip={"placement": "bottom", "always_visible": True},
+                                      className="mb-3"),
 
-                            html.Label("Average Infectious Period (days):"),
-                            dcc.Slider(id="scenario2_infectious_slider", min=4, max=9, step=0.1, value=5.0,
-                                          marks={4: '4', 5: '5', 9: '9'},
-                                          tooltip={"placement": "bottom", "always_visible": True},
-                                          className="mb-3"),
+                        html.Label("Average Latent Period (days):"),
+                        dcc.Slider(id="scenario2_latent_slider", min=7, max=12, step=0.1, value=10.5,
+                                      marks={7: '7', 10.5: '10.5', 12: '12'},
+                                      tooltip={"placement": "bottom", "always_visible": True},
+                                      className="mb-3"),
 
-                            html.Label("Minimum Outbreak Size (New Infections):"),
-                            dcc.Slider(id="scenario2_threshold_slider", min=3, max=25, step=1, value=10,
-                                        marks={3: '3', 10: '10', 25: '25'},
-                                        tooltip={"placement": "bottom", "always_visible": True},
-                                        className="mb-3"),
+                        html.Label("Average Infectious Period (days):"),
+                        dcc.Slider(id="scenario2_infectious_slider", min=4, max=9, step=0.1, value=5.0,
+                                      marks={4: '4', 5: '5', 9: '9'},
+                                      tooltip={"placement": "bottom", "always_visible": True},
+                                      className="mb-3"),
 
-                            html.Label("Vaccine Efficacy - Susceptibility (%):"),
-                            dcc.Slider(id="scenario2_vaccine_susceptibility_slider", min=99, max=100, step=0.1, value=99.7,
-                                        marks={99: '99', 99.7: '99.7', 100: '100'},
-                                        tooltip={"placement": "bottom", "always_visible": True},
-                                        className="mb-3"),
+                        html.Label("Minimum Outbreak Size (New Infections):"),
+                        dcc.Slider(id="scenario2_threshold_slider", min=3, max=25, step=1, value=10,
+                                    marks={3: '3', 10: '10', 25: '25'},
+                                    tooltip={"placement": "bottom", "always_visible": True},
+                                    className="mb-3"),
 
-                            html.Label("Vaccine Efficacy - Infectiousness (%):"),
-                            dcc.Slider(id="scenario2_vaccine_infectiousness_slider", min=75, max=100, step=1, value=95,
-                                        marks={75: '75', 95: '95', 100: '100'},
-                                        tooltip={"placement": "bottom", "always_visible": True},
-                                        className="mb-3"),
+                        html.Label("Vaccine Efficacy - Susceptibility (%):"),
+                        dcc.Slider(id="scenario2_vaccine_susceptibility_slider", min=99, max=100, step=0.1, value=99.7,
+                                    marks={99: '99', 99.7: '99.7', 100: '100'},
+                                    tooltip={"placement": "bottom", "always_visible": True},
+                                    className="mb-3"),
 
-                            html.Hr(),
-                            html.H5("Results:"),
-                            html.H6("Chance of Exceeding 10 New Infections:"),
-                            html.Div(id="scenario2_prob_result", className="mb-2"),
-                            html.H6("Likely outbreak size if exceeds 10 new infections:"),
-                            html.Div(id="scenario2_unvax_result", className="mb-2"),
-                            html.Div(id="scenario2_vax_result", className="mb-2")
-                        ])
+                        html.Label("Vaccine Efficacy - Infectiousness (%):"),
+                        dcc.Slider(id="scenario2_vaccine_infectiousness_slider", min=75, max=100, step=1, value=95,
+                                    marks={75: '75', 95: '95', 100: '100'},
+                                    tooltip={"placement": "bottom", "always_visible": True},
+                                    className="mb-3"),
+
+                        html.Hr(),
+                        html.H5("Results:"),
+                        html.H6("Chance of Exceeding 10 New Infections:"),
+                        html.Div(id="scenario2_prob_result", className="mb-2"),
+                        html.H6("Likely outbreak size if exceeds 10 new infections:"),
+                        html.Div(id="scenario2_unvax_result", className="mb-2"),
+                        html.Div(id="scenario2_vax_result", className="mb-2")
                     ])
-                ], md=4),
+                ])
+            ], className="scenario-card", style={"minWidth": "280px", "maxWidth": "380px", "flex": "1 1 auto"}),
 
-                dbc.Col(id="scenario3-col", children=[
-                    dbc.Card([
-                        dbc.CardHeader([
-                            html.Div([
-                                "Scenario 3",
-                                dbc.Button("×", id="remove-scenario-3", size="sm", color="link", 
-                                         style={"color": "#dc3545", "textDecoration": "none", "fontSize": "18px"})
-                            ], className="d-flex justify-content-between align-items-center")
-                        ]),
-                        dbc.CardBody([
-                            html.Label("School Size:"),
-                            dbc.Input(id="scenario3_school_size", type="number", value=500, className="mb-2"),
-                            
-                            html.Label("Vaccination Rate (%):"),
-                            dbc.Input(id="scenario3_vax", type="number", value=90, className="mb-2"),
-                            
-                            html.Label("Initially Infected:"),
-                            dbc.Input(id="scenario3_infected", type="number", value=1, className="mb-2"),
 
-                            html.Label("Basic Reproduction Number (R0):"),
-                            dcc.Slider(id="scenario3_R0_slider", min=12, max=18, step=0.1, value=15.0,
-                                          marks={12: '12', 15: '15', 18: '18'},
-                                          tooltip={"placement": "bottom", "always_visible": True},
-                                          className="mb-3"),
+            html.Div(id="scenario3-col", children=[
+                dbc.Card([
+                    dbc.CardHeader([
+                        html.Div([
+                            "Scenario 3",
+                            dbc.Button("×", id="remove-scenario-3", size="sm", color="link", 
+                                     style={"color": "#dc3545", "textDecoration": "none", "fontSize": "18px"})
+                        ], className="d-flex justify-content-between align-items-center")
+                    ]),
+                    dbc.CardBody([
+                        html.Label("School Size:"),
+                        dbc.Input(id="scenario3_school_size", type="number", value=500, className="mb-2"),
+                        
+                        html.Label("Vaccination Rate (%):"),
+                        dbc.Input(id="scenario3_vax", type="number", value=90, className="mb-2"),
+                        
+                        html.Label("Initially Infected:"),
+                        dbc.Input(id="scenario3_infected", type="number", value=1, className="mb-2"),
 
-                            html.Label("Average Latent Period (days):"),
-                            dcc.Slider(id="scenario3_latent_slider", min=7, max=12, step=0.1, value=10.5,
-                                          marks={7: '7', 10.5: '10.5', 12: '12'},
-                                          tooltip={"placement": "bottom", "always_visible": True},
-                                          className="mb-3"),
+                        html.Label("Basic Reproduction Number (R0):"),
+                        dcc.Slider(id="scenario3_R0_slider", min=12, max=18, step=0.1, value=15.0,
+                                      marks={12: '12', 15: '15', 18: '18'},
+                                      tooltip={"placement": "bottom", "always_visible": True},
+                                      className="mb-3"),
 
-                            html.Label("Average Infectious Period (days):"),
-                            dcc.Slider(id="scenario3_infectious_slider", min=4, max=9, step=0.1, value=5.0,
-                                          marks={4: '4', 5: '5', 9: '9'},
-                                          tooltip={"placement": "bottom", "always_visible": True},
-                                          className="mb-3"),
+                        html.Label("Average Latent Period (days):"),
+                        dcc.Slider(id="scenario3_latent_slider", min=7, max=12, step=0.1, value=10.5,
+                                      marks={7: '7', 10.5: '10.5', 12: '12'},
+                                      tooltip={"placement": "bottom", "always_visible": True},
+                                      className="mb-3"),
 
-                            html.Label("Minimum Outbreak Size (New Infections):"),
-                            dcc.Slider(id="scenario3_threshold_slider", min=3, max=25, step=1, value=10,
-                                        marks={3: '3', 10: '10', 25: '25'},
-                                        tooltip={"placement": "bottom", "always_visible": True},
-                                        className="mb-3"),
+                        html.Label("Average Infectious Period (days):"),
+                        dcc.Slider(id="scenario3_infectious_slider", min=4, max=9, step=0.1, value=5.0,
+                                      marks={4: '4', 5: '5', 9: '9'},
+                                      tooltip={"placement": "bottom", "always_visible": True},
+                                      className="mb-3"),
 
-                            html.Label("Vaccine Efficacy - Susceptibility (%):"),
-                            dcc.Slider(id="scenario3_vaccine_susceptibility_slider", min=99, max=100, step=0.1, value=99.7,
-                                        marks={99: '99', 99.7: '99.7', 100: '100'},
-                                        tooltip={"placement": "bottom", "always_visible": True},
-                                        className="mb-3"),
+                        html.Label("Minimum Outbreak Size (New Infections):"),
+                        dcc.Slider(id="scenario3_threshold_slider", min=3, max=25, step=1, value=10,
+                                    marks={3: '3', 10: '10', 25: '25'},
+                                    tooltip={"placement": "bottom", "always_visible": True},
+                                    className="mb-3"),
 
-                            html.Label("Vaccine Efficacy - Infectiousness (%):"),
-                            dcc.Slider(id="scenario3_vaccine_infectiousness_slider", min=75, max=100, step=1, value=95,
-                                        marks={75: '75', 95: '95', 100: '100'},
-                                        tooltip={"placement": "bottom", "always_visible": True},
-                                        className="mb-3"),
+                        html.Label("Vaccine Efficacy - Susceptibility (%):"),
+                        dcc.Slider(id="scenario3_vaccine_susceptibility_slider", min=99, max=100, step=0.1, value=99.7,
+                                    marks={99: '99', 99.7: '99.7', 100: '100'},
+                                    tooltip={"placement": "bottom", "always_visible": True},
+                                    className="mb-3"),
 
-                            html.Hr(),
-                            html.H5("Results:"),
-                            html.H6("Chance of Exceeding 10 New Infections:"),
-                            html.Div(id="scenario3_prob_result", className="mb-2"),
-                            html.H6("Likely outbreak size if exceeds 10 new infections:"),
-                            html.Div(id="scenario3_unvax_result", className="mb-2"),
-                            html.Div(id="scenario3_vax_result", className="mb-2")
-                        ])
+                        html.Label("Vaccine Efficacy - Infectiousness (%):"),
+                        dcc.Slider(id="scenario3_vaccine_infectiousness_slider", min=75, max=100, step=1, value=95,
+                                    marks={75: '75', 95: '95', 100: '100'},
+                                    tooltip={"placement": "bottom", "always_visible": True},
+                                    className="mb-3"),
+
+                        html.Hr(),
+                        html.H5("Results:"),
+                        html.H6("Chance of Exceeding 10 New Infections:"),
+                        html.Div(id="scenario3_prob_result", className="mb-2"),
+                        html.H6("Likely outbreak size if exceeds 10 new infections:"),
+                        html.Div(id="scenario3_unvax_result", className="mb-2"),
+                        html.Div(id="scenario3_vax_result", className="mb-2")
                     ])
-                ], md=4, style={"display": "none"}),
+                ])
+            ], className="scenario-card", style={"display": "none", "minWidth": "280px", "maxWidth": "380px", "flex": "1 1 auto"}),
 
-                dbc.Col(id="scenario4-col", children=[
-                    dbc.Card([
-                        dbc.CardHeader([
-                            html.Div([
-                                "Scenario 4",
-                                dbc.Button("×", id="remove-scenario-4", size="sm", color="link",
-                                            style={"color": "#dc3545", "textDecoration": "none", "fontSize": "18px"})
-                            ], className="d-flex justify-content-between align-items-center")
-                        ]),
-                        dbc.CardBody([
-                            html.Label("School Size:"),
-                            dbc.Input(id="scenario4_school_size", type="number", value=500, className="mb-2"),
-                            html.Label("Vaccination Rate (%):"),
-                            dbc.Input(id="scenario4_vax", type="number", value=80, className="mb-2"),
-                            html.Label("Initially Infected:"),
-                            dbc.Input(id="scenario4_infected", type="number", value=1, className="mb-2"),
-                            html.Label("Basic Reproduction Number (R0):"),
-                            dcc.Slider(id="scenario4_R0_slider", min=12, max=18, step=0.1, value=15.0,
-                                          marks={12: '12', 15: '15', 18: '18'},
-                                            tooltip={"placement": "bottom", "always_visible": True},
-                                            className="mb-3"),
-                            html.Label("Average Latent Period (days):"),
-                            dcc.Slider(id="scenario4_latent_slider", min=7, max=12, step=0.1, value=10.5,
-                                          marks={7: '7', 10.5: '10.5', 12: '12'},
-                                            tooltip={"placement": "bottom", "always_visible": True},
-                                            className="mb-3"),
-
-                            html.Label("Average Infectious Period (days):"),
-                            dcc.Slider(id="scenario4_infectious_slider", min=4, max=9, step=0.1, value=5.0,
-                                          marks={4: '4', 5: '5', 9: '9'},
-                                          tooltip={"placement": "bottom", "always_visible": True},
-                                          className="mb-3"),
-                            html.Label("Minimum Outbreak Size (New Infections):"),
-                            dcc.Slider(id="scenario4_threshold_slider", min=3, max=25, step=1, value=10,
-                                        marks={3: '3', 10: '10', 25: '25'},
+ 
+            html.Div(id="scenario4-col", children=[
+                dbc.Card([
+                    dbc.CardHeader([
+                        html.Div([
+                            "Scenario 4",
+                            dbc.Button("×", id="remove-scenario-4", size="sm", color="link",
+                                        style={"color": "#dc3545", "textDecoration": "none", "fontSize": "18px"})
+                        ], className="d-flex justify-content-between align-items-center")
+                    ]),
+                    dbc.CardBody([
+                        html.Label("School Size:"),
+                        dbc.Input(id="scenario4_school_size", type="number", value=500, className="mb-2"),
+                        html.Label("Vaccination Rate (%):"),
+                        dbc.Input(id="scenario4_vax", type="number", value=80, className="mb-2"),
+                        html.Label("Initially Infected:"),
+                        dbc.Input(id="scenario4_infected", type="number", value=1, className="mb-2"),
+                        html.Label("Basic Reproduction Number (R0):"),
+                        dcc.Slider(id="scenario4_R0_slider", min=12, max=18, step=0.1, value=15.0,
+                                      marks={12: '12', 15: '15', 18: '18'},
                                         tooltip={"placement": "bottom", "always_visible": True},
                                         className="mb-3"),
-                            html.Label("Vaccine Efficacy - Susceptibility (%):"),
-                            dcc.Slider(id="scenario4_vaccine_susceptibility_slider", min=99, max=100, step=0.1, value=99.7,
-                                        marks={99: '99', 99.7: '99.7', 100: '100'},
+                        html.Label("Average Latent Period (days):"),
+                        dcc.Slider(id="scenario4_latent_slider", min=7, max=12, step=0.1, value=10.5,
+                                      marks={7: '7', 10.5: '10.5', 12: '12'},
                                         tooltip={"placement": "bottom", "always_visible": True},
                                         className="mb-3"),
 
-                            html.Label("Vaccine Efficacy - Infectiousness (%):"),
-                            dcc.Slider(id="scenario4_vaccine_infectiousness_slider", min=75, max=100, step=1, value=95,
-                                        marks={75: '75', 95: '95', 100: '100'},
-                                        tooltip={"placement": "bottom", "always_visible": True},
-                                        className="mb-3"),
-                            html.Hr(),
-                            html.H5("Results:"),
-                            html.H6("Chance of Exceeding 10 New Infections:"),
-                            html.Div(id="scenario4_prob_result", className="mb-2"),
-                            html.H6("Likely outbreak size if exceeds 10 new infections:"),
-                            html.Div(id="scenario4_unvax_result", className="mb-2"),
-                            html.Div(id="scenario4_vax_result", className="mb-2")
-                        ])
+                        html.Label("Average Infectious Period (days):"),
+                        dcc.Slider(id="scenario4_infectious_slider", min=4, max=9, step=0.1, value=5.0,
+                                      marks={4: '4', 5: '5', 9: '9'},
+                                      tooltip={"placement": "bottom", "always_visible": True},
+                                      className="mb-3"),
+                        html.Label("Minimum Outbreak Size (New Infections):"),
+                        dcc.Slider(id="scenario4_threshold_slider", min=3, max=25, step=1, value=10,
+                                    marks={3: '3', 10: '10', 25: '25'},
+                                    tooltip={"placement": "bottom", "always_visible": True},
+                                    className="mb-3"),
+                        html.Label("Vaccine Efficacy - Susceptibility (%):"),
+                        dcc.Slider(id="scenario4_vaccine_susceptibility_slider", min=99, max=100, step=0.1, value=99.7,
+                                    marks={99: '99', 99.7: '99.7', 100: '100'},
+                                    tooltip={"placement": "bottom", "always_visible": True},
+                                    className="mb-3"),
+
+                        html.Label("Vaccine Efficacy - Infectiousness (%):"),
+                        dcc.Slider(id="scenario4_vaccine_infectiousness_slider", min=75, max=100, step=1, value=95,
+                                    marks={75: '75', 95: '95', 100: '100'},
+                                    tooltip={"placement": "bottom", "always_visible": True},
+                                    className="mb-3"),
+                        html.Hr(),
+                        html.H5("Results:"),
+                        html.H6("Chance of Exceeding 10 New Infections:"),
+                        html.Div(id="scenario4_prob_result", className="mb-2"),
+                        html.H6("Likely outbreak size if exceeds 10 new infections:"),
+                        html.Div(id="scenario4_unvax_result", className="mb-2"),
+                        html.Div(id="scenario4_vax_result", className="mb-2")
                     ])
-                ], md=4, style={"display": "none"}),
+                ])
+            ], className="scenario-card", style={"display": "none", "minWidth": "280px", "maxWidth": "380px", "flex": "1 1 auto"}),
 
-                dbc.Col(id="scenario5-col", children=[
-                    dbc.Card([
-                        dbc.CardHeader([
-                            html.Div([
-                                "Scenario 5",
-                                dbc.Button("×", id="remove-scenario-5", size="sm", color="link",
-                                            style={"color": "#dc3545", "textDecoration": "none", "fontSize": "18px"})
-                            ], className="d-flex justify-content-between align-items-center")
-                        ]),
-                        dbc.CardBody([
-                            html.Label("School Size:"),
-                            dbc.Input(id="scenario5_school_size", type="number", value=500, className="mb-2"),
 
-                            html.Label("Vaccination Rate (%):"),
-                            dbc.Input(id="scenario5_vax", type="number", value=70, className="mb-2"),
+            html.Div(id="scenario5-col", children=[
+                dbc.Card([
+                    dbc.CardHeader([
+                        html.Div([
+                            "Scenario 5",
+                            dbc.Button("×", id="remove-scenario-5", size="sm", color="link",
+                                        style={"color": "#dc3545", "textDecoration": "none", "fontSize": "18px"})
+                        ], className="d-flex justify-content-between align-items-center")
+                    ]),
+                    dbc.CardBody([
+                        html.Label("School Size:"),
+                        dbc.Input(id="scenario5_school_size", type="number", value=500, className="mb-2"),
 
-                            html.Label("Initially Infected:"),
-                            dbc.Input(id="scenario5_infected", type="number", value=1, className="mb-2"),
-                            html.Label("Basic Reproduction Number (R0):"),
-                            dcc.Slider(id="scenario5_R0_slider", min=12, max=18, step=0.1, value=15.0,
-                                          marks={12: '12', 15: '15', 18: '18'},
-                                          tooltip={"placement": "bottom", "always_visible": True},
-                                            className="mb-3"),
+                        html.Label("Vaccination Rate (%):"),
+                        dbc.Input(id="scenario5_vax", type="number", value=70, className="mb-2"),
 
-                            html.Label("Average Latent Period (days):"),
-                            dcc.Slider(id="scenario5_latent_slider", min=7, max=12, step=0.1, value=10.5,
-                                          marks={7: '7', 10.5: '10.5', 12: '12'},
-                                            tooltip={"placement": "bottom", "always_visible": True},
-                                            className="mb-3"),
+                        html.Label("Initially Infected:"),
+                        dbc.Input(id="scenario5_infected", type="number", value=1, className="mb-2"),
+                        html.Label("Basic Reproduction Number (R0):"),
+                        dcc.Slider(id="scenario5_R0_slider", min=12, max=18, step=0.1, value=15.0,
+                                      marks={12: '12', 15: '15', 18: '18'},
+                                      tooltip={"placement": "bottom", "always_visible": True},
+                                        className="mb-3"),
 
-                            html.Label("Average Infectious Period (days):"),
-                            dcc.Slider(id="scenario5_infectious_slider", min=4, max=9, step=0.1, value=5.0,
-                                          marks={4: '4', 5: '5', 9: '9'},
-                                          tooltip={"placement": "bottom", "always_visible": True},
-                                            className="mb-3"),
-
-                            html.Label("Minimum Outbreak Size (New Infections):"),
-                            dcc.Slider(id="scenario5_threshold_slider", min=3, max=25, step=1, value=10,
-                                        marks={3: '3', 10: '10', 25: '25'},
+                        html.Label("Average Latent Period (days):"),
+                        dcc.Slider(id="scenario5_latent_slider", min=7, max=12, step=0.1, value=10.5,
+                                      marks={7: '7', 10.5: '10.5', 12: '12'},
                                         tooltip={"placement": "bottom", "always_visible": True},
                                         className="mb-3"),
 
-                            html.Label("Vaccine Efficacy - Susceptibility (%):"),
-                            dcc.Slider(id="scenario5_vaccine_susceptibility_slider", min=99, max=100, step=0.1, value=99.7,
-                                        marks={99: '99', 99.7: '99.7', 100: '100'},
-                                        tooltip={"placement": "bottom", "always_visible": True},
+                        html.Label("Average Infectious Period (days):"),
+                        dcc.Slider(id="scenario5_infectious_slider", min=4, max=9, step=0.1, value=5.0,
+                                      marks={4: '4', 5: '5', 9: '9'},
+                                      tooltip={"placement": "bottom", "always_visible": True},
                                         className="mb-3"),
 
-                            html.Label("Vaccine Efficacy - Infectiousness (%):"),
-                            dcc.Slider(id="scenario5_vaccine_infectiousness_slider", min=75, max=100, step=1, value=95,
-                                        marks={75: '75', 95: '95', 100: '100'},
-                                        tooltip={"placement": "bottom", "always_visible": True},
-                                        className="mb-3"),
-                            html.Hr(),
-                            html.H5("Results:"),
-                            html.H6("Chance of Exceeding 10 New Infections:"),
-                            html.Div(id="scenario5_prob_result", className="mb-2"),
-                            html.H6("Likely outbreak size if exceeds 10 new infections:"),
-                            html.Div(id="scenario5_unvax_result", className="mb-2"),
-                            html.Div(id="scenario5_vax_result", className="mb-2")
-                        ]) 
-                    ])
-                ], md=4, style={"display": "none"})
-            ], style={
-                "overflowX": "auto", 
-                "flexWrap": "nowrap", 
-                "display": "flex",
-                "paddingLeft": "2rem",
-                "paddingRight": "2rem"
-            })
-        ])
-    ], style={"paddingTop": "40px"})
+                        html.Label("Minimum Outbreak Size (New Infections):"),
+                        dcc.Slider(id="scenario5_threshold_slider", min=3, max=25, step=1, value=10,
+                                    marks={3: '3', 10: '10', 25: '25'},
+                                    tooltip={"placement": "bottom", "always_visible": True},
+                                    className="mb-3"),
+
+                        html.Label("Vaccine Efficacy - Susceptibility (%):"),
+                        dcc.Slider(id="scenario5_vaccine_susceptibility_slider", min=99, max=100, step=0.1, value=99.7,
+                                    marks={99: '99', 99.7: '99.7', 100: '100'},
+                                    tooltip={"placement": "bottom", "always_visible": True},
+                                    className="mb-3"),
+
+                        html.Label("Vaccine Efficacy - Infectiousness (%):"),
+                        dcc.Slider(id="scenario5_vaccine_infectiousness_slider", min=75, max=100, step=1, value=95,
+                                    marks={75: '75', 95: '95', 100: '100'},
+                                    tooltip={"placement": "bottom", "always_visible": True},
+                                    className="mb-3"),
+                        html.Hr(),
+                        html.H5("Results:"),
+                        html.H6("Chance of Exceeding 10 New Infections:"),
+                        html.Div(id="scenario5_prob_result", className="mb-2"),
+                        html.H6("Likely outbreak size if exceeds 10 new infections:"),
+                        html.Div(id="scenario5_unvax_result", className="mb-2"),
+                        html.Div(id="scenario5_vax_result", className="mb-2")
+                    ]) 
+                ])
+            ], className="scenario-card", style={"display": "none", "minWidth": "280px", "maxWidth": "380px", "flex": "1 1 auto"})
+            
+        ], style={
+            "display": "flex",
+            "flexDirection": "row",
+            "gap": "15px",
+            "width": "100%",
+            "padding": "0 20px",
+            "minHeight": "600px",
+            "justifyContent": "center",  
+            "transition": "all 0.3s ease" 
+        })
+        
+    ], fluid=True, style={"paddingTop": "40px"}) 
+
 
 def create_params_from_inputs(school_size, vax_rate_percent, I0, R0=None, latent_period=None, 
                              infectious_period=None, threshold=None, vaccine_susceptibility=None, 
@@ -488,7 +493,8 @@ def manage_scenarios_hybrid(user_max_scenarios, add_clicks, remove3_clicks, remo
         user_max_scenarios = 2
     if current_max is None:
         current_max = 2
-    
+
+
     
     user_max_scenarios = max(2, min(5, user_max_scenarios))
     
@@ -524,6 +530,8 @@ def manage_scenarios_hybrid(user_max_scenarios, add_clicks, remove3_clicks, remo
         button_disabled = False
     
     return style3, style4, style5, user_max_scenarios, button_text, button_disabled, user_max_scenarios
+
+
 
 @callback(
     [Output('scenario1_prob_result', 'children'),

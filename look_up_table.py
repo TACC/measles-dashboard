@@ -40,6 +40,9 @@ def lookup_table_layout():
 def update_table(selected_metric):
 
     df = pd.read_csv("Measles Outbreak Risk Lookup Table.csv")
+
+    #df ['vax_prop'] = pd.to_numeric(df['vax_prop'], errors='coerce')
+
     data = df[df['metric'] == selected_metric]
     
     # School sizes
@@ -52,7 +55,7 @@ def update_table(selected_metric):
         rate_percent = int(rate)
         rate_data = data[data['vax_prop'] == rate].iloc[0]
         
-        row = {"vaccination_rate": f"{rate_percent}"}
+        row = {"vaccination_rate": rate_percent}
         
         for size in school_sizes:
             if str(size) in rate_data:
@@ -79,13 +82,13 @@ def update_table(selected_metric):
         }
     ]
     
-
-    # AgGrid table
-    table = dag.AgGrid(
-        id="sortable-lookup-table",
+    return html.Div([
+    dag.AgGrid(
+        id="lookup-table",
         rowData=rowData,
         columnDefs=columnDefs,
-        columnSize="sizeToFit"
+        columnSize="sizeToFit",
     )
-    
-    return table
+
+])
+
