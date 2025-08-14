@@ -24,28 +24,52 @@ DASHBOARD_CONFIG = {
 
 msp.DEFAULT_MSP_PARAMS["simulation_seed"] = DASHBOARD_CONFIG["simulation_seed"]
 
+
 def sensitivity_analysis_layout():
     return dbc.Container([
+
         dcc.Store(id="show-scenario-3", data=False),
         dcc.Store(id="show-scenario-4", data=False),
         dcc.Store(id="show-scenario-5", data=False),
-        
+        dcc.Store(id="active-scenario-count", data=2),
+        dcc.Store(id="max-scenarios-setting", data=5),
+
+
+
         dbc.Row([
             dbc.Col([
                 html.H1("Sensitivity Analysis", className="text-center mb-2"),
                 html.P("Compare different scenarios side by side", className="text-center mb-4"),
-            ], md=10),
-            dbc.Col([
-                dbc.Button(
-                    [html.I(className="fas fa-plus me-2"), "Add Scenario"],
-                    id="add-scenario-btn",
-                    color="primary",
-                    size="sm",
-                    className="float-end mt-2"
-                )
-            ], md=2)
-        ]),
+            ], md=12),
+        ], justify="center"),
         
+
+        dbc.Row([
+            dbc.Col([
+                html.Div([
+                    html.Label("Number of Scenarios:", className="form-label me-3"),
+                    dbc.Input(
+                        id="user-max-scenarios",
+                        type="number",
+                        value=2,
+                        min=2,
+                        max=5,
+                        size="md",
+                        style={"width": "80px", "textAlign": "center", "fontWeight": "bold", "display": "inline-block"}
+                    ),
+                    html.Small(" (2-5)", className="text-muted ms-2"),
+                    dbc.Button(
+                        [html.I(className="fas fa-plus me-2"), "Add Scenario"],
+                        id="add-scenario-btn",
+                        color="primary",
+                        size="sm",
+                        className="ms-3"
+                    )
+                ], className="d-flex justify-content-center align-items-center")
+            ], md=12)
+        ], className="mb-4"),
+        
+
         html.Div([
             dbc.Row(id="scenarios-row", children=[
                 dbc.Col([
@@ -167,10 +191,7 @@ def sensitivity_analysis_layout():
                         ])
                     ])
                 ], md=4),
-            ]),
-            
-            # Additional scenerios
-            dbc.Row(id="additional-scenarios", children=[
+
                 dbc.Col(id="scenario3-col", children=[
                     dbc.Card([
                         dbc.CardHeader([
@@ -235,10 +256,140 @@ def sensitivity_analysis_layout():
                             html.Div(id="scenario3_vax_result", className="mb-2")
                         ])
                     ])
+                ], md=4, style={"display": "none"}),
+
+                dbc.Col(id="scenario4-col", children=[
+                    dbc.Card([
+                        dbc.CardHeader([
+                            html.Div([
+                                html.H5("Scenario 4", className="mb-0"),
+                                dbc.Button("×", id="remove-scenario-4", size="sm", color="link",
+                                            style={"color": "#dc3545", "textDecoration": "none", "fontSize": "18px"})
+                            ], className="d-flex justify-content-between align-items-center")
+                        ]),
+                        dbc.CardBody([
+                            html.Label("School Size:"),
+                            dbc.Input(id="scenario4_school_size", type="number", value=500, className="mb-2"),
+                            html.Label("Vaccination Rate (%):"),
+                            dbc.Input(id="scenario4_vax", type="number", value=80, className="mb-2"),
+                            html.Label("Initially Infected:"),
+                            dbc.Input(id="scenario4_infected", type="number", value=1, className="mb-2"),
+                            html.Label("Basic Reproduction Number (R0):"),
+                            dcc.Slider(id="scenario4_R0_slider", min=12, max=18, step=0.1, value=15.0,
+                                          marks={12: '12', 15: '15', 18: '18'},
+                                            tooltip={"placement": "bottom", "always_visible": True},
+                                            className="mb-3"),
+                            html.Label("Average Latent Period (days):"),
+                            dcc.Slider(id="scenario4_latent_slider", min=7, max=12, step=0.1, value=10.5,
+                                          marks={7: '7', 10.5: '10.5', 12: '12'},
+                                            tooltip={"placement": "bottom", "always_visible": True},
+                                            className="mb-3"),
+
+                            html.Label("Average Infectious Period (days):"),
+                            dcc.Slider(id="scenario4_infectious_slider", min=4, max=9, step=0.1, value=5.0,
+                                          marks={4: '4', 5: '5', 9: '9'},
+                                          tooltip={"placement": "bottom", "always_visible": True},
+                                          className="mb-3"),
+                            html.Label("Minimum Outbreak Size (New Infections):"),
+                            dcc.Slider(id="scenario4_threshold_slider", min=3, max=25, step=1, value=10,
+                                        marks={3: '3', 10: '10', 25: '25'},
+                                        tooltip={"placement": "bottom", "always_visible": True},
+                                        className="mb-3"),
+                            html.Label("Vaccine Efficacy - Susceptibility (%):"),
+                            dcc.Slider(id="scenario4_vaccine_susceptibility_slider", min=99, max=100, step=0.1, value=99.7,
+                                        marks={99: '99', 99.7: '99.7', 100: '100'},
+                                        tooltip={"placement": "bottom", "always_visible": True},
+                                        className="mb-3"),
+
+                            html.Label("Vaccine Efficacy - Infectiousness (%):"),
+                            dcc.Slider(id="scenario4_vaccine_infectiousness_slider", min=75, max=100, step=1, value=95,
+                                        marks={75: '75', 95: '95', 100: '100'},
+                                        tooltip={"placement": "bottom", "always_visible": True},
+                                        className="mb-3"),
+                            html.Hr(),
+                            html.H5("Results:"),
+                            html.H6("Chance of Exceeding 10 New Infections:"),
+                            html.Div(id="scenario4_prob_result", className="mb-2"),
+                            html.H6("Likely outbreak size if exceeds 10 new infections:"),
+                            html.Div(id="scenario4_unvax_result", className="mb-2"),
+                            html.Div(id="scenario4_vax_result", className="mb-2")
+                        ])
+                    ])
+                ], md=4, style={"display": "none"}),
+
+                dbc.Col(id="scenario5-col", children=[
+                    dbc.Card([
+                        dbc.CardHeader([
+                            html.Div([
+                                html.H5("Scenario 5", className="mb-0"),
+                                dbc.Button("×", id="remove-scenario-5", size="sm", color="link",
+                                            style={"color": "#dc3545", "textDecoration": "none", "fontSize": "18px"})
+                            ], className="d-flex justify-content-between align-items-center")
+                        ]),
+                        dbc.CardBody([
+                            html.Label("School Size:"),
+                            dbc.Input(id="scenario5_school_size", type="number", value=500, className="mb-2"),
+
+                            html.Label("Vaccination Rate (%):"),
+                            dbc.Input(id="scenario5_vax", type="number", value=70, className="mb-2"),
+
+                            html.Label("Initially Infected:"),
+                            dbc.Input(id="scenario5_infected", type="number", value=1, className="mb-2"),
+                            html.Label("Basic Reproduction Number (R0):"),
+                            dcc.Slider(id="scenario5_R0_slider", min=12, max=18, step=0.1, value=15.0,
+                                          marks={12: '12', 15: '15', 18: '18'},
+                                          tooltip={"placement": "bottom", "always_visible": True},
+                                            className="mb-3"),
+
+                            html.Label("Average Latent Period (days):"),
+                            dcc.Slider(id="scenario5_latent_slider", min=7, max=12, step=0.1, value=10.5,
+                                          marks={7: '7', 10.5: '10.5', 12: '12'},
+                                            tooltip={"placement": "bottom", "always_visible": True},
+                                            className="mb-3"),
+
+                            html.Label("Average Infectious Period (days):"),
+                            dcc.Slider(id="scenario5_infectious_slider", min=4, max=9, step=0.1, value=5.0,
+                                          marks={4: '4', 5: '5', 9: '9'},
+                                          tooltip={"placement": "bottom", "always_visible": True},
+                                            className="mb-3"),
+
+                            html.Label("Minimum Outbreak Size (New Infections):"),
+                            dcc.Slider(id="scenario5_threshold_slider", min=3, max=25, step=1, value=10,
+                                        marks={3: '3', 10: '10', 25: '25'},
+                                        tooltip={"placement": "bottom", "always_visible": True},
+                                        className="mb-3"),
+
+                            html.Label("Vaccine Efficacy - Susceptibility (%):"),
+                            dcc.Slider(id="scenario5_vaccine_susceptibility_slider", min=99, max=100, step=0.1, value=99.7,
+                                        marks={99: '99', 99.7: '99.7', 100: '100'},
+                                        tooltip={"placement": "bottom", "always_visible": True},
+                                        className="mb-3"),
+
+                            html.Label("Vaccine Efficacy - Infectiousness (%):"),
+                            dcc.Slider(id="scenario5_vaccine_infectiousness_slider", min=75, max=100, step=1, value=95,
+                                        marks={75: '75', 95: '95', 100: '100'},
+                                        tooltip={"placement": "bottom", "always_visible": True},
+                                        className="mb-3"),
+                            html.Hr(),
+                            html.H5("Results:"),
+                            html.H6("Chance of Exceeding 10 New Infections:"),
+                            html.Div(id="scenario5_prob_result", className="mb-2"),
+                            html.H6("Likely outbreak size if exceeds 10 new infections:"),
+                            html.Div(id="scenario5_unvax_result", className="mb-2"),
+                            html.Div(id="scenario5_vax_result", className="mb-2")
+                        ]) 
+                    ])
                 ], md=4, style={"display": "none"})
-            ])
+            ], style={
+                "overflowX": "auto", 
+                "flexWrap": "nowrap", 
+                "display": "flex",
+                "paddingLeft": "2rem",
+                "paddingRight": "2rem"
+            })
         ])
     ], style={"paddingTop": "40px"})
+
 
 def create_params_from_inputs(school_size, vax_rate_percent, I0, R0=None, latent_period=None, 
                              infectious_period=None, threshold=None, vaccine_susceptibility=None, 
@@ -313,24 +464,67 @@ def calculate_scenario_results(params_dict):
 
     return prob_threshold_plus_new_str, cases_expected_over_threshold_unvaccinated_str, cases_expected_over_threshold_breakthrough_str
 
+
 @callback(
     [Output("scenario3-col", "style"),
+     Output("scenario4-col", "style"),  
+     Output("scenario5-col", "style"),
+     Output("user-max-scenarios", "value"), 
      Output("add-scenario-btn", "children"),
-     Output("add-scenario-btn", "disabled")],
-    [Input("add-scenario-btn", "n_clicks"),
-     Input("remove-scenario-3", "n_clicks")],
-    [State("scenario3-col", "style")],
+     Output("add-scenario-btn", "disabled"),
+     Output("max-scenarios-setting", "data")],
+    [Input("user-max-scenarios", "value"),
+     Input("add-scenario-btn", "n_clicks"),
+     Input("remove-scenario-3", "n_clicks"),
+     Input("remove-scenario-4", "n_clicks"),
+     Input("remove-scenario-5", "n_clicks")],
+    [State("max-scenarios-setting", "data")],
     prevent_initial_call=True
 )
-def toggle_scenario3(add_clicks, remove_clicks, current_style):
+def manage_scenarios_hybrid(user_max_scenarios, add_clicks, remove3_clicks, remove4_clicks, remove5_clicks, current_max):
     ctx_triggered = callback_context.triggered[0]['prop_id'] if callback_context.triggered else None
     
-    if ctx_triggered == "add-scenario-btn.n_clicks":
-        return {"display": "block"}, [html.I(className="fas fa-check me-2"), "Scenario Added"], True
-    elif ctx_triggered == "remove-scenario-3.n_clicks":
-        return {"display": "none"}, [html.I(className="fas fa-plus me-2"), "Add Scenario"], False
+ 
+    if user_max_scenarios is None:
+        user_max_scenarios = 2
+    if current_max is None:
+        current_max = 2
     
-    return current_style, [html.I(className="fas fa-plus me-2"), "Add Scenario"], False
+    
+    user_max_scenarios = max(2, min(5, user_max_scenarios))
+    
+  
+    if ctx_triggered == "add-scenario-btn.n_clicks":
+        user_max_scenarios = min(5, user_max_scenarios + 1)
+    elif ctx_triggered == "remove-scenario-3.n_clicks":
+        user_max_scenarios = max(2, user_max_scenarios - 1)
+    elif ctx_triggered == "remove-scenario-4.n_clicks":
+        user_max_scenarios = max(2, user_max_scenarios - 1)
+    elif ctx_triggered == "remove-scenario-5.n_clicks":
+
+        user_max_scenarios = max(2, user_max_scenarios - 1)
+    
+
+    style3 = {"display": "none"}
+    style4 = {"display": "none"}
+    style5 = {"display": "none"}
+    
+
+    if user_max_scenarios >= 3:
+        style3 = {"display": "block"}
+    if user_max_scenarios >= 4:
+        style4 = {"display": "block"}
+    if user_max_scenarios >= 5:
+        style5 = {"display": "block"}
+
+    if user_max_scenarios >= 5:
+        button_text = [html.I(className="fas fa-check me-2"), "Max Scenarios (5)"]
+        button_disabled = True
+    else:
+        button_text = [html.I(className="fas fa-plus me-2"), "Add Scenario"]
+        button_disabled = False
+    
+    return style3, style4, style5, user_max_scenarios, button_text, button_disabled, user_max_scenarios
 
 @callback(
     [Output('scenario1_prob_result', 'children'),
@@ -346,6 +540,7 @@ def toggle_scenario3(add_clicks, remove_clicks, current_style):
      Input('scenario1_vaccine_susceptibility_slider', 'value'),
      Input('scenario1_vaccine_infectiousness_slider', 'value')]
 )
+
 def update_scenario1(school_size, vax_rate_percent, I0, R0, latent_period, 
                     infectious_period, threshold, vaccine_susceptibility, vaccine_infectiousness):
     try:
@@ -372,6 +567,7 @@ def update_scenario1(school_size, vax_rate_percent, I0, R0, latent_period,
      Input('scenario2_vaccine_susceptibility_slider', 'value'),
      Input('scenario2_vaccine_infectiousness_slider', 'value')]
 )
+
 def update_scenario2(school_size, vax_rate_percent, I0, R0, latent_period, 
                     infectious_period, threshold, vaccine_susceptibility, vaccine_infectiousness):
     try:
@@ -398,6 +594,7 @@ def update_scenario2(school_size, vax_rate_percent, I0, R0, latent_period,
      Input('scenario3_vaccine_susceptibility_slider', 'value'),
      Input('scenario3_vaccine_infectiousness_slider', 'value')]
 )
+
 def update_scenario3(school_size, vax_rate_percent, I0, R0, latent_period, 
                     infectious_period, threshold, vaccine_susceptibility, vaccine_infectiousness):
     try:
@@ -424,6 +621,7 @@ def update_scenario3(school_size, vax_rate_percent, I0, R0, latent_period,
      Input('scenario4_vaccine_susceptibility_slider', 'value'),
      Input('scenario4_vaccine_infectiousness_slider', 'value')]
 )
+
 def update_scenario4(school_size, vax_rate_percent, I0, R0, latent_period, 
                     infectious_period, threshold, vaccine_susceptibility, vaccine_infectiousness):
     try:
@@ -450,6 +648,7 @@ def update_scenario4(school_size, vax_rate_percent, I0, R0, latent_period,
      Input('scenario5_vaccine_susceptibility_slider', 'value'),
      Input('scenario5_vaccine_infectiousness_slider', 'value')]
 )
+
 def update_scenario5(school_size, vax_rate_percent, I0, R0, latent_period, 
                     infectious_period, threshold, vaccine_susceptibility, vaccine_infectiousness):
     try:
@@ -461,4 +660,3 @@ def update_scenario5(school_size, vax_rate_percent, I0, R0, latent_period,
         return prob_result, unvax_result, vax_result
     except Exception as e:
         return f"Calculation error: {str(e)}", "", ""
-    
