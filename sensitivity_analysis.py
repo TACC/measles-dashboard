@@ -35,7 +35,6 @@ def sensitivity_analysis_layout():
         dcc.Store(id="max-scenarios-setting", data=5),
 
 
-
         dbc.Row([
             dbc.Col([
                 html.H1("Sensitivity Analysis", className="text-center mb-2"),
@@ -132,6 +131,7 @@ def sensitivity_analysis_layout():
                     ])
                 ], md=4),
                 
+                
                 dbc.Col([
                     dbc.Card([
                         dbc.CardHeader("Scenario 2"),
@@ -196,7 +196,7 @@ def sensitivity_analysis_layout():
                     dbc.Card([
                         dbc.CardHeader([
                             html.Div([
-                                html.H5("Scenario 3", className="mb-0"),
+                                "Scenario 3",
                                 dbc.Button("×", id="remove-scenario-3", size="sm", color="link", 
                                          style={"color": "#dc3545", "textDecoration": "none", "fontSize": "18px"})
                             ], className="d-flex justify-content-between align-items-center")
@@ -262,7 +262,7 @@ def sensitivity_analysis_layout():
                     dbc.Card([
                         dbc.CardHeader([
                             html.Div([
-                                html.H5("Scenario 4", className="mb-0"),
+                                "Scenario 4",
                                 dbc.Button("×", id="remove-scenario-4", size="sm", color="link",
                                             style={"color": "#dc3545", "textDecoration": "none", "fontSize": "18px"})
                             ], className="d-flex justify-content-between align-items-center")
@@ -321,7 +321,7 @@ def sensitivity_analysis_layout():
                     dbc.Card([
                         dbc.CardHeader([
                             html.Div([
-                                html.H5("Scenario 5", className="mb-0"),
+                                "Scenario 5",
                                 dbc.Button("×", id="remove-scenario-5", size="sm", color="link",
                                             style={"color": "#dc3545", "textDecoration": "none", "fontSize": "18px"})
                             ], className="d-flex justify-content-between align-items-center")
@@ -389,7 +389,6 @@ def sensitivity_analysis_layout():
             })
         ])
     ], style={"paddingTop": "40px"})
-
 
 def create_params_from_inputs(school_size, vax_rate_percent, I0, R0=None, latent_period=None, 
                              infectious_period=None, threshold=None, vaccine_susceptibility=None, 
