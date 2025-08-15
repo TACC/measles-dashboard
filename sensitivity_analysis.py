@@ -24,16 +24,16 @@ DASHBOARD_CONFIG = {
 
 msp.DEFAULT_MSP_PARAMS["simulation_seed"] = DASHBOARD_CONFIG["simulation_seed"]
 
-
 def sensitivity_analysis_layout():
     return dbc.Container([
-
+        # initially hidden and store data for scenarios
         dcc.Store(id="show-scenario-3", data=False),
         dcc.Store(id="show-scenario-4", data=False),
         dcc.Store(id="show-scenario-5", data=False),
         dcc.Store(id="active-scenario-count", data=2),
         dcc.Store(id="max-scenarios-setting", data=5),
 
+ # Header and title at the top 
         dbc.Row([
             dbc.Col([
                 html.H1("Sensitivity Analysis", className="text-center mb-2"),
@@ -41,6 +41,8 @@ def sensitivity_analysis_layout():
             ], md=12),
         ], justify="center"),
         
+
+    # Input for number of scenarios variable at the top page
         dbc.Row([
             dbc.Col([
                 html.Div([
@@ -66,11 +68,16 @@ def sensitivity_analysis_layout():
             ], md=12)
         ], className="mb-4"),
         
-
+    #  Scenario 1 card input
         html.Div(id="scenarios-container", children=[
             html.Div([
                 dbc.Card([
-                    dbc.CardHeader("Scenario 1"),
+                    #dbc.CardHeader("Scenario 1"),
+                    dbc.CardHeader([
+                    html.Div([
+                    "Scenario 1"
+                        ], className="d-flex justify-content-between align-items-center")
+]),
                     dbc.CardBody([
                         html.Label("School Size:"),
                         dbc.Input(id="scenario1_school_size", type="number", value=500, className="mb-2"),
@@ -81,6 +88,7 @@ def sensitivity_analysis_layout():
                         html.Label("Initially Infected:"),
                         dbc.Input(id="scenario1_infected", type="number", value=1, className="mb-2"),
 
+    # Scenario 1 sliders for parameters
                         html.Label("Basic Reproduction Number (R0):"),
                         dcc.Slider(id="scenario1_R0_slider", min=12, max=18, step=0.1, value=15.0,
                                       marks={12: '12', 15: '15', 18: '18'},
@@ -126,12 +134,18 @@ def sensitivity_analysis_layout():
                         html.Div(id="scenario1_vax_result", className="mb-2")
                     ])
                 ])
-            ], className="scenario-card", style={"minWidth": "280px", "maxWidth": "380px", "flex": "1 1 auto"}),
-            
+            ], className="scenario-card", style={"minWidth": "230px", "maxWidth": "380px", "flex": "1 1 auto"}), # changes with minimum and maximum width of the card
 
+            
+    # Scenario 2 card input
             html.Div([
                 dbc.Card([
-                    dbc.CardHeader("Scenario 2"),
+                    #dbc.CardHeader("Scenario 2"),
+                    dbc.CardHeader([
+                    html.Div([
+                    "Scenario 2"
+                        ], className="d-flex justify-content-between align-items-center")
+]),
                     dbc.CardBody([
                         html.Label("School Size:"),
                         dbc.Input(id="scenario2_school_size", type="number", value=500, className="mb-2"),
@@ -187,9 +201,9 @@ def sensitivity_analysis_layout():
                         html.Div(id="scenario2_vax_result", className="mb-2")
                     ])
                 ])
-            ], className="scenario-card", style={"minWidth": "280px", "maxWidth": "380px", "flex": "1 1 auto"}),
+            ], className="scenario-card", style={"minWidth": "230px", "maxWidth": "380px", "flex": "1 1 auto"}),
 
-
+    # Scenario 3 card input (button to remove scenario)
             html.Div(id="scenario3-col", children=[
                 dbc.Card([
                     dbc.CardHeader([
@@ -256,7 +270,7 @@ def sensitivity_analysis_layout():
                 ])
             ], className="scenario-card", style={"display": "none", "minWidth": "280px", "maxWidth": "380px", "flex": "1 1 auto"}),
 
- 
+    # Scenario 4 card input (button to remove scenario)
             html.Div(id="scenario4-col", children=[
                 dbc.Card([
                     dbc.CardHeader([
@@ -316,7 +330,7 @@ def sensitivity_analysis_layout():
                 ])
             ], className="scenario-card", style={"display": "none", "minWidth": "280px", "maxWidth": "380px", "flex": "1 1 auto"}),
 
-
+    # Scenario 5 card input (button to remove scenario)
             html.Div(id="scenario5-col", children=[
                 dbc.Card([
                     dbc.CardHeader([
@@ -380,11 +394,11 @@ def sensitivity_analysis_layout():
                     ]) 
                 ])
             ], className="scenario-card", style={"display": "none", "minWidth": "280px", "maxWidth": "380px", "flex": "1 1 auto"})
-            
+        # Transition to responsive layout 
         ], style={
             "display": "flex",
             "flexDirection": "row",
-            "gap": "15px",
+            "gap": "8px",
             "width": "100%",
             "padding": "0 20px",
             "minHeight": "600px",
@@ -394,12 +408,13 @@ def sensitivity_analysis_layout():
         
     ], fluid=True, style={"paddingTop": "40px"}) 
 
-
+ 
 def create_params_from_inputs(school_size, vax_rate_percent, I0, R0=None, latent_period=None, 
                              infectious_period=None, threshold=None, vaccine_susceptibility=None, 
                              vaccine_infectiousness=None):
     params_dict = copy.deepcopy(msp.DEFAULT_MSP_PARAMS)
     
+    # set default values if there are no inputs
     school_size = school_size if school_size is not None else SELECTOR_DEFAULTS['school_size']
     vax_rate_percent = vax_rate_percent if vax_rate_percent is not None else SELECTOR_DEFAULTS['vax_rate']
     I0 = I0 if I0 is not None else SELECTOR_DEFAULTS['I0']
@@ -409,6 +424,7 @@ def create_params_from_inputs(school_size, vax_rate_percent, I0, R0=None, latent
     threshold = threshold if threshold is not None else 10
     vaccine_susceptibility = vaccine_susceptibility if vaccine_susceptibility is not None else 99.7
     vaccine_infectiousness = vaccine_infectiousness if vaccine_infectiousness is not None else 95
+
 
     params_dict['population'] = [int(school_size)]
     params_dict['vax_prop'] = [0.01 * float(vax_rate_percent)]
@@ -422,6 +438,7 @@ def create_params_from_inputs(school_size, vax_rate_percent, I0, R0=None, latent
 
     return params_dict
 
+
 def check_inputs_validity(params_dict):
     if not 0 <= params_dict["vax_prop"][0] <= 1:
         return False, "Invalid inputs: vaccination rate must be between 0-100%."
@@ -431,7 +448,9 @@ def check_inputs_validity(params_dict):
         return False, "Invalid inputs: The number of initially infected students cannot exceed the number of unvaccinated students. Please adjust."
     else:
         return True, ""
+    
 
+ # 
 def calculate_scenario_results(params_dict):    
     inputs_valid, warning_msg = check_inputs_validity(params_dict)
     if not inputs_valid:
@@ -439,6 +458,7 @@ def calculate_scenario_results(params_dict):
     
     I_unvax_init = params_dict["I0"][0]
     threshold_val = int(params_dict['threshold_values'][0])
+
 
     transition_sampler = measles_efficiency.build_transition_sampler(
         np.random.Generator(PCG64(seed=DASHBOARD_CONFIG["simulation_seed"])))
@@ -454,6 +474,7 @@ def calculate_scenario_results(params_dict):
     prob_threshold_plus_new_str = \
         dashboard_exceedance_prob_str(len(total_cases_above_threshold_array) / DASHBOARD_CONFIG["num_simulations_results"])
 
+# Got this from app.py file (calculation of expected case over threshold)
     if len(total_cases_above_threshold_array) == 0:
         cases_expected_over_threshold_unvaccinated_str = "Fewer than {} new infections".format(int(threshold_val))
         cases_expected_over_threshold_breakthrough_str = ""
@@ -468,7 +489,7 @@ def calculate_scenario_results(params_dict):
 
     return prob_threshold_plus_new_str, cases_expected_over_threshold_unvaccinated_str, cases_expected_over_threshold_breakthrough_str
 
-
+ # Callback to function to manage scenarios 3, 4, and 5
 @callback(
     [Output("scenario3-col", "style"),
      Output("scenario4-col", "style"),  
@@ -485,20 +506,23 @@ def calculate_scenario_results(params_dict):
     [State("max-scenarios-setting", "data")],
     prevent_initial_call=True
 )
+
+ # Helps remove scenarios if user clicks remove button
 def manage_scenarios_hybrid(user_max_scenarios, add_clicks, remove3_clicks, remove4_clicks, remove5_clicks, current_max):
     ctx_triggered = callback_context.triggered[0]['prop_id'] if callback_context.triggered else None
     
- 
+  # Set default to only have 2 scenarios visible
     if user_max_scenarios is None:
         user_max_scenarios = 2
     if current_max is None:
         current_max = 2
 
 
-    
+ 
+    # Sets the maximum number of scenarios to 5 and mininum to 2 
     user_max_scenarios = max(2, min(5, user_max_scenarios))
-    
-  
+
+    # Handles the button clicks to add or remove scenarios
     if ctx_triggered == "add-scenario-btn.n_clicks":
         user_max_scenarios = min(5, user_max_scenarios + 1)
     elif ctx_triggered == "remove-scenario-3.n_clicks":
@@ -506,15 +530,15 @@ def manage_scenarios_hybrid(user_max_scenarios, add_clicks, remove3_clicks, remo
     elif ctx_triggered == "remove-scenario-4.n_clicks":
         user_max_scenarios = max(2, user_max_scenarios - 1)
     elif ctx_triggered == "remove-scenario-5.n_clicks":
-
         user_max_scenarios = max(2, user_max_scenarios - 1)
     
+ 
 
     style3 = {"display": "none"}
     style4 = {"display": "none"}
     style5 = {"display": "none"}
     
-
+    # Shows the total number of scenarios based on the amount of scenarios the user has selected
     if user_max_scenarios >= 3:
         style3 = {"display": "block"}
     if user_max_scenarios >= 4:
@@ -548,6 +572,7 @@ def manage_scenarios_hybrid(user_max_scenarios, add_clicks, remove3_clicks, remo
      Input('scenario1_vaccine_infectiousness_slider', 'value')]
 )
 
+ # scenario 1 callback function to update based on user inputs
 def update_scenario1(school_size, vax_rate_percent, I0, R0, latent_period, 
                     infectious_period, threshold, vaccine_susceptibility, vaccine_infectiousness):
     try:
@@ -575,6 +600,7 @@ def update_scenario1(school_size, vax_rate_percent, I0, R0, latent_period,
      Input('scenario2_vaccine_infectiousness_slider', 'value')]
 )
 
+# Callback function for scenario 2 to update based on user inputs
 def update_scenario2(school_size, vax_rate_percent, I0, R0, latent_period, 
                     infectious_period, threshold, vaccine_susceptibility, vaccine_infectiousness):
     try:
@@ -602,6 +628,7 @@ def update_scenario2(school_size, vax_rate_percent, I0, R0, latent_period,
      Input('scenario3_vaccine_infectiousness_slider', 'value')]
 )
 
+ # Callback function for scenario 3 to update based on user inputs
 def update_scenario3(school_size, vax_rate_percent, I0, R0, latent_period, 
                     infectious_period, threshold, vaccine_susceptibility, vaccine_infectiousness):
     try:
@@ -629,6 +656,7 @@ def update_scenario3(school_size, vax_rate_percent, I0, R0, latent_period,
      Input('scenario4_vaccine_infectiousness_slider', 'value')]
 )
 
+# Callback function for scenario 4 to update based on user inputs
 def update_scenario4(school_size, vax_rate_percent, I0, R0, latent_period, 
                     infectious_period, threshold, vaccine_susceptibility, vaccine_infectiousness):
     try:
@@ -656,6 +684,7 @@ def update_scenario4(school_size, vax_rate_percent, I0, R0, latent_period,
      Input('scenario5_vaccine_infectiousness_slider', 'value')]
 )
 
+  
 def update_scenario5(school_size, vax_rate_percent, I0, R0, latent_period, 
                     infectious_period, threshold, vaccine_susceptibility, vaccine_infectiousness):
     try:

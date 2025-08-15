@@ -4,6 +4,7 @@ import dash_bootstrap_components as dbc
 import dash_ag_grid as dag
 import pandas as pd
 
+# layout for the lookup table page
 def lookup_table_layout():
     return dbc.Container([
         html.H1("Outbreak Risk Lookup Table", className="text-center mb-4"),
@@ -31,21 +32,21 @@ def lookup_table_layout():
         html.Div(id="lookup-table-container")
     ], style={"paddingTop": "40px"})
 
+
 @callback(
     Output("lookup-table-container", "children"),
     Input("metric-dropdown", "value")
 )
 
-
+ # CSV file and variables 
 def update_table(selected_metric):
 
     df = pd.read_csv("Measles Outbreak Risk Lookup Table.csv")
 
-    #df ['vax_prop'] = pd.to_numeric(df['vax_prop'], errors='coerce')
-
-    data = df[df['metric'] == selected_metric]
+    # Ensure the selected metric exists in the DataFrame
+    data = df[df['metric'] == selected_metric] 
     
-    # School sizes
+    # School sizes and vaccination rates
     school_sizes = [10, 25, 100, 250, 500, 750, 1000, 1500, 2500, 5000]
     vaccination_rates = sorted(data['vax_prop'].unique())
     
@@ -57,6 +58,7 @@ def update_table(selected_metric):
         
         row = {"vaccination_rate": rate_percent}
         
+        # Add the school size columns
         for size in school_sizes:
             if str(size) in rate_data:
                 value = rate_data[str(size)]
@@ -65,7 +67,8 @@ def update_table(selected_metric):
                 row[f"school_{size}"] = 0
         
         rowData.append(row)
-    
+
+    # Format the column for the grid
     columnDefs = [
         {"field": "vaccination_rate", "headerName": "Percent Vaccinated", "pinned": "center", "width": 150},
         {
@@ -82,12 +85,14 @@ def update_table(selected_metric):
         }
     ]
     
+
     return html.Div([
     dag.AgGrid(
         id="lookup-table",
         rowData=rowData,
         columnDefs=columnDefs,
         columnSize="sizeToFit",
+        style={"height": "600px", "width": "100%"}, # set height and width of the grid table
     )
 
 ])

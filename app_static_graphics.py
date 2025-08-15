@@ -18,13 +18,15 @@ navbar = dbc.Navbar(
                 className="header-logo",
                 style={"marginRight": "15px"},
             ),
+            # link for the Main Page
             dcc.Link("Main", href="/",
                      style={"color": "white", "fontSize": "18px", "fontWeight": "700", "marginLeft": "30px"}),
 
-
+              # Link for the Lookup table page
             dcc.Link("Lookup Table", href="/lookup",
                      style={"color": "white", "fontSize": "18px", "fontWeight": "700", "marginLeft": "35px"}),
-
+              
+              # Link for the Sensitvity Analysis page
               dcc.Link("Sensitivity Analysis", href="/sensitivity",
                      style={"color": "white", "fontSize": "18px", "fontWeight": "700", "marginLeft": "40px"}),
        
