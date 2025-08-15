@@ -201,7 +201,8 @@ def sensitivity_analysis_layout():
                         html.Div(id="scenario2_vax_result", className="mb-2")
                     ])
                 ])
-            ], className="scenario-card", style={"minWidth": "230px", "maxWidth": "380px", "flex": "1 1 auto"}),
+            ], className="scenario-card", style={"minWidth": "230px", "maxWidth": "380px", "flex": "1 1 auto"}),  #changes with minimum and maximum width of the card
+
 
     # Scenario 3 card input (button to remove scenario)
             html.Div(id="scenario3-col", children=[
@@ -268,7 +269,7 @@ def sensitivity_analysis_layout():
                         html.Div(id="scenario3_vax_result", className="mb-2")
                     ])
                 ])
-            ], className="scenario-card", style={"display": "none", "minWidth": "280px", "maxWidth": "380px", "flex": "1 1 auto"}),
+            ], className="scenario-card", style={"display": "none", "minWidth": "280px", "maxWidth": "380px", "flex": "1 1 auto"}), #changes with minimum and maximum width of the card
 
     # Scenario 4 card input (button to remove scenario)
             html.Div(id="scenario4-col", children=[
@@ -328,7 +329,7 @@ def sensitivity_analysis_layout():
                         html.Div(id="scenario4_vax_result", className="mb-2")
                     ])
                 ])
-            ], className="scenario-card", style={"display": "none", "minWidth": "280px", "maxWidth": "380px", "flex": "1 1 auto"}),
+            ], className="scenario-card", style={"display": "none", "minWidth": "280px", "maxWidth": "380px", "flex": "1 1 auto"}), #changes with minimum and maximum width of the card
 
     # Scenario 5 card input (button to remove scenario)
             html.Div(id="scenario5-col", children=[
@@ -393,7 +394,7 @@ def sensitivity_analysis_layout():
                         html.Div(id="scenario5_vax_result", className="mb-2")
                     ]) 
                 ])
-            ], className="scenario-card", style={"display": "none", "minWidth": "280px", "maxWidth": "380px", "flex": "1 1 auto"})
+            ], className="scenario-card", style={"display": "none", "minWidth": "280px", "maxWidth": "380px", "flex": "1 1 auto"}) #changes with minimum and maximum width of the card
         # Transition to responsive layout 
         ], style={
             "display": "flex",
@@ -450,7 +451,7 @@ def check_inputs_validity(params_dict):
         return True, ""
     
 
- # 
+ 
 def calculate_scenario_results(params_dict):    
     inputs_valid, warning_msg = check_inputs_validity(params_dict)
     if not inputs_valid:
