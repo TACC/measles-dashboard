@@ -23,6 +23,7 @@ TODO: we need a script to assess validity and format of new states' datasets!
 - Note: 03/13/2025 changed TX and NC CSV "MMR Vaccination Rate" column to be expressed as float -- percentage instead of decimals, with 2 decimal points only, will enforce this for new vaccination data.
 - Note: 04/28/2025 added the following states: Alabama, Arizona, California, Colorado, Iowa, Massachusetts, Michigan, Minnesota, Oregon, Washington (state)
 - Note: 06/05/2025 added the following states: Idaho, Indiana, Kansas, Kentucky, Louisiana, Maine
+- Note: 09/23/2025 updated Texas data to be for 2024-2025 season
 
 ### Need for speed - 04/10/2025 LP
 - Fixed merge conflicts -- manually checked results versus online dashboard to confirm no issues.
