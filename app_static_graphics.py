@@ -250,7 +250,7 @@ def bottom_info_section():
                                 style={"color": "#1b96bf", "textDecoration": "none"}),
                          html.A(")")]),
                 html.Li([html.A("Texas ("),
-                         html.A("DSHS 2023-2024 Annual Report of Immunization Status",
+                         html.A("DSHS 2024-2025 Annual Report of Immunization Status",
                                 href="https://www.dshs.texas.gov/immunizations/data/school/coverage", target="_blank",
                                 style={"color": "#1b96bf", "textDecoration": "none"}),
                          html.A(")")]),
