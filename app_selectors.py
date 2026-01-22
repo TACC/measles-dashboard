@@ -20,7 +20,7 @@ states_list = ( # needs to be in alphabetical order
     "Massachusetts", "Maryland", "Michigan",
     "Minnesota", "New Mexico", "New York",
     "North Carolina", "Oregon", "Pennsylvania", "Texas",
-    "Washington"
+    "Washington", "Wisconsin"
     )
 
 SELECTOR_DEFAULTS =\

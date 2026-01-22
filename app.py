@@ -71,6 +71,7 @@ state_name_to_two_letter_code = {
     "Kentucky": "KY",
     "Louisiana": "LA",
     "Maine": "ME",
+    "Wisconsin": "WI",
 }
 
 df_sort_grades = pd.DataFrame({
