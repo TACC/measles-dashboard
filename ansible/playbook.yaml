@@ -42,20 +42,20 @@
   - name: Git checkout
     ansible.builtin.git:
       repo: 'https://github.com/TACC/measles-dashboard.git'
-      dest: /home/exouser/measles-dashboard
-      version: development
+      dest: /home/ubuntu/measles-dashboard
+      version: wisconsin
       force: true
 
   - name: Stop existing containers
     community.docker.docker_compose_v2:
-      project_src: /home/exouser/measles-dashboard
+      project_src: /home/ubuntu/measles-dashboard
       files:
         - docker/docker-compose.yml
       state: absent
 
   - name: Start new containers
     community.docker.docker_compose_v2:
-      project_src: /home/exouser/measles-dashboard/docker
+      project_src: /home/ubuntu/measles-dashboard/docker
       state: present
       build: always
 

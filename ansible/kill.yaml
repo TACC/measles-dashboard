@@ -15,7 +15,7 @@
 
   - name: Stop existing containers
     community.docker.docker_compose_v2:
-      project_src: /home/exouser/measles-dashboard
+      project_src: /home/ubuntu/measles-dashboard
       files:
         - docker/docker-compose.yml
       state: absent
