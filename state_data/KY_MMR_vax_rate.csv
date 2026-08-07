@@ -1,3038 +1,1572 @@
-Facility Number,Facility Address,School Type,County,School District or Name,MMR Vaccination Rate,Age Group
-,,,Adair,"Adair County
-Primary Center",92.9,Kindergarten
-,,,Allen,"Allen County Primary
-Center",96.3,Kindergarten
-,,,Anderson,"Christian Academy
-of Lawrenceburg",85.7,Kindergarten
-,,,Anderson,"Ezra Sparrow Early
-Childhood Center",84.4,Kindergarten
-,,,Anderson,"Robert B. Turner
-Elementary School",86.4,Kindergarten
-,,,Ballard,"Ballard County
-Elementary School",90.1,Kindergarten
-,,,Barren,"Austin Tracy
-Elementary School",91.4,Kindergarten
-,,,Barren,"Caverna
-Independent Schools",79.6,Kindergarten
-,,,Barren,"Eastern Elementary
-School",97.7,Kindergarten
-,,,Barren,"Highland Elementary
-School",91.7,Kindergarten
-,,,Barren,"Hiseville Elementary
-School",100,Kindergarten
-,,,Barren,"North Jackson
-Elementary",93.6,Kindergarten
-,,,Barren,"Park City Elementary
-School",100,Kindergarten
-,,,Barren,"Red Cross
-Elementary School",97.6,Kindergarten
-,,,Barren,"South Green
-Elementary School",100,Kindergarten
-,,,Barren,"Temple Hill
-Elementary School",86.4,Kindergarten
-,,,Bath,"Crossroads
-Elementary School",80,Kindergarten
-,,,Bath,"Owingsville
-Elementary School",89.8,Kindergarten
-,,,Bell,"Bell Central School
-Center",88.9,Kindergarten
-,,,Bell,"Frakes School
-Center",93.3,Kindergarten
-,,,Bell,"Lone Jack School
-Center",84.2,Kindergarten
-,,,Bell,"Middlesboro
-Elementary School",90.9,Kindergarten
-,,,Bell,Page School Center,90.9,Kindergarten
-,,,Bell,"Pineville
-Independent School",91.3,Kindergarten
-,,,Bell,"Right Fork School
-Center",64.3,Kindergarten
-,,,Bell,"Yellow Creek School
-Center",81.2,Kindergarten
-,,,Boone,"A M Yealey
-Elementary School",97,Kindergarten
-,,,Boone,"Assumption
-Academy",10,Kindergarten
-,,,Boone,"Burlington
-Elementary School",97.87,Kindergarten
-,,,Boone,"Charles H. Kelly
-Elementary School",89.2,Kindergarten
-,,,Boone,"Chester Goodridge
-Elementary School",96.5,Kindergarten
-,,,Boone,"Erpenbeck
-Elementary School",97.1,Kindergarten
-,,,Boone,"Florence Elementary
-School",98.94,Kindergarten
-,,,Boone,"HERITAGE
-ACADEMY",90,Kindergarten
-,,,Boone,"Hillard Collins
-Elementary School",95.6,Kindergarten
-,,,Boone,"Immaculate Heart of
-Mary Elementary",90.2,Kindergarten
-,,,Boone,"Longbranch
-Elementary School",98.2,Kindergarten
-,,,Boone,"Mary Queen of
-Heaven School",90,Kindergarten
-,,,Boone,"New Haven
-Elementary School",92,Kindergarten
-,,,Boone,"North Pointe
-Elementary School",98.6,Kindergarten
-,,,Boone,"Ockerman
-Elementary School",95.4,Kindergarten
-,,,Boone,"Our Lady of the
-Sacred Heart
-Academy",20,Kindergarten
-,,,Boone,"Saint Paul Catholic
-Elementary School",100,Kindergarten
-,,,Boone,"Saint Timothy
-Catholic School",98,Kindergarten
-,,,Boone,"Shirley Mann
-Elementary School",92.6,Kindergarten
-,,,Boone,"Steeplechase
-Elementary School",97.9,Kindergarten
-,,,Boone,"Stephens
-Elementary School",97.4,Kindergarten
-,,,Boone,"Thornwilde
-Elementary School",96.97,Kindergarten
-,,,Boone,"Walton-Verona
-Elementary School",94.7,Kindergarten
-,,,Boone,"ZION CHRISTIAN
-ACADEMY",70.8,Kindergarten
-,,,Bourbon,"Bourbon Central
-Elementary School",96.8,Kindergarten
-,,,Bourbon,"Cane Ridge
-Elementary School",95.2,Kindergarten
-,,,Bourbon,"North Middletown
-Elementary School",95.7,Kindergarten
-,,,Bourbon,"Paris Elementary
-School",80.3,Kindergarten
-,,,Bourbon,Saint Mary School,87.5,Kindergarten
-,,,Boyd,"Cannonsburg
-Elementary School",89.3,Kindergarten
-,,,Boyd,"Catlettsburg
-Elementary School",95.8,Kindergarten
-,,,Boyd,"Charles Russell
-Elementary School",100,Kindergarten
-,,,Boyd,"Crabbe Elementary
-School",93.2,Kindergarten
-,,,Boyd,Fairview High School,75,Kindergarten
-,,,Boyd,"Hager Elementary
-School",98.3,Kindergarten
-,,,Boyd,"Oakview Elementary
-School",96.4,Kindergarten
-,,,Boyd,"Poage Elementary
-School",92,Kindergarten
-,,,Boyd,"Ponderosa
-Elementary School",90.9,Kindergarten
-,,,Boyd,"Rose Hill Christian
-School",100,Kindergarten
-,,,Boyd,"Summit Elementary
-School",89.04,Kindergarten
-,,,Boyle,"Danville Christian
-Academy",80,Kindergarten
-,,,Boyle,"Junction City
-Elementary School",96.1,Kindergarten
-,,,Boyle,"Mary G. Hogsett
-Primary School",92.4,Kindergarten
-,,,Boyle,"Perryville Elementary
-School",92.2,Kindergarten
-,,,Boyle,"Woodlawn
-Elementary School",97,Kindergarten
-,,,Bracken,"Augusta
-Independent School",86.4,Kindergarten
-,,,Bracken,"Taylor Elementary
-School",85.3,Kindergarten
-,,,Breathitt,Breathitt Elementary,95.7,Kindergarten
-,,,Breathitt,"Highland-Turner
-Elementary School",90.5,Kindergarten
-,,,Breathitt,Jackson City School,95.1,Kindergarten
-,,,Breckinridge,"Cloverport
-Independent School",75,Kindergarten
-,,,Breckinridge,"Custer Elementary
-School",88,Kindergarten
-,,,Breckinridge,"Hardinsburg
-Elementary School",93.2,Kindergarten
-,,,Breckinridge,"Irvington Elementary
-School",86.05,Kindergarten
-,,,Breckinridge,"Saint Romuald
-Interparochial School",93.75,Kindergarten
-,,,Bullitt,"Brooks Elementary
-School",75.8,Kindergarten
-,,,Bullitt,"Cedar Grove
-Elementary",95.2,Kindergarten
-,,,Bullitt,"Crossroads
-Elementary School",96.2,Kindergarten
-,,,Bullitt,"Freedom Elementary
-School",77.5,Kindergarten
-,,,Bullitt,"Lebanon Junction
-Elementary",98,Kindergarten
-,,,Bullitt,"Little Flock Christian
-Academy",91.5,Kindergarten
-,,,Bullitt,"Maryville Elementary
-School",91.1,Kindergarten
-,,,Bullitt,"MICAH CHRISTIAN
-SCHOOL",83.3,Kindergarten
-,,,Bullitt,"MT. Washington
-Elementary",100,Kindergarten
-,,,Bullitt,Nichols Elementary,95.2,Kindergarten
-,,,Bullitt,"Old Mill Elementary
-School",99,Kindergarten
-,,,Bullitt,"Overdale Elementary
-School",97.2,Kindergarten
-,,,Bullitt,"Pleasant Grove
-Elementary School",95.3,Kindergarten
-,,,Bullitt,"Roby Elementary
-School",88.9,Kindergarten
-,,,Bullitt,"Shepherdsville
-Elementary",93.75,Kindergarten
-,,,Butler,"Morgantown
-Elementary School",91.1,Kindergarten
-,,,Butler,"North Butler
-Elementary",88.9,Kindergarten
-,,,Caldwell,"Caldwell County
-Primary School",92.8,Kindergarten
-,,,Calloway,"East Calloway
-Elementary School",98.2,Kindergarten
-,,,Calloway,"Murray Elementary
-School",95.9,Kindergarten
-,,,Calloway,"North Calloway
-Elementary School",95.2,Kindergarten
-,,,Calloway,"Southwest Calloway
-Elementary School",96.1,Kindergarten
-,,,Campbell,"Campbell Ridge
-Elementary",97.2,Kindergarten
-,,,Campbell,"Crossroads
-Elementary School",100,Kindergarten
-,,,Campbell,"Donald E. Cline
-Elementary School",96.7,Kindergarten
-,,,Campbell,"Grandview
-Elementary School",97.1,Kindergarten
-,,,Campbell,"Grant's Lick
-Elementary School",97.8,Kindergarten
-,,,Campbell,"John W. Reiley
-Elementary School",94.7,Kindergarten
-,,,Campbell,"Johnson Elementary
-School",96.6,Kindergarten
-,,,Campbell,"Lincoln Elementary
-School",94.3,Kindergarten
-,,,Campbell,"Newport Primary
-School",98.1,Kindergarten
-,,,Campbell,"Ruth Moyer
-Elementary School",97.1,Kindergarten
-,,,Campbell,"Saint Joseph's
-School at Cold
-Spring",97.7,Kindergarten
-,,,Campbell,Saint Mary School,95.5,Kindergarten
-,,,Campbell,Saint Philip School,92.3,Kindergarten
-,,,Campbell,"Saint Therese
-Elementary School",96.88,Kindergarten
-,,,Campbell,"Saint Thomas
-School",95.5,Kindergarten
-,,,Campbell,"Saints Peter and
-Paul Catholic School",100,Kindergarten
-,,,Campbell,"Samuel Woodfill
-Elementary School",93.75,Kindergarten
-,,,Campbell,"Southgate Public
-School",95.2,Kindergarten
-,,,Campbell,Trent Montessori,81.8,Kindergarten
-,,,Carlisle,"Carlisle County
-Elementary School",86.5,Kindergarten
-,,,Carroll,"CHRISTIAN
-ACADEMY OF
-CARROLLTON",91.7,Kindergarten
-,,,Carroll,"Kathryn Winn
-Primary",96.88,Kindergarten
-,,,Carter,"Carter City
-Elementary School",94.4,Kindergarten
-,,,Carter,"Heritage Elementary
-School",92.3,Kindergarten
-,,,Carter,"Olive Hill Elementary
-School",93.75,Kindergarten
-,,,Carter,"Prichard Elementary
-School",87.2,Kindergarten
-,,,Carter,"Star Elementary
-School",90,Kindergarten
-,,,Carter,"Tygart Creek
-Elementary School",94.6,Kindergarten
-,,,Casey,"Jones Park
-Elementary",96.4,Kindergarten
-,,,Casey,"Liberty Elementary
-School",96.5,Kindergarten
-,,,Casey,"Walnut Hill
-Elementary School",89.1,Kindergarten
-,,,Christian,"Crofton Elementary
-School",96.4,Kindergarten
-,,,Christian,"Freedom Elementary
-School",95.1,Kindergarten
-,,,Christian,"Heritage Christian
-Academy",92.7,Kindergarten
-,,,Christian,"Indian Hills
-Elementary School",92.74,Kindergarten
-,,,Christian,"Millbrooke
-Elementary School",90.2,Kindergarten
-,,,Christian,"Pembroke
-Elementary School",94.1,Kindergarten
-,,,Christian,"Saints Peter and
-Paul Catholic School",94.1,Kindergarten
-,,,Christian,"Sinking Fork
-Elementary School",92.9,Kindergarten
-,,,Christian,"South Christian
-Elementary School",87.6,Kindergarten
-,,,Christian,"University Heights
-Academy",94.7,Kindergarten
-,,,Clark,"Calvary Christian
-School",94.9,Kindergarten
-,,,Clark,"GRACE BIBLE
-ACADEMY",94.1,Kindergarten
-,,,Clark,"Saint Agatha
-Academy",100,Kindergarten
-,,,Clark,"Shearer Elementary
-School",100,Kindergarten
-,,,Clark,"Strode Station
-Elementary School",97.3,Kindergarten
-,,,Clark,"William G.
-Conkwright
-Elementary",97.9,Kindergarten
-,,,Clark,"Willis H. Justice
-Elementary School",100,Kindergarten
-,,,Clay,"Big Creek
-Elementary",100,Kindergarten
-,,,Clay,"Burning Springs
-Elementary",92.9,Kindergarten
-,,,Clay,"Goose Rock
-Elementary",92,Kindergarten
-,,,Clay,"Hacker Elementary
-School",89.7,Kindergarten
-,,,Clay,"Manchester
-Elementary School",100,Kindergarten
-,,,Clay,"Oneida Baptist
-Institute",38.5,Kindergarten
-,,,Clay,"Oneida Elementary
-School",100,Kindergarten
-,,,Clay,"Paces Creek
-Elementary",86.8,Kindergarten
-,,,Clinton,"Clinton County Early
-Childhood Center",89,Kindergarten
-,,,Crittenden,"Crittenden County
-Elementary School",92.9,Kindergarten
-,,,Cumberland,"Cumberland County
-Elementary School",86.5,Kindergarten
-,,,Daviess,"Audubon Elementary
-School",87.3,Kindergarten
-,,,Daviess,"Country Heights
-Elementary School",86.9,Kindergarten
-,,,Daviess,"Cravens Elementary
-School",92.4,Kindergarten
-,,,Daviess,"Deer Park
-Elementary School",87.5,Kindergarten
-,,,Daviess,"East View
-Elementary School",87.1,Kindergarten
-,,,Daviess,"Estes Elementary
-School",92.8,Kindergarten
-,,,Daviess,"F T Burns
-Elementary School",97,Kindergarten
-,,,Daviess,"Foust Elementary
-School",91.25,Kindergarten
-,,,Daviess,"Heritage Christian
-School",10,Kindergarten
-,,,Daviess,"Highland Elementary
-School",84.6,Kindergarten
-,,,Daviess,"Mary Carrico
-Memorial Elementary
-School",100,Kindergarten
-,,,Daviess,"Meadow Lands
-Elementary School",88.4,Kindergarten
-,,,Daviess,"Newton Parrish
-Elementary School",93.5,Kindergarten
-,,,Daviess,"Owensboro Catholic
-School K-3 Campus",96.8,Kindergarten
-,,,Daviess,"Saint Mary of the
-Woods School",90.9,Kindergarten
-,,,Daviess,"Sorgho Elementary
-School",92.3,Kindergarten
-,,,Daviess,"Southern Oaks
-Elementary School",89,Kindergarten
-,,,Daviess,"Sutton Elementary
-School",92.3,Kindergarten
-,,,Daviess,"Tamarack
-Elementary School",94.3,Kindergarten
-,,,Daviess,"West Louisville
-Elementary School",93.5,Kindergarten
-,,,Daviess,"Whitesville
-Elementary School",90.2,Kindergarten
-,,,Edmonson,"Kyrock Elementary
-School",92.7,Kindergarten
-,,,Edmonson,"South Edmonson
-Elementary School",95.77,Kindergarten
-,,,Elliott,"Elliott County
-Primary School",92.9,Kindergarten
-,,,Estill,"Estill Springs
-Elementary",95.9,Kindergarten
-,,,Estill,"West Irvine
-Elementary",94.4,Kindergarten
-,,,Fayette,"Arlington Elementary
-School",100,Kindergarten
-,,,Fayette,"Ashland Elementary
-School",93.75,Kindergarten
-,,,Fayette,"Athens-Chilesburg
-Elementary",96.88,Kindergarten
-,,,Fayette,"Booker T
-Washington
-Elementary School",88.7,Kindergarten
-,,,Fayette,"Brenda Cowan
-Elementary",98.9,Kindergarten
-,,,Fayette,"Cardinal Valley
-Elementary School",92.7,Kindergarten
-,,,Fayette,"Cassidy Elementary
-School",86.1,Kindergarten
-,,,Fayette,"Christ the King
-School",97.9,Kindergarten
-,,,Fayette,"Clays Mill
-Elementary School",95.2,Kindergarten
-,,,Fayette,"Community
-Montessori School",100,Kindergarten
-,,,Fayette,"Coventry Oak
-Elementary",87.9,Kindergarten
-,,,Fayette,"Deep Springs
-Elementary School",95.8,Kindergarten
-,,,Fayette,"Dixie Elementary
-Magnet School",95.2,Kindergarten
-,,,Fayette,"Garden Springs
-Elementary School",98.5,Kindergarten
-,,,Fayette,"Garrett Morgan
-Elementary",89.9,Kindergarten
-,,,Fayette,"George Washington
-Carver STEM
-Academy",93.3,Kindergarten
-,,,Fayette,"Glendover
-Elementary School",90.1,Kindergarten
-,,,Fayette,"GOOD SHEPHERD
-DAY SCHOOL",100,Kindergarten
-,,,Fayette,"Harrison Elementary
-School",100,Kindergarten
-,,,Fayette,"James Lane Allen
-Elementary School",95.2,Kindergarten
-,,,Fayette,"Julius Marks
-Elementary School",92.5,Kindergarten
-,,,Fayette,"Lansdowne
-Elementary School",91.3,Kindergarten
-,,,Fayette,"Lexington Christian
-Academy-Tates
-Creek",94.2,Kindergarten
-,,,Fayette,"Lexington Latin
-School",50,Kindergarten
-,,,Fayette,"Lexington Universal
-Academy",100,Kindergarten
-,,,Fayette,"Liberty Elementary
-School",93.7,Kindergarten
-,,,Fayette,"Madeline M
-Breckinridge Elem
-School",88,Kindergarten
-,,,Fayette,"Mary Queen of the
-Holy Rosary School",100,Kindergarten
-,,,Fayette,"Mary Todd
-Elementary School",86.2,Kindergarten
-,,,Fayette,"Maxwell Spanish
-Immersion Elem
-School",99,Kindergarten
-,,,Fayette,"Meadowthorpe
-Elementary",95.9,Kindergarten
-,,,Fayette,"Millcreek Elementary
-School",88.5,Kindergarten
-,,,Fayette,"Northern Elementary
-School",97,Kindergarten
-,,,Fayette,"Picadome
-Elementary School",96.6,Kindergarten
-,,,Fayette,"Providence
-Montessori Middle
-School",94.1,Kindergarten
-,,,Fayette,"Redwood
-Cooperative School",95.8,Kindergarten
-,,,Fayette,"Rise STEM
-Academy for Girls",100,Kindergarten
-,,,Fayette,"Rosa Parks
-Elementary School",89.5,Kindergarten
-,,,Fayette,"Russell Cave
-Elementary School",100,Kindergarten
-,,,Fayette,"Saints Peter and
-Paul Regional
-Catholic School",96.3,Kindergarten
-,,,Fayette,"Sandersville
-Elementary",95.4,Kindergarten
-,,,Fayette,Sayre School,90.63,Kindergarten
-,,,Fayette,"Seton Catholic
-School",100,Kindergarten
-,,,Fayette,"Southern Elementary
-School",95,Kindergarten
-,,,Fayette,"Squires Elementary
-School",87.3,Kindergarten
-,,,Fayette,"Stonewall
-Elementary School",97.8,Kindergarten
-,,,Fayette,"Summitt Christian
-Academy",93.3,Kindergarten
-,,,Fayette,"Tates Creek
-Elementary School",93.6,Kindergarten
-,,,Fayette,"The Lexington
-School",100,Kindergarten
-,,,Fayette,"Veterans Park
-Elementary School",93,Kindergarten
-,,,Fayette,"Wellington
-Elementary",97,Kindergarten
-,,,Fayette,"William Wells Brown
-Elementary",100,Kindergarten
-,,,Fayette,"Yates Elementary
-School",87.5,Kindergarten
-,,,Fleming,"Ewing Elementary
-School",86.4,Kindergarten
-,,,Fleming,"Flemingsburg
-Elementary School",95,Kindergarten
-,,,Fleming,"Hillsboro Elementary
-School",84.6,Kindergarten
-,,,Floyd,"Allen Elementary
-School",100,Kindergarten
-,,,Floyd,"Betsy Layne
-Elementary School",98.6,Kindergarten
-,,,Floyd,"Duff-Allen Central
-Elementary",100,Kindergarten
-,,,Floyd,"John M. Stumbo
-Elementary School",96.97,Kindergarten
-,,,Floyd,"May Valley
-Elementary School",92.19,Kindergarten
-,,,Floyd,"Prestonsburg
-Elementary School",90.5,Kindergarten
-,,,Floyd,"South Floyd
-Elementary School",95.8,Kindergarten
-,,,Franklin,"Bridgeport
-Elementary School",98.36,Kindergarten
-,,,Franklin,Capital Day School,100,Kindergarten
-,,,Franklin,Collins Lane,89.04,Kindergarten
-,,,Franklin,"Early Learning
-Village",94.9,Kindergarten
-,,,Franklin,"Frankfort Christian
-Academy",90,Kindergarten
-,,,Franklin,"Good Shepherd
-Catholic School",93.75,Kindergarten
-,,,Franklin,"Second Street
-School",96.7,Kindergarten
-,,,Franklin,"Westridge
-Elementary",93.2,Kindergarten
-,,,Fulton,Carr Elementary,96.3,Kindergarten
-,,,Fulton,"Fulton County
-Elementary",100,Kindergarten
-,,,Gallatin,"Gallatin County
-Lower Elementary",94.5,Kindergarten
-,,,Garrard,"Camp Dick Robinson
-Elementary School",76.4,Kindergarten
-,,,Garrard,"Lancaster
-Elementary School",89.7,Kindergarten
-,,,Garrard,"Paint Lick
-Elementary School",93,Kindergarten
-,,,Grant,"Crittenden-Mt. Zion
-Elementary",98,Kindergarten
-,,,Grant,"Dry Ridge
-Elementary",92.4,Kindergarten
-,,,Grant,"Mason-Corinth
-Elementary",92.5,Kindergarten
-,,,Grant,Sherman Elementary,98.4,Kindergarten
-,,,Grant,"Williamstown
-Elementary",96.4,Kindergarten
-,,,Graves,"Fancy Farm
-Elementary School",96.3,Kindergarten
-,,,Graves,"Farmington
-Elementary School",83.3,Kindergarten
-,,,Graves,"Graves County
-Central Elementary",84.6,Kindergarten
-,,,Graves,"Mayfield Elementary
-School",94.6,Kindergarten
-,,,Graves,"Northside Baptist
-Christian School",76.5,Kindergarten
-,,,Graves,"Sedalia Elementary
-School",88.4,Kindergarten
-,,,Graves,"Symsonia
-Elementary School",96.2,Kindergarten
-,,,Graves,"Wingo Elementary
-School",97.6,Kindergarten
-,,,Grayson,"Caneyville
-Elementary School",89.1,Kindergarten
-,,,Grayson,"Clarkson Elementary
-School",98,Kindergarten
-,,,Grayson,"First Baptist Church
-Weekday Education",100,Kindergarten
-,,,Grayson,"H W Wilkey
-Elementary School",98.7,Kindergarten
-,,,Grayson,"Oran P Lawler
-Elementary School",98.6,Kindergarten
-,,,Green,"Green County
-Primary School",96.2,Kindergarten
-,,,Greenup,"Argillite Elementary
-School",91.2,Kindergarten
-,,,Greenup,"Campbell
-Elementary School",94.5,Kindergarten
-,,,Greenup,"Greysbranch
-Elementary School",86.1,Kindergarten
-,,,Greenup,"Mckell Elementary
-School",98.6,Kindergarten
-,,,Greenup,"Russell Middle
-School",94.2,Kindergarten
-,,,Greenup,"Wurtland Elementary
-School",87,Kindergarten
-,,,Hancock,"North Hancock
-Elementary School",91.4,Kindergarten
-,,,Hancock,"South Hancock
-Elementary School",88.5,Kindergarten
-,,,Hardin,"Cecilia Valley
-Elementary School",97.1,Kindergarten
-,,,Hardin,"Creekside
-Elementary School",89.6,Kindergarten
-,,,Hardin,"G C Burkhead
-Elementary School",90.9,Kindergarten
-,,,Hardin,"Heartland
-Elementary School",90.5,Kindergarten
-,,,Hardin,"Lakewood
-Elementary School",100,Kindergarten
-,,,Hardin,"Lincoln Trail
-Elementary School",94.1,Kindergarten
-,,,Hardin,"New Highland
-Elementary School",91.5,Kindergarten
-,,,Hardin,"North Hardin
-Christian Academy",66.7,Kindergarten
-,,,Hardin,"North Park
-Elementary School",52.3,Kindergarten
-,,,Hardin,Panther Academy,96.9,Kindergarten
-,,,Hardin,"Rineyville
-Elementary School",94.7,Kindergarten
-,,,Hardin,"Saint James Catholic
-Regional School",97.7,Kindergarten
-,,,Harlan,"Black Mountain
-Elementary School",82.6,Kindergarten
-,,,Harlan,"Cawood Elementary
-school",80.8,Kindergarten
-,,,Harlan,"Cumberland
-Elementary School",85,Kindergarten
-,,,Harlan,"Evarts Elementary
-School",77.1,Kindergarten
-,,,Harlan,"Green Hills
-Elementary School",85.7,Kindergarten
-,,,Harlan,Harlan High School,90.4,Kindergarten
-,,,Harlan,"James A Caywood
-Elementary School",90.9,Kindergarten
-,,,Harlan,"Rosspoint
-Elementary School",62.8,Kindergarten
-,,,Harlan,"Wallins Elementary
-School",77.3,Kindergarten
-,,,Harrison,"Eastside Elementary
-School",91.1,Kindergarten
-,,,Harrison,"Northside
-Elementary School",89.4,Kindergarten
-,,,Harrison,"Southside
-Elementary School",92.8,Kindergarten
-,,,Harrison,"Westside Elementary
-School",92.3,Kindergarten
-,,,Hart,"Bonnieville
-Elementary School",96.3,Kindergarten
-,,,Hart,"Cub Run Elementary
-School",53.8,Kindergarten
-,,,Hart,"Legrande
-Elementary School",100,Kindergarten
-,,,Hart,"Memorial Elementary
-School",78.8,Kindergarten
-,,,Hart,"Munfordville
-Elementary School",93.2,Kindergarten
-,,,Henderson,"A B Chandler
-Elementary School",97.4,Kindergarten
-,,,Henderson,"Bend Gate
-Elementary School",93.3,Kindergarten
-,,,Henderson,Cairo Elementary,82.4,Kindergarten
-,,,Henderson,"East Heights
-Elementary School",91.5,Kindergarten
-,,,Henderson,"Holy Name of Jesus
-Catholic School",100,Kindergarten
-,,,Henderson,"Jefferson Elementary
-School",84.6,Kindergarten
-,,,Henderson,"Niagara Elementary
-School",97.4,Kindergarten
-,,,Henderson,"South Heights
-Elementary School",92.7,Kindergarten
-,,,Henderson,"Spottsville
-Elementary School",93.1,Kindergarten
-,,,Henry,"Campbellsburg
-Elementary School",96.7,Kindergarten
-,,,Henry,"Eastern Elementary
-School",96.2,Kindergarten
-,,,Henry,"Eminence
-Elementary School",96.6,Kindergarten
-,,,Henry,"New Castle
-Elementary School",92.7,Kindergarten
-,,,Hickman,"Hickman County
-Elementary School",93.3,Kindergarten
-,,,Hopkins,"Christ the King
-School",100,Kindergarten
-,,,Hopkins,"Dawson Springs
-Elementary",92.5,Kindergarten
-,,,Hopkins,"GRACE BAPTIST
-SCHOOL",37.5,Kindergarten
-,,,Hopkins,"Grapevine
-Elementary School",96.3,Kindergarten
-,,,Hopkins,"Hanson Elementary
-School",97.2,Kindergarten
-,,,Hopkins,"Jesse Stuart
-Elementary School",91.9,Kindergarten
-,,,Hopkins,"Pride Elementary
-School",90.7,Kindergarten
-,,,Hopkins,"Southside
-Elementary School",94,Kindergarten
-,,,Hopkins,"West Broadway
-Elementary School",92.7,Kindergarten
-,,,Hopkins,"West Hopkins
-School",70,Kindergarten
-,,,Jackson,"McKee Elementary
-School",98.1,Kindergarten
-,,,Jackson,"Sand Gap
-Elementary School",94.7,Kindergarten
-,,,Jackson,"Tyner Elementary
-School",100,Kindergarten
-,,,Jefferson,"Academy for
-Individual Excellence",92.9,Kindergarten
-,,,Jefferson,"Alex R. Kennedy
-Elementary",31.3,Kindergarten
-,,,Jefferson,"Anchorage
-Independent Public
-School",97.4,Kindergarten
-,,,Jefferson,Ascension School,100,Kindergarten
-,,,Jefferson,Atkinson Academy,34.8,Kindergarten
-,,,Jefferson,"Auburndale
-Elementary",83.2,Kindergarten
-,,,Jefferson,"Audubon Traditional
-Elementary",35.1,Kindergarten
-,,,Jefferson,Bates Elementary,63.7,Kindergarten
-,,,Jefferson,"Beth Haven Christian
-School",93.3,Kindergarten
-,,,Jefferson,Blake Elementary,58.4,Kindergarten
-,,,Jefferson,Bloom Elementary,73.8,Kindergarten
-,,,Jefferson,Blue Lick Elementary,42.3,Kindergarten
-,,,Jefferson,Bowen Elementary,71.1,Kindergarten
-,,,Jefferson,Brandeis Elementary,39.4,Kindergarten
-,,,Jefferson,"Breckinridge-Franklin
-Elementary",38.1,Kindergarten
-,,,Jefferson,Byck Elementary,50,Kindergarten
-,,,Jefferson,"Camp Taylor
-Elementary",71.2,Kindergarten
-,,,Jefferson,"Cane Run
-Elementary",49.1,Kindergarten
-,,,Jefferson,"Carter Traditional
-Elementary",80.8,Kindergarten
-,,,Jefferson,Chancey Elementary,40.3,Kindergarten
-,,,Jefferson,"Chenoweth
-Elementary",41.4,Kindergarten
-,,,Jefferson,"Christian Academy
-of Louisville Elem
-School (English
-Station)",92.4,Kindergarten
-,,,Jefferson,Cochran Elementary,35.1,Kindergarten
-,,,Jefferson,"Cochrane
-Elementary",50.8,Kindergarten
-,,,Jefferson,"Coleridge-Taylor
-Montessori
-Elementary",44.2,Kindergarten
-,,,Jefferson,"Coral Ridge
-Elementary",34.2,Kindergarten
-,,,Jefferson,"Crums Lane
-Elementary",81.3,Kindergarten
-,,,Jefferson,Dixie Elementary,65.9,Kindergarten
-,,,Jefferson,"Dr. William H. Perry
-Elementary School",43.2,Kindergarten
-,,,Jefferson,Dunn Elementary,59.1,Kindergarten
-,,,Jefferson,"Eisenhower
-Elementary",63,Kindergarten
-,,,Jefferson,"Engelhard
-Elementary",41.5,Kindergarten
-,,,Jefferson,Fairdale Elementary,20.2,Kindergarten
-,,,Jefferson,Farmer Elementary,44.2,Kindergarten
-,,,Jefferson,"Fern Creek
-Elementary",45.2,Kindergarten
-,,,Jefferson,Field Elementary,15.8,Kindergarten
-,,,Jefferson,"Foster Traditional
-Academy",92.9,Kindergarten
-,,,Jefferson,Frayser Elementary,65.8,Kindergarten
-,,,Jefferson,"Friends School, Inc.",100,Kindergarten
-,,,Jefferson,"Goldsmith
-Elementary",24.8,Kindergarten
-,,,Jefferson,"Greathouse/Shryock
-Traditional",22.9,Kindergarten
-,,,Jefferson,"Greenwood
-Elementary",81.9,Kindergarten
-,,,Jefferson,"Gutermuth
-Elementary",82.1,Kindergarten
-,,,Jefferson,Hartstern Elementary,35.2,Kindergarten
-,,,Jefferson,"Harvey Browne
-Preschool",100,Kindergarten
-,,,Jefferson,"Hawthorne
-Elementary",37.3,Kindergarten
-,,,Jefferson,"Hazelwood
-Elementary",40.8,Kindergarten
-,,,Jefferson,"Highland
-Presbyterian Church
-Nursery & Weekday
-School",100,Kindergarten
-,,,Jefferson,"Highlands Latin
-School",83.3,Kindergarten
-,,,Jefferson,Hite Elementary,81.3,Kindergarten
-,,,Jefferson,"Holy Angels
-Academy",83.3,Kindergarten
-,,,Jefferson,Holy Spirit School,72.9,Kindergarten
-,,,Jefferson,"Holy Trinity Parish
-School",100,Kindergarten
-,,,Jefferson,"Indian Trail
-Elementary",37.1,Kindergarten
-,,,Jefferson,"Islamic School of
-Louisville",90,Kindergarten
-,,,Jefferson,"J. Graham Brown
-School",89.4,Kindergarten
-,,,Jefferson,Jacob Elementary,86.4,Kindergarten
-,,,Jefferson,"Jeffersontown
-Elementary",82.7,Kindergarten
-,,,Jefferson,"John Paul II
-Academy",83.3,Kindergarten
-,,,Jefferson,"Johnsontown Road
-Elementary",37.1,Kindergarten
-,,,Jefferson,"Kennedy Montessori
-Elementary",71.1,Kindergarten
-,,,Jefferson,"Kentucky Country
-Day School",97.87,Kindergarten
-,,,Jefferson,"Kenwood
-Elementary",38,Kindergarten
-,,,Jefferson,Kerrick Elementary,79.5,Kindergarten
-,,,Jefferson,King Elementary,28.6,Kindergarten
-,,,Jefferson,"Klondike Lane
-Elementary",89.2,Kindergarten
-,,,Jefferson,"Landmark Christian
-Academy",93.75,Kindergarten
-,,,Jefferson,Laukhuf Elementary,32.1,Kindergarten
-,,,Jefferson,Layne Elementary,82.4,Kindergarten
-,,,Jefferson,"Lincoln Elementary
-Performing Arts",52.5,Kindergarten
-,,,Jefferson,"Louisville Adventist
-Academy",100,Kindergarten
-,,,Jefferson,"LOUISVILLE
-CLASSICAL
-ACADEMY",100,Kindergarten
-,,,Jefferson,"Louisville Collegiate
-School",100,Kindergarten
-,,,Jefferson,Lowe Elementary,74.8,Kindergarten
-,,,Jefferson,Luhr Elementary,76.7,Kindergarten
-,,,Jefferson,Maupin Elementary,50,Kindergarten
-,,,Jefferson,"Mcferran Preparatory
-Academy",50.7,Kindergarten
-,,,Jefferson,Medora Elementary,93,Kindergarten
-,,,Jefferson,"MIDDLETOWN
-CHRISTIAN
-PRESCHOOL &
-KINDERGARTEN",100,Kindergarten
-,,,Jefferson,"Middletown
-Elementary",78.6,Kindergarten
-,,,Jefferson,"Mill Creek
-Elementary",64.2,Kindergarten
-,,,Jefferson,"Minors Lane
-Elementary",38.7,Kindergarten
-,,,Jefferson,"Montessori School of
-Louisville",82.6,Kindergarten
-,,,Jefferson,"Norton Commons
-Elementary",87,Kindergarten
-,,,Jefferson,Norton Elementary,15.4,Kindergarten
-,,,Jefferson,"Notre Dame
-Academy",95.3,Kindergarten
-,,,Jefferson,"Nur Islamic School of
-Louisville",82.1,Kindergarten
-,,,Jefferson,Okolona Elementary,67.1,Kindergarten
-,,,Jefferson,"Our Lady of Lourdes
-School",100,Kindergarten
-,,,Jefferson,"Portland
-Christian-Portland
-Campus",88.2,Kindergarten
-,,,Jefferson,Portland Elementary,47.6,Kindergarten
-,,,Jefferson,Price Elementary,44.2,Kindergarten
-,,,Jefferson,"Rangeland
-Elementary",68.3,Kindergarten
-,,,Jefferson,"Rutherford
-Elementary",66.7,Kindergarten
-,,,Jefferson,"Sacred Heart Model
-School",100,Kindergarten
-,,,Jefferson,Saint Agnes School,98.1,Kindergarten
-,,,Jefferson,"Saint Albert the
-Great School",100,Kindergarten
-,,,Jefferson,"Saint Andrew
-Academy",100,Kindergarten
-,,,Jefferson,"Saint Athanasius
-Elementary School",100,Kindergarten
-,,,Jefferson,"Saint Bernard
-Elementary School",100,Kindergarten
-,,,Jefferson,"Saint Edward
-Elementary School",86.5,Kindergarten
-,,,Jefferson,"Saint Francis of
-Assisi  School",100,Kindergarten
-,,,Jefferson,"Saint Gabriel the
-Archangel
-Elementary",96.8,Kindergarten
-,,,Jefferson,"Saint Margaret Mary
-Catholic School",89.9,Kindergarten
-,,,Jefferson,"Saint Martha
-Elementary School",94.9,Kindergarten
-,,,Jefferson,Saint Mary Academy,100,Kindergarten
-,,,Jefferson,"Saint Michael
-Lifelong Learning
-Center",95.95,Kindergarten
-,,,Jefferson,"Saint Nicholas
-Academy",100,Kindergarten
-,,,Jefferson,Saint Patrick School,98.5,Kindergarten
-,,,Jefferson,"Saint Paul
-Elementary School",100,Kindergarten
-,,,Jefferson,"Saint Raphael
-Elementary School",98,Kindergarten
-,,,Jefferson,"Saint Rita
-Elementary School",100,Kindergarten
-,,,Jefferson,"Saint Stephen Martyr
-Elementary School",69.2,Kindergarten
-,,,Jefferson,Sanders Elementary,57.4,Kindergarten
-,,,Jefferson,"Schaffner Traditional
-Elementary",76.3,Kindergarten
-,,,Jefferson,Semple Elementary,70.1,Kindergarten
-,,,Jefferson,"Shacklette
-Elementary",89.8,Kindergarten
-,,,Jefferson,"Shelby Traditional
-Academy",84.38,Kindergarten
-,,,Jefferson,"Slaughter
-Elementary",71.4,Kindergarten
-,,,Jefferson,"Smyrna Elementary
-School",55.6,Kindergarten
-,,,Jefferson,"St Matthews
-Elementary",18.1,Kindergarten
-,,,Jefferson,"Stonestreet
-Elementary",69.1,Kindergarten
-,,,Jefferson,Stopher Elementary,91.3,Kindergarten
-,,,Jefferson,Summit Academy,81.8,Kindergarten
-,,,Jefferson,Trunnell Elementary,76,Kindergarten
-,,,Jefferson,Tully Elementary,96,Kindergarten
-,,,Jefferson,"VALIANT
-CHRISTIAN
-ACADEMY",100,Kindergarten
-,,,Jefferson,"Virgina Chance
-School",100,Kindergarten
-,,,Jefferson,Walden School,100,Kindergarten
-,,,Jefferson,"WALDORF
-SCHOOL OF
-LOUISVILLE",60.8,Kindergarten
-,,,Jefferson,"Watterson
-Elementary",44.3,Kindergarten
-,,,Jefferson,"Wellington
-Elementary",82.81,Kindergarten
-,,,Jefferson,West End School,100,Kindergarten
-,,,Jefferson,Wheeler Elementary,33.3,Kindergarten
-,,,Jefferson,Whitefield Academy,91.1,Kindergarten
-,,,Jefferson,Wilder Elementary,59.7,Kindergarten
-,,,Jefferson,"Wilkerson
-Elementary School",83.9,Kindergarten
-,,,Jefferson,Wilt Elementary,33.3,Kindergarten
-,,,Jefferson,"Zachary Taylor
-Elementary",26.3,Kindergarten
-,,,Jessamine,"Clays Mill Christian
-Academy",38.5,Kindergarten
-,,,Jessamine,"Jessamine Early
-Learning Village",89.13,Kindergarten
-,,,Jessamine,"Trinity Christian
-Academy",86.7,Kindergarten
-,,,Johnson,"Central Elementary
-School",93.3,Kindergarten
-,,,Johnson,"Flat Gap Elementary
-School",88.9,Kindergarten
-,,,Johnson,"Highland Elementary
-School",92.9,Kindergarten
-,,,Johnson,"Paintsville
-Elementary School",75,Kindergarten
-,,,Johnson,"Porter Elementary
-School",90.9,Kindergarten
-,,,Johnson,"W R Castle Memorial
-Elementary School",86.8,Kindergarten
-,,,Kenton,"Arnett Elementary
-School",94.1,Kindergarten
-,,,Kenton,"Beechgrove
-Elementary School",98.9,Kindergarten
-,,,Kenton,"Beechwood
-Elementary School",94.2,Kindergarten
-,,,Kenton,"Blessed Sacrament
-Elementary School",85.7,Kindergarten
-,,,Kenton,"Calvary Christian
-School",76.7,Kindergarten
-,,,Kenton,"Community Christian
-Academy",78.6,Kindergarten
-,,,Kenton,"Crescent Ridge
-Academy",100,Kindergarten
-,,,Kenton,"Dorothy Howell
-Elementary School",97.87,Kindergarten
-,,,Kenton,"Ft Wright Elementary
-School",94.1,Kindergarten
-,,,Kenton,"Glenn O Swing
-Elementary",91.3,Kindergarten
-,,,Kenton,"Holy Cross
-Elementary School",91.7,Kindergarten
-,,,Kenton,"James A Caywood
-Elementary School",96.4,Kindergarten
-,,,Kenton,"John G Carlisle
-Elementary",93.8,Kindergarten
-,,,Kenton,"Kenton Elementary
-School",96.5,Kindergarten
-,,,Kenton,"Latonia Elementary
-School",95.6,Kindergarten
-,,,Kenton,"Lindeman
-Elementary School",93.5,Kindergarten
-,,,Kenton,"Mary A. Goetz
-Elementary School",98.2,Kindergarten
-,,,Kenton,"Miles Elementary
-School",97.6,Kindergarten
-,,,Kenton,"Ninth District
-Elementary",98.1,Kindergarten
-,,,Kenton,"Piner Elementary
-School",96.5,Kindergarten
-,,,Kenton,"Prince of Peace
-Montessori School",92.3,Kindergarten
-,,,Kenton,"R C Hinsdale
-Elementary School",98.8,Kindergarten
-,,,Kenton,"River Ridge
-Elementary School",96,Kindergarten
-,,,Kenton,"Ryland Heights
-Elementary School",97.2,Kindergarten
-,,,Kenton,"Saint Agnes
-Elementary School",96.3,Kindergarten
-,,,Kenton,"Saint Cecilia Catholic
-School",84.8,Kindergarten
-,,,Kenton,Saint Henry School,100,Kindergarten
-,,,Kenton,"Saint Joseph
-Elementary at
-Crescent Springs",98.2,Kindergarten
-,,,Kenton,"Saint Pius X
-Elementary School",100,Kindergarten
-,,,Kenton,"Sixth District
-Elementary School",85.7,Kindergarten
-,,,Kenton,"Summit View
-Academy",98.9,Kindergarten
-,,,Kenton,"Taylor Mill
-Elementary School",100,Kindergarten
-,,,Kenton,"Villa Madonna
-Academy
-Elementary School",92.3,Kindergarten
-,,,Kenton,"VILLA MADONNA
-MONTESSORI",84.6,Kindergarten
-,,,Kenton,"White's Tower
-Elementary School",95.7,Kindergarten
-,,,Knott,"Beaver Creek
-Elementary School",70.6,Kindergarten
-,,,Knott,"Carr Creek
-Elementary School",84.2,Kindergarten
-,,,Knott,Cordia School,100,Kindergarten
-,,,Knott,"Emmalena
-Elementary School",85.2,Kindergarten
-,,,Knott,"Hindman Elementary
-School",68.9,Kindergarten
-,,,Knott,"Jones Fork
-Elementary School",84.2,Kindergarten
-,,,Knox,"Barbourville Learning
-Center/Barbourville
-Independent School",91.5,Kindergarten
-,,,Knox,"Central Elementary
-School",86.7,Kindergarten
-,,,Knox,Dewitt Elementary,90,Kindergarten
-,,,Knox,"Flat Lick Elementary
-School",100,Kindergarten
-,,,Knox,"G R Hampton
-Elementary School",94.6,Kindergarten
-,,,Knox,"Girdler Elementary
-School",82.2,Kindergarten
-,,,Knox,"Jesse D Lay
-Elementary School",97.6,Kindergarten
-,,,Knox,"Lynn Camp
-Elementary School",83.1,Kindergarten
-,,,LaRue,"Abraham Lincoln
-Elementary School",91.9,Kindergarten
-,,,LaRue,"Hodgenville
-Elementary School",94,Kindergarten
-,,,Laurel,"Bush Elementary
-School",95.7,Kindergarten
-,,,Laurel,"Camp Ground
-Elementary School",98.1,Kindergarten
-,,,Laurel,"Cold Hill Elementary
-School",92,Kindergarten
-,,,Laurel,"Colony Elementary
-School",98.2,Kindergarten
-,,,Laurel,"East Bernstadt
-Elementary School",96.4,Kindergarten
-,,,Laurel,"Hazel Green
-Elementary School",92.9,Kindergarten
-,,,Laurel,"Hunter Hills
-Elementary School",93.75,Kindergarten
-,,,Laurel,"Johnson Elementary
-School",92.3,Kindergarten
-,,,Laurel,"Keavy Elementary
-School",95.3,Kindergarten
-,,,Laurel,"London Elementary
-School",94.7,Kindergarten
-,,,Laurel,"Sublimity Elementary
-School",94.3,Kindergarten
-,,,Laurel,"Wyan-Pine Grove
-Elementary",90.63,Kindergarten
-,,,Lawrence,"Blaine Elementary
-School",77.8,Kindergarten
-,,,Lawrence,"Fallsburg Elementary
-School",72.7,Kindergarten
-,,,Lawrence,"Louisa West
-Elementary School",87.1,Kindergarten
-,,,Lee,"Lee County
-Elementary School",90.8,Kindergarten
-,,,Leslie,"Hayes Lewis
-Elementary School",100,Kindergarten
-,,,Leslie,"Mountain View
-Elementary",86.5,Kindergarten
-,,,Leslie,"Stinnett Elementary
-School",94.9,Kindergarten
-,,,Leslie,"W.B. Muncy
-Elementary School",78.9,Kindergarten
-,,,Letcher,"Cowan Elementary
-School",85.7,Kindergarten
-,,,Letcher,"Jenkins Independent
-School",88.9,Kindergarten
-,,,Letcher,"Letcher Elementary
-Middle School",94.6,Kindergarten
-,,,Letcher,"Martha Jane Potter
-Elementary School",91.7,Kindergarten
-,,,Letcher,"West Whitesburg
-Elementary School",92.9,Kindergarten
-,,,Lewis,"Garrison Elementary
-School",93,Kindergarten
-,,,Lewis,"Laurel Elementary
-School",100,Kindergarten
-,,,Lewis,"Lewis County
-Central Elementary
-School",93.1,Kindergarten
-,,,Lewis,"Tollesboro
-Elementary School",100,Kindergarten
-,,,Lincoln,"Crab Orchard
-Elementary School",87,Kindergarten
-,,,Lincoln,"Highland Elementary
-School",92.6,Kindergarten
-,,,Lincoln,"Hustonville
-Elementary School",98.1,Kindergarten
-,,,Lincoln,"Stanford Elementary
-School",86.3,Kindergarten
-,,,Lincoln,"Waynesburg
-Elementary School",96,Kindergarten
-,,,Livingston,"North Livingston
-Elementary School",78.6,Kindergarten
-,,,Livingston,"South Livingston
-Elementary School",96.2,Kindergarten
-,,,Logan,"Adairville Elementary
-School",78.13,Kindergarten
-,,,Logan,"Auburn Elementary
-School",35.8,Kindergarten
-,,,Logan,"Chandlers
-Elementary School",49.2,Kindergarten
-,,,Logan,"Lewisburg
-Elementary School",80,Kindergarten
-,,,Logan,"Olmstead
-Elementary School",93,Kindergarten
-,,,Logan,"R E Stevenson
-Elementary School",56.4,Kindergarten
-,,,Lyon,"Lyon County
-Elementary School",96,Kindergarten
-,,,Madison,"Berea Community
-Elementary School",85,Kindergarten
-,,,Madison,"Boonesborough
-Elementary",93.1,Kindergarten
-,,,Madison,"Kingston Elementary
-School",88.42,Kindergarten
-,,,Madison,"Kirksville Elementary
-School",90.7,Kindergarten
-,,,Madison,"LAFONTAINE
-PREPARATORY
-SCHOOL",87.5,Kindergarten
-,,,Madison,"Madison
-Kindergarten
-Academy",94,Kindergarten
-,,,Madison,Model Elementary,86.1,Kindergarten
-,,,Madison,"Saint Mark Catholic
-School",91.7,Kindergarten
-,,,Madison,"Shannon Johnson
-Elementary School",93,Kindergarten
-,,,Madison,"Silver Creek
-Elementary School",95.3,Kindergarten
-,,,Madison,"Waco Elementary
-School",96.8,Kindergarten
-,,,Magoffin,"North Magoffin
-Elementary",87,Kindergarten
-,,,Magoffin,"Salyersville Grade
-School",89.5,Kindergarten
-,,,Magoffin,"South Magoffin
-Elementary",92.3,Kindergarten
-,,,Marion,"Calvary Elementary
-School",100,Kindergarten
-,,,Marion,"Glasscock
-Elementary School",94.9,Kindergarten
-,,,Marion,"Lebanon Elementary
-School",91.9,Kindergarten
-,,,Marion,"Saint Augustine
-Catholic School",100,Kindergarten
-,,,Marion,"West Marion
-Elementary School",91.2,Kindergarten
-,,,Marshall,"Benton Elementary
-School",92.4,Kindergarten
-,,,Marshall,"Calvert City
-Elementary School",94.6,Kindergarten
-,,,Marshall,"Central Elementary
-School",96.8,Kindergarten
-,,,Marshall,"Christian Fellowship
-School",75,Kindergarten
-,,,Marshall,"Jonathan Elementary
-School",93.75,Kindergarten
-,,,Marshall,"New Covenant
-Christian Academy",30,Kindergarten
-,,,Marshall,"Sharpe Elementary
-School",84.6,Kindergarten
-,,,Marshall,"South Marshall
-Elementary School",92.7,Kindergarten
-,,,Martin,"Eden Elementary
-School",89.6,Kindergarten
-,,,Martin,"Inez Elementary
-School",96.3,Kindergarten
-,,,Martin,"Warfield Elementary
-School",95.1,Kindergarten
-,,,Mason,"Charles Straub
-Elementary School",90,Kindergarten
-,,,Mason,Saint Patrick School,33.3,Kindergarten
-,,,McCracken,"Clark Elementary
-School",90.1,Kindergarten
-,,,McCracken,"Community Christian
-Academy",63.3,Kindergarten
-,,,McCracken,"Concord Elementary
-School",88.5,Kindergarten
-,,,McCracken,"Heath Elementary
-School",94.7,Kindergarten
-,,,McCracken,"Hendron Lone Oak
-Elementary School",87.8,Kindergarten
-,,,McCracken,"Lone Oak
-Elementary School",89,Kindergarten
-,,,McCracken,"McNabb Elementary
-School",96.4,Kindergarten
-,,,McCracken,"Morgan Elementary
-School",93.94,Kindergarten
-,,,McCracken,"Reidland Elementary
-School",90.5,Kindergarten
-,,,McCracken,Saint Mary School,94.1,Kindergarten
-,,,McCreary,Pine Knot Primary,97,Kindergarten
-,,,McCreary,"Whitley City
-Elementary School",94,Kindergarten
-,,,McLean,"Calhoun Elementary
-School",98,Kindergarten
-,,,McLean,"Livermore
-Elementary School",100,Kindergarten
-,,,McLean,"Marie Gatton Phillips
-Elementary",90.5,Kindergarten
-,,,Meade,"Barry Hahn Primary
-School",92.6,Kindergarten
-,,,Meade,"Ekron Elementary
-School",98.2,Kindergarten
-,,,Meade,"Flaherty Primary
-School",93.5,Kindergarten
-,,,Meade,"Payneville
-Elementary School",100,Kindergarten
-,,,Mercer,"Burgin Independent
-School",90.2,Kindergarten
-,,,Mercer,"Mercer County
-Elementary School",94.2,Kindergarten
-,,,Metcalfe,"Metcalfe County
-Elementary School",99,Kindergarten
-,,,Monroe,Gamaliel Elementary,93.1,Kindergarten
-,,,Monroe,Joe Harrison Carter,92.1,Kindergarten
-,,,Monroe,Tompkinsville Elem,77.9,Kindergarten
-,,,Montgomery,"Camargo Elementary
-School",94.2,Kindergarten
-,,,Montgomery,"Mapleton Elementary
-School",98.7,Kindergarten
-,,,Montgomery,"Mount Sterling
-Elementary School",100,Kindergarten
-,,,Morgan,"East Valley
-Elementary School",95.2,Kindergarten
-,,,Morgan,"Ezel Elementary
-School",100,Kindergarten
-,,,Morgan,"Morgan Central
-Elementary School",100,Kindergarten
-,,,Morgan,"Wrigley Elementary
-School",88.2,Kindergarten
-,,,Muhlenberg,"Bremen Elementary
-School",91.2,Kindergarten
-,,,Muhlenberg,"Central City
-Elementary",94.7,Kindergarten
-,,,Muhlenberg,"Greenville
-Elementary School",89.5,Kindergarten
-,,,Muhlenberg,Longest Elementary,95.7,Kindergarten
-,,,Muhlenberg,"Muhlenberg South
-Elementary",88.5,Kindergarten
-,,,Nelson,"Bardstown Primary
-School",94.4,Kindergarten
-,,,Nelson,"Bloomfield
-Elementary School",97.3,Kindergarten
-,,,Nelson,Boston School,100,Kindergarten
-,,,Nelson,"Coxs Creek
-Elementary School",95,Kindergarten
-,,,Nelson,"Foster Heights
-Elementary School",96.8,Kindergarten
-,,,Nelson,"Saint Gregory
-Elementary School",83.3,Kindergarten
-,,,Nelson,"Saint Joseph
-Montessori
-Children's Center",100,Kindergarten
-,,,Nelson,Saint Joseph School,91.4,Kindergarten
-,,,Nelson,"The New Haven
-School",100,Kindergarten
-,,,Nicholas,"Nicholas County
-Elementary School",96.2,Kindergarten
-,,,Ohio,"Beaver Dam
-Elementary School",62.1,Kindergarten
-,,,Ohio,"Fordsville
-Elementary School",85.7,Kindergarten
-,,,Ohio,"Horse Branch
-Elementary School",95.2,Kindergarten
-,,,Ohio,"Southern Elementary
-School",69.4,Kindergarten
-,,,Ohio,"Wayland Alexander
-Elementary School",95.4,Kindergarten
-,,,Ohio,"Western Elementary
-School",89.3,Kindergarten
-,,,Oldham,"Buckner Elementary
-School",98.8,Kindergarten
-,,,Oldham,"Camden Station
-Elementary School",98.6,Kindergarten
-,,,Oldham,"Centerfield
-Elementary School",96.4,Kindergarten
-,,,Oldham,"Crestwood
-Elementary School",92.3,Kindergarten
-,,,Oldham,"Francis Parker
-School of Louisville",87.9,Kindergarten
-,,,Oldham,"Goshen At Hillcrest
-Elementary School",98.8,Kindergarten
-,,,Oldham,"Harmony Elementary
-School",93.5,Kindergarten
-,,,Oldham,JUBILEE ACADEMY,45.5,Kindergarten
-,,,Oldham,"Kenwood Station
-Elementary School",97.7,Kindergarten
-,,,Oldham,"LaGrange
-Elementary School",89.7,Kindergarten
-,,,Oldham,"Locust Grove
-Elementary School",98.9,Kindergarten
-,,,Oldham,"Saint Aloysius
-School",92.9,Kindergarten
-,,,Owen,"Owen County
-Elementary/Primary
-School",99.2,Kindergarten
-,,,Owsley,"Owsley County
-Elementary School",86.9,Kindergarten
-,,,Pendleton,"Northern Elementary
-School",95.77,Kindergarten
-,,,Pendleton,"Southern Elementary
-School",95.4,Kindergarten
-,,,Perry,Buckhorn School,78.13,Kindergarten
-,,,Perry,"East Perry County
-Elementary School",75,Kindergarten
-,,,Perry,"Robert W Combs
-Elementary School",83.3,Kindergarten
-,,,Perry,"Robinson
-Elementary School",80,Kindergarten
-,,,Perry,"Roy G. Eversole
-Elementary School",95.77,Kindergarten
-,,,Perry,Viper Elementary,64,Kindergarten
-,,,Perry,"West Perry
-Elementary School",65.98,Kindergarten
-,,,Pike,Belfry Elementary,98.44,Kindergarten
-,,,Pike,"Bevins Elementary
-School",91.4,Kindergarten
-,,,Pike,"Dorton Elementary
-School",100,Kindergarten
-,,,Pike,"Elkhorn City
-Elementary School",100,Kindergarten
-,,,Pike,"Feds Creek
-Elementary School",93.3,Kindergarten
-,,,Pike,"Johns Creek
-Elementary School",98.3,Kindergarten
-,,,Pike,Millard School,97.1,Kindergarten
-,,,Pike,"Mullins Elementary
-School",91.4,Kindergarten
-,,,Pike,"Phelps Elementary
-School",100,Kindergarten
-,,,Pike,"Pikeville Elementary
-School",95.2,Kindergarten
-,,,Pike,"Valley Elementary
-School",95.6,Kindergarten
-,,,Powell,"Bowen Elementary
-School",92.9,Kindergarten
-,,,Powell,"Clay City Elementary
-School",91.7,Kindergarten
-,,,Powell,"Stanton Elementary
-School",95.5,Kindergarten
-,,,Pulaski,"Burnside Elementary
-School",98.44,Kindergarten
-,,,Pulaski,"Eubank Elementary
-School",88.9,Kindergarten
-,,,Pulaski,"Hopkins Elementary
-School",92.9,Kindergarten
-,,,Pulaski,"Nancy Elementary
-School",97.8,Kindergarten
-,,,Pulaski,"Northern Elementary
-School",96.4,Kindergarten
-,,,Pulaski,"Oak Hill Elementary
-School",96.5,Kindergarten
-,,,Pulaski,"Pulaski Elementary
-School",96.2,Kindergarten
-,,,Pulaski,"Science Hill
-Elementary School",98.1,Kindergarten
-,,,Pulaski,"Shopville Elementary
-School",100,Kindergarten
-,,,Pulaski,"Somerset Christian
-School",73.8,Kindergarten
-,,,Pulaski,"Southern Elementary
-School",97.9,Kindergarten
-,,,Robertson,"Robertson County
-School",95.2,Kindergarten
-,,,Rockcastle,"Brodhead
-Elementary School",89.6,Kindergarten
-,,,Rockcastle,"Mt. Vernon
-Elementary",67.4,Kindergarten
-,,,Rockcastle,"Roundstone
-Elementary School",96.3,Kindergarten
-,,,Rowan,"Clearfield
-Elementary School",92.3,Kindergarten
-,,,Rowan,"Lakeside Christian
-Academy",76.2,Kindergarten
-,,,Rowan,"McBrayer
-Elementary School",92.2,Kindergarten
-,,,Rowan,"Rodburn Elementary
-School",88.3,Kindergarten
-,,,Rowan,"Tilden Hogge
-Elementary School",95.7,Kindergarten
-,,,Russell,"Jamestown
-Elementary School",94.6,Kindergarten
-,,,Russell,"Russell Springs
-Elementary School",96.2,Kindergarten
-,,,Russell,"Salem Elementary
-School",97.2,Kindergarten
-,,,Scott,"Anne Mason
-Elementary School",92.1,Kindergarten
-,,,Scott,"Creekside
-Elementary School",90.8,Kindergarten
-,,,Scott,"Eastern Elementary
-School",92.7,Kindergarten
-,,,Scott,"Garth Elementary
-School",94,Kindergarten
-,,,Scott,"Lemons Mill
-Elementary School",94.6,Kindergarten
-,,,Scott,"Northern Elementary
-School",84.38,Kindergarten
-,,,Scott,"Providence Christian
-Academy",100,Kindergarten
-,,,Scott,"Saint John Catholic
-School",85.7,Kindergarten
-,,,Scott,"Southern Elementary
-School",91.7,Kindergarten
-,,,Scott,"Stamping Ground
-Elementary School",88.6,Kindergarten
-,,,Scott,"Western Elementary
-School",93.3,Kindergarten
-,,,Shelby,"Clear Creek
-Elementary",93.1,Kindergarten
-,,,Shelby,"Heritage Elementary
-School",92.7,Kindergarten
-,,,Shelby,"Marnel C. Moorman
-School",88.9,Kindergarten
-,,,Shelby,"Painted Stone
-Elementary",96.5,Kindergarten
-,,,Shelby,"Simpsonville
-Elementary",85,Kindergarten
-,,,Shelby,"Southside
-Elementary School",95.4,Kindergarten
-,,,Shelby,Wright Elementary,92.19,Kindergarten
-,,,Simpson,"Franklin Elementary
-School",94.6,Kindergarten
-,,,Spencer,"SPENCER
-CHRISTIAN
-SCHOOL",64.7,Kindergarten
-,,,Spencer,"Spencer County
-Elementary School",98.3,Kindergarten
-,,,Spencer,"Taylorsville
-Elementary School",93.8,Kindergarten
-,,,Taylor,"Campbellsville
-Christian Church
-Center for Education",69.2,Kindergarten
-,,,Taylor,"Campbellsville
-Elementary School",66.4,Kindergarten
-,,,Taylor,"Kentucky Christian
-Academy",83.3,Kindergarten
-,,,Taylor,"Taylor County
-Primary Center",94,Kindergarten
-,,,Todd,"North Todd
-Elementary School",95.2,Kindergarten
-,,,Todd,"South Todd
-Elementary School",93.8,Kindergarten
-,,,Trigg,"Trigg County Primary
-School",88.8,Kindergarten
-,,,Trimble,"Bedford Elementary
-School",94.3,Kindergarten
-,,,Trimble,"Milton Elementary
-School",97.4,Kindergarten
-,,,Union,"John Paul II Catholic
-School",89.5,Kindergarten
-,,,Union,"Morganfield
-Elementary School",75.4,Kindergarten
-,,,Union,"Sturgis Elementary
-School",89.1,Kindergarten
-,,,Union,"Uniontown
-Elementary School",75.8,Kindergarten
-,,,Warren,Alvaton Elementary,89.4,Kindergarten
-,,,Warren,"Briarwood
-Elementary School",88.3,Kindergarten
-,,,Warren,Bristow Elementary,96.88,Kindergarten
-,,,Warren,"Cumberland Trace
-Elementary",93.3,Kindergarten
-,,,Warren,"Dishman McGinnis
-Elementary School",71.26,Kindergarten
-,,,Warren,"Foundation Christian
-Academy",94.7,Kindergarten
-,,,Warren,"Jennings Creek
-Elementary",91.7,Kindergarten
-,,,Warren,"Jody Richards
-Elementary",82.4,Kindergarten
-,,,Warren,"Legacy Christian
-Academy",92,Kindergarten
-,,,Warren,"Lost River
-Elementary",90.2,Kindergarten
-,,,Warren,"North Warren
-Elementary",96.6,Kindergarten
-,,,Warren,Oakland Elementary,95,Kindergarten
-,,,Warren,"Parker-Bennett-Curry
-School",80,Kindergarten
-,,,Warren,Plano Elementary,84.5,Kindergarten
-,,,Warren,"Potter Gray
-Elementary",87.4,Kindergarten
-,,,Warren,"Rich Pond
-Elementary",91.87,Kindergarten
-,,,Warren,"Richardsville
-Elementary",96.3,Kindergarten
-,,,Warren,Rockfield Elementary,92.5,Kindergarten
-,,,Warren,"Saint Joseph
-Interparochial
-Elementary School",78.13,Kindergarten
-,,,Warren,"T C Cherry
-Elementary School",87.9,Kindergarten
-,,,Warren,"W R McNeill
-Elementary School",69,Kindergarten
-,,,Warren,Warren Elementary,89.8,Kindergarten
-,,,Warren,"William H. Natcher
-Elementary",96.5,Kindergarten
-,,,Washington,"North Washington
-Elementary School",98.1,Kindergarten
-,,,Washington,"Saint Dominic
-School",100,Kindergarten
-,,,Washington,"Washington County
-Elementary School",100,Kindergarten
-,,,Wayne,"Walker Early
-Learning Center",96.6,Kindergarten
-,,,Webster,"Clay Elementary
-School",92.6,Kindergarten
-,,,Webster,"Dixon Elementary
-School",100,Kindergarten
-,,,Webster,"Providence
-Elementary School",100,Kindergarten
-,,,Webster,"Sebree Elementary
-School",84.2,Kindergarten
-,,,Whitley,"Boston Elementary
-School",96.4,Kindergarten
-,,,Whitley,Corbin Primary,80.1,Kindergarten
-,,,Whitley,"Oak Grove
-Elementary School",86.3,Kindergarten
-,,,Whitley,"Pleasant View
-Elementary School",100,Kindergarten
-,,,Whitley,"Whitley County
-Central Primary
-School",81.6,Kindergarten
-,,,Whitley,"Whitley County East
-Elementary School",94.7,Kindergarten
-,,,Whitley,"Whitley County North
-Elementary School",100,Kindergarten
-,,,Whitley,"Williamsburg City
-School",84.1,Kindergarten
-,,,Wolfe,"Campton Elementary
-School",93,Kindergarten
-,,,Wolfe,"Red River Valley
-Elementary School",100,Kindergarten
-,,,Wolfe,"Rogers Elementary
-School",87,Kindergarten
-,,,Woodford,"Huntertown
-Elementary School",97.2,Kindergarten
-,,,Woodford,"Northside
-Elementary School",91.8,Kindergarten
-,,,Woodford,Saint Leo School,86.7,Kindergarten
-,,,Woodford,"Simmons
-Elementary School",78.8,Kindergarten
-,,,Woodford,"Southside
-Elementary School",98.99,Kindergarten
-,,,Woodford,"Woodford Christian
-School",84.6,Kindergarten
-,,,Adair,"Adair County Middle
-School",97.2,7th Grade
-,,,Allen,"Allen County Primary
-Center",98.7,7th Grade
-,,,Anderson,"Anderson County Middle
-School",93.3,7th Grade
-,,,Anderson,"Christian Academy of
-Lawrenceburg",100,7th Grade
-,,,Ballard,"Ballard County
-Elementary School",98.6,7th Grade
-,,,Barren,"Barren County Middle
-School- Healthy Kids
-Clinic",100,7th Grade
-,,,Barren,"Caverna Independent
-Schools",92.5,7th Grade
-,,,Barren,Glasgow Middle School,94,7th Grade
-,,,Bath,"Bath County Middle
-School",95.5,7th Grade
-,,,Bell,"Bell Central School
-Center",93.2,7th Grade
-,,,Bell,"Lone Jack School
-Center",100,7th Grade
-,,,Bell,"Middlesboro Middle
-School",92.3,7th Grade
-,,,Bell,Page School Center,100,7th Grade
-,,,Bell,"Pineville Independent
-School",97.1,7th Grade
-,,,Bell,"Right Fork School
-Center",100,7th Grade
-,,,Bell,"Yellow Creek School
-Center",95.6,7th Grade
-,,,Boone,Assumption Academy,44.7,7th Grade
-,,,Boone,"Ballyshannon Middle
-School",99,7th Grade
-,,,Boone,"Camp Ernst Middle
-School",98,7th Grade
-,,,Boone,Conner Middle School,96.9,7th Grade
-,,,Boone,Gray Middle School,98.1,7th Grade
-,,,Boone,"Immaculate Heart of
-Mary Elementary",94.6,7th Grade
-,,,Boone,"Mary Queen of Heaven
-School",94.1,7th Grade
-,,,Boone,"Ockerman Middle
-School",96.6,7th Grade
-,,,Boone,"Our Lady of the Sacred
-Heart Academy",47.4,7th Grade
-,,,Boone,"Rector A. Jones Middle
-School",99.1,7th Grade
-,,,Boone,"Saint Paul Catholic
-Elementary School",95.5,7th Grade
-,,,Boone,"Saint Timothy Catholic
-School",97.4,7th Grade
-,,,Boone,"Walton-Verona Middle
-School",97.8,7th Grade
-,,,Bourbon,"Bourbon County Middle
-School",97.3,7th Grade
-,,,Bourbon,Paris Middle School,95.2,7th Grade
-,,,Boyd,"Boyd County Middle
-School",99.6,7th Grade
-,,,Boyd,Fairview High School,100,7th Grade
-,,,Boyd,"Poage Elementary
-School",99,7th Grade
-,,,Boyle,"Boyle County Middle
-School",97.5,7th Grade
-,,,Boyle,"Danville Christian
-Academy",95.7,7th Grade
-,,,Boyle,"John W. Bate Middle
-School",96.7,7th Grade
-,,,Boyle,"Mary G. Hogsett Primary
-School",96.7,7th Grade
-,,,Bracken,"Augusta Independent
-School",95.5,7th Grade
-,,,Bracken,"Bracken County Middle
-School",96.6,7th Grade
-,,,Breathitt,"Breathitt County High
-School",98.1,7th Grade
-,,,Breathitt,"Cumberland County
-Middle School",97.1,7th Grade
-,,,Breathitt,Jackson City School,100,7th Grade
-,,,Breckinridge,"Breckinridge County
-Middle School",96.25,7th Grade
-,,,Breckinridge,"Cloverport Independent
-School",91.7,7th Grade
-,,,Breckinridge,"Saint Romuald
-Interparochial School",92.3,7th Grade
-,,,Bullitt,Bernheim Middle School,100,7th Grade
-,,,Bullitt,Bullitt Lick Middle School,95.3,7th Grade
-,,,Bullitt,Eastside Middle School,99.1,7th Grade
-,,,Bullitt,Hebron Middle School,98.13,7th Grade
-,,,Bullitt,"Little Flock Christian
-Academy",94.7,7th Grade
-,,,Bullitt,"MT. Washington Middle
-School",97.8,7th Grade
-,,,Bullitt,"Riverview Opportunity
-Center",93.75,7th Grade
-,,,Bullitt,Zoneton Middle School,95.7,7th Grade
-,,,Butler,"Butler County Middle
-School",93.45,7th Grade
-,,,Caldwell,"Caldwell County Primary
-School",99.3,7th Grade
-,,,Calloway,"Calloway County Middle
-School",97,7th Grade
-,,,Calloway,Murray Middle School,96.6,7th Grade
-,,,Campbell,Bellevue High School,97.1,7th Grade
-,,,Campbell,"Campbell County Middle
-School",97.1,7th Grade
-,,,Campbell,Highlands Middle School,97.3,7th Grade
-,,,Campbell,"Lincoln Elementary
-School",98.36,7th Grade
-,,,Campbell,Newport High School,98.8,7th Grade
-,,,Campbell,"Saint Catherine of Siena
-Elementary School",100,7th Grade
-,,,Campbell,"Saint Joseph's School at
-Cold Spring",87.5,7th Grade
-,,,Campbell,Saint Mary School,96.6,7th Grade
-,,,Campbell,"Saint Therese
-Elementary School",90,7th Grade
-,,,Campbell,Saint Thomas School,100,7th Grade
-,,,Campbell,Southgate Public School,100,7th Grade
-,,,Carlisle,"Carlisle County
-Elementary School",96,7th Grade
-,,,Carroll,"Carroll County Middle
-School",96.4,7th Grade
-,,,Carroll,"CHRISTIAN ACADEMY
-OF CARROLLTON",90.9,7th Grade
-,,,Carter,"East Carter Middle
-School",96.88,7th Grade
-,,,Carter,"West Carter Middle
-School",97.9,7th Grade
-,,,Casey,"Casey County Middle
-School",97.5,7th Grade
-,,,Casey,"GALILEAN CHRISTIAN
-ACADEMY",81.8,7th Grade
-,,,Christian,"Christian County Middle
-School",98.9,7th Grade
-,,,Christian,"Christian County Public
-Schools Virtual Learning
-Academy",96.7,7th Grade
-,,,Christian,"Heritage Christian
-Academy",67.6,7th Grade
-,,,Christian,"Hopkinsville Middle
-School",95.6,7th Grade
-,,,Christian,"Saints Peter and Paul
-Catholic School",100,7th Grade
-,,,Christian,"University Heights
-Academy",94.1,7th Grade
-,,,Clark,"GRACE BIBLE
-ACADEMY",58.3,7th Grade
-,,,Clark,"Robert D. Campbell Jr.
-High",98.1,7th Grade
-,,,Clay,"Clay County Middle
-School",94.4,7th Grade
-,,,Clay,Oneida Baptist Institute,76.7,7th Grade
-,,,Clay,Red Bird Mission School,100,7th Grade
-,,,Clinton,"Clinton County Middle
-School",94.5,7th Grade
-,,,Crittenden,"Crittenden County
-Middle School",96.5,7th Grade
-,,,Cumberland,"Cumberland County
-Middle School",97.1,7th Grade
-,,,Daviess,"College View Middle
-School",96,7th Grade
-,,,Daviess,"Daviess County Middle
-School",96,7th Grade
-,,,Daviess,F T Burns Middle School,96.3,7th Grade
-,,,Daviess,"Heritage Christian
-School",56.25,7th Grade
-,,,Daviess,"Owensboro Catholic
-Middle School",99.1,7th Grade
-,,,Daviess,"Owensboro Innovation
-Middle School",100,7th Grade
-,,,Daviess,"Owensboro Middle
-School",96.42,7th Grade
-,,,Daviess,"Saint Mary of the Woods
-School",84.6,7th Grade
-,,,Edmonson,"Edmonson County
-Middle School",96.7,7th Grade
-,,,Elliott,"Elliott County Middle
-School",96.6,7th Grade
-,,,Estill,"Estill County Middle
-School",97.89,7th Grade
-,,,Fayette,"Beaumont Middle
-School",96.1,7th Grade
-,,,Fayette,"Bryan Station Middle
-School",96.2,7th Grade
-,,,Fayette,"Carter G. Woodson
-Academy",98,7th Grade
-,,,Fayette,Christ the King School,100,7th Grade
-,,,Fayette,"Community Montessori
-School",100,7th Grade
-,,,Fayette,Crawford Middle School,92.2,7th Grade
-,,,Fayette,"Edythe Jones Hayes
-Middle School",98.6,7th Grade
-,,,Fayette,"Jessie M Clark Middle
-School",96.8,7th Grade
-,,,Fayette,Leestown Middle School,93.5,7th Grade
-,,,Fayette,"Lexington Christian
-Academy",97.1,7th Grade
-,,,Fayette,"Lexington Trad Magnet
-School",95.7,7th Grade
-,,,Fayette,"Lexington Universal
-Academy",100,7th Grade
-,,,Fayette,"Martin L King Acad for
-Excellence Alt",100,7th Grade
-,,,Fayette,"Mary Queen of the Holy
-Rosary School",91.9,7th Grade
-,,,Fayette,Morton Middle School,98.8,7th Grade
-,,,Fayette,"Providence Montessori
-Middle School",94.1,7th Grade
-,,,Fayette,"Saints Peter and Paul
-Regional Catholic
-School",100,7th Grade
-,,,Fayette,Sayre School,100,7th Grade
-,,,Fayette,Scapa At Bluegrass,96.92,7th Grade
-,,,Fayette,Seton Catholic School,100,7th Grade
-,,,Fayette,Southern Middle School,88.94,7th Grade
-,,,Fayette,"Success Academy
-Virtual Academy",89.7,7th Grade
-,,,Fayette,"Tates Creek Middle
-School",96.1,7th Grade
-,,,Fayette,The Lexington School,100,7th Grade
-,,,Fayette,"Trinity Christian
-Academy",73.1,7th Grade
-,,,Fayette,Winburn Middle School,94.92,7th Grade
-,,,Fleming,Simons Middle School,99.3,7th Grade
-,,,Floyd,Allen Elementary School,100,7th Grade
-,,,Floyd,"Betsy Layne Elementary
-School",98.5,7th Grade
-,,,Floyd,"Duff-Allen Central
-Elementary",100,7th Grade
-,,,Floyd,"James D. Adams Middle
-School",98.9,7th Grade
-,,,Floyd,"John M. Stumbo
-Elementary School",100,7th Grade
-,,,Floyd,"May Valley Elementary
-School",100,7th Grade
-,,,Floyd,"South Floyd Elementary
-School",98.5,7th Grade
-,,,Franklin,"Bondurant Middle
-School",96.88,7th Grade
-,,,Franklin,Elkhorn Middle School,96.9,7th Grade
-,,,Franklin,"Frankfort Christian
-Academy",96.2,7th Grade
-,,,Franklin,"Good Shepherd Catholic
-School",94.7,7th Grade
-,,,Franklin,Second Street School,98.2,7th Grade
-,,,Fulton,"Fulton County
-Elementary",100,7th Grade
-,,,Fulton,"Fulton Independent High
-School",100,7th Grade
-,,,Gallatin,"Gallatin County Middle
-School",95.7,7th Grade
-,,,Garrard,Garrard Middle School,92.2,7th Grade
-,,,Grant,"Grant County Middle
-School",97.8,7th Grade
-,,,Grant,Williamstown Jr. High,94.5,7th Grade
-,,,Graves,"Graves County Middle
-School",96.03,7th Grade
-,,,Graves,Mayfield Middle School,98.5,7th Grade
-,,,Graves,"Northside Baptist
-Christian School",93.3,7th Grade
-,,,Grayson,"Grayson County Middle
-School",98.2,7th Grade
-,,,Green,"Green County Middle
-School",96.6,7th Grade
-,,,Greenup,"Campbell Elementary
-School",98.7,7th Grade
-,,,Greenup,Mckell Middle School,94.1,7th Grade
-,,,Greenup,Russell Middle School,100,7th Grade
-,,,Greenup,Wurtland Middle School,92.1,7th Grade
-,,,Hancock,"Hancock County Middle
-School",99.1,7th Grade
-,,,Hardin,Bluegrass Middle School,88.7,7th Grade
-,,,Hardin,"East Hardin Middle
-School",98,7th Grade
-,,,Hardin,"James T Alton Middle
-School",97.9,7th Grade
-,,,Hardin,"North Hardin Christian
-Academy",82.6,7th Grade
-,,,Hardin,North Middle School,93.9,7th Grade
-,,,Hardin,"Saint James Catholic
-Regional School",90,7th Grade
-,,,Hardin,"Talton K Stone Middle
-School",91.6,7th Grade
-,,,Hardin,"West Hardin Middle
-School",96.2,7th Grade
-,,,Harlan,"Black Mountain
-Elementary School",95.2,7th Grade
-,,,Harlan,"Cawood Elementary
-school",84.2,7th Grade
-,,,Harlan,"Cumberland Elementary
-School",97.6,7th Grade
-,,,Harlan,"Evarts Elementary
-School",86.5,7th Grade
-,,,Harlan,"Green Hills Elementary
-School",81.8,7th Grade
-,,,Harlan,Harlan High School,96.5,7th Grade
-,,,Harlan,"James A Caywood
-Elementary School",91.3,7th Grade
-,,,Harlan,"Rosspoint Elementary
-School",83.3,7th Grade
-,,,Harlan,"Wallins Elementary
-School",86.2,7th Grade
-,,,Harrison,"Harrison County Middle
-School",98,7th Grade
-,,,Hart,"Bonnieville Elementary
-School",100,7th Grade
-,,,Hart,"Cub Run Elementary
-School",100,7th Grade
-,,,Hart,"Legrande Elementary
-School",100,7th Grade
-,,,Hart,"Memorial Elementary
-School",96.97,7th Grade
-,,,Hart,"Munfordville Elementary
-School",100,7th Grade
-,,,Henderson,"Henderson County
-South Middle School",98.6,7th Grade
-,,,Henderson,"Holy Name of Jesus
-Catholic School",100,7th Grade
-,,,Henderson,North Middle School,95.3,7th Grade
-,,,Henry,Eminence High School,96.2,7th Grade
-,,,Henry,"Henry County Middle
-School",97.7,7th Grade
-,,,Hickman,"Hickman County
-Elementary School",100,7th Grade
-,,,Hopkins,"Browning Springs Middle
-School",96.5,7th Grade
-,,,Hopkins,"Dawson Springs
-Elementary",97.1,7th Grade
-,,,Hopkins,"James Madison Middle
-School",96.5,7th Grade
-,,,Hopkins,"South Hopkins Middle
-School",96.97,7th Grade
-,,,Hopkins,West Hopkins School,100,7th Grade
-,,,Jackson,"Jackson County Middle
-School",98.1,7th Grade
-,,,Jefferson,"Academy for Individual
-Excellence",82.9,7th Grade
-,,,Jefferson,"Anchorage Independent
-Public School",96,7th Grade
-,,,Jefferson,Ascension School,95.8,7th Grade
-,,,Jefferson,Barret Traditional Middle,97.2,7th Grade
-,,,Jefferson,"Beth Haven Christian
-School",100,7th Grade
-,,,Jefferson,Carrithers Middle,89.4,7th Grade
-,,,Jefferson,"Christian Academy of
-Louisville Elem School
-(English Station)",97.1,7th Grade
-,,,Jefferson,Conway Middle,89.4,7th Grade
-,,,Jefferson,Crosby Middle,89.8,7th Grade
-,,,Jefferson,"Dr. J. Blaine Hudson
-Middle School",92.7,7th Grade
-,,,Jefferson,Echo Trail Middle School,89.8,7th Grade
-,,,Jefferson,Farnsley Middle,96.6,7th Grade
-,,,Jefferson,"Frederick Law Olmsted
-Academy North",80.4,7th Grade
-,,,Jefferson,"Frederick Law Olmsted
-Academy South",88.14,7th Grade
-,,,Jefferson,"Grace M. James
-Academy of Excellence",99,7th Grade
-,,,Jefferson,Highland Middle,91.3,7th Grade
-,,,Jefferson,Highlands Latin School,76.92,7th Grade
-,,,Jefferson,Holy Spirit School,75.6,7th Grade
-,,,Jefferson,"Holy Trinity Parish
-School",100,7th Grade
-,,,Jefferson,"Islamic School of
-Louisville",91.7,7th Grade
-,,,Jefferson,"J. Graham Brown
-School",98.6,7th Grade
-,,,Jefferson,"Jefferson County
-Traditional Middle",98.1,7th Grade
-,,,Jefferson,John Paul II Academy,92.9,7th Grade
-,,,Jefferson,"Johnson Traditional
-Middle",97.97,7th Grade
-,,,Jefferson,Kammerer Middle,88.6,7th Grade
-,,,Jefferson,"Kentucky Country Day
-School",100,7th Grade
-,,,Jefferson,Knight Middle,86.6,7th Grade
-,,,Jefferson,"Landmark Christian
-Academy",100,7th Grade
-,,,Jefferson,Lassiter Middle,86.8,7th Grade
-,,,Jefferson,"Louisville Collegiate
-School",98.3,7th Grade
-,,,Jefferson,Marion C. Moore School,80.18,7th Grade
-,,,Jefferson,Meredith Dunn School,100,7th Grade
-,,,Jefferson,Meyzeek Middle,90.4,7th Grade
-,,,Jefferson,Minor Daniels Academy,90.3,7th Grade
-,,,Jefferson,Newburg Middle,89.8,7th Grade
-,,,Jefferson,Newcomer Academy,29.9,7th Grade
-,,,Jefferson,Noe Middle,95.2,7th Grade
-,,,Jefferson,Notre Dame Academy,100,7th Grade
-,,,Jefferson,"Nur Islamic School of
-Louisville",71.4,7th Grade
-,,,Jefferson,"Our Lady of Lourdes
-School",100,7th Grade
-,,,Jefferson,"Portland
-Christian-Portland
-Campus",100,7th Grade
-,,,Jefferson,Ramsey Middle,89.7,7th Grade
-,,,Jefferson,"Sacred Heart Model
-School",100,7th Grade
-,,,Jefferson,Saint Agnes School,97.87,7th Grade
-,,,Jefferson,"Saint Albert the Great
-School",100,7th Grade
-,,,Jefferson,Saint Andrew Academy,100,7th Grade
-,,,Jefferson,"Saint Athanasius
-Elementary School",100,7th Grade
-,,,Jefferson,"Saint Bernard
-Elementary School",93.94,7th Grade
-,,,Jefferson,"Saint Edward
-Elementary School",67.6,7th Grade
-,,,Jefferson,"Saint Francis of Assisi
-School",100,7th Grade
-,,,Jefferson,"Saint Gabriel the
-Archangel Elementary",96.4,7th Grade
-,,,Jefferson,"Saint Margaret Mary
-Catholic School",76.1,7th Grade
-,,,Jefferson,"Saint Martha Elementary
-School",100,7th Grade
-,,,Jefferson,Saint Mary Academy,98,7th Grade
-,,,Jefferson,"Saint Michael Lifelong
-Learning Center",91.9,7th Grade
-,,,Jefferson,Saint Nicholas Academy,100,7th Grade
-,,,Jefferson,Saint Patrick School,100,7th Grade
-,,,Jefferson,"Saint Paul Elementary
-School",100,7th Grade
-,,,Jefferson,"Saint Raphael
-Elementary School",100,7th Grade
-,,,Jefferson,"Saint Rita Elementary
-School",88.9,7th Grade
-,,,Jefferson,"Saint Stephen Martyr
-Elementary School",100,7th Grade
-,,,Jefferson,"St. James Catholic
-School - Louisville",81.8,7th Grade
-,,,Jefferson,Stuart Academy,87.8,7th Grade
-,,,Jefferson,"The Academy @
-Shawnee",89.3,7th Grade
-,,,Jefferson,The DePaul School,100,7th Grade
-,,,Jefferson,"The Phoenix School of
-Discovery",98.2,7th Grade
-,,,Jefferson,"Thomas Jefferson
-Middle",71.26,7th Grade
-,,,Jefferson,"VALIANT CHRISTIAN
-ACADEMY",83.3,7th Grade
-,,,Jefferson,"W.E.B. DuBois
-Academy",100,7th Grade
-,,,Jefferson,Walden School,100,7th Grade
-,,,Jefferson,"WALDORF SCHOOL
-OF LOUISVILLE",92.3,7th Grade
-,,,Jefferson,West End School,100,7th Grade
-,,,Jefferson,"Western Middle School
-for the Arts",96.6,7th Grade
-,,,Jefferson,Westport Middle,83.7,7th Grade
-,,,Jefferson,Whitefield Academy,100,7th Grade
-,,,Jessamine,"Clays Mill Christian
-Academy",50,7th Grade
-,,,Jessamine,"East Jessamine Middle
-School",90.7,7th Grade
-,,,Jessamine,The Providence School,100,7th Grade
-,,,Jessamine,"Trinity Christian
-Academy",90.9,7th Grade
-,,,Jessamine,"West Jessamine Middle
-School",96.27,7th Grade
-,,,Johnson,"Johnson County Middle
-School",86.2,7th Grade
-,,,Johnson,"Paintsville Elementary
-School",93.5,7th Grade
-,,,Kenton,"Bartlett Educational
-Center",100,7th Grade
-,,,Kenton,"Beechwood Elementary
-School",99.2,7th Grade
-,,,Kenton,"Blessed Sacrament
-Elementary School",97.7,7th Grade
-,,,Kenton,Calvary Christian School,90.9,7th Grade
-,,,Kenton,"Community Christian
-Academy",83.3,7th Grade
-,,,Kenton,Holmes Middle School,99,7th Grade
-,,,Kenton,"Holy Cross Elementary
-School",100,7th Grade
-,,,Kenton,Ludlow High School,100,7th Grade
-,,,Kenton,"Saint Agnes Elementary
-School",98,7th Grade
-,,,Kenton,"Saint Augustine Catholic
-School",100,7th Grade
-,,,Kenton,"Saint Cecilia Catholic
-School",88,7th Grade
-,,,Kenton,Saint Henry School,100,7th Grade
-,,,Kenton,"Saint Joseph
-Elementary at Crescent
-Springs",100,7th Grade
-,,,Kenton,"Saint Pius X Elementary
-School",100,7th Grade
-,,,Kenton,Summit View Academy,97.9,7th Grade
-,,,Kenton,Tichenor Middle School,98,7th Grade
-,,,Kenton,"Turkey Foot Middle
-School",99,7th Grade
-,,,Kenton,"Twenhofel Middle
-School",99.1,7th Grade
-,,,Kenton,"Villa Madonna Academy
-High School",87.5,7th Grade
-,,,Kenton,"Woodland Middle
-School",99.4,7th Grade
-,,,Knott,"Beaver Creek
-Elementary School",100,7th Grade
-,,,Knott,"Carr Creek Elementary
-School",100,7th Grade
-,,,Knott,Cordia School,83.3,7th Grade
-,,,Knott,"Emmalena Elementary
-School",88.9,7th Grade
-,,,Knott,"Hindman Elementary
-School",93.2,7th Grade
-,,,Knott,"Jones Fork Elementary
-School",100,7th Grade
-,,,Knott,June Buchanan School,100,7th Grade
-,,,Knox,"Barbourville Learning
-Center/Barbourville
-Independent School",98.3,7th Grade
-,,,Knox,Corbin Middle School,96,7th Grade
-,,,Knox,"Knox County Middle
-School",93.6,7th Grade
-,,,Knox,"Lynn Camp Middle High
-School",96.6,7th Grade
-,,,LaRue,"LaRue County Middle
-School",96.4,7th Grade
-,,,Laurel,"East Bernstadt
-Elementary School",88.9,7th Grade
-,,,Laurel,"North Laurel Middle
-School",96.1,7th Grade
-,,,Laurel,"South Laurel Middle
-School",95.97,7th Grade
-,,,Lawrence,"Blaine Elementary
-School",100,7th Grade
-,,,Lawrence,"Fallsburg Elementary
-School",100,7th Grade
-,,,Lawrence,Louisa Middle School,96.2,7th Grade
-,,,Lee,"Lee County Middle High
-School",100,7th Grade
-,,,Leslie,"Hayes Lewis Elementary
-School",100,7th Grade
-,,,Leslie,"Mountain View
-Elementary",93.3,7th Grade
-,,,Leslie,"Stinnett Elementary
-School",97.4,7th Grade
-,,,Leslie,"W.B. Muncy Elementary
-School",95,7th Grade
-,,,Letcher,"Arlie Boggs Elementary
-School",100,7th Grade
-,,,Letcher,"Cowan Elementary
-School",100,7th Grade
-,,,Letcher,"Fleming Neon Middle
-School",100,7th Grade
-,,,Letcher,"Jenkins Independent
-School",100,7th Grade
-,,,Letcher,"Letcher Elementary
-Middle School",100,7th Grade
-,,,Letcher,"Whitesburg Middle
-School",98.8,7th Grade
-,,,Lewis,"Lewis County Middle
-School",96.4,7th Grade
-,,,Lincoln,"Lincoln County Middle
-School",95.7,7th Grade
-,,,Livingston,"Livingston County
-Middle School",95.4,7th Grade
-,,,Logan,"Adairville Elementary
-School",96.97,7th Grade
-,,,Logan,"Auburn Elementary
-School",89.5,7th Grade
-,,,Logan,"Chandlers Elementary
-School",95.3,7th Grade
-,,,Logan,"Lewisburg Elementary
-School",94.2,7th Grade
-,,,Logan,"Olmstead Elementary
-School",91.3,7th Grade
-,,,Logan,"Russellville Middle
-School",91.5,7th Grade
-,,,Lyon,"Lyon County Elementary
-School",98.44,7th Grade
-,,,Madison,"B. Michael Caudill
-Middle School",97.4,7th Grade
-,,,Madison,"Berea Community
-Middle School",95.4,7th Grade
-,,,Madison,"Clark Moores Middle
-School",98.8,7th Grade
-,,,Madison,"Farristown Middle
-School",97.3,7th Grade
-,,,Madison,Foley Middle School,99.3,7th Grade
-,,,Madison,Madison Middle School,97.6,7th Grade
-,,,Madison,Model Elementary,100,7th Grade
-,,,Magoffin,"Herald Whitaker Middle
-School",95.6,7th Grade
-,,,Marion,"Hugh C. Spalding
-Academy",100,7th Grade
-,,,Marion,"Marion County Knight
-Academy",97.2,7th Grade
-,,,Marion,"Marion County Middle
-School",100,7th Grade
-,,,Marion,"Saint Augustine Catholic
-School",92.9,7th Grade
-,,,Marshall,"Christian Fellowship
-School",85.7,7th Grade
-,,,Marshall,"New Covenant Christian
-Academy",69.2,7th Grade
-,,,Marshall,"North Marshall Middle
-School",93.3,7th Grade
-,,,Marshall,South Marshall Middle,97.7,7th Grade
-,,,Martin,"Martin County Middle
-School",100,7th Grade
-,,,Mason,"Mason County Middle
-School",97.7,7th Grade
-,,,Mason,Saint Patrick School,18.75,7th Grade
-,,,McCracken,"Community Christian
-Academy",69.2,7th Grade
-,,,McCracken,Heath Middle School,97.2,7th Grade
-,,,McCracken,Lone Oak Middle School,92.3,7th Grade
-,,,McCracken,Paducah Middle School,97,7th Grade
-,,,McCracken,Reidland Middle School,90,7th Grade
-,,,McCracken,Saint Mary School,100,7th Grade
-,,,McCreary,"McCreary County Middle
-School",97.6,7th Grade
-,,,McLean,"McLean County Middle
-School",92.9,7th Grade
-,,,Meade,"Stuart Pepper Middle
-School",99.1,7th Grade
-,,,Mercer,"Burgin Independent
-School",89.2,7th Grade
-,,,Mercer,"Kenneth D. King Middle
-School",96.5,7th Grade
-,,,Metcalfe,"Metcalfe County Middle
-School",95.7,7th Grade
-,,,Monroe,Gamaliel Elementary,92.4,7th Grade
-,,,Monroe,Joe Harrison Carter,92.4,7th Grade
-,,,Monroe,Tompkinsville Elem,92.4,7th Grade
-,,,Montgomery,McNabb Middle School,99.67,7th Grade
-,,,Morgan,"Morgan County Middle
-School",99.1,7th Grade
-,,,Muhlenberg,"Muhlenberg South
-Middle School",96.47,7th Grade
-,,,Nelson,"Bardstown Middle
-School",97.2,7th Grade
-,,,Nelson,"Bloomfield Middle
-School",98.9,7th Grade
-,,,Nelson,"Old Kentucky Home
-Middle School",98.4,7th Grade
-,,,Nelson,"Saint Gregory
-Elementary School",68.75,7th Grade
-,,,Nelson,Saint Joseph School,100,7th Grade
-,,,Nicholas,"Nicholas County
-Elementary School",96.1,7th Grade
-,,,Ohio,"Ohio County Middle
-School",93.7,7th Grade
-,,,Oldham,"East Oldham Middle
-School",98.9,7th Grade
-,,,Oldham,"Francis Parker School of
-Louisville",100,7th Grade
-,,,Oldham,"North Oldham Middle
-School",97.9,7th Grade
-,,,Oldham,"Oldham County Middle
-School",97.9,7th Grade
-,,,Oldham,Saint Aloysius School,67.6,7th Grade
-,,,Oldham,"South Oldham Middle
-School",99.6,7th Grade
-,,,Owen,"Maurice Bowling Middle
-School",100,7th Grade
-,,,Owsley,"Owsley County High
-School",100,7th Grade
-,,,Pendleton,"Phillip Sharp Middle
-School",96.12,7th Grade
-,,,Perry,Buckhorn School,100,7th Grade
-,,,Perry,"East Perry County
-Elementary School",90.2,7th Grade
-,,,Perry,Hazard Middle School,100,7th Grade
-,,,Perry,"Robert W Combs
-Elementary School",96.8,7th Grade
-,,,Perry,"Robinson Elementary
-School",95.2,7th Grade
-,,,Perry,Viper Elementary,89.2,7th Grade
-,,,Perry,"West Perry Elementary
-School",94.6,7th Grade
-,,,Pike,Belfry Middle School,100,7th Grade
-,,,Pike,"Dorton Elementary
-School",100,7th Grade
-,,,Pike,"Elkhorn City Elementary
-School",100,7th Grade
-,,,Pike,"Feds Creek Elementary
-School",100,7th Grade
-,,,Pike,"Johns Creek Elementary
-School",100,7th Grade
-,,,Pike,Millard School,98.2,7th Grade
-,,,Pike,"Mullins Elementary
-School",96.7,7th Grade
-,,,Pike,Phelps High School,100,7th Grade
-,,,Pike,Pikeville High School,96.3,7th Grade
-,,,Pike,"Valley Elementary
-School",97.4,7th Grade
-,,,Powell,"Powell County Middle
-School",99.3,7th Grade
-,,,Pulaski,Meece Middle School,98.2,7th Grade
-,,,Pulaski,Northern Middle School,97.6,7th Grade
-,,,Pulaski,"Science Hill Elementary
-School",94.1,7th Grade
-,,,Pulaski,"Somerset Christian
-School",91.2,7th Grade
-,,,Pulaski,Southern Middle School,97.9,7th Grade
-,,,Robertson,"Robertson County
-School",96.7,7th Grade
-,,,Rockcastle,"Rockcastle County
-Middle School",97.2,7th Grade
-,,,Rowan,"Rowan County Middle
-School",93.6,7th Grade
-,,,Russell,"Russell County Middle
-School",97.6,7th Grade
-,,,Scott,"Georgetown Middle
-School",92.9,7th Grade
-,,,Scott,"Royal Spring Middle
-School",94.1,7th Grade
-,,,Scott,"Saint John Catholic
-School",92.3,7th Grade
-,,,Scott,"Scott County Middle
-School",98.9,7th Grade
-,,,Shelby,"Cornerstone Christian
-Academy",86.7,7th Grade
-,,,Shelby,"Marnel C. Moorman
-School",90,7th Grade
-,,,Shelby,"Shelby County East
-Middle School",96.5,7th Grade
-,,,Shelby,"Shelby County West
-Middle School",96.1,7th Grade
-,,,Simpson,"Franklin-Simpson Middle
-School",95.85,7th Grade
-,,,Spencer,"SPENCER CHRISTIAN
-SCHOOL",41.7,7th Grade
-,,,Spencer,"Spencer County Middle
-School",98,7th Grade
-,,,Taylor,"Campbellsville Middle
-School",97.8,7th Grade
-,,,Taylor,"Taylor County Middle
-School",96.6,7th Grade
-,,,Todd,"Todd County Middle
-School",97.6,7th Grade
-,,,Trigg,"Trigg County Primary
-School",95.3,7th Grade
-,,,Trimble,"Trimble County JR/SR
-High School",92.8,7th Grade
-,,,Union,"John Paul II Catholic
-School",100,7th Grade
-,,,Union,"Union County Middle
-School",96.6,7th Grade
-,,,Warren,"Bowling Green Junior
-High",92.4,7th Grade
-,,,Warren,"Drakes Creek Middle
-School",95.6,7th Grade
-,,,Warren,"Foundation Christian
-Academy",100,7th Grade
-,,,Warren,"Henry F. Moss Middle
-School",97.6,7th Grade
-,,,Warren,"Legacy Christian
-Academy",84.6,7th Grade
-,,,Warren,"Saint Joseph
-Interparochial
-Elementary School",93.3,7th Grade
-,,,Warren,"South Warren Middle
-School",95.9,7th Grade
-,,,Warren,"Warren East Middle
-School",97.4,7th Grade
-,,,Washington,"North Washington
-Elementary School",100,7th Grade
-,,,Washington,Saint Dominic School,100,7th Grade
-,,,Washington,"Washington County
-Middle School",98.3,7th Grade
-,,,Wayne,"Wayne County Middle
-School",99.6,7th Grade
-,,,Webster,"Webster County Middle
-School",98.6,7th Grade
-,,,Whitley,"Whitley County North
-Elementary School",96.3,7th Grade
-,,,Whitley,"Williamsburg City
-School",85.7,7th Grade
-,,,Wolfe,"Wolfe County Middle
-School",93.9,7th Grade
-,,,Woodford,"Woodford County Middle
-School",96.8,7th Grade
-,,,Adair,"Adair County High
-School",96.1,11th Grade
-,,,Allen,"Allen County
-Primary Center",95.7,11th Grade
-,,,Anderson,"Anderson County
-High School",94.89,11th Grade
-,,,Ballard,"Ballard County
-Elementary School",100,11th Grade
-,,,Barren,"Barren County High
-School",99.11,11th Grade
-,,,Barren,"Caverna
-Independent
-Schools",88.5,11th Grade
-,,,Barren,"Glasgow High
-School",94.6,11th Grade
-,,,Bath,"Bath County High
-School",96.8,11th Grade
-,,,Bell,"Bell County High
-School",91.9,11th Grade
-,,,Bell,"Middlesboro High
-School",96.7,11th Grade
-,,,Bell,"Pineville
-Independent
-School",92,11th Grade
-,,,Boone,ACCEL Academy,100,11th Grade
-,,,Boone,"Assumption
-Academy",29.4,11th Grade
-,,,Boone,"Boone County High
-School",96,11th Grade
-,,,Boone,"Conner High
-School",98.4,11th Grade
-,,,Boone,"Larry A. Ryle High
-School",100,11th Grade
-,,,Boone,Our Lady of the Sacred Heart Academy,40,11th Grade
-,,,Boone,"Randall K. Cooper
-High School",98.6,11th Grade
-,,,Boone,RISE Academy,100,11th Grade
-,,,Boone,"Walton-Verona
-High School",98.4,11th Grade
-,,,Bourbon,"Bourbon County
-High School",97.8,11th Grade
-,,,Bourbon,Paris High School,91.9,11th Grade
-,,,Bourbon,"Paris Middle
-School",92,11th Grade
-,,,Boyd,"Boyd County High
-School",96.6,11th Grade
-,,,Boyd,"Fairview High
-School",94.4,11th Grade
-,,,Boyd,"Poage Elementary
-School",97.6,11th Grade
-,,,Boyle,"Boyle County High
-School",96.8,11th Grade
-,,,Boyle,"Danville Christian
-Academy",60.9,11th Grade
-,,,Boyle,"Danville High
-School",97.1,11th Grade
-,,,Boyle,"Mary G. Hogsett
-Primary School",97.1,11th Grade
-,,,Bracken,"Augusta
-Independent
-School",92.6,11th Grade
-,,,Bracken,"Bracken County
-High School",99,11th Grade
-,,,Breathitt,"Breathitt County
-High School",99.1,11th Grade
-,,,Breathitt,"Jackson City
-School",100,11th Grade
-,,,Breckinridge,"Breckinridge
-County High
-School",98.4,11th Grade
-,,,Breckinridge,"Cloverport
-Independent
-School",95.2,11th Grade
-,,,Bullitt,"Bullitt Central High
-School",98.5,11th Grade
-,,,Bullitt,"Bullitt East High
-School",98.4,11th Grade
-,,,Bullitt,"North Bullitt High
-School",99,11th Grade
-,,,Bullitt,"Riverview
-Opportunity Center",97.4,11th Grade
-,,,Butler,"Butler County High
-School",94.7,11th Grade
-,,,Caldwell,"Caldwell County
-Primary School",97.1,11th Grade
-,,,Calloway,"Calloway County
-High School",97.8,11th Grade
-,,,Calloway,Murray High School,98.1,11th Grade
-,,,Campbell,"Alexandria
-Educational Center",100,11th Grade
-,,,Campbell,"Bellevue High
-School",100,11th Grade
-,,,Campbell,"Bishop Brossart
-High School",95.95,11th Grade
-,,,Campbell,"Campbell County
-High School",95.2,11th Grade
-,,,Campbell,"Highlands High
-School",98.3,11th Grade
-,,,Campbell,"Lincoln Elementary
-School",97.6,11th Grade
-,,,Campbell,"Newport Central
-Catholic High
-School",89.2,11th Grade
-,,,Campbell,"Newport High
-School",98.6,11th Grade
-,,,Campbell,"Newport School of
-Innovation",100,11th Grade
-,,,Carlisle,"Carlisle County
-Elementary School",100,11th Grade
-,,,Carroll,"Carroll County High
-School",97.5,11th Grade
-,,,Carter,"East Carter County
-High School",97.5,11th Grade
-,,,Carter,"West Carter County
-High School",98.6,11th Grade
-,,,Casey,"Casey County High
-School",95.6,11th Grade
-,,,Christian,"Christian County
-High School",98.9,11th Grade
-,,,Christian,"Christian County
-Public Schools
-Virtual Learning
-Academy",100,11th Grade
-,,,Christian,"Heritage Christian
-Academy",68.2,11th Grade
-,,,Christian,"Hopkinsville High
-School",99.6,11th Grade
-,,,Christian,"University Heights
-Academy",97.6,11th Grade
-,,,Clark,"George Rogers
-Clark High School",95.6,11th Grade
-,,,Clay,"Clay County High
-School",97.1,11th Grade
-,,,Clay,"Oneida Baptist
-Institute",50,11th Grade
-,,,Clinton,"Clinton County
-High School",97.1,11th Grade
-,,,Crittenden,"Crittenden County
-High School",100,11th Grade
-,,,Cumberland,"Cumberland
-County High
-School",93.42,11th Grade
-,,,Daviess,Apollo High School,95.34,11th Grade
-,,,Daviess,"Daviess County
-High School",96.7,11th Grade
-,,,Daviess,Emerson Academy,90.9,11th Grade
-,,,Daviess,"Heritage Park High
-School",97.6,11th Grade
-,,,Daviess,"Owensboro
-Catholic High
-School",100,11th Grade
-,,,Daviess,"Owensboro High
-School",96.2,11th Grade
-,,,Daviess,"Owensboro
-Innovation
-Academy",100,11th Grade
-,,,Daviess,Trinity High School  ,94.1,11th Grade
-,,,Edmonson,"Edmonson County
-High School",93.1,11th Grade
-,,,Elliott,"Elliott County High
-School",97.4,11th Grade
-,,,Estill,"Estill County High
-School",99.37,11th Grade
-,,,Estill,"Estill County
-Success Academy",100,11th Grade
-,,,Fayette,"Bryan Station High
-School",96,11th Grade
-,,,Fayette,"Carter G. Woodson
-Academy",100,11th Grade
-,,,Fayette,"Fayette County
-Learning Center",98,11th Grade
-,,,Fayette,"Frederick Douglass
-High School",98.3,11th Grade
-,,,Fayette,"Henry Clay High
-School",94.6,11th Grade
-,,,Fayette,"Lafayette High
-School",95.3,11th Grade
-,,,Fayette,"Lexington Catholic
-High School",99.4,11th Grade
-,,,Fayette,"Lexington Christian
-Academy",98.1,11th Grade
-,,,Fayette,"Martin L King Acad
-for Excellence Alt",91.7,11th Grade
-,,,Fayette,"Opportunity Middle
-College",93.5,11th Grade
-,,,Fayette,"Paul Laurence
-Dunbar High
-School",97.5,11th Grade
-,,,Fayette,Sayre School,96.7,11th Grade
-,,,Fayette,Steam Academy,99.2,11th Grade
-,,,Fayette,Success Academy,100,11th Grade
-,,,Fayette,"Success Academy
-Virtual Academy",96.92,11th Grade
-,,,Fayette,"Summitt Christian
-Academy",100,11th Grade
-,,,Fayette,"Tates Creek High
-School",95.1,11th Grade
-,,,Fayette,The Stables,90,11th Grade
-,,,Fayette,"Trinity Christian
-Academy",80,11th Grade
-,,,Fleming,"Fleming County
-High School",99.3,11th Grade
-,,,Floyd,"Betsy Layne High
-School",97.4,11th Grade
-,,,Floyd,"Floyd Central High
-School",100,11th Grade
-,,,Floyd,"Prestonsburg High
-School",98.3,11th Grade
-,,,Floyd,"Renaissance
-Learning Center",100,11th Grade
-,,,Franklin,"Frankfort Christian
-Academy",63.6,11th Grade
-,,,Franklin,"Frankfort High
-School",100,11th Grade
-,,,Franklin,"Franklin County
-High School",95.95,11th Grade
-,,,Franklin,"Western Hills High
-School",99,11th Grade
-,,,Fulton,"Fulton County
-Elementary",100,11th Grade
-,,,Fulton,"Fulton Independent
-High School",100,11th Grade
-,,,Gallatin,"Gallatin County
-High School",99.1,11th Grade
-,,,Garrard,"Garrard County
-High School",94.8,11th Grade
-,,,Grant,"Grant County High
-School",97.9,11th Grade
-,,,Grant,"Williamstown Sr.
-High",100,11th Grade
-,,,Graves,"Graves County
-High School",97,11th Grade
-,,,Graves,"Mayfield High
-School",98.5,11th Grade
-,,,Grayson,"Grayson County
-High School",98.6,11th Grade
-,,,Green,"Green County High
-School",94.2,11th Grade
-,,,Greenup,"Campbell
-Elementary School",94.1,11th Grade
-,,,Greenup,"Greenup County
-High School",100,11th Grade
-,,,Greenup,"Russell Middle
-School",100,11th Grade
-,,,Hancock,"Hancock County
-High School",97.5,11th Grade
-,,,Hardin,"Central Hardin High
-School",92.3,11th Grade
-,,,Hardin,"College View
-Campus",90.9,11th Grade
-,,,Hardin,"Early College and
-Career Center",97.6,11th Grade
-,,,Hardin,"Elizabethtown High
-School",93.8,11th Grade
-,,,Hardin,"John Hardin High
-School",90,11th Grade
-,,,Hardin,"North Hardin
-Christian Academy",75,11th Grade
-,,,Hardin,"North Hardin High
-School",93,11th Grade
-,,,Harlan,"Harlan County High
-School",96,11th Grade
-,,,Harlan,Harlan High School,100,11th Grade
-,,,Harrison,"Harrison County
-High School",97.6,11th Grade
-,,,Hart,"Hart County High
-School",99.3,11th Grade
-,,,Henderson,"Henderson County
-High School",97.6,11th Grade
-,,,Henderson,"The Central
-Academy",95.7,11th Grade
-,,,Henry,"Eminence High
-School",97.4,11th Grade
-,,,Henry,"Henry County High
-School",100,11th Grade
-,,,Hickman,"Hickman County
-Elementary School",98.1,11th Grade
-,,,Hopkins,"Dawson Springs
-Elementary",97.1,11th Grade
-,,,Hopkins,"Hopkins County
-Central High
-School",100,11th Grade
-,,,Hopkins,"Madisonville North
-Hopkins High
-School",96.7,11th Grade
-,,,Jackson,"Jackson County
-High School",94.49,11th Grade
-,,,Jefferson,"Academy for
-Individual
-Excellence",96.4,11th Grade
-,,,Jefferson,"Assumption High
-School",99.1,11th Grade
-,,,Jefferson,Atherton High,93.8,11th Grade
-,,,Jefferson,Ballard High,93,11th Grade
-,,,Jefferson,"Breckinridge
-Metropolitan High",92,11th Grade
-,,,Jefferson,"Butler Traditional
-High",97.3,11th Grade
-,,,Jefferson,"Central High
-Magnet Career
-Academy",95.1,11th Grade
-,,,Jefferson,"Christian Academy
-of Louisville Elem
-School (English
-Station)",96.2,11th Grade
-,,,Jefferson,Doss High,80.3,11th Grade
-,,,Jefferson,"duPont Manual
-High",96.8,11th Grade
-,,,Jefferson,Eastern High,88.65,11th Grade
-,,,Jefferson,Fairdale High,92.2,11th Grade
-,,,Jefferson,Fern Creek High,84.3,11th Grade
-,,,Jefferson,"Francis Parker
-School of Louisville",97.7,11th Grade
-,,,Jefferson,"Georgia Chaffee
-Teenage Parent
-Program",100,11th Grade
-,,,Jefferson,"Highlands Latin
-School",37.1,11th Grade
-,,,Jefferson,"Holy Angels
-Academy",50,11th Grade
-,,,Jefferson,"Holy Cross High
-School",97.2,11th Grade
-,,,Jefferson,"Home of the
-Innocents School",93.3,11th Grade
-,,,Jefferson,Iroquois High,82.5,11th Grade
-,,,Jefferson,"J. Graham Brown
-School",95.2,11th Grade
-,,,Jefferson,Jeffersontown High,87.2,11th Grade
-,,,Jefferson,"Kentucky Country
-Day School",96.7,11th Grade
-,,,Jefferson,Liberty High,100,11th Grade
-,,,Jefferson,"Louisville
-Collegiate School",96,11th Grade
-,,,Jefferson,"Louisville Male
-High",98.9,11th Grade
-,,,Jefferson,"Marion C. Moore
-School",84.8,11th Grade
-,,,Jefferson,"Mary Jo and
-William MacDonald
-Maryhurst",100,11th Grade
-,,,Jefferson,"Mercy Academy
-High School",100,11th Grade
-,,,Jefferson,"Newcomer
-Academy",33.9,11th Grade
-,,,Jefferson,"Pathfinder School
-of Innovation",94.1,11th Grade
-,,,Jefferson,Peace Academy,81.8,11th Grade
-,,,Jefferson,"Pleasure Ridge
-Park High",92.3,11th Grade
-,,,Jefferson,"Portland
-Christian-Portland
-Campus",100,11th Grade
-,,,Jefferson,"Presentation
-Academy High
-School",91.2,11th Grade
-,,,Jefferson,"Sacred Heart
-Academy",96.4,11th Grade
-,,,Jefferson,"Saint Francis
-DeSales High
-School",92.6,11th Grade
-,,,Jefferson,"Saint Xavier High
-School",98.74,11th Grade
-,,,Jefferson,Seneca High,80.7,11th Grade
-,,,Jefferson,Southern High,82.4,11th Grade
-,,,Jefferson,Summit Academy,68.75,11th Grade
-,,,Jefferson,"The Academy @
-Shawnee",90.1,11th Grade
-,,,Jefferson,"The Phoenix
-School of
-Discovery",98.2,11th Grade
-,,,Jefferson,Trinity High School  ,92.8,11th Grade
-,,,Jefferson,"VALIANT
-CHRISTIAN
-ACADEMY",75,11th Grade
-,,,Jefferson,Valley High,90.5,11th Grade
-,,,Jefferson,"W.E.B. DuBois
-Academy",100,11th Grade
-,,,Jefferson,Waggener High,72.1,11th Grade
-,,,Jefferson,Walden School,94.4,11th Grade
-,,,Jefferson,"Waller-Williams
-Environmental",92.3,11th Grade
-,,,Jefferson,Western High,94.7,11th Grade
-,,,Jefferson,"Whitefield
-Academy",100,11th Grade
-,,,Jessamine,"East Jessamine
-High School",90.2,11th Grade
-,,,Jessamine,"The Providence
-School",100,11th Grade
-,,,Jessamine,"Trinity Christian
-Academy",90.9,11th Grade
-,,,Jessamine,"West Jessamine
-High School",94.86,11th Grade
-,,,Johnson,"Johnson Central
-High School",96.7,11th Grade
-,,,Johnson,"Paintsville
-Elementary School",86,11th Grade
-,,,Kenton,"Beechwood
-Elementary School",97.5,11th Grade
-,,,Kenton,"Calvary Christian
-School",94.3,11th Grade
-,,,Kenton,"Community
-Christian Academy",75,11th Grade
-,,,Kenton,"Covington Catholic
-High School",97.5,11th Grade
-,,,Kenton,"Covington Latin
-School",100,11th Grade
-,,,Kenton,"Dixie Heights High
-School",96.6,11th Grade
-,,,Kenton,"Holmes High
-School",96,11th Grade
-,,,Kenton,"Holy Cross District
-High School",80.3,11th Grade
-,,,Kenton,Lloyd High School,97.9,11th Grade
-,,,Kenton,"Ludlow High
-School",98.6,11th Grade
-,,,Kenton,"Notre Dame
-Academy",97.6,11th Grade
-,,,Kenton,"Saint Henry District
-High School",73.1,11th Grade
-,,,Kenton,Scott High School,98.7,11th Grade
-,,,Kenton,"Simon Kenton High
-School",99.09,11th Grade
-,,,Kenton,"Villa Madonna
-Academy High
-School",31.1,11th Grade
-,,,Knott,Cordia School,92.3,11th Grade
-,,,Knott,"Knott County
-Central High
-School",98,11th Grade
-,,,Knox,"Barbourville
-Learning
-Center/Barbourville
-Independent
-School",95.6,11th Grade
-,,,Knox,"Knox Central High
-School",95.9,11th Grade
-,,,Knox,"Knox County
-Learning Academy",100,11th Grade
-,,,Knox,"Lynn Camp Middle
-High School",92.2,11th Grade
-,,,LaRue,"LaRue County High
-School",93.75,11th Grade
-,,,Laurel,"North Laurel High
-School",96.42,11th Grade
-,,,Laurel,"South Laurel High
-School",94,11th Grade
-,,,Lawrence,"Lawrence County
-High School",99.5,11th Grade
-,,,Lee,"Lee County Middle
-High School",100,11th Grade
-,,,Leslie,"Leslie County High
-School",99.1,11th Grade
-,,,Letcher,"Jenkins
-Independent
-School",96.7,11th Grade
-,,,Letcher,"Letcher County
-Central High
-School",100,11th Grade
-,,,Lewis,"Lewis County High
-School",98.4,11th Grade
-,,,Lincoln,"Lincoln County
-High School",95.3,11th Grade
-,,,Livingston,"Livingston Central
-High School",94.9,11th Grade
-,,,Logan,"Logan County High
-School",97.1,11th Grade
-,,,Logan,"Russellville High
-School",96.4,11th Grade
-,,,Logan,The Academy,100,11th Grade
-,,,Lyon,"Lyon County
-Elementary School",93.2,11th Grade
-,,,Madison,"B. Michael Caudill
-Middle School",96.9,11th Grade
-,,,Madison,"Berea Community
-High School",92.4,11th Grade
-,,,Madison,"Madison Central
-High School",96.9,11th Grade
-,,,Madison,"Madison Southern
-High School",98,11th Grade
-,,,Madison,Model Elementary,96.5,11th Grade
-,,,Magoffin,"Magoffin County
-High School",97.9,11th Grade
-,,,Marion,"Hugh C. Spalding
-Academy",100,11th Grade
-,,,Marion,"Marion County
-High School",100,11th Grade
-,,,Marshall,"Christian
-Fellowship School",83.3,11th Grade
-,,,Marshall,"Marshall County
-High School",97.9,11th Grade
-,,,Martin,"Martin County High
-School",100,11th Grade
-,,,Mason,"Mason County High
-School",92.82,11th Grade
-,,,Mason,"Saint Patrick
-School",11.8,11th Grade
-,,,McCracken,"Choices
-Educational Center
-(no K this year)",94.1,11th Grade
-,,,McCracken,"Community
-Christian Academy",73.7,11th Grade
-,,,McCracken,"McCracken County
-High School",95.8,11th Grade
-,,,McCracken,"Paducah Tilghman
-High School",94.5,11th Grade
-,,,McCracken,Saint Mary School,100,11th Grade
-,,,McCreary,"McCreary Central
-High School",99.37,11th Grade
-,,,McLean,"McLean County
-High School",100,11th Grade
-,,,Meade,"Meade County
-High School",94.32,11th Grade
-,,,Menifee,"Menifee County
-High School",98.6,11th Grade
-,,,Mercer,"Burgin Independent
-School",97.7,11th Grade
-,,,Mercer,Mercer Central,93.3,11th Grade
-,,,Mercer,"Mercer County
-Senior High School",97.9,11th Grade
-,,,Metcalfe,"Metcalfe County
-High School",96.6,11th Grade
-,,,Monroe,"Gamaliel
-Elementary",98.6,11th Grade
-,,,Monroe,Joe Harrison Carter,98.6,11th Grade
-,,,Monroe,Tompkinsville Elem,98.6,11th Grade
-,,,Montgomery,"Montgomery
-County High
-School",98.4,11th Grade
-,,,Montgomery,The Sterling School,92,11th Grade
-,,,Morgan,"Morgan County
-High School",98.5,11th Grade
-,,,Muhlenberg,"Muhlenberg County
-High School",96.7,11th Grade
-,,,Muhlenberg,"The Renaissance
-Center",100,11th Grade
-,,,Nelson,"Bardstown High
-School",95.5,11th Grade
-,,,Nelson,"Bethlehem High
-School",97.6,11th Grade
-,,,Nelson,"Nelson County
-High School",97.4,11th Grade
-,,,Nelson,"The Academy at
-Horizons",100,11th Grade
-,,,Nelson,"Thomas Nelson
-High School",98.7,11th Grade
-,,,Nicholas,"Nicholas County
-Elementary School",100,11th Grade
-,,,Ohio,"Ohio County High
-School",98,11th Grade
-,,,Oldham,"Buckner Alternative
-High School",100,11th Grade
-,,,Oldham,"North Oldham High
-School",97.4,11th Grade
-,,,Oldham,"Oldham County
-High School",97.25,11th Grade
-,,,Oldham,"South Oldham High
-School",96.6,11th Grade
-,,,Owen,"Owen County High
-School",99.3,11th Grade
-,,,Owsley,"Owsley County
-High School",95.6,11th Grade
-,,,Pendleton,"Pendleton County
-High School",98.75,11th Grade
-,,,Perry,Buckhorn School,95.8,11th Grade
-,,,Perry,"Hazard High
-School",97.3,11th Grade
-,,,Perry,Learning Academy,90.9,11th Grade
-,,,Perry,"Perry County
-Central High
-School",95.6,11th Grade
-,,,Pike,Belfry High School,100,11th Grade
-,,,Pike,"East Ridge High
-School",98.8,11th Grade
-,,,Pike,Phelps High School,92.7,11th Grade
-,,,Pike,"Pike County
-Central High
-School",100,11th Grade
-,,,Pike,"Pikeville High
-School",98.7,11th Grade
-,,,Pike,"Shelby Valley High
-School",100,11th Grade
-,,,Powell,"Powell County High
-School",97.7,11th Grade
-,,,Pulaski,"Pulaski County
-High School",98.3,11th Grade
-,,,Pulaski,"Somerset Christian
-School",78.9,11th Grade
-,,,Pulaski,"Somerset High
-School",99.22,11th Grade
-,,,Pulaski,"Southwestern High
-School",95.9,11th Grade
-,,,Robertson,"Robertson County
-School",100,11th Grade
-,,,Rockcastle,"Rockcastle County
-High School",91.5,11th Grade
-,,,Rowan,"Bluegrass
-Discovery
-Academy Middle",85.7,11th Grade
-,,,Rowan,"Lakeside Christian
-Academy",63.6,11th Grade
-,,,Rowan,"Rowan County
-Senior High School",94.6,11th Grade
-,,,Russell,"Russell County
-High School",97.8,11th Grade
-,,,Scott,"Great Crossing
-High School",94.9,11th Grade
-,,,Scott,"Phoenix Horizon
-Community",100,11th Grade
-,,,Scott,"Scott County High
-School",96.6,11th Grade
-,,,Shelby,"Ascension
-Academy",100,11th Grade
-,,,Shelby,"Cornerstone
-Christian Academy",87.5,11th Grade
-,,,Shelby,"Martha Layne
-Collins High School",94.7,11th Grade
-,,,Shelby,"Shelby County
-High School",95,11th Grade
-,,,Simpson,"Franklin-Simpson
-High School",98.5,11th Grade
-,,,Simpson,"Franklin-Simpson
-High School West
-Campus",100,11th Grade
-,,,Spencer,Hillview Academy,81.8,11th Grade
-,,,Spencer,"Spencer County
-High School",97.5,11th Grade
-,,,Taylor,"Campbellsville High
-School",97.6,11th Grade
-,,,Taylor,"Taylor County High
-School",93.5,11th Grade
-,,,Todd,"Todd County
-Central High
-School",95.8,11th Grade
-,,,Trigg,"Trigg County
-Primary School",90.8,11th Grade
-,,,Trimble,"Trimble County
-JR/SR High School",98.7,11th Grade
-,,,Union,"Union County High
-School",98.5,11th Grade
-,,,Warren,"Bowling Green
-High School",92.3,11th Grade
-,,,Warren,"Foundation
-Christian Academy",100,11th Grade
-,,,Warren,"Greenwood High
-School",96.6,11th Grade
-,,,Warren,"Legacy Christian
-Academy",83.3,11th Grade
-,,,Warren,"South Warren High
-School",97.6,11th Grade
-,,,Warren,"Warren Central
-High School",92.7,11th Grade
-,,,Warren,"Warren East High
-School",99.2,11th Grade
-,,,Washington,"Commander
-Academy",100,11th Grade
-,,,Washington,"Washington County
-High School",98.3,11th Grade
-,,,Wayne,"Wayne County
-High School",99.6,11th Grade
-,,,Webster,"Webster County
-High School",96.5,11th Grade
-,,,Whitley,Corbin High School,95.3,11th Grade
-,,,Whitley,"Whitley County
-High School",95.7,11th Grade
-,,,Whitley,"Whitley County
-North Elementary
-School",96.8,11th Grade
-,,,Whitley,"Williamsburg City
-School",94.5,11th Grade
-,,,Wolfe,"Wolfe County High
-School",92.1,11th Grade
-,,,Woodford,"Woodford County
-High School",96.2,11th Grade
+Facility Number,School Type,School District or Name,Facility Address,County,MMR Vaccination Rate,Age Group
+,Public,Adair County Primary Center,,Adair,93.83,Kindergarten
+,Public,Allen County Primary Center,,Allen,89.81,Kindergarten
+,Public,Ezra Sparrow Early Childhood Center,,Anderson,88.31,Kindergarten
+,Public,Robert B. Turner Elementary,,Anderson,93.41,Kindergarten
+,Public,Ballard County Elementary School,,Ballard,94.52,Kindergarten
+,Public,Austin Tracy Elementary,,Barren,91.89,Kindergarten
+,Public,Caverna Elementary,,Barren,69.7,Kindergarten
+,Public,Eastern Elementary,,Barren,100.0,Kindergarten
+,Public,Highland Elementary,,Barren,96.34,Kindergarten
+,Public,Hiseville Elementary,,Barren,100.0,Kindergarten
+,Public,North Jackson Elem.,,Barren,98.28,Kindergarten
+,Public,Park City Elementary,,Barren,93.75,Kindergarten
+,Public,Red Cross Elementary School,,Barren,92.65,Kindergarten
+,Public,South Green Elementary School,,Barren,95.83,Kindergarten
+,Public,Temple Hill Elementary,,Barren,87.88,Kindergarten
+,Public,Crossroads Elementary School,,Bath,91.38,Kindergarten
+,Public,Owingsville Elementary School,,Bath,83.33,Kindergarten
+,Public,Bell Central School Center,,Bell,75.51,Kindergarten
+,Public,Frakes School Center,,Bell,93.33,Kindergarten
+,Public,Lone Jack School Center,,Bell,80.0,Kindergarten
+,Public,Middlesboro Elementary,,Bell,91.11,Kindergarten
+,Public,Page School Center,,Bell,93.75,Kindergarten
+,Public,Pineville Elementary School,,Bell,75.0,Kindergarten
+,Public,Right Fork School Center,,Bell,84.62,Kindergarten
+,Public,Yellow Creek School Center,,Bell,79.63,Kindergarten
+,Public,A. M. Yealey Elementary,,Boone,96.05,Kindergarten
+,Public,Burlington Elementary,,Boone,98.91,Kindergarten
+,Public,Chester Goodridge Elementary,,Boone,97.46,Kindergarten
+,Public,Erpenbeck,,Boone,95.65,Kindergarten
+,Public,Florence Elementary,,Boone,98.1,Kindergarten
+,Private,Heritage Academy,,Boone,81.82,Kindergarten
+,Public,Hillard Collins Elementary School,,Boone,98.7,Kindergarten
+,Private,Immaculate Heart of Mary,,Boone,94.59,Kindergarten
+,Public,Kelly Elementary,,Boone,82.5,Kindergarten
+,Public,Longbranch Elementary School,,Boone,95.88,Kindergarten
+,Private,"Mary, Queen of Heaven",,Boone,100.0,Kindergarten
+,Public,New Haven Elementary School,,Boone,89.91,Kindergarten
+,Public,North Pointe Elementary,,Boone,100.0,Kindergarten
+,Public,Ockerman Elementary School,,Boone,96.43,Kindergarten
+,Private,Our Lady of the Sacred Heart Academy,,Boone,6.06,Kindergarten
+,Public,Shirley Mann Elementary,,Boone,97.09,Kindergarten
+,Private,St. Paul Catholic School,,Boone,100.0,Kindergarten
+,Private,St. Timothy Catholic School,,Boone,96.0,Kindergarten
+,Public,Steeplechase Elementary School,,Boone,95.89,Kindergarten
+,Public,Stephens Elementary,,Boone,92.68,Kindergarten
+,Public,Thornwilde Elementary,,Boone,97.7,Kindergarten
+,Public,Walton-Verona Elementary School,,Boone,90.99,Kindergarten
+,Private,Zion Christian Academy,,Boone,69.57,Kindergarten
+,Public,Bourbon Central Elementary,,Bourbon,100.0,Kindergarten
+,Public,Cane Ridge Elementary School,,Bourbon,93.85,Kindergarten
+,Public,North Middletown Elementary School,,Bourbon,92.31,Kindergarten
+,Public,Paris Elementary School,,Bourbon,93.33,Kindergarten
+,Private,St. Mary School,,Bourbon,100.0,Kindergarten
+,Public,Cannonsburg Elementary,,Boyd,87.23,Kindergarten
+,Public,Catlettsburg Elementary,,Boyd,90.91,Kindergarten
+,Public,Charles Russell Elementary,,Boyd,88.57,Kindergarten
+,Public,Crabbe Elementary,,Boyd,93.88,Kindergarten
+,Public,Fairview Independent School,,Boyd,81.25,Kindergarten
+,Public,Hager Elementary,,Boyd,94.44,Kindergarten
+,Public,Oakview Elementary,,Boyd,90.91,Kindergarten
+,Public,Poage Elementary School,,Boyd,87.23,Kindergarten
+,Public,Ponderosa Elementary,,Boyd,84.21,Kindergarten
+,Public,Summit Elementary,,Boyd,90.74,Kindergarten
+,Private,Danville Christian Academy,,Boyle,72.97,Kindergarten
+,Public,Junction City Elementary School,,Boyle,96.43,Kindergarten
+,Public,Mary G Hogsett Primary,,Boyle,95.8,Kindergarten
+,Public,Perryville Elementary,,Boyle,92.5,Kindergarten
+,Public,Woodlawn Elementary School,,Boyle,94.19,Kindergarten
+,Public,Augusta Independent School,,Bracken,95.83,Kindergarten
+,Public,Taylor Elementary,,Bracken,80.0,Kindergarten
+,Public,Breathitt Elementary,,Breathitt,97.8,Kindergarten
+,Public,Highland Turner Elementary School,,Breathitt,85.71,Kindergarten
+,Public,Jackson Independent School,,Breathitt,91.43,Kindergarten
+,Public,Ben Johnson Elementary,,Breckinridge,88.1,Kindergarten
+,Public,Cloverport Independent Schools,,Breckinridge,85.71,Kindergarten
+,Public,Custer Elementary,,Breckinridge,84.85,Kindergarten
+,Public,Hardinsburg Elementary School,,Breckinridge,96.67,Kindergarten
+,Public,Irvington Elementary,,Breckinridge,88.24,Kindergarten
+,Private,St. Romuald School,,Breckinridge,94.74,Kindergarten
+,Public,Brooks Elementary,,Bullitt,90.41,Kindergarten
+,Public,Cedar Grove Elementary,,Bullitt,92.42,Kindergarten
+,Public,Crossroads Elementary School,,Bullitt,96.25,Kindergarten
+,Public,Freedom Elementary School,,Bullitt,95.24,Kindergarten
+,Public,Lebanon Junction Elementary,,Bullitt,85.71,Kindergarten
+,Private,Little Flock Christian Academy,,Bullitt,96.0,Kindergarten
+,Public,Maryville Elementary,,Bullitt,90.57,Kindergarten
+,Private,Micah Christian School,,Bullitt,72.73,Kindergarten
+,Public,Mt. Washington Elementary School,,Bullitt,97.53,Kindergarten
+,Public,Old Mill Elementary School,,Bullitt,96.74,Kindergarten
+,Public,Overdale Elementary School,,Bullitt,94.74,Kindergarten
+,Public,Pleasant Grove Elem,,Bullitt,94.62,Kindergarten
+,Public,Roby Elementary School,,Bullitt,98.15,Kindergarten
+,Public,Shepherdsville Elementary,,Bullitt,97.44,Kindergarten
+,Public,Morgantown Elementary School,,Butler,87.88,Kindergarten
+,Public,North Butler Elementary School,,Butler,92.45,Kindergarten
+,Public,Caldwell County Primary School,,Caldwell,89.34,Kindergarten
+,Public,East Elementary,,Calloway,94.74,Kindergarten
+,Public,Murray Elementary School,,Calloway,89.84,Kindergarten
+,Public,North Calloway Elementary School,,Calloway,95.92,Kindergarten
+,Public,Southwest Elementary,,Calloway,96.92,Kindergarten
+,Public,Campbell Ridge Elementary,,Campbell,89.01,Kindergarten
+,Public,Crossroads Elem,,Campbell,89.06,Kindergarten
+,Public,Donald E. Cline Elementary,,Campbell,96.97,Kindergarten
+,Public,Grandview Elementary,,Campbell,90.0,Kindergarten
+,Public,Grant's Lick Elementary,,Campbell,98.31,Kindergarten
+,Public,John W. Reiley Elementary,,Campbell,97.87,Kindergarten
+,Public,Johnson Elementary,,Campbell,97.14,Kindergarten
+,Public,Lincoln Elementary,,Campbell,94.83,Kindergarten
+,Public,Newport Primary School,,Campbell,96.91,Kindergarten
+,Public,Ruth Moyer Elementary,,Campbell,96.74,Kindergarten
+,Private,Saint Therese,,Campbell,100.0,Kindergarten
+,Private,Saint Thomas,,Campbell,100.0,Kindergarten
+,Public,Samuel Woodfill Elementary,,Campbell,92.42,Kindergarten
+,Public,Southgate Public School,,Campbell,100.0,Kindergarten
+,Private,ST MARY SCHOOL,,Campbell,100.0,Kindergarten
+,Private,St. Joseph,,Campbell,100.0,Kindergarten
+,Private,Sts Peter & Paul School,,Campbell,94.44,Kindergarten
+,Public,Carlisle County Elementary,,Carlisle,89.58,Kindergarten
+,Private,Christian Academy of Carrollton,,Carroll,66.67,Kindergarten
+,Public,Kathryn Winn Primary,,Carroll,94.66,Kindergarten
+,Private,Carter Christian Academy,,Carter,58.33,Kindergarten
+,Public,Carter City Elementary,,Carter,95.65,Kindergarten
+,Public,Heritage Elementary,,Carter,93.88,Kindergarten
+,Public,Olive Hill Elementary,,Carter,91.43,Kindergarten
+,Public,Prichard Elementary,,Carter,93.02,Kindergarten
+,Public,Star Elementary,,Carter,89.47,Kindergarten
+,Public,Tygart Creek Elementary School,,Carter,92.31,Kindergarten
+,Public,Jones Park Elem,,Casey,97.14,Kindergarten
+,Public,Liberty Elementary,,Casey,98.11,Kindergarten
+,Public,Walnut Hill Elementary,,Casey,89.36,Kindergarten
+,Public,Crofton Elementary School,,Christian,91.67,Kindergarten
+,Public,Freedom Elementary School,,Christian,98.67,Kindergarten
+,Private,Heritage Christian Academy,,Christian,74.29,Kindergarten
+,Public,Indian Hills Elementary School,,Christian,89.74,Kindergarten
+,Public,Millbrooke Elementary School,,Christian,97.59,Kindergarten
+,Public,Pembroke Elementary School,,Christian,96.08,Kindergarten
+,Public,Sinking Fork Elementary,,Christian,92.59,Kindergarten
+,Public,South Christian Elementary School,,Christian,93.2,Kindergarten
+,Private,Sts. Peter and Paul Catholic School,,Christian,82.35,Kindergarten
+,Private,University Heights Academy,,Christian,81.82,Kindergarten
+,Public,Calvary Christian School,,Clark,88.46,Kindergarten
+,Public,Conkwright Elementary,,Clark,97.67,Kindergarten
+,Private,Grace Bible Academy,,Clark,88.24,Kindergarten
+,Public,Shearer Elementary,,Clark,97.56,Kindergarten
+,Private,St. Agatha Academy,,Clark,92.86,Kindergarten
+,Public,Strode Station Elementary School,,Clark,99.01,Kindergarten
+,Public,Willis Justice Elementary,,Clark,100.0,Kindergarten
+,Public,Big Creek Elementary,,Clay,92.31,Kindergarten
+,Public,Burning Springs Elementary,,Clay,85.0,Kindergarten
+,Public,Goose Rock Elementary,,Clay,87.5,Kindergarten
+,Public,Hacker Elementary,,Clay,86.96,Kindergarten
+,Public,Manchester Elementary,,Clay,100.0,Kindergarten
+,Private,Oneida Baptist Institute,,Clay,31.82,Kindergarten
+,Public,Oneida Elementary,,Clay,84.62,Kindergarten
+,Public,Paces Creek Elementary,,Clay,87.23,Kindergarten
+,Public,Clinton County Early Childhood Center,,Clinton,69.57,Kindergarten
+,Public,Crittenden County Elementary,,Crittenden,90.0,Kindergarten
+,Public,Cumberland County Elementary School,,Cumberland,87.32,Kindergarten
+,Public,Audubon Elementary,,Daviess,83.67,Kindergarten
+,Public,Country Heights Elementary,,Daviess,87.18,Kindergarten
+,Public,Cravens Elementary,,Daviess,88.14,Kindergarten
+,Public,Deer Park Elementary,,Daviess,85.71,Kindergarten
+,Public,East View Elementary,,Daviess,96.0,Kindergarten
+,Public,Estes Elementary,,Daviess,94.12,Kindergarten
+,Public,F T Burns Elementary,,Daviess,94.83,Kindergarten
+,Public,Foust Elementary,,Daviess,90.91,Kindergarten
+,Private,Heritage Christian School,,Daviess,33.33,Kindergarten
+,Public,Highland Elementary,,Daviess,93.85,Kindergarten
+,Private,Mary Carrico Memorial School,,Daviess,87.5,Kindergarten
+,Public,Meadow Lands Elementary,,Daviess,84.21,Kindergarten
+,Public,Newton Parrish Elementary,,Daviess,94.32,Kindergarten
+,Private,Owensboro Catholic,,Daviess,89.89,Kindergarten
+,Public,Sorgho Elementary,,Daviess,93.48,Kindergarten
+,Public,Southern Oaks Elementary,,Daviess,93.75,Kindergarten
+,Private,St. Mary of the Woods School,,Daviess,95.83,Kindergarten
+,Public,Sutton Elementary,,Daviess,94.59,Kindergarten
+,Public,Tamarack Elementary,,Daviess,98.84,Kindergarten
+,Public,West Louisville Elementar,,Daviess,86.96,Kindergarten
+,Public,Whitesville Elementary,,Daviess,88.33,Kindergarten
+,Public,Kyrock Elementary School,,Edmonson,88.68,Kindergarten
+,Public,South Edmonson Elementary School,,Edmonson,84.44,Kindergarten
+,Public,Elliott County Primary,,Elliott,83.33,Kindergarten
+,Public,Estill Springs Elementary,,Estill,94.59,Kindergarten
+,Public,West Irvine Elementary,,Estill,92.31,Kindergarten
+,Public,Arlington Elementary,,Fayette,92.68,Kindergarten
+,Public,Ashland Elementary,,Fayette,97.62,Kindergarten
+,Public,Athens Chilesburg Elementary,,Fayette,96.75,Kindergarten
+,Public,Booker T Washington Elementary,,Fayette,93.55,Kindergarten
+,Public,Breckinridge Elementary,,Fayette,93.58,Kindergarten
+,Public,Brenda Cowan Elementary,,Fayette,96.94,Kindergarten
+,Public,Cardinal Valley,,Fayette,91.21,Kindergarten
+,Public,Cassidy Elementary,,Fayette,96.3,Kindergarten
+,Private,Christ the King School,,Fayette,100.0,Kindergarten
+,Public,Clays Mill Elementary,,Fayette,98.65,Kindergarten
+,Private,Community Montessori School,,Fayette,100.0,Kindergarten
+,Public,Coventry Oak Elementary,,Fayette,94.29,Kindergarten
+,Public,Deep Springs Elementary,,Fayette,95.77,Kindergarten
+,Public,Dixie Elementary,,Fayette,95.29,Kindergarten
+,Public,Garden Springs Elementary,,Fayette,91.8,Kindergarten
+,Public,Garrett Morgan Elementary,,Fayette,96.77,Kindergarten
+,Public,George Washington Carver STEM Academy,,Fayette,95.65,Kindergarten
+,Public,Glendover Elementary,,Fayette,91.89,Kindergarten
+,Private,Good Shepherd Day School,,Fayette,93.75,Kindergarten
+,Public,Harrison Elementary,,Fayette,82.5,Kindergarten
+,Public,James Lane Allen Elementary,,Fayette,95.0,Kindergarten
+,Public,Julius Mark Elementary,,Fayette,93.44,Kindergarten
+,Public,Lansdowne Elementary,,Fayette,98.8,Kindergarten
+,Private,Lexington Christian Academy,,Fayette,88.1,Kindergarten
+,Private,Lexington Latin School,,Fayette,48.57,Kindergarten
+,Private,Lexington Universal Academy,,Fayette,100.0,Kindergarten
+,Public,Liberty Elementary,,Fayette,95.65,Kindergarten
+,Private,Mary Queen of the Holy Rosary Catholic School,,Fayette,90.7,Kindergarten
+,Public,Mary Todd Elementary,,Fayette,90.57,Kindergarten
+,Public,Maxwell Spanish Immersion Elementary,,Fayette,97.0,Kindergarten
+,Public,Meadowthorpe Elementary,,Fayette,94.62,Kindergarten
+,Public,Millcreek Elementary,,Fayette,93.67,Kindergarten
+,Public,Northern Elementary,,Fayette,97.83,Kindergarten
+,Public,Picadome Elementary,,Fayette,94.03,Kindergarten
+,Private,Providence Montessori School,,Fayette,95.24,Kindergarten
+,Private,Redwood Cooperative School,,Fayette,85.71,Kindergarten
+,Public,Rise STEM Academy for Girls,,Fayette,93.1,Kindergarten
+,Public,Rosa Parks Elementary,,Fayette,91.57,Kindergarten
+,Public,Russell Cave Elementary,,Fayette,94.0,Kindergarten
+,Public,Sandersville Elementary,,Fayette,97.89,Kindergarten
+,Private,Sayre School,,Fayette,100.0,Kindergarten
+,Private,Seton Catholic School,,Fayette,92.86,Kindergarten
+,Public,Southern Elementary,,Fayette,98.18,Kindergarten
+,Public,Squires Elementary,,Fayette,96.15,Kindergarten
+,Public,Stonewall Elementary,,Fayette,94.44,Kindergarten
+,Private,Sts Peter and Paul,,Fayette,91.3,Kindergarten
+,Private,Summit Christian Academy,,Fayette,76.19,Kindergarten
+,Public,Tates Creek Elementary,,Fayette,96.94,Kindergarten
+,Private,The Lexington School,,Fayette,100.0,Kindergarten
+,Private,Trinity Christian Academy,,Fayette,76.92,Kindergarten
+,Public,Veterans Park Elementary,,Fayette,94.55,Kindergarten
+,Private,Walnut Hill Day School,,Fayette,90.91,Kindergarten
+,Public,Wellington Elementary,,Fayette,95.4,Kindergarten
+,Public,William Wells Brown Elementary,,Fayette,84.0,Kindergarten
+,Public,Yates Elementary,,Fayette,94.55,Kindergarten
+,Public,Ewing Elementary,,Fleming,95.35,Kindergarten
+,Public,Flemingsburg Elementary School,,Fleming,95.29,Kindergarten
+,Public,Hillsboro Elementary,,Fleming,85.71,Kindergarten
+,Public,Allen Elementary,,Floyd,97.22,Kindergarten
+,Public,Betsy Layne Elementary School,,Floyd,98.21,Kindergarten
+,Public,Duff Allen Central Elementary,,Floyd,96.77,Kindergarten
+,Public,John M Stumbo,,Floyd,95.45,Kindergarten
+,Public,May Valley Elementary School,,Floyd,96.36,Kindergarten
+,Public,Prestonsburg Elementary Schools,,Floyd,92.23,Kindergarten
+,Public,South Floyd Elementary,,Floyd,93.75,Kindergarten
+,Public,Bridgeport Elementary,,Franklin,89.47,Kindergarten
+,Private,Capital Day School,,Franklin,100.0,Kindergarten
+,Public,Collins Lane Elementary,,Franklin,87.18,Kindergarten
+,Public,Early Learning Village,,Franklin,94.86,Kindergarten
+,Private,Good Shepherd Catholic School,,Franklin,95.83,Kindergarten
+,Public,Second Street School,,Franklin,98.04,Kindergarten
+,Private,The Frankfort Christian Academy,,Franklin,88.0,Kindergarten
+,Public,Westridge Elementary,,Franklin,100.0,Kindergarten
+,Public,Fulton County Elementary,,Fulton,95.0,Kindergarten
+,Public,Fulton Independent School,,Fulton,95.0,Kindergarten
+,Public,Gallatin County Lower Elementary,,Gallatin,94.51,Kindergarten
+,Public,Camp Dick Robinson Elementary,,Garrard,78.79,Kindergarten
+,Public,Lancaster Elementary School,,Garrard,47.83,Kindergarten
+,Public,Paint Lick Elementary,,Garrard,86.49,Kindergarten
+,Public,Crittenden Mt. Zion Elem,,Grant,98.57,Kindergarten
+,Public,Dry Ridge Elementary,,Grant,95.65,Kindergarten
+,Public,Mason Corinth Elementary,,Grant,89.58,Kindergarten
+,Public,Sherman Elem.,,Grant,91.07,Kindergarten
+,Public,Williamstown Elementary School,,Grant,96.61,Kindergarten
+,Public,Fancy Farm Elementary,,Graves,97.78,Kindergarten
+,Public,Farmington Elementary School,,Graves,97.3,Kindergarten
+,Public,Graves County Central,,Graves,91.53,Kindergarten
+,Public,Mayfield Elementary School,,Graves,94.49,Kindergarten
+,Private,Northside Baptist Christian School,,Graves,83.33,Kindergarten
+,Public,Sedalia Elementary School,,Graves,97.67,Kindergarten
+,Public,Symsonia Elementary School,,Graves,95.24,Kindergarten
+,Public,Wingo Elementary School,,Graves,91.49,Kindergarten
+,Public,Caneyville Elementary,,Grayson,91.49,Kindergarten
+,Public,Clarkson Elementary,,Grayson,96.97,Kindergarten
+,Public,H.W. Wilkey Elementary,,Grayson,98.53,Kindergarten
+,Public,Oran P. Lawler Elementary,,Grayson,98.04,Kindergarten
+,Public,Green County Primary School,,Green,93.81,Kindergarten
+,Public,Argillite Elementary,,Greenup,83.33,Kindergarten
+,Public,Campbell Elementary,,Greenup,94.94,Kindergarten
+,Public,Greenup County School of Innovation,,Greenup,85.0,Kindergarten
+,Public,Greysbranch Elementary,,Greenup,78.72,Kindergarten
+,Public,Mckell Elementary,,Greenup,97.01,Kindergarten
+,Public,Russell Primary,,Greenup,82.66,Kindergarten
+,Public,North Hancock Elementary School,,Hancock,98.67,Kindergarten
+,Public,South Hancock Elementary,,Hancock,100.0,Kindergarten
+,Public,Cecilia Valley Elementary School,,Hardin,92.19,Kindergarten
+,Public,Creekside Elementary,,Hardin,86.15,Kindergarten
+,Public,G. C. Burkhead Elementary,,Hardin,92.94,Kindergarten
+,Public,Heartland,,Hardin,97.18,Kindergarten
+,Public,Lakewood Elementary School,,Hardin,96.67,Kindergarten
+,Public,Lincoln Trail Elementary,,Hardin,98.82,Kindergarten
+,Public,New Highland Elementary School,,Hardin,85.29,Kindergarten
+,Private,North Hardin Christian School,,Hardin,70.83,Kindergarten
+,Public,North Park Elementary School,,Hardin,83.47,Kindergarten
+,Public,Panther Academy,,Hardin,97.78,Kindergarten
+,Public,Rineyville Elementary,,Hardin,91.95,Kindergarten
+,Private,St James Catholic School,,Hardin,95.12,Kindergarten
+,Public,Black Mtn Elem School,,Harlan,88.89,Kindergarten
+,Public,Cawood Elementary School,,Harlan,83.33,Kindergarten
+,Public,Cumberland Elementary School,,Harlan,81.67,Kindergarten
+,Public,Evarts Elementary School,,Harlan,73.53,Kindergarten
+,Public,Green Hills Elementary,,Harlan,85.0,Kindergarten
+,Public,Harlan Independent Schools,,Harlan,83.16,Kindergarten
+,Public,JACES,,Harlan,18.75,Kindergarten
+,Public,Rosspoint Elementary School,,Harlan,78.38,Kindergarten
+,Public,Wallins Elementary School,,Harlan,61.11,Kindergarten
+,Public,Eastside Elementary,,Harrison,93.62,Kindergarten
+,Public,Northside Elementary,,Harrison,96.0,Kindergarten
+,Public,Southside Elementary,,Harrison,92.75,Kindergarten
+,Public,Westside Elementary,,Harrison,85.71,Kindergarten
+,Public,Bonnieville Elementary,,Hart,88.46,Kindergarten
+,Public,Cub Run Elementary School,,Hart,52.38,Kindergarten
+,Public,LeGrande Elementary,,Hart,97.14,Kindergarten
+,Public,Memorial,,Hart,88.46,Kindergarten
+,Public,Munfordville Elementary School,,Hart,79.07,Kindergarten
+,Public,A.B. Chandler,,Henderson,100.0,Kindergarten
+,Public,Bend Gate,,Henderson,90.41,Kindergarten
+,Public,Cairo Elementary School,,Henderson,89.36,Kindergarten
+,Public,East Heights Elementary,,Henderson,85.71,Kindergarten
+,Private,Holy Name of Jesus Catholic School,,Henderson,94.87,Kindergarten
+,Public,Jefferson Elementary,,Henderson,83.61,Kindergarten
+,Public,Niagara Elementary,,Henderson,95.83,Kindergarten
+,Public,South Heights Elementary,,Henderson,93.33,Kindergarten
+,Public,Spottsville Elementary,,Henderson,96.51,Kindergarten
+,Public,Campbellsburg Elementary,,Henry,96.3,Kindergarten
+,Public,Eastern Elementary School,,Henry,100.0,Kindergarten
+,Public,Eminence Elementary,,Henry,96.08,Kindergarten
+,Public,New Castle Elementary,,Henry,94.83,Kindergarten
+,Public,Hickman County Elementary,,Hickman,88.33,Kindergarten
+,Private,Christ the King Catholic School,,Hopkins,80.0,Kindergarten
+,Public,Dawson Springs Jr/High School,,Hopkins,86.67,Kindergarten
+,Public,Grapevine Elementary School,,Hopkins,95.83,Kindergarten
+,Public,Hanson Elementary School,,Hopkins,91.89,Kindergarten
+,Public,Jessie Stuart Elementary School,,Hopkins,93.51,Kindergarten
+,Public,Pride Elementary School,,Hopkins,91.18,Kindergarten
+,Public,Southside Elementary School,,Hopkins,88.0,Kindergarten
+,Public,West Broadway Elementary School,,Hopkins,93.88,Kindergarten
+,Public,West Hopkins School,,Hopkins,91.3,Kindergarten
+,Public,McKee Elementary,,Jackson,93.75,Kindergarten
+,Public,Sand Gap Elementary,,Jackson,100.0,Kindergarten
+,Public,Tyner Elem School,,Jackson,94.74,Kindergarten
+,Public,Alex Kennedy Elementary,,Jefferson,76.67,Kindergarten
+,Public,Anchorage Public School,,Jefferson,97.62,Kindergarten
+,Private,Ascension Catholic School,,Jefferson,100.0,Kindergarten
+,Public,Atkinson Academy,,Jefferson,75.0,Kindergarten
+,Public,Auburndale Elementary,,Jefferson,91.18,Kindergarten
+,Public,Audubon Traditional Elementary,,Jefferson,95.92,Kindergarten
+,Public,Bates Elementary,,Jefferson,92.0,Kindergarten
+,Private,Beth Haven Christian School,,Jefferson,90.0,Kindergarten
+,Public,Blake Elementary,,Jefferson,89.87,Kindergarten
+,Public,Bloom Elementary,,Jefferson,90.79,Kindergarten
+,Public,Blue Lick Elementary,,Jefferson,84.81,Kindergarten
+,Public,Bowen Elementary,,Jefferson,89.74,Kindergarten
+,Public,Brandeis Elementary,,Jefferson,93.42,Kindergarten
+,Public,Breckenridge Franklin Elementary,,Jefferson,78.08,Kindergarten
+,Public,Byck Elementary,,Jefferson,84.09,Kindergarten
+,Public,Camp Taylor Elementary,,Jefferson,91.84,Kindergarten
+,Public,Cane Run Elementary,,Jefferson,90.38,Kindergarten
+,Public,Carter Traditional Elementary,,Jefferson,98.41,Kindergarten
+,Public,Chancey Elementary,,Jefferson,93.51,Kindergarten
+,Public,Chenoweth Elementary,,Jefferson,93.41,Kindergarten
+,Private,Christian Academy of Louisville - English Station Campus,,Jefferson,87.74,Kindergarten
+,Public,Cochran Elementary,,Jefferson,83.33,Kindergarten
+,Public,Cochrane Elementary,,Jefferson,94.87,Kindergarten
+,Public,Coleridge Taylor Montessori Elementary,,Jefferson,88.41,Kindergarten
+,Public,Coral Ridge Elementary,,Jefferson,95.06,Kindergarten
+,Public,Crums Lane Elementary,,Jefferson,89.87,Kindergarten
+,Public,Dixie Elementary,,Jefferson,95.16,Kindergarten
+,Public,Dr. William H. Perry Elementary School,,Jefferson,65.06,Kindergarten
+,Public,Dunn Elementary,,Jefferson,88.0,Kindergarten
+,Public,Eisenhower Elementary,,Jefferson,94.74,Kindergarten
+,Public,Fairdale Elementary,,Jefferson,89.81,Kindergarten
+,Public,Farmer Elementary,,Jefferson,89.43,Kindergarten
+,Public,Fern Creek Elementary,,Jefferson,86.29,Kindergarten
+,Public,Field Elementary,,Jefferson,91.78,Kindergarten
+,Public,Foster Traditional Academy,,Jefferson,88.24,Kindergarten
+,Public,Frayser Elementary,,Jefferson,83.1,Kindergarten
+,Private,Friends School,,Jefferson,100.0,Kindergarten
+,Public,Goldsmith Elementary,,Jefferson,90.0,Kindergarten
+,Public,Greathouse/Shryock Traditional,,Jefferson,94.79,Kindergarten
+,Public,Greenwood Elementary,,Jefferson,94.44,Kindergarten
+,Public,Gutermuth Elementary,,Jefferson,89.29,Kindergarten
+,Public,Hartstern Elementary,,Jefferson,86.6,Kindergarten
+,Private,Harvey Browne Preschool,,Jefferson,100.0,Kindergarten
+,Public,Hawthorne Elementary,,Jefferson,96.1,Kindergarten
+,Public,Hazelwood Elementary,,Jefferson,90.41,Kindergarten
+,Private,Highland Presbyterian Church Nursery & Weekday School,,Jefferson,100.0,Kindergarten
+,Private,Highlands Latin School,,Jefferson,61.29,Kindergarten
+,Public,Hite Elementary,,Jefferson,87.1,Kindergarten
+,Private,Holy Angels Academy,,Jefferson,84.62,Kindergarten
+,Private,Holy Spirit School,,Jefferson,70.0,Kindergarten
+,Private,Holy Trinity Parish School,,Jefferson,95.52,Kindergarten
+,Public,Indian Trail Elementary,,Jefferson,86.79,Kindergarten
+,Private,Islamic School of Louisville,,Jefferson,95.45,Kindergarten
+,Public,J. Graham Brown,,Jefferson,100.0,Kindergarten
+,Public,Jacob Elementary,,Jefferson,94.12,Kindergarten
+,Public,Jeffersontown Elementary,,Jefferson,98.98,Kindergarten
+,Public,Johnstontown Road,,Jefferson,91.86,Kindergarten
+,Public,Kennedy Elementary,,Jefferson,80.0,Kindergarten
+,Private,Kentucky Country Day,,Jefferson,98.04,Kindergarten
+,Public,Kenwood Elementary,,Jefferson,87.25,Kindergarten
+,Public,Kerrick Elementary,,Jefferson,94.87,Kindergarten
+,Public,King Elementary,,Jefferson,68.52,Kindergarten
+,Public,Klondike Lane Elementary,,Jefferson,87.76,Kindergarten
+,Private,Landmark Christian Academy,,Jefferson,90.91,Kindergarten
+,Public,Laukhuf Elementary,,Jefferson,95.37,Kindergarten
+,Public,Layne Elementary,,Jefferson,90.91,Kindergarten
+,Public,Lincoln Elementary Performing Arts,,Jefferson,90.53,Kindergarten
+,Private,Louisville Collegiate School,,Jefferson,100.0,Kindergarten
+,Public,Lowe Elementary,,Jefferson,88.0,Kindergarten
+,Public,Luhr Elementary,,Jefferson,92.11,Kindergarten
+,Public,Maupin Elementary,,Jefferson,81.36,Kindergarten
+,Public,McFerran Preparatory Academy,,Jefferson,88.46,Kindergarten
+,Public,Medora Elementary,,Jefferson,96.3,Kindergarten
+,Private,Middletown Christian Preschool,,Jefferson,92.86,Kindergarten
+,Public,Middletown Elementary,,Jefferson,95.06,Kindergarten
+,Public,Mill Creek Elememtary,,Jefferson,85.71,Kindergarten
+,Public,Minor's Lane Elementary,,Jefferson,79.63,Kindergarten
+,Private,Montessori School of Louisville,,Jefferson,100.0,Kindergarten
+,Public,Norton Commons Elementary,,Jefferson,96.74,Kindergarten
+,Public,Norton Elementary,,Jefferson,97.35,Kindergarten
+,Private,Notre Dame Academy,,Jefferson,95.35,Kindergarten
+,Private,Nur Islamic School,,Jefferson,85.19,Kindergarten
+,Public,Okolona Elementary,,Jefferson,94.44,Kindergarten
+,Private,Our Lady of Lourdes,,Jefferson,97.67,Kindergarten
+,Private,Portland Christian School,,Jefferson,85.71,Kindergarten
+,Public,Portland Elementary,,Jefferson,83.33,Kindergarten
+,Public,Price Elementary,,Jefferson,86.42,Kindergarten
+,Public,Rangeland Elementary,,Jefferson,84.15,Kindergarten
+,Public,Rutherford Elementary,,Jefferson,81.94,Kindergarten
+,Private,Sacred Heart Schools,,Jefferson,88.64,Kindergarten
+,Private,Saint Agnes School,,Jefferson,100.0,Kindergarten
+,Private,Saint Albert the Great School,,Jefferson,97.3,Kindergarten
+,Private,Saint Mary Academy,,Jefferson,96.97,Kindergarten
+,Public,Sanders Elementary,,Jefferson,80.49,Kindergarten
+,Public,Schaffner Traditional Elementary,,Jefferson,93.85,Kindergarten
+,Public,Semple Elementary,,Jefferson,87.1,Kindergarten
+,Public,Shacklette Elementary,,Jefferson,88.71,Kindergarten
+,Public,Shelby Academy,,Jefferson,94.74,Kindergarten
+,Public,Slaughter Elementary,,Jefferson,93.1,Kindergarten
+,Public,Smyrna Elemanary,,Jefferson,87.04,Kindergarten
+,Private,St Martha Catholic School,,Jefferson,96.88,Kindergarten
+,Private,St Patrick Catholic School,,Jefferson,95.45,Kindergarten
+,Private,St Rita Catholic School,,Jefferson,100.0,Kindergarten
+,Private,St. Andrew Academy,,Jefferson,100.0,Kindergarten
+,Private,St. Athanasius School,,Jefferson,96.43,Kindergarten
+,Private,St. Bernard Catholic School,,Jefferson,94.44,Kindergarten
+,Private,St. Edward Catholic School,,Jefferson,92.86,Kindergarten
+,Private,St. Francis of Assisi School,,Jefferson,100.0,Kindergarten
+,Private,St. Gabriel the Archangel,,Jefferson,95.12,Kindergarten
+,Public,St. Matthews Elementary,,Jefferson,92.63,Kindergarten
+,Private,St. Michael,,Jefferson,95.31,Kindergarten
+,Private,St. Nicholas Academy,,Jefferson,100.0,Kindergarten
+,Private,St. Paul Catholic School,,Jefferson,100.0,Kindergarten
+,Private,St. Raphael the Archangel Catholic School,,Jefferson,97.06,Kindergarten
+,Private,St. Stephen Martyr,,Jefferson,100.0,Kindergarten
+,Private,St.Margaret Mary Catholic School,,Jefferson,86.84,Kindergarten
+,Public,Stonestreet Elementary,,Jefferson,93.59,Kindergarten
+,Public,Stopher Elementary,,Jefferson,98.36,Kindergarten
+,Public,Trunnell Elementary,,Jefferson,81.01,Kindergarten
+,Public,Tully Elementary,,Jefferson,95.97,Kindergarten
+,Private,Valiant Christian Academy,,Jefferson,69.57,Kindergarten
+,Private,Virginia Chance School,,Jefferson,100.0,Kindergarten
+,Private,Walden SChool,,Jefferson,96.3,Kindergarten
+,Private,Waldorf School of Louisville,,Jefferson,32.0,Kindergarten
+,Public,Watterson Elementary,,Jefferson,93.24,Kindergarten
+,Public,Wellington Elementary,,Jefferson,97.14,Kindergarten
+,Private,West End School,,Jefferson,93.33,Kindergarten
+,Public,Wheeler Elementary,,Jefferson,95.0,Kindergarten
+,Private,Whitefield Academy,,Jefferson,95.92,Kindergarten
+,Public,Whitney Young at Engelhard,,Jefferson,88.89,Kindergarten
+,Public,Wilder Elementary,,Jefferson,91.78,Kindergarten
+,Public,Wilkerson Elementary,,Jefferson,88.06,Kindergarten
+,Public,Wilt Elementary,,Jefferson,100.0,Kindergarten
+,Public,Zachary Taylor Elementary,,Jefferson,88.89,Kindergarten
+,Public,Jessamine Early Learning Village,,Jessamine,86.53,Kindergarten
+,Public,Wilmore Elementary School,,Jessamine,62.32,Kindergarten
+,Public,Central Elementary School,,Johnson,82.93,Kindergarten
+,Public,Flat Gap Elementary,,Johnson,88.24,Kindergarten
+,Public,Highland Elementary School,,Johnson,98.39,Kindergarten
+,Public,Paintsville Independent School District,,Johnson,74.55,Kindergarten
+,Public,Porter Elementary School,,Johnson,94.03,Kindergarten
+,Public,WR Castle Elementary,,Johnson,95.35,Kindergarten
+,Public,Arnett Elementary School,,Kenton,100.0,Kindergarten
+,Public,Beechgrove Elementary,,Kenton,97.06,Kindergarten
+,Public,Beechwood Independent,,Kenton,94.32,Kindergarten
+,Private,Blessed Sacrament,,Kenton,96.55,Kindergarten
+,Private,Blessed Sacrament School,,Kenton,93.1,Kindergarten
+,Private,Calvary Christian School,,Kenton,68.18,Kindergarten
+,Private,Community Christian Academy,,Kenton,90.0,Kindergarten
+,Private,Crescent Ridge Academy,,Kenton,90.91,Kindergarten
+,Public,Ft. Wright Elementary,,Kenton,93.15,Kindergarten
+,Public,Glenn O Swing Elementary,,Kenton,97.3,Kindergarten
+,Public,Hinsdale Elementary,,Kenton,97.59,Kindergarten
+,Private,Holy Cross Elementary,,Kenton,95.0,Kindergarten
+,Public,Howell Elementary School,,Kenton,100.0,Kindergarten
+,Public,James A Caywood Elementary School,,Kenton,97.85,Kindergarten
+,Public,John G. Carlisle Elementary,,Kenton,90.0,Kindergarten
+,Public,kenton elementary,,Kenton,95.24,Kindergarten
+,Public,Latonia Elementary,,Kenton,97.62,Kindergarten
+,Public,Lindeman Elementary,,Kenton,100.0,Kindergarten
+,Public,MARY A. GOETZ ELEMENTARY,,Kenton,96.15,Kindergarten
+,Public,Miles Elementary School,,Kenton,91.84,Kindergarten
+,Public,Ninth District Elementary,,Kenton,97.92,Kindergarten
+,Public,Piner Elementary,,Kenton,98.44,Kindergarten
+,Public,River Ridge Elementary,,Kenton,98.32,Kindergarten
+,Public,Ryland Heights Elementary,,Kenton,94.34,Kindergarten
+,Private,Saint Pius X Catholic School,,Kenton,92.19,Kindergarten
+,Public,Sixth District Elementary,,Kenton,98.91,Kindergarten
+,Private,St Henry Catholic School,,Kenton,100.0,Kindergarten
+,Private,St. Agnes School,,Kenton,97.22,Kindergarten
+,Private,St. Cecilia Catholic School,,Kenton,80.0,Kindergarten
+,Private,St. Joseph,,Kenton,95.92,Kindergarten
+,Public,Summit View Academy,,Kenton,96.51,Kindergarten
+,Public,Taylor Mill Elementary,,Kenton,96.59,Kindergarten
+,Private,Villa Madonna Academy,,Kenton,92.59,Kindergarten
+,Private,Villa Madonna Montessori,,Kenton,83.33,Kindergarten
+,Public,White's Tower Elementary,,Kenton,97.48,Kindergarten
+,Public,Beaver Creek Elementary School,,Knott,90.91,Kindergarten
+,Public,Carr Creek Elementary School,,Knott,88.24,Kindergarten
+,Public,Emmalena Elementary School,,Knott,84.21,Kindergarten
+,Public,Hindman Elementary School,,Knott,75.68,Kindergarten
+,Public,Jones Fork Elementary School,,Knott,87.5,Kindergarten
+,Public,Barbourville City School,,Knox,96.67,Kindergarten
+,Public,Central Elementary,,Knox,75.0,Kindergarten
+,Public,Dewitt Elementary,,Knox,55.56,Kindergarten
+,Public,Flat Lick Elementary,,Knox,88.89,Kindergarten
+,Public,Girdler Elementary,,Knox,94.29,Kindergarten
+,Public,GR Hampton Elementary,,Knox,89.66,Kindergarten
+,Public,Jesse D Lay Elementary,,Knox,93.02,Kindergarten
+,Public,Lynn Camp Elementary,,Knox,79.45,Kindergarten
+,Public,Abraham Lincoln Elementary,,LaRue,91.89,Kindergarten
+,Public,Hodgenville Elementary,,LaRue,87.76,Kindergarten
+,Public,Bush Elementary,,Laurel,90.77,Kindergarten
+,Public,campground Elementary,,Laurel,94.0,Kindergarten
+,Public,Cold Hill Elementary School,,Laurel,91.67,Kindergarten
+,Public,Colony,,Laurel,93.33,Kindergarten
+,Public,East Bernstadt Independent School,,Laurel,90.77,Kindergarten
+,Public,hazel Green Elementary,,Laurel,94.64,Kindergarten
+,Public,hunter hills elementary,,Laurel,84.85,Kindergarten
+,Public,Johnson Elementary,,Laurel,97.3,Kindergarten
+,Public,Keavy elementary,,Laurel,92.68,Kindergarten
+,Public,London Elementary School,,Laurel,94.67,Kindergarten
+,Public,Sublimity Elementary,,Laurel,89.09,Kindergarten
+,Public,Wyan-Pine Grove Elementary,,Laurel,93.55,Kindergarten
+,Public,Blaine Elementary School,,Lawrence,71.43,Kindergarten
+,Public,Fallsburg Elementary School,,Lawrence,84.21,Kindergarten
+,Public,Louisa West Elementary School,,Lawrence,85.37,Kindergarten
+,Public,Lee County Elementary School,,Lee,90.41,Kindergarten
+,Public,HAYES LEWIS,,Leslie,100.0,Kindergarten
+,Public,Mountain View Elementary,,Leslie,82.05,Kindergarten
+,Public,Stinnett Elementary,,Leslie,93.02,Kindergarten
+,Public,W.B Muncy Elementary School,,Leslie,21.43,Kindergarten
+,Public,COWAN ELEMENTARY SCHOOL,,Letcher,100.0,Kindergarten
+,Public,Jenkins Independent School System,,Letcher,88.57,Kindergarten
+,Public,LETCHER ELEMENTARY-MIDDLE SCHOOL,,Letcher,95.45,Kindergarten
+,Public,MARTHA JANE ELEMENTARY SCHOOL,,Letcher,90.48,Kindergarten
+,Public,WEST WHITESBURG ELEMENTARY SCHOOL,,Letcher,87.18,Kindergarten
+,Public,Garrison Elementary,,Lewis,100.0,Kindergarten
+,Public,Lewis County Central,,Lewis,97.14,Kindergarten
+,Public,Tollesboro Elementary School,,Lewis,87.5,Kindergarten
+,Public,Crab Orchard Elementary School,,Lincoln,95.24,Kindergarten
+,Public,Highland Elementary School,,Lincoln,93.33,Kindergarten
+,Public,Hustonville Elementary,,Lincoln,100.0,Kindergarten
+,Public,Stanford Elementary,,Lincoln,42.11,Kindergarten
+,Public,Waynesburg Elementary School,,Lincoln,100.0,Kindergarten
+,Public,North Livingston County Elementary School,,Livingston,93.75,Kindergarten
+,Public,South Livingston Elementary,,Livingston,93.88,Kindergarten
+,Public,Adairville School,,Logan,93.1,Kindergarten
+,Public,Auburn School,,Logan,70.27,Kindergarten
+,Public,Chandlers,,Logan,68.63,Kindergarten
+,Public,Lewisburg School,,Logan,80.0,Kindergarten
+,Public,Olmstead elementary,,Logan,94.74,Kindergarten
+,Public,RE Stevenson Elementary School,,Logan,79.49,Kindergarten
+,Public,Lyon County Elementary School,,Lyon,95.38,Kindergarten
+,Public,Berea Community Elementary School,,Madison,89.33,Kindergarten
+,Public,Boonesborough Elementary,,Madison,94.44,Kindergarten
+,Public,Kingston Elementary,,Madison,91.55,Kindergarten
+,Public,Kirksville Elementary,,Madison,87.18,Kindergarten
+,Public,Madison Kindergarten Academy,,Madison,94.67,Kindergarten
+,Public,Model Laboratory School EKU,,Madison,90.91,Kindergarten
+,Private,Saint Mark Catholic School,,Madison,92.0,Kindergarten
+,Public,Shannon Johnson Elementary,,Madison,89.29,Kindergarten
+,Public,silver Creek Elementary School,,Madison,94.03,Kindergarten
+,Public,Waco Elementary,,Madison,92.16,Kindergarten
+,Public,North Magoffin Elementary,,Magoffin,81.82,Kindergarten
+,Public,Salyersville Grade School,,Magoffin,83.1,Kindergarten
+,Public,South Magoffin Elementary,,Magoffin,92.59,Kindergarten
+,Public,Calvary Elementary,,Marion,98.39,Kindergarten
+,Public,Glasscock Elementary School,,Marion,97.73,Kindergarten
+,Public,Lebanon Elementary School,,Marion,95.56,Kindergarten
+,Private,St. Augustine Catholic School,,Marion,100.0,Kindergarten
+,Public,West Marion Elementary School,,Marion,92.42,Kindergarten
+,Public,Benton Elementary School,,Marshall,85.51,Kindergarten
+,Public,Calvert City Elementary School,,Marshall,92.86,Kindergarten
+,Public,Central Elementary School,,Marshall,87.04,Kindergarten
+,Public,Jonathan Elementary School,,Marshall,97.14,Kindergarten
+,Private,New Covenant Christian Academy,,Marshall,46.15,Kindergarten
+,Public,Sharpe Elementary School,,Marshall,89.47,Kindergarten
+,Public,South Marshall Elementary School,,Marshall,94.12,Kindergarten
+,Public,Eden Elementary School,,Martin,97.3,Kindergarten
+,Public,Inez Elementary,,Martin,91.89,Kindergarten
+,Public,Warfield,,Martin,94.74,Kindergarten
+,Public,Charles Straub Elementary School,,Mason,94.35,Kindergarten
+,Public,Clark Elementary,,McCracken,95.52,Kindergarten
+,Private,Community Christian Academy,,McCracken,84.85,Kindergarten
+,Public,Concord Elementary School,,McCracken,90.91,Kindergarten
+,Public,Heath Elementary,,McCracken,92.31,Kindergarten
+,Public,Hendron Lone Oak Elementary,,McCracken,93.55,Kindergarten
+,Public,Lone Oak Elementary School,,McCracken,90.1,Kindergarten
+,Public,McNabb Elementary,,McCracken,91.67,Kindergarten
+,Public,Morgan Elementary,,McCracken,95.77,Kindergarten
+,Public,Reidland Elementary School,,McCracken,92.78,Kindergarten
+,Private,St. Mary Elementary School,,McCracken,86.67,Kindergarten
+,Public,Pine Knot Primary,,McCreary,91.18,Kindergarten
+,Public,Whitley City Elementary School,,McCreary,96.0,Kindergarten
+,Public,Calhoun Elementary School,,McLean,97.78,Kindergarten
+,Public,Livermore Elementary,,McLean,97.62,Kindergarten
+,Public,Marie Gatton Phillips Sacramento Elementary,,McLean,92.86,Kindergarten
+,Public,Barry Hahn Primary School,,Meade,96.03,Kindergarten
+,Public,Ekron Elementary School,,Meade,98.21,Kindergarten
+,Public,Flaherty Primary School,,Meade,80.3,Kindergarten
+,Public,Payneville Elementary School,,Meade,96.77,Kindergarten
+,Public,Menifee Central School,,Menifee,90.28,Kindergarten
+,Public,Burgin Independent School,,Mercer,97.22,Kindergarten
+,Public,Mercer County Elementary,,Mercer,96.23,Kindergarten
+,Public,Metcalfe County Elementary,,Metcalfe,96.94,Kindergarten
+,Public,Gamaliel Elementary,,Monroe,67.39,Kindergarten
+,Public,Joe Harrison Carter Elementary,,Monroe,80.56,Kindergarten
+,Public,Tompkinsville Elementary,,Monroe,77.46,Kindergarten
+,Public,Camargo Elementary School,,Montgomery,100.0,Kindergarten
+,Private,Christian Traditional School,,Montgomery,88.24,Kindergarten
+,Public,Mapleton Elementary,,Montgomery,100.0,Kindergarten
+,Public,Mount Sterling Elementary,,Montgomery,98.68,Kindergarten
+,Public,Northview Elementary,,Montgomery,94.59,Kindergarten
+,Public,East Valley Elementary,,Morgan,90.0,Kindergarten
+,Public,Ezel Elementary,,Morgan,100.0,Kindergarten
+,Public,Morgan Central Elementary School,,Morgan,97.37,Kindergarten
+,Public,Wrigley Elementary,,Morgan,94.44,Kindergarten
+,Public,Bremen Elementary School,,Muhlenberg,51.92,Kindergarten
+,Public,Central City Elementary School,,Muhlenberg,76.92,Kindergarten
+,Public,Greenville Elementary School,,Muhlenberg,92.0,Kindergarten
+,Public,Longest Elementary School,,Muhlenberg,91.04,Kindergarten
+,Public,Muhlenberg south elementary school,,Muhlenberg,87.14,Kindergarten
+,Public,Bardstown Primary School,,Nelson,87.38,Kindergarten
+,Public,Bloomfield Elementary School,,Nelson,92.31,Kindergarten
+,Public,Boston School,,Nelson,100.0,Kindergarten
+,Public,Coxs Creek Elementary School,,Nelson,98.65,Kindergarten
+,Public,Foster Heights Elementary School,,Nelson,96.77,Kindergarten
+,Public,New Haven School,,Nelson,92.0,Kindergarten
+,Private,St. Gregory Catholic School,,Nelson,100.0,Kindergarten
+,Private,St. Joseph School,,Nelson,93.94,Kindergarten
+,Public,Nicholas County,,Nicholas,88.16,Kindergarten
+,Public,Beaver Dam Elementary,,Ohio,67.44,Kindergarten
+,Public,Fordsville Elementary,,Ohio,86.36,Kindergarten
+,Public,Horse Branch Elementary,,Ohio,92.31,Kindergarten
+,Public,Southern Elementary,,Ohio,69.57,Kindergarten
+,Public,Wayland Alexander Elementary,,Ohio,84.27,Kindergarten
+,Public,Western Elementary,,Ohio,73.68,Kindergarten
+,Public,Buckner Elementary School,,Oldham,92.94,Kindergarten
+,Public,Camden Station Elementary,,Oldham,95.31,Kindergarten
+,Public,Centerfield Elementary,,Oldham,97.7,Kindergarten
+,Public,Crestwood Elementary,,Oldham,98.57,Kindergarten
+,Private,Francis Parker School of Louisville (Goshen Campus),,Oldham,84.21,Kindergarten
+,Public,Goshen Elementary,,Oldham,97.73,Kindergarten
+,Public,Harmony Elementary,,Oldham,92.41,Kindergarten
+,Public,kenwood station elementary school,,Oldham,93.67,Kindergarten
+,Public,LaGrange Elementary School,,Oldham,100.0,Kindergarten
+,Public,Locust Grove Elementary,,Oldham,92.23,Kindergarten
+,Private,St. Aloysius,,Oldham,90.91,Kindergarten
+,Public,Owen County Lower Elementary,,Owen,93.46,Kindergarten
+,Public,Owsley County,,Owsley,88.24,Kindergarten
+,Public,Northern Elementary,,Pendleton,95.95,Kindergarten
+,Public,Southern Elementary School,,Pendleton,98.7,Kindergarten
+,Public,Buckhorn School,,Perry,86.96,Kindergarten
+,Public,East Perry Elem,,Perry,76.32,Kindergarten
+,Public,Robert W Combs Elementary,,Perry,71.43,Kindergarten
+,Public,Robinson Elementary School,,Perry,83.33,Kindergarten
+,Public,Roy G Eversole Elementary School,,Perry,93.1,Kindergarten
+,Public,Viper Elementary,,Perry,39.29,Kindergarten
+,Public,West Perry Elementary,,Perry,57.65,Kindergarten
+,Public,Belfry Elementary School,,Pike,91.25,Kindergarten
+,Public,Bevins Elementary School,,Pike,95.12,Kindergarten
+,Public,Dorton Elementary School,,Pike,96.15,Kindergarten
+,Public,Elkhorn City Elementary,,Pike,93.94,Kindergarten
+,Public,Johns Creek,,Pike,98.0,Kindergarten
+,Public,Millard School,,Pike,96.88,Kindergarten
+,Public,Mullins School,,Pike,93.51,Kindergarten
+,Public,Phelps Elementary,,Pike,96.77,Kindergarten
+,Public,Pikeville Elementary School,,Pike,92.47,Kindergarten
+,Public,Valley Elementary,,Pike,90.36,Kindergarten
+,Public,Bowen Elementary,,Powell,89.66,Kindergarten
+,Public,Clay City Elementary,,Powell,96.36,Kindergarten
+,Public,Stanton Elementary School,,Powell,92.73,Kindergarten
+,Public,Burnside Elementary,,Pulaski,97.18,Kindergarten
+,Public,Eubank Elementary,,Pulaski,84.38,Kindergarten
+,Public,Hopkins Elementary,,Pulaski,91.6,Kindergarten
+,Public,Nancy Elementary School,,Pulaski,95.92,Kindergarten
+,Public,Northern Elementary,,Pulaski,97.62,Kindergarten
+,Public,Oakhill Elementary,,Pulaski,95.51,Kindergarten
+,Public,Pulaski Elementary,,Pulaski,95.45,Kindergarten
+,Public,Science Hill Independent,,Pulaski,89.66,Kindergarten
+,Public,Shopville Elementary,,Pulaski,96.15,Kindergarten
+,Public,Southern Elementary,,Pulaski,96.25,Kindergarten
+,Public,Brodhead Elementary,,Rockcastle,87.72,Kindergarten
+,Public,Mt. Vernon Elementary School,,Rockcastle,89.0,Kindergarten
+,Public,Rounsdstone Elementary Schools,,Rockcastle,97.56,Kindergarten
+,Public,Clearfield Elementary,,Rowan,84.31,Kindergarten
+,Private,Lakeside Christian Academy,,Rowan,80.77,Kindergarten
+,Public,McBrayer Elementary,,Rowan,91.36,Kindergarten
+,Public,Rodburn Elementary,,Rowan,88.16,Kindergarten
+,Public,Tilden Hogge Elementary,,Rowan,100.0,Kindergarten
+,Public,Jamestown Elementary,,Russell,97.14,Kindergarten
+,Public,Russell Springs Elementary,,Russell,97.94,Kindergarten
+,Public,Salem Elementary,,Russell,92.96,Kindergarten
+,Public,Anne Mason Elementary,,Scott,92.86,Kindergarten
+,Public,CREEKSIDE ELEMENTARY,,Scott,90.2,Kindergarten
+,Public,Eastern Elementary,,Scott,75.25,Kindergarten
+,Public,Garth Elementary,,Scott,90.77,Kindergarten
+,Public,Lemons Mill Elementary,,Scott,89.53,Kindergarten
+,Public,Northern Elementary,,Scott,84.38,Kindergarten
+,Public,Southern Elementary School,,Scott,92.45,Kindergarten
+,Private,St. John Catholic School,,Scott,85.0,Kindergarten
+,Public,Stamping Ground Elementary,,Scott,95.35,Kindergarten
+,Public,Western Elementary School,,Scott,93.67,Kindergarten
+,Public,Clear Creek Elementary,,Shelby,97.5,Kindergarten
+,Private,Cornerstone Christian Academy,,Shelby,86.36,Kindergarten
+,Public,Heritage Elementary,,Shelby,84.0,Kindergarten
+,Public,Marnel C. Moorman,,Shelby,95.38,Kindergarten
+,Public,Painted Stone Elementary,,Shelby,93.75,Kindergarten
+,Public,Simpsonville Elementary,,Shelby,92.96,Kindergarten
+,Public,Southside Elementary,,Shelby,89.83,Kindergarten
+,Public,Wright Elementary,,Shelby,96.15,Kindergarten
+,Public,Franklin Elementary School,,Simpson,94.33,Kindergarten
+,Private,Spencer Christian School,,Spencer,62.5,Kindergarten
+,Public,Spencer County Elementary School,,Spencer,97.3,Kindergarten
+,Public,Taylorsville Elementary School,,Spencer,94.51,Kindergarten
+,Public,Campbellsville Elm,,Taylor,93.16,Kindergarten
+,Private,Kentucky Christian Academy,,Taylor,70.0,Kindergarten
+,Public,Taylor County Primary Center,,Taylor,88.76,Kindergarten
+,Public,North Todd Elementary,,Todd,91.8,Kindergarten
+,Public,South Todd Elementary,,Todd,88.0,Kindergarten
+,Public,Trigg County Public Schools,,Trigg,90.91,Kindergarten
+,Public,Bedford Elementary School,,Trimble,81.48,Kindergarten
+,Public,Milton Elementary School,,Trimble,76.0,Kindergarten
+,Private,John Paul II Catholic School,,Union,100.0,Kindergarten
+,Public,Morganfield Elementary School,,Union,80.65,Kindergarten
+,Public,Sturgis Elementary,,Union,93.55,Kindergarten
+,Public,Uniontown Elementary School,,Union,96.15,Kindergarten
+,Public,Alvaton Elementary,,Warren,88.78,Kindergarten
+,Public,Briarwood Elementary,,Warren,93.51,Kindergarten
+,Public,Bristow Elementary,,Warren,100.0,Kindergarten
+,Public,Cumberland Trace Elementary,,Warren,94.9,Kindergarten
+,Public,Dishman McGinnis Elementary School,,Warren,76.53,Kindergarten
+,Private,Foundation Christian Academy,,Warren,86.11,Kindergarten
+,Private,Holy Trinity Lutheran School,,Warren,90.91,Kindergarten
+,Public,Jennings Creek Elementary,,Warren,85.71,Kindergarten
+,Public,Jody Richards Elementary,,Warren,95.65,Kindergarten
+,Private,Legacy Christian Academy of Bowling Green,,Warren,91.67,Kindergarten
+,Public,Lost River Elementary,,Warren,92.19,Kindergarten
+,Public,North Warren Elementary,,Warren,97.87,Kindergarten
+,Public,Oakland Elementary,,Warren,91.67,Kindergarten
+,Public,Parker-Bennett-Curry School,,Warren,82.61,Kindergarten
+,Public,Plano Elementary,,Warren,92.22,Kindergarten
+,Public,Potter Gray Elementary,,Warren,85.54,Kindergarten
+,Public,Rich Pond Elementary,,Warren,93.55,Kindergarten
+,Public,Richardsville Elementary,,Warren,95.0,Kindergarten
+,Public,Rockfield Elementary,,Warren,89.16,Kindergarten
+,Private,St. Joseph School,,Warren,85.37,Kindergarten
+,Public,TC Cherry Elementary School,,Warren,93.22,Kindergarten
+,Public,Warren Elementary,,Warren,89.62,Kindergarten
+,Public,William H Natcher Elementary,,Warren,97.89,Kindergarten
+,Public,WR McNeill Elementary,,Warren,86.3,Kindergarten
+,Public,North Washington Elementary,,Washington,96.67,Kindergarten
+,Private,Saint Dominic Elementary School,,Washington,100.0,Kindergarten
+,Public,Washington County Elemnetary School,,Washington,98.44,Kindergarten
+,Public,Walker Early Learning Center,,Wayne,97.1,Kindergarten
+,Public,Clay Elementary School,,Webster,65.38,Kindergarten
+,Public,Dixon Elementary,,Webster,65.62,Kindergarten
+,Public,Providence Elementary,,Webster,84.21,Kindergarten
+,Public,Sebree Elementary School,,Webster,88.89,Kindergarten
+,Public,Boston Elementary School,,Whitley,89.29,Kindergarten
+,Public,Corbin Primary School,,Whitley,90.81,Kindergarten
+,Public,Oak Grove Elementary School,,Whitley,87.88,Kindergarten
+,Public,Pleasant View Elem,,Whitley,95.0,Kindergarten
+,Public,Whitley County Central Primary,,Whitley,86.14,Kindergarten
+,Public,Whitley County East Elementary School,,Whitley,85.71,Kindergarten
+,Public,Whitley County North Elementary School,,Whitley,87.5,Kindergarten
+,Public,Williamsburg Independent School District,,Whitley,89.47,Kindergarten
+,Public,Campton Elementary School,,Wolfe,93.33,Kindergarten
+,Public,Red River Valley Elementary,,Wolfe,95.0,Kindergarten
+,Public,Rogers Elementary School,,Wolfe,93.33,Kindergarten
+,Public,Huntertown Elementary,,Woodford,94.92,Kindergarten
+,Public,Northside Elementary,,Woodford,92.5,Kindergarten
+,Private,Saint Leo School,,Woodford,100.0,Kindergarten
+,Public,Simmons Elementary,,Woodford,100.0,Kindergarten
+,Public,Southside Elementary,,Woodford,96.15,Kindergarten
+,Private,VERSAILLES MONTESSORI SCHOOL,,Woodford,100.0,Kindergarten
+,Private,Woodford Christian School,,Woodford,75.0,Kindergarten
+,Public,Adair County Middle School,,Adair,96.02,7th Grade
+,Public,Allen County Primary Center,,Allen,95.26,7th Grade
+,Public,Anderson County Middle School,,Anderson,95.86,7th Grade
+,Public,Ballard County Middle School,,Ballard,100.0,7th Grade
+,Public,Barren County Middle School,,Barren,98.31,7th Grade
+,Public,Glasgow Middle School,,Barren,100.0,7th Grade
+,Public,BATH COUNTY MIDDLE SCHOOL,,Bath,100.0,7th Grade
+,Public,Bell Central School Center,,Bell,90.57,7th Grade
+,Public,Lone Jack School Center,,Bell,100.0,7th Grade
+,Public,Middlesboro Middle School,,Bell,97.1,7th Grade
+,Public,Page School Center,,Bell,86.67,7th Grade
+,Public,Pineville Middle School,,Bell,87.18,7th Grade
+,Public,Right Fork School Center,,Bell,100.0,7th Grade
+,Public,Yellow Creek School Center,,Bell,100.0,7th Grade
+,Public,Accel Academy,,Boone,100.0,7th Grade
+,Private,Assumption Academy,,Boone,27.27,7th Grade
+,Public,Ballyshannon Middle School,,Boone,99.56,7th Grade
+,Public,Camp Ernst Middle School,,Boone,98.74,7th Grade
+,Public,Conner Middle School,,Boone,97.5,7th Grade
+,Public,Gray Middle School,,Boone,98.22,7th Grade
+,Private,Immaculate Heart of Mary,,Boone,96.36,7th Grade
+,Private,"Mary, Queen of Heaven",,Boone,95.83,7th Grade
+,Public,Ockerman Middle School,,Boone,98.62,7th Grade
+,Private,Our Lady of the Sacred Heart Academy,,Boone,36.84,7th Grade
+,Public,RA Jones Middle School,,Boone,98.17,7th Grade
+,Private,St. Paul Catholic School,,Boone,100.0,7th Grade
+,Private,St. Timothy Catholic School,,Boone,100.0,7th Grade
+,Public,Walton Verona Middle School,,Boone,97.66,7th Grade
+,Private,Zion Christian Academy,,Boone,73.33,7th Grade
+,Private,Bourbon Christian Academy,,Bourbon,75.0,7th Grade
+,Public,Bourbon County Middle School,,Bourbon,99.44,7th Grade
+,Public,Paris Middle School,,Bourbon,95.92,7th Grade
+,Public,Ashland Middle School,,Boyd,96.96,7th Grade
+,Public,Boyd County Middle School,,Boyd,94.03,7th Grade
+,Public,Fairview Independent School,,Boyd,97.67,7th Grade
+,Private,Rose Hill Christian School,,Boyd,72.73,7th Grade
+,Public,Boyle County Middle School,,Boyle,97.27,7th Grade
+,Private,Danville Christian Academy,,Boyle,86.96,7th Grade
+,Public,John W Bate Middle School,,Boyle,96.3,7th Grade
+,Public,Augusta Independent School,,Bracken,92.86,7th Grade
+,Public,Bracken County Middle School,,Bracken,100.0,7th Grade
+,Public,Breathitt High School,,Breathitt,95.96,7th Grade
+,Public,Jackson Independent School,,Breathitt,94.12,7th Grade
+,Public,Breckinridge County Middle School,,Breckinridge,95.26,7th Grade
+,Public,Cloverport Independent Schools,,Breckinridge,89.47,7th Grade
+,Private,St. Romuald School,,Breckinridge,94.12,7th Grade
+,Public,Bernheim Middle School,,Bullitt,98.55,7th Grade
+,Public,Bullitt Lick Middle School,,Bullitt,99.38,7th Grade
+,Public,Eastside Middle School,,Bullitt,98.68,7th Grade
+,Public,Hebron Middle School,,Bullitt,99.07,7th Grade
+,Private,Little Flock Christian Academy,,Bullitt,93.75,7th Grade
+,Public,Mt Washington Middle School,,Bullitt,98.83,7th Grade
+,Public,Riverview Opportunity Center,,Bullitt,95.45,7th Grade
+,Public,Zoneton Middle School,,Bullitt,98.37,7th Grade
+,Public,Butler County Middle School,,Butler,95.48,7th Grade
+,Public,Caldwell County Middle School,,Caldwell,96.9,7th Grade
+,Public,Calloway County Middle School,,Calloway,97.58,7th Grade
+,Public,Murray Middle School,,Calloway,96.64,7th Grade
+,Public,Bellevue High School,,Campbell,100.0,7th Grade
+,Public,Campbell County Middle School,,Campbell,98.87,7th Grade
+,Public,Dayton High School,,Campbell,97.33,7th Grade
+,Public,Highlands Middle School,,Campbell,97.81,7th Grade
+,Public,Newport High School,,Campbell,98.89,7th Grade
+,Private,Saint Therese,,Campbell,95.65,7th Grade
+,Private,Saint Thomas,,Campbell,93.33,7th Grade
+,Public,Southgate Public School,,Campbell,84.21,7th Grade
+,Private,ST MARY SCHOOL,,Campbell,96.77,7th Grade
+,Private,St. Joseph,,Campbell,94.74,7th Grade
+,Private,Sts Peter & Paul School,,Campbell,81.82,7th Grade
+,Public,Carlisle County Middle School,,Carlisle,94.64,7th Grade
+,Public,Carroll County Middle School,,Carroll,98.4,7th Grade
+,Public,East Carter Middle School,,Carter,97.67,7th Grade
+,Public,West Carter Middle School,,Carter,99.25,7th Grade
+,Public,Casey County Middle School,,Casey,98.25,7th Grade
+,Public,Christian County Middle School,,Christian,97.41,7th Grade
+,Public,Christian County Public Schools VLA,,Christian,95.65,7th Grade
+,Private,Heritage Christian Academy,,Christian,89.66,7th Grade
+,Public,Hopkinsville Middle School,,Christian,94.14,7th Grade
+,Private,University Heights Academy,,Christian,100.0,7th Grade
+,Private,Grace Bible Academy,,Clark,88.89,7th Grade
+,Public,Robert D Campbell Jr High School,,Clark,95.96,7th Grade
+,Public,Clay County Middle School,,Clay,92.16,7th Grade
+,Private,Oneida Baptist Institute,,Clay,66.67,7th Grade
+,Public,Clinton County Middle School,,Clinton,95.61,7th Grade
+,Public,Crittenden County Middle,,Crittenden,93.88,7th Grade
+,Public,Cumberland County Middle School,,Cumberland,88.24,7th Grade
+,Public,College View Middle School,,Daviess,96.19,7th Grade
+,Public,Daviess County Middle School,,Daviess,97.2,7th Grade
+,Public,F T Burns Middle School,,Daviess,96.99,7th Grade
+,Private,Heritage Christian School,,Daviess,29.41,7th Grade
+,Public,Innovation middle school,,Daviess,97.12,7th Grade
+,Private,Owensboro Catholic,,Daviess,100.0,7th Grade
+,Public,Owensboro Middle School,,Daviess,98.37,7th Grade
+,Private,St. Mary of the Woods School,,Daviess,92.0,7th Grade
+,Public,Edmonson County Middle School,,Edmonson,91.61,7th Grade
+,Public,Elliott County Middle Schools,,Elliott,92.31,7th Grade
+,Public,Estill County Middle School,,Estill,97.45,7th Grade
+,Public,Beaumont Middle,,Fayette,98.17,7th Grade
+,Public,Bryan Station Middle,,Fayette,98.26,7th Grade
+,Public,Carter G Woodson Academy,,Fayette,100.0,7th Grade
+,Private,Christ the King School,,Fayette,98.15,7th Grade
+,Public,Crawford Middle,,Fayette,92.9,7th Grade
+,Public,Edythe Jones Hayes Middle,,Fayette,98.4,7th Grade
+,Public,Jessie M Clark Middle,,Fayette,96.13,7th Grade
+,Public,Leestown Middle,,Fayette,96.59,7th Grade
+,Private,Lexington Christian,,Fayette,92.73,7th Grade
+,Private,Lexington Latin School,,Fayette,34.38,7th Grade
+,Public,Lexington Middle School,,Fayette,96.33,7th Grade
+,Private,Lexington Universal Academy,,Fayette,100.0,7th Grade
+,Public,Martin Luther King Jr. Academy,,Fayette,100.0,7th Grade
+,Public,Mary E Britton Middle,,Fayette,91.67,7th Grade
+,Private,Mary Queen of the Holy Rosary Catholic School,,Fayette,93.75,7th Grade
+,Public,Morton Middle,,Fayette,97.29,7th Grade
+,Private,Providence Montessori Middle School,,Fayette,94.12,7th Grade
+,Private,Sayre School,,Fayette,100.0,7th Grade
+,Public,SCAPA at Bluegrass,,Fayette,100.0,7th Grade
+,Private,Seton Catholic School,,Fayette,95.83,7th Grade
+,Public,Southern Middle,,Fayette,94.25,7th Grade
+,Private,Sts Peter and Paul,,Fayette,100.0,7th Grade
+,Public,Success Academy Virtual Learning,,Fayette,96.67,7th Grade
+,Private,Summit Christian Academy,,Fayette,83.33,7th Grade
+,Public,Tates Creek Middle,,Fayette,96.99,7th Grade
+,Private,The Lexington School,,Fayette,100.0,7th Grade
+,Private,Trinity Christian Academy,,Fayette,92.68,7th Grade
+,Public,Winburn Middle,,Fayette,96.58,7th Grade
+,Public,Simons Middle School,,Fleming,98.1,7th Grade
+,Public,Allen Elementary,,Floyd,100.0,7th Grade
+,Public,Betsy Layne Elementary School,,Floyd,100.0,7th Grade
+,Public,Duff Allen Central Elementary,,Floyd,100.0,7th Grade
+,Public,James D. Adams Middle School,,Floyd,98.23,7th Grade
+,Public,John M Stumbo,,Floyd,100.0,7th Grade
+,Public,May Valley Elementary School,,Floyd,97.5,7th Grade
+,Public,South Floyd Elementary,,Floyd,96.43,7th Grade
+,Public,Bondurant Middle,,Franklin,98.2,7th Grade
+,Public,Elkhorn Middle School,,Franklin,92.95,7th Grade
+,Private,Good Shepherd Catholic School,,Franklin,92.31,7th Grade
+,Public,Second Street School,,Franklin,97.14,7th Grade
+,Private,The Frankfort Christian Academy,,Franklin,92.0,7th Grade
+,Public,Fulton County Middle,,Fulton,100.0,7th Grade
+,Public,Fulton Independent School,,Fulton,85.71,7th Grade
+,Public,Gallatin County Middle School,,Gallatin,99.02,7th Grade
+,Public,Garrard County Middle School,,Garrard,95.72,7th Grade
+,Public,Grant County Middle School,,Grant,99.12,7th Grade
+,Public,Williamstown Junior High School,,Grant,95.24,7th Grade
+,Public,Graves County Middle School,,Graves,94.53,7th Grade
+,Public,Mayfield Middle School,,Graves,95.33,7th Grade
+,Public,Grayson County Middle School,,Grayson,98.68,7th Grade
+,Public,Green County Middle School,,Green,97.44,7th Grade
+,Public,Greenup County School of Innovation,,Greenup,98.46,7th Grade
+,Public,Mckell Middle,,Greenup,98.02,7th Grade
+,Public,Raceland-Worthington,,Greenup,100.0,7th Grade
+,Public,Russell Middle School,,Greenup,97.3,7th Grade
+,Public,Hancock County Middle School,,Hancock,91.49,7th Grade
+,Public,Bluegrass Middle school,,Hardin,87.08,7th Grade
+,Public,College View Campus,,Hardin,94.44,7th Grade
+,Public,East Hardin Middle School,,Hardin,96.89,7th Grade
+,Public,James T. Alton,,Hardin,97.89,7th Grade
+,Private,North Hardin Christian School,,Hardin,100.0,7th Grade
+,Public,North Middle School,,Hardin,93.53,7th Grade
+,Private,St James Catholic School,,Hardin,100.0,7th Grade
+,Public,TK STONE MIDDLE SCHOOL,,Hardin,95.91,7th Grade
+,Public,WEST HARDIN MIDDLE SCHOOL,,Hardin,95.51,7th Grade
+,Public,Black Mtn Elem School,,Harlan,100.0,7th Grade
+,Public,Cawood Elementary School,,Harlan,94.44,7th Grade
+,Public,Cumberland Elementary School,,Harlan,88.57,7th Grade
+,Public,Evarts Elementary School,,Harlan,93.94,7th Grade
+,Public,Green Hills Elementary,,Harlan,92.86,7th Grade
+,Public,Harlan Independent Schools,,Harlan,97.59,7th Grade
+,Public,JACES,,Harlan,92.86,7th Grade
+,Public,Rosspoint Elementary School,,Harlan,95.12,7th Grade
+,Public,Wallins Elementary School,,Harlan,85.71,7th Grade
+,Public,Harrison County Middle School,,Harrison,99.53,7th Grade
+,Public,Bonnieville Elementary,,Hart,100.0,7th Grade
+,Public,Caverna Middle School,,Hart,90.48,7th Grade
+,Public,Cub Run Elementary School,,Hart,100.0,7th Grade
+,Public,LeGrande Elementary,,Hart,90.32,7th Grade
+,Public,Memorial,,Hart,96.67,7th Grade
+,Public,Munfordville Elementary School,,Hart,95.83,7th Grade
+,Private,Holy Name of Jesus Catholic School,,Henderson,97.22,7th Grade
+,Public,North Middle School,,Henderson,97.77,7th Grade
+,Public,South Middle,,Henderson,95.73,7th Grade
+,Public,Eminence High School,,Henry,95.95,7th Grade
+,Public,Henry County Middle School,,Henry,98.72,7th Grade
+,Public,Hickman County High School,,Hickman,100.0,7th Grade
+,Public,Browning Springs Middle School,,Hopkins,96.38,7th Grade
+,Public,Dawson Springs Jr/High School,,Hopkins,95.92,7th Grade
+,Public,James Madison Middle School,,Hopkins,97.14,7th Grade
+,Public,South Hopkins Middle School,,Hopkins,96.91,7th Grade
+,Public,West Hopkins School,,Hopkins,97.22,7th Grade
+,Public,Jackson County Middle School,,Jackson,93.96,7th Grade
+,Private,Academy For Individual Excellence,,Jefferson,96.55,7th Grade
+,Public,Anchorage Public School,,Jefferson,93.62,7th Grade
+,Private,Ascension Catholic School,,Jefferson,100.0,7th Grade
+,Public,Barret Traditional Middle,,Jefferson,96.91,7th Grade
+,Private,Beth Haven Christian School,,Jefferson,100.0,7th Grade
+,Public,Carrithers Middle,,Jefferson,92.82,7th Grade
+,Private,Christian Academy of Louisville - English Station Campus,,Jefferson,89.74,7th Grade
+,Public,Conway Middle,,Jefferson,91.42,7th Grade
+,Public,Crosby Middle,,Jefferson,89.37,7th Grade
+,Public,Dr. Grace M. James Academy of Excellence,,Jefferson,99.03,7th Grade
+,Public,Dr. J. Blaine Hudson Middle,,Jefferson,92.83,7th Grade
+,Public,Echo Trail Middle,,Jefferson,94.35,7th Grade
+,Public,Farnsley Middle,,Jefferson,97.67,7th Grade
+,Public,Frederick Law Olmsted Academy North,,Jefferson,87.9,7th Grade
+,Public,Frederick Law Olmsted Academy South,,Jefferson,89.09,7th Grade
+,Public,Highland Middle,,Jefferson,94.74,7th Grade
+,Private,Highlands Latin School,,Jefferson,77.19,7th Grade
+,Private,Holy Spirit School,,Jefferson,79.17,7th Grade
+,Private,Holy Trinity Parish School,,Jefferson,97.65,7th Grade
+,Private,Islamic School of Louisville,,Jefferson,100.0,7th Grade
+,Public,J. Graham Brown School,,Jefferson,96.67,7th Grade
+,Public,Jefferson County Traditional Middle,,Jefferson,97.74,7th Grade
+,Private,John Paul II Academy,,Jefferson,85.71,7th Grade
+,Public,Johnson Traditional Middle,,Jefferson,97.58,7th Grade
+,Public,Kammerer Middle,,Jefferson,92.43,7th Grade
+,Private,Kentucky Country Day,,Jefferson,100.0,7th Grade
+,Public,Knight Middle,,Jefferson,95.63,7th Grade
+,Private,Landmark Christian Academy,,Jefferson,82.35,7th Grade
+,Public,Lassiter Middle,,Jefferson,90.88,7th Grade
+,Private,Louisville Collegiate School,,Jefferson,97.06,7th Grade
+,Public,Marion C. Moore School,,Jefferson,89.32,7th Grade
+,Private,Meredith-Dunn School,,Jefferson,92.86,7th Grade
+,Public,Meyzeek Middle,,Jefferson,94.62,7th Grade
+,Public,Minor Daniels Academy,,Jefferson,94.12,7th Grade
+,Private,Nativity Academy,,Jefferson,90.0,7th Grade
+,Public,Newburg Middle,,Jefferson,90.11,7th Grade
+,Public,Noe Middle,,Jefferson,98.21,7th Grade
+,Private,Notre Dame Academy,,Jefferson,97.78,7th Grade
+,Private,Nur Islamic School,,Jefferson,100.0,7th Grade
+,Private,Our Lady of Lourdes,,Jefferson,100.0,7th Grade
+,Public,Peace Academy,,Jefferson,72.73,7th Grade
+,Private,Portland Christian School,,Jefferson,93.75,7th Grade
+,Public,Ramsey Middle,,Jefferson,91.37,7th Grade
+,Private,Sacred Heart Schools,,Jefferson,93.33,7th Grade
+,Private,Saint Agnes School,,Jefferson,100.0,7th Grade
+,Private,Saint Mary Academy,,Jefferson,97.92,7th Grade
+,Private,St Martha Catholic School,,Jefferson,96.43,7th Grade
+,Private,St Patrick Catholic School,,Jefferson,100.0,7th Grade
+,Private,St Rita Catholic School,,Jefferson,91.3,7th Grade
+,Private,St. Albert the Great,,Jefferson,94.29,7th Grade
+,Private,St. Andrew Academy,,Jefferson,100.0,7th Grade
+,Private,St. Athanasius School,,Jefferson,100.0,7th Grade
+,Private,St. Bernard Catholic School,,Jefferson,94.12,7th Grade
+,Private,St. Edward Catholic School,,Jefferson,90.91,7th Grade
+,Private,St. Francis of Assisi School,,Jefferson,100.0,7th Grade
+,Private,St. Gabriel the Archangel,,Jefferson,98.41,7th Grade
+,Private,St. Michael,,Jefferson,98.41,7th Grade
+,Private,St. Nicholas Academy,,Jefferson,96.15,7th Grade
+,Private,St. Paul Catholic School,,Jefferson,100.0,7th Grade
+,Private,St. Raphael the Archangel Catholic School,,Jefferson,91.84,7th Grade
+,Private,St. Stephen Martyr,,Jefferson,100.0,7th Grade
+,Private,St.Margaret Mary Catholic School,,Jefferson,100.0,7th Grade
+,Public,Stuart Middle,,Jefferson,88.68,7th Grade
+,Public,The Academy @ Shawnee,,Jefferson,87.13,7th Grade
+,Private,The de Paul School,,Jefferson,100.0,7th Grade
+,Public,The Phoenix School Of Discovery,,Jefferson,96.72,7th Grade
+,Public,Thomas Jefferson Middle,,Jefferson,84.23,7th Grade
+,Private,Valiant Christian Academy,,Jefferson,88.89,7th Grade
+,Public,W.E.B. DuBois Academy,,Jefferson,96.81,7th Grade
+,Private,Walden SChool,,Jefferson,81.48,7th Grade
+,Private,West End School,,Jefferson,90.91,7th Grade
+,Public,Western Middle School for the Arts,,Jefferson,97.57,7th Grade
+,Public,Westport Middle,,Jefferson,89.58,7th Grade
+,Private,Whitefield Academy,,Jefferson,100.0,7th Grade
+,Public,East Jessamine Middle School,,Jessamine,89.71,7th Grade
+,Public,West Jessamine Middle School,,Jessamine,95.61,7th Grade
+,Public,Johnson County Middle School,,Johnson,97.83,7th Grade
+,Public,Paintsville Independent School District,,Johnson,87.5,7th Grade
+,Public,Beechwood Independent,,Kenton,99.22,7th Grade
+,Private,Blessed Sacrament,,Kenton,100.0,7th Grade
+,Private,Blessed Sacrament School,,Kenton,100.0,7th Grade
+,Private,Calvary Christian School,,Kenton,76.92,7th Grade
+,Private,Community Christian Academy,,Kenton,81.82,7th Grade
+,Public,Holmes Middle School,,Kenton,98.28,7th Grade
+,Private,Holy Cross Elementary,,Kenton,95.0,7th Grade
+,Public,LUDLOW HIGH SCHOOL,,Kenton,100.0,7th Grade
+,Private,Saint Pius X Catholic School,,Kenton,100.0,7th Grade
+,Private,St Henry Catholic School,,Kenton,100.0,7th Grade
+,Private,St. Agnes School,,Kenton,100.0,7th Grade
+,Private,St. Anthony,,Kenton,92.31,7th Grade
+,Private,St. Augustine School,,Kenton,100.0,7th Grade
+,Private,St. Cecilia Catholic School,,Kenton,94.12,7th Grade
+,Private,St. Joseph,,Kenton,100.0,7th Grade
+,Public,Summit View Academy,,Kenton,100.0,7th Grade
+,Public,Tichenor Middle School,,Kenton,98.71,7th Grade
+,Public,Turkey Foot Middle School,,Kenton,98.03,7th Grade
+,Public,Twenhofel Middle School,,Kenton,98.88,7th Grade
+,Private,Villa Madonna Academy,,Kenton,82.5,7th Grade
+,Public,Woodland Middle School,,Kenton,97.85,7th Grade
+,Public,Beaver Creek Elementary School,,Knott,89.47,7th Grade
+,Public,Carr Creek Elementary School,,Knott,98.11,7th Grade
+,Public,Cordia School,,Knott,100.0,7th Grade
+,Public,Emmalena Elementary School,,Knott,92.31,7th Grade
+,Public,Hindman Elementary School,,Knott,79.41,7th Grade
+,Public,Jones Fork Elementary School,,Knott,100.0,7th Grade
+,Public,Barbourville City School,,Knox,96.36,7th Grade
+,Public,Knox County Middle,,Knox,95.24,7th Grade
+,Public,Lynn Camp Middle High School,,Knox,93.75,7th Grade
+,Public,LaRue County Middle School,,LaRue,97.92,7th Grade
+,Public,East Bernstadt Independent School,,Laurel,88.0,7th Grade
+,Public,north laurel middle school,,Laurel,94.74,7th Grade
+,Public,south laurel middle school,,Laurel,95.8,7th Grade
+,Public,Blaine Elementary School,,Lawrence,100.0,7th Grade
+,Public,Fallsburg Elementary School,,Lawrence,100.0,7th Grade
+,Public,Louisa Middle School,,Lawrence,96.33,7th Grade
+,Private,The Millard School,,Lawrence,100.0,7th Grade
+,Public,Lee County Middle High School,,Lee,98.21,7th Grade
+,Public,HAYES LEWIS,,Leslie,100.0,7th Grade
+,Public,Mountain View Elementary,,Leslie,100.0,7th Grade
+,Public,Stinnett Elementary,,Leslie,94.87,7th Grade
+,Public,W.B Muncy Elementary School,,Leslie,90.32,7th Grade
+,Public,COWAN ELEMENTARY SCHOOL,,Letcher,96.55,7th Grade
+,Public,Fleming Neon Middle School,,Letcher,97.37,7th Grade
+,Public,Jenkins Independent School System,,Letcher,100.0,7th Grade
+,Public,LETCHER ELEMENTARY-MIDDLE SCHOOL,,Letcher,96.77,7th Grade
+,Public,WHITESBURG MIDDLE SCHOOL,,Letcher,98.41,7th Grade
+,Public,Lewis County Middle School,,Lewis,100.0,7th Grade
+,Public,Lincoln County Middle School,,Lincoln,97.49,7th Grade
+,Public,Livingston County Middle School,,Livingston,95.83,7th Grade
+,Public,Adairville School,,Logan,97.67,7th Grade
+,Public,Auburn School,,Logan,93.06,7th Grade
+,Public,Chandlers,,Logan,97.92,7th Grade
+,Public,Lewisburg School,,Logan,96.77,7th Grade
+,Public,Olmstead elementary,,Logan,100.0,7th Grade
+,Public,Russellville Middle School,,Logan,96.15,7th Grade
+,Public,Lyon County Elementary School,,Lyon,95.83,7th Grade
+,Public,B Michael Caudill Middle School,,Madison,98.38,7th Grade
+,Public,Berea Community Middle School,,Madison,97.22,7th Grade
+,Public,Clark Moores Middle School,,Madison,98.9,7th Grade
+,Public,Farristown Middle School,,Madison,95.92,7th Grade
+,Public,Foley Middle School,,Madison,97.73,7th Grade
+,Public,Madison Middle School,,Madison,97.51,7th Grade
+,Public,Model Laboratory School EKU,,Madison,100.0,7th Grade
+,Public,Herald Whitaker Middle School,,Magoffin,94.04,7th Grade
+,Public,Hugh C. Spalding,,Marion,91.67,7th Grade
+,Public,Lebanon Middle School,,Marion,98.15,7th Grade
+,Public,Marion County Middle School,,Marion,97.92,7th Grade
+,Private,St. Augustine Catholic School,,Marion,100.0,7th Grade
+,Private,Christian Fellowship School,,Marshall,71.43,7th Grade
+,Private,New Covenant Christian Academy,,Marshall,76.19,7th Grade
+,Public,North Marshall Middle School,,Marshall,96.23,7th Grade
+,Public,South Marshall Middle School,,Marshall,94.48,7th Grade
+,Public,Martin County Middle School,,Martin,97.09,7th Grade
+,Public,Mason County Middle School,,Mason,93.94,7th Grade
+,Private,St. Patrick School,,Mason,76.47,7th Grade
+,Private,Community Christian Academy,,McCracken,77.14,7th Grade
+,Public,Heath Middle School,,McCracken,95.83,7th Grade
+,Public,Lone Oak Middle School,,McCracken,91.49,7th Grade
+,Public,Paducah Middle School,,McCracken,96.35,7th Grade
+,Public,Reidland Middle School,,McCracken,90.77,7th Grade
+,Private,St. Mary Middle School,,McCracken,95.65,7th Grade
+,Public,McCreary County Middle School,,McCreary,96.43,7th Grade
+,Public,McLean County Middle School,,McLean,96.15,7th Grade
+,Public,Stuart Pepper Middle School,,Meade,98.95,7th Grade
+,Public,Menifee Central School,,Menifee,93.83,7th Grade
+,Public,Burgin Independent School,,Mercer,97.44,7th Grade
+,Public,Kenneth D. King Middle School,,Mercer,97.41,7th Grade
+,Public,Metcalfe County Middle School,,Metcalfe,97.8,7th Grade
+,Public,Monroe County Middle School,,Monroe,97.66,7th Grade
+,Public,J.B.McNabb Middle School,,Montgomery,98.37,7th Grade
+,Public,Morgan County Middle School,,Morgan,99.13,7th Grade
+,Public,Muhlenberg County Middle School,,Muhlenberg,96.59,7th Grade
+,Public,Bardstown Middle School,,Nelson,97.61,7th Grade
+,Public,Bloomfield Middle School,,Nelson,98.99,7th Grade
+,Public,Old Kentucky Home Middle School,,Nelson,96.71,7th Grade
+,Private,St. Gregory Catholic School,,Nelson,71.43,7th Grade
+,Private,St. Joseph School,,Nelson,95.35,7th Grade
+,Public,Nicholas County,,Nicholas,98.77,7th Grade
+,Public,Ohio County Middle School,,Ohio,94.01,7th Grade
+,Public,East Oldham Middle School,,Oldham,97.38,7th Grade
+,Private,Francis Parker School of Louisville (Goshen Campus),,Oldham,92.86,7th Grade
+,Public,North Oldham Middle School,,Oldham,97.06,7th Grade
+,Public,Oldham Co Middle School,,Oldham,97.75,7th Grade
+,Public,South Oldham Middle School,,Oldham,97.95,7th Grade
+,Private,St. Aloysius,,Oldham,32.5,7th Grade
+,Public,Maurice Bowling Middle School,,Owen,99.1,7th Grade
+,Public,Owsley County,,Owsley,97.37,7th Grade
+,Public,Phillip A. Sharp Middle School,,Pendleton,98.05,7th Grade
+,Public,Buckhorn School,,Perry,100.0,7th Grade
+,Public,East Perry Elem,,Perry,97.18,7th Grade
+,Public,Hazard Middle School,,Perry,96.15,7th Grade
+,Public,Robert W Combs Elementary,,Perry,93.55,7th Grade
+,Public,Robinson Elementary School,,Perry,93.55,7th Grade
+,Public,Viper Elementary,,Perry,88.89,7th Grade
+,Public,West Perry Elementary,,Perry,94.29,7th Grade
+,Public,Belfry Middle School,,Pike,97.44,7th Grade
+,Public,Dorton Elementary School,,Pike,100.0,7th Grade
+,Public,Feds Creek Elementary,,Pike,100.0,7th Grade
+,Public,Johns Creek,,Pike,97.5,7th Grade
+,Public,Millard School,,Pike,98.21,7th Grade
+,Public,Mullins School,,Pike,96.74,7th Grade
+,Public,Phelps High School,,Pike,100.0,7th Grade
+,Public,Pikeville Independent,,Pike,98.72,7th Grade
+,Public,Valley Elementary,,Pike,94.37,7th Grade
+,Public,Powell County Middle School,,Powell,96.15,7th Grade
+,Public,Meece Middle School,,Pulaski,98.5,7th Grade
+,Public,Northern Middle School,,Pulaski,98.71,7th Grade
+,Public,Science Hill Independent,,Pulaski,100.0,7th Grade
+,Public,Southern Middle School,,Pulaski,97.75,7th Grade
+,Public,Rockcastle County Middle School,,Rockcastle,93.3,7th Grade
+,Public,Rowan Academy -In Person,,Rowan,88.89,7th Grade
+,Public,Rowan County Middle School,,Rowan,95.1,7th Grade
+,Public,Russell County Middle School,,Russell,97.76,7th Grade
+,Public,Georgetown Middle School,,Scott,95.33,7th Grade
+,Public,Royal Spring Middle School,,Scott,96.12,7th Grade
+,Public,Scott Co Middle School,,Scott,96.01,7th Grade
+,Private,St. John Catholic School,,Scott,92.31,7th Grade
+,Private,Cornerstone Christian Academy,,Shelby,50.0,7th Grade
+,Public,East Middle School,,Shelby,95.29,7th Grade
+,Public,Marnel C. Moorman,,Shelby,92.42,7th Grade
+,Public,West MIddle School,,Shelby,97.33,7th Grade
+,Public,Franklin Simpson Middle School,,Simpson,95.92,7th Grade
+,Public,Spencer County Middle School,,Spencer,100.0,7th Grade
+,Public,Campbellsville Middle,,Taylor,94.59,7th Grade
+,Public,Taylor County Middle School,,Taylor,95.85,7th Grade
+,Public,Todd County Middle School,,Todd,95.71,7th Grade
+,Public,Trigg County Public Schools,,Trigg,97.14,7th Grade
+,Public,Trimble County Jr/Sr High School,,Trimble,93.42,7th Grade
+,Private,John Paul II Catholic School,,Union,100.0,7th Grade
+,Public,UNION COUNTY MIDDLE SCHOOL,,Union,95.42,7th Grade
+,Public,Bowling Green Junior High School,,Warren,90.91,7th Grade
+,Public,Drakes Creek Middle School,,Warren,96.57,7th Grade
+,Private,Foundation Christian Academy,,Warren,85.71,7th Grade
+,Public,Henry F Moss Middle School,,Warren,98.81,7th Grade
+,Private,Legacy Christian Academy of Bowling Green,,Warren,77.78,7th Grade
+,Public,South Warren Middle School,,Warren,98.44,7th Grade
+,Private,St. Joseph School,,Warren,50.0,7th Grade
+,Public,Warren East Middle School,,Warren,97.42,7th Grade
+,Public,North Washington Elementary,,Washington,96.67,7th Grade
+,Private,Saint Dominic Elementary School,,Washington,100.0,7th Grade
+,Public,Washington County Middle School,,Washington,100.0,7th Grade
+,Public,Wayne County Middle School,,Wayne,98.58,7th Grade
+,Public,Webster County Middle School,,Webster,95.86,7th Grade
+,Public,Corbin Middle School,,Whitley,96.67,7th Grade
+,Public,Whitley County Middle School,,Whitley,98.13,7th Grade
+,Public,Williamsburg Independent School District,,Whitley,89.55,7th Grade
+,Public,Wolfe County Middle School,,Wolfe,97.06,7th Grade
+,Public,Woodford County Middle School,,Woodford,97.34,7th Grade
+,Public,Adair County High School,,Adair,97.96,11th Grade
+,Public,Allen County Primary Center,,Allen,97.54,11th Grade
+,Public,Anderson County High School,,Anderson,89.43,11th Grade
+,Public,Ballard Memorial High School,,Ballard,93.75,11th Grade
+,Public,Barren County High School,,Barren,98.52,11th Grade
+,Public,Glasgow High School,,Barren,96.27,11th Grade
+,Public,Bath County High School,,Bath,98.56,11th Grade
+,Public,Cumberland County High School,,Bath,94.29,11th Grade
+,Public,Bell County High School,,Bell,92.81,11th Grade
+,Public,Middlesboro High School,,Bell,98.7,11th Grade
+,Public,Pineville High School,,Bell,94.29,11th Grade
+,Public,Accel Academy,,Boone,98.28,11th Grade
+,Private,Assumption Academy,,Boone,40.0,11th Grade
+,Public,Boone County High School,,Boone,96.9,11th Grade
+,Public,Conner High School,,Boone,98.24,11th Grade
+,Private,Our Lady of the Sacred Heart Academy,,Boone,35.71,11th Grade
+,Public,Randall K Cooper High School,,Boone,97.97,11th Grade
+,Public,Rise Academy,,Boone,92.86,11th Grade
+,Public,Ryle High School,,Boone,96.8,11th Grade
+,Private,Saint Henry District High School,,Boone,94.74,11th Grade
+,Public,Walton Verona High School,,Boone,98.37,11th Grade
+,Public,Bourbon County High School,,Bourbon,97.93,11th Grade
+,Public,Paris High School,,Bourbon,96.72,11th Grade
+,Public,Boyd County High School,,Boyd,95.85,11th Grade
+,Public,Fairview Independent School,,Boyd,97.92,11th Grade
+,Public,Paul G Blazer High School,,Boyd,95.81,11th Grade
+,Public,Boyle County High School,,Boyle,98.55,11th Grade
+,Private,Danville Christian Academy,,Boyle,95.24,11th Grade
+,Public,Danville High School,,Boyle,99.02,11th Grade
+,Public,Augusta Independent School,,Bracken,95.65,11th Grade
+,Public,Bracken County High School,,Bracken,98.9,11th Grade
+,Public,Breathitt High School,,Breathitt,97.98,11th Grade
+,Public,Jackson Independent School,,Breathitt,100.0,11th Grade
+,Public,Breckinridge County High School,,Breckinridge,97.63,11th Grade
+,Public,Cloverport Independent Schools,,Breckinridge,100.0,11th Grade
+,Public,Bullitt Central High School,,Bullitt,98.35,11th Grade
+,Public,Bullitt East High School,,Bullitt,99.52,11th Grade
+,Private,Micah Christian School,,Bullitt,81.82,11th Grade
+,Public,North Bullitt High School,,Bullitt,98.31,11th Grade
+,Public,Riverview Opportunity Center,,Bullitt,100.0,11th Grade
+,Public,Butler County High School,,Butler,96.89,11th Grade
+,Public,Caldwell County High School,,Caldwell,100.0,11th Grade
+,Public,Calloway County High School,,Calloway,95.83,11th Grade
+,Public,Murray High School,,Calloway,96.45,11th Grade
+,Public,Alexandria Educational Center,,Campbell,100.0,11th Grade
+,Public,Bellevue High School,,Campbell,97.78,11th Grade
+,Private,Bishop Brossart High School,,Campbell,97.78,11th Grade
+,Public,Campbell County High School,,Campbell,97.13,11th Grade
+,Public,Dayton High School,,Campbell,100.0,11th Grade
+,Public,Highlands High School,,Campbell,96.0,11th Grade
+,Private,Newport Central Catholic High School,,Campbell,96.83,11th Grade
+,Public,Newport High School,,Campbell,100.0,11th Grade
+,Public,Newport School of Innovation,,Campbell,100.0,11th Grade
+,Public,Carlisle County High School,,Carlisle,93.88,11th Grade
+,Public,Carroll County High School,,Carroll,99.35,11th Grade
+,Public,East Carter High School,,Carter,96.97,11th Grade
+,Public,West Carter High School,,Carter,98.28,11th Grade
+,Public,Casey County High School,,Casey,99.36,11th Grade
+,Public,Christian County High School,,Christian,99.28,11th Grade
+,Public,Christian County Public Schools VLA,,Christian,100.0,11th Grade
+,Private,Heritage Christian Academy,,Christian,91.43,11th Grade
+,Public,Hopkinsville High School,,Christian,99.62,11th Grade
+,Private,University Heights Academy,,Christian,100.0,11th Grade
+,Public,George Rogers Clark High School,,Clark,97.38,11th Grade
+,Private,Grace Bible Academy,,Clark,78.57,11th Grade
+,Public,Clay County High School,,Clay,95.56,11th Grade
+,Private,Oneida Baptist Institute,,Clay,60.71,11th Grade
+,Public,Clinton County High School,,Clinton,97.75,11th Grade
+,Public,Crittenden County High,,Crittenden,96.05,11th Grade
+,Public,Apollo High School,,Daviess,95.5,11th Grade
+,Public,Davies County High School,,Daviess,97.4,11th Grade
+,Public,Emerson Academy,,Daviess,100.0,11th Grade
+,Public,Heritage Park High School,,Daviess,91.89,11th Grade
+,Private,Owensboro Catholic,,Daviess,100.0,11th Grade
+,Public,Owensboro High School,,Daviess,96.32,11th Grade
+,Public,Owensboro innovation academy,,Daviess,97.01,11th Grade
+,Private,Trinity High School,,Daviess,82.76,11th Grade
+,Public,Edmonson County High School,,Edmonson,96.15,11th Grade
+,Public,Elliott County High School,,Elliott,95.95,11th Grade
+,Public,Estill County High School,,Estill,95.97,11th Grade
+,Public,Bryan Station High,,Fayette,95.63,11th Grade
+,Public,Carter G Woodson Academy,,Fayette,100.0,11th Grade
+,Public,Fayette County Learning Center,,Fayette,100.0,11th Grade
+,Public,Frederick Douglass High,,Fayette,98.29,11th Grade
+,Public,Henry Clay High School,,Fayette,95.9,11th Grade
+,Public,Lafayette High,,Fayette,96.35,11th Grade
+,Private,Lexington Catholic High School,,Fayette,96.27,11th Grade
+,Private,Lexington Christian,,Fayette,97.64,11th Grade
+,Private,Lexington Latin School,,Fayette,21.05,11th Grade
+,Public,Opportunity Middle College,,Fayette,94.0,11th Grade
+,Public,Paul Laurence Dunbar High,,Fayette,97.56,11th Grade
+,Private,Sayre School,,Fayette,97.1,11th Grade
+,Public,Steam Academy,,Fayette,98.15,11th Grade
+,Public,Success Academy,,Fayette,95.45,11th Grade
+,Public,Success Academy Virtual Learning Academy,,Fayette,95.31,11th Grade
+,Public,Tates Creek High School,,Fayette,97.39,11th Grade
+,Private,Trinity Christian Academy,,Fayette,100.0,11th Grade
+,Public,Fleming County High School,,Fleming,98.24,11th Grade
+,Public,Betsy Layne High School,,Floyd,100.0,11th Grade
+,Public,Floyd Central High School,,Floyd,99.07,11th Grade
+,Public,Prestonsburg High,,Floyd,96.92,11th Grade
+,Public,Frankfort High,,Franklin,95.0,11th Grade
+,Public,Franklin County High School,,Franklin,95.3,11th Grade
+,Private,The Frankfort Christian Academy,,Franklin,100.0,11th Grade
+,Public,Western Hills High School,,Franklin,96.46,11th Grade
+,Public,Fulton County High,,Fulton,100.0,11th Grade
+,Public,Fulton Independent School,,Fulton,100.0,11th Grade
+,Public,Gallatin County High School,,Gallatin,97.96,11th Grade
+,Public,Garrard County High School,,Garrard,95.12,11th Grade
+,Public,Grant County High School,,Grant,98.35,11th Grade
+,Public,Williamstown Senior High School,,Grant,97.3,11th Grade
+,Public,Graves County High School,,Graves,97.59,11th Grade
+,Public,Mayfield High Scho0l,,Graves,100.0,11th Grade
+,Private,Northside Baptist Christian School,,Graves,84.62,11th Grade
+,Public,Grayson County High School,,Grayson,99.66,11th Grade
+,Public,Green County High School,,Green,98.37,11th Grade
+,Public,Greenup County High School,,Greenup,97.65,11th Grade
+,Public,Raceland-Worthington,,Greenup,97.44,11th Grade
+,Public,Russell High School,,Greenup,98.08,11th Grade
+,Public,Hancock County High School,,Hancock,98.13,11th Grade
+,Public,Central Hardin High School,,Hardin,97.87,11th Grade
+,Public,College View Campus,,Hardin,91.43,11th Grade
+,Public,Early College and Career Center,,Hardin,97.24,11th Grade
+,Public,Elizabethtown High School,,Hardin,94.27,11th Grade
+,Public,John Hardin High School,,Hardin,95.15,11th Grade
+,Public,North Hardin High School,,Hardin,92.29,11th Grade
+,Public,Harlan County High School,,Harlan,96.63,11th Grade
+,Public,Harlan Independent Schools,,Harlan,93.88,11th Grade
+,Public,Harrison County High School,,Harrison,97.0,11th Grade
+,Public,Caverna High School,,Hart,85.71,11th Grade
+,Public,Hart County High School,,Hart,96.82,11th Grade
+,Public,Central Academy,,Henderson,95.31,11th Grade
+,Public,Henderson County High School,,Henderson,98.17,11th Grade
+,Public,Eminence High School,,Henry,97.44,11th Grade
+,Public,Henry County High School,,Henry,100.0,11th Grade
+,Public,Hickman County High School,,Hickman,100.0,11th Grade
+,Public,Dawson Springs Jr/High School,,Hopkins,97.5,11th Grade
+,Public,Hopkins County Central High School,,Hopkins,97.71,11th Grade
+,Public,Hopkins County Schools Academy,,Hopkins,100.0,11th Grade
+,Public,Madisonville North Hopkins High School,,Hopkins,98.23,11th Grade
+,Public,Jackson county high school,,Jackson,98.37,11th Grade
+,Private,Academy For Individual Excellence,,Jefferson,100.0,11th Grade
+,Private,Assumption High School,,Jefferson,98.83,11th Grade
+,Public,Atherton High,,Jefferson,97.46,11th Grade
+,Public,Ballard High,,Jefferson,93.61,11th Grade
+,Public,Breckinridge Metropolitan High,,Jefferson,96.3,11th Grade
+,Public,Butler Traditional High,,Jefferson,97.84,11th Grade
+,Public,Central High Magnet Career Academy,,Jefferson,95.71,11th Grade
+,Private,Christian Academy of Louisville - English Station Campus,,Jefferson,94.48,11th Grade
+,Public,Churchill Park School,,Jefferson,100.0,11th Grade
+,Public,Doss High,,Jefferson,83.0,11th Grade
+,Public,Dr. Grace M. James Academy of Excellence,,Jefferson,97.37,11th Grade
+,Public,Dupont Manual High,,Jefferson,98.38,11th Grade
+,Public,Eastern High,,Jefferson,91.91,11th Grade
+,Private,Evangel Christian School,,Jefferson,25.0,11th Grade
+,Public,Fairdale High,,Jefferson,93.78,11th Grade
+,Public,Fern Creek High,,Jefferson,88.89,11th Grade
+,Private,Francis Parker School of Louisville Downtown Campus,,Jefferson,95.56,11th Grade
+,Private,Highlands Latin School,,Jefferson,32.26,11th Grade
+,Private,Holy Cross High School,,Jefferson,98.67,11th Grade
+,Public,Iroquois High,,Jefferson,94.51,11th Grade
+,Public,J. Graham Brown School,,Jefferson,94.2,11th Grade
+,Public,Jeffersontown High,,Jefferson,91.72,11th Grade
+,Private,Kentucky Country Day,,Jefferson,100.0,11th Grade
+,Public,Liberty High,,Jefferson,97.06,11th Grade
+,Private,Louisville Collegiate School,,Jefferson,100.0,11th Grade
+,Public,Louisville Male High,,Jefferson,98.75,11th Grade
+,Public,Marion C. Moore School,,Jefferson,89.71,11th Grade
+,Public,Mary Jo and William MacDonald Maryhurst,,Jefferson,100.0,11th Grade
+,Private,Mercy Academy,,Jefferson,98.4,11th Grade
+,Public,Minor Daniels Academy,,Jefferson,100.0,11th Grade
+,Public,Newcomer Academy,,Jefferson,82.14,11th Grade
+,Public,Pathfinder School of Innovation,,Jefferson,92.02,11th Grade
+,Public,Pleasure Ridge Park High,,Jefferson,94.79,11th Grade
+,Private,Portland Christian School,,Jefferson,97.14,11th Grade
+,Private,Presentation Academy,,Jefferson,93.94,11th Grade
+,Private,Sacred Heart Schools,,Jefferson,92.63,11th Grade
+,Private,Saint Xavier High School,,Jefferson,96.32,11th Grade
+,Public,Seneca High,,Jefferson,89.53,11th Grade
+,Public,Southern High,,Jefferson,85.86,11th Grade
+,Private,St. Francis DeSales High School,,Jefferson,100.0,11th Grade
+,Private,Summit Academy of Greater Louisville,,Jefferson,84.62,11th Grade
+,Public,The Academy @ Shawnee,,Jefferson,93.23,11th Grade
+,Public,The Brook-KMI,,Jefferson,85.71,11th Grade
+,Public,The Phoenix School Of Discovery,,Jefferson,98.25,11th Grade
+,Private,Trinity High School,,Jefferson,92.38,11th Grade
+,Public,Valley High,,Jefferson,93.67,11th Grade
+,Public,W.E.B. DuBois Academy,,Jefferson,95.0,11th Grade
+,Public,Waggener High,,Jefferson,82.13,11th Grade
+,Private,Walden SChool,,Jefferson,100.0,11th Grade
+,Public,Western High,,Jefferson,94.74,11th Grade
+,Private,Whitefield Academy,,Jefferson,97.5,11th Grade
+,Public,East Jessamine High School,,Jessamine,93.0,11th Grade
+,Public,West Jessamine High School,,Jessamine,94.87,11th Grade
+,Public,Johnson Central High School,,Johnson,99.5,11th Grade
+,Public,Paintsville Independent School District,,Johnson,87.5,11th Grade
+,Public,Beechwood Independent,,Kenton,96.69,11th Grade
+,Private,Calvary Christian School,,Kenton,83.87,11th Grade
+,Private,Community Christian Academy,,Kenton,92.31,11th Grade
+,Private,Covington Catholic High School,,Kenton,97.24,11th Grade
+,Private,Covington Latin School,,Kenton,95.45,11th Grade
+,Public,Dixie High School,,Kenton,97.42,11th Grade
+,Public,Holmes High School,,Kenton,99.01,11th Grade
+,Private,Holy Cross High School,,Kenton,86.05,11th Grade
+,Public,Lloyd High School,,Kenton,100.0,11th Grade
+,Public,LUDLOW HIGH SCHOOL,,Kenton,100.0,11th Grade
+,Private,NOTRE DAME ACADEMY,,Kenton,100.0,11th Grade
+,Public,Scott High School,,Kenton,98.29,11th Grade
+,Public,Simon Kenton High School,,Kenton,98.77,11th Grade
+,Private,Villa Madonna Academy,,Kenton,75.0,11th Grade
+,Public,Cordia School,,Knott,91.67,11th Grade
+,Private,June Buchanan School,,Knott,100.0,11th Grade
+,Public,Knott County Central High School,,Knott,97.3,11th Grade
+,Public,Barbourville City School,,Knox,100.0,11th Grade
+,Public,Knox Central High School,,Knox,95.19,11th Grade
+,Public,Knox County Learning Academy,,Knox,70.0,11th Grade
+,Public,Lynn Camp Middle High School,,Knox,91.23,11th Grade
+,Public,LaRue County High School,,LaRue,93.72,11th Grade
+,Public,LAUREL COUNTY ELEARNING ACADEMY,,Laurel,88.24,11th Grade
+,Public,McDaniel Learning Center,,Laurel,83.33,11th Grade
+,Public,North Laurel High School,,Laurel,93.67,11th Grade
+,Public,South Laurel High School,,Laurel,96.36,11th Grade
+,Public,Lawrence County High School,,Lawrence,95.58,11th Grade
+,Public,Lee County Middle High School,,Lee,100.0,11th Grade
+,Public,Leslie County High School,,Leslie,96.3,11th Grade
+,Public,Jenkins Independent School System,,Letcher,98.15,11th Grade
+,Public,LETCHER COUNTY CENTRAL HIGH SCHOOL,,Letcher,100.0,11th Grade
+,Public,Lewis County High School,,Lewis,100.0,11th Grade
+,Public,Lincoln County High School,,Lincoln,96.15,11th Grade
+,Public,Livingston Central High School,,Livingston,95.59,11th Grade
+,Public,Logan County High School,,Logan,98.54,11th Grade
+,Public,Russellville High School,,Logan,96.97,11th Grade
+,Public,The Academy,,Logan,100.0,11th Grade
+,Public,Lyon County Elementary School,,Lyon,98.55,11th Grade
+,Public,Berea Community High School,,Madison,97.01,11th Grade
+,Public,Madison Central High School,,Madison,97.83,11th Grade
+,Public,Madison Southern High School,,Madison,96.09,11th Grade
+,Public,Model Laboratory School EKU,,Madison,98.15,11th Grade
+,Public,Magoffin County High School,,Magoffin,95.9,11th Grade
+,Public,Hugh C. Spalding,,Marion,97.87,11th Grade
+,Public,Marion County High School,,Marion,99.55,11th Grade
+,Private,Christian Fellowship School,,Marshall,57.14,11th Grade
+,Public,Marshall County High School,,Marshall,97.79,11th Grade
+,Private,New Covenant Christian Academy,,Marshall,81.82,11th Grade
+,Public,Martin County High School,,Martin,95.16,11th Grade
+,Public,Mason County High School,,Mason,91.59,11th Grade
+,Private,St. Patrick School,,Mason,76.92,11th Grade
+,Private,Community Christian Academy,,McCracken,73.68,11th Grade
+,Public,McCracken County High School,,McCracken,97.27,11th Grade
+,Public,McCracken County Open Campus,,McCracken,84.62,11th Grade
+,Public,Paducah Tilghman High School,,McCracken,94.67,11th Grade
+,Private,St. Mary High School,,McCracken,100.0,11th Grade
+,Public,McCreary Central High School,,McCreary,98.22,11th Grade
+,Public,McLean County High School,,McLean,96.81,11th Grade
+,Public,Meade County High School,,Meade,99.45,11th Grade
+,Public,Menifee County High School,,Menifee,95.45,11th Grade
+,Public,Burgin Independent School,,Mercer,100.0,11th Grade
+,Public,MERCER CENTRAL,,Mercer,94.44,11th Grade
+,Public,Mercer County Senior High School,,Mercer,97.78,11th Grade
+,Public,Metcalfe County High School,,Metcalfe,91.67,11th Grade
+,Public,Monroe County High School,,Monroe,96.3,11th Grade
+,Public,Montgomery County High School,,Montgomery,99.05,11th Grade
+,Public,The Sterling School,,Montgomery,100.0,11th Grade
+,Public,Morgan County High School,,Morgan,100.0,11th Grade
+,Public,Morgan County Rise Academy,,Morgan,100.0,11th Grade
+,Public,Robertson,,Morgan,100.0,11th Grade
+,Public,Muhlenberg County High School,,Muhlenberg,98.63,11th Grade
+,Public,The Renaissance Center,,Muhlenberg,100.0,11th Grade
+,Public,Bardstown High School,,Nelson,93.63,11th Grade
+,Private,Bethlehem High School,,Nelson,84.81,11th Grade
+,Public,Nelson County High School,,Nelson,98.42,11th Grade
+,Public,Thomas Nelson High School,,Nelson,99.36,11th Grade
+,Public,Nicholas County,,Nicholas,100.0,11th Grade
+,Public,Ohio County High School,,Ohio,94.82,11th Grade
+,Public,Buckner High School,,Oldham,100.0,11th Grade
+,Public,North Oldham High School,,Oldham,97.18,11th Grade
+,Public,Oldham County High,,Oldham,96.98,11th Grade
+,Public,South Oldham High School,,Oldham,96.83,11th Grade
+,Public,Owen County High School,,Owen,96.43,11th Grade
+,Public,Owsley County,,Owsley,97.37,11th Grade
+,Public,Pendleton County High School,,Pendleton,98.41,11th Grade
+,Public,Buckhorn School,,Perry,100.0,11th Grade
+,Public,Hazard High School,,Perry,100.0,11th Grade
+,Public,Learning Academy,,Perry,100.0,11th Grade
+,Public,Perry County Central High School,,Perry,94.5,11th Grade
+,Public,Belfry High School,,Pike,96.49,11th Grade
+,Public,East Ridge High School,,Pike,97.83,11th Grade
+,Public,Phelps High School,,Pike,100.0,11th Grade
+,Public,Pike County Central High School,,Pike,99.34,11th Grade
+,Public,Pikeville Independent,,Pike,97.62,11th Grade
+,Public,Shelby Valley High School,,Pike,98.11,11th Grade
+,Public,Powell County High School,,Powell,99.13,11th Grade
+,Public,Pulaski County High,,Pulaski,96.72,11th Grade
+,Private,Somerset Christian School,,Pulaski,76.19,11th Grade
+,Public,Somerset High School,,Pulaski,96.64,11th Grade
+,Public,Southwestern High School,,Pulaski,87.42,11th Grade
+,Public,Rockcastle County High School,,Rockcastle,97.52,11th Grade
+,Public,Rowan Academy -In Person,,Rowan,88.37,11th Grade
+,Public,Rowan County Senior High School,,Rowan,96.43,11th Grade
+,Public,Russell County High School,,Russell,99.49,11th Grade
+,Public,Great Crossing High School,,Scott,96.77,11th Grade
+,Public,Phoenix Horizon Community,,Scott,97.06,11th Grade
+,Public,Scott County High School,,Scott,97.22,11th Grade
+,Public,Martha Layne Collins High School,,Shelby,92.11,11th Grade
+,Public,Shelby County High School,,Shelby,92.79,11th Grade
+,Public,Franklin Simpson High School,,Simpson,96.67,11th Grade
+,Public,Spencer County High School,,Spencer,96.92,11th Grade
+,Public,Campbellsville High School,,Taylor,97.62,11th Grade
+,Public,Taylor County High School,,Taylor,95.26,11th Grade
+,Public,Todd County Central High School,,Todd,96.36,11th Grade
+,Public,Trigg County Public Schools,,Trigg,97.9,11th Grade
+,Public,Trimble County Jr/Sr High School,,Trimble,98.86,11th Grade
+,Public,Union County High School,,Union,92.68,11th Grade
+,Public,Bowling Green High School,,Warren,94.14,11th Grade
+,Private,Foundation Christian Academy,,Warren,90.0,11th Grade
+,Public,Greenwood High School,,Warren,97.18,11th Grade
+,Private,Legacy Christian Academy of Bowling Green,,Warren,90.91,11th Grade
+,Public,Lighthouse Academy,,Warren,100.0,11th Grade
+,Public,South Warren High School,,Warren,99.04,11th Grade
+,Public,Warren Central High School,,Warren,91.61,11th Grade
+,Public,Warren East High School,,Warren,97.67,11th Grade
+,Public,Commander Academy,,Washington,94.12,11th Grade
+,Public,Washington County High School,,Washington,100.0,11th Grade
+,Public,Wayne County High School,,Wayne,98.33,11th Grade
+,Public,Webster County High School,,Webster,92.09,11th Grade
+,Public,Corbin High School,,Whitley,96.2,11th Grade
+,Public,Whitley County High School,,Whitley,97.14,11th Grade
+,Public,Williamsburg Independent School District,,Whitley,93.55,11th Grade
+,Public,Wolfe County Middle School,,Wolfe,100.0,11th Grade
+,Public,Woodford County High School,,Woodford,97.07,11th Grade

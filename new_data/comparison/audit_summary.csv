@@ -1,0 +1,20 @@
+State,Rows,OldRows,AgeGroups,OldAgeGroups,SchoolTypes,OldSchoolTypes,Counties,RateMin,RateMed,RateMax,AddrFilled,FacNumFilled
+AZ,2015,2314,6th Grade | Kindergarten,6th Grade | Kindergarten,Charter | Private | Public,CHARTER | PRIVATE | PUBLIC,15,9.6,93.6,100.0,100.0,0.0
+CA,6434,6623,Kindergarten,Kindergarten,Private | Public,Private | Public,57,4.0,98.0,99.0,0.0,100.0
+CO,4921,4736,All ages | Child Care/Preschool | Kindergarten,All ages | Child Care/Preschool | Kindergarten,Child Care/Preschool | Private School | Public School,Child Care/Preschool | Private School | Public School,65,3.0,94.3,100.0,0.0,100.0
+CT,786,805,7th Grade | Kindergarten,7th Grade | Kindergarten,Non-public | Public,Non-public | Public,9,65.5,99.0,100.0,100.0,0.0
+IN,4084,4068,12th Grade | 1st Grade | 6th Grade | 7th Grade | Kindergarten,12th Grade | 1st Grade | 6th Grade | 7th Grade | Kindergarten,,,92,11.97,94.83,100.0,0.0,0.0
+KS,243,242,Kindergarten,Kindergarten,,,104,38.51,90.0,100.0,0.0,100.0
+KY,1571,1606,11th Grade | 7th Grade | Kindergarten,11th Grade | 7th Grade | Kindergarten,Private | Public,,119,6.06,95.24,100.0,0.0,0.0
+LA,2046,2045,11th Grade | 6th Grade | Kindergarten,11th Grade | 6th Grade | Kindergarten,,,64,24.29,96.97,100.0,0.0,0.0
+MA,1728,1708,12th Grade | 7th Grade | Kindergarten,12th Grade | 7th Grade | Kindergarten,Private | Public | Public Charter | Special Education,COLLABORATIVE | PRIVATE | PUBLIC | PUBLIC CHARTER | SPECIAL EDUCATION,14,27.0,99.0,100.0,0.0,0.0
+MD,1058,1016,Kindergarten,Kindergarten,Private (non-public) | Public,Private (non-public) | Public,24,11.8,97.7,100.0,0.0,0.0
+ME,699,693,12th Grade | 7th Grade | Kindergarten,12th Grade | 7th Grade | Kindergarten,,,17,33.33,100.0,100.0,0.0,0.0
+MN,1744,1939,7th Grade | Kindergarten,7th Grade | Kindergarten,,,87,6.45,90.91,98.0,0.0,0.0
+NC,1600,1814,Kindergarten,Kindergarten,Charter | Private | Public,Charter/Lab | Private | Public | School District,99,27.27,94.17,100.0,0.0,0.0
+NY,4847,5181,All Grades,All Grades,"BOCES School | Charter School | Private School | Public School | School District | Schools, OCFS - 100",BOCES School | Private School | Public School | School District,62,4.17,100.0,100.0,0.0,99.9
+OR,1666,1687,K-12,K-12,,,35,10.0,94.7,100.0,0.0,0.0
+PA,3714,3792,12th Grade | 7th Grade | Kindergarten,12th Grade | 12th Grade - Home School | 7th Grade | 7th Grade - Home School | Kindergarten,,,67,0.9,96.6,100.0,0.0,0.0
+TX,3322,3343,7th Grade | Kindergarten,7th Grade | Kindergarten,Private School | Public School,Private School | Public School,252,20.83,95.83,100.0,100.0,100.0
+WA,2658,2729,K-12,K-12,Private | Public,,39,7.69,95.68,100.0,100.0,0.0
+WI,4047,3963,All Grades | Kindergarten,All grades | Kindergarten,,,72,5.0,92.0,95.0,0.0,0.0
